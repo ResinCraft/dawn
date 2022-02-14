@@ -20,7 +20,7 @@
                		<ul class="list">  
                   		{% for case_quantities in product.metafields.my_fields.case_quantities.value %}
                       		{% assign variant = product.variants | where:"id",case_quantities.id %}
-                        	<li>{{ case_quantities.id }} - {{ case_quantities.quantity }}</li>
+                        	<li>{{ variant.title }} - {{ case_quantities.quantity }}</li>
                     	{% endfor %}
                     </ul>
                 </div>
