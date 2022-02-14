@@ -94,7 +94,7 @@
         "1f151766-0009-4a4b-94cc-55f7339b71d2": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "include 'case-quantites'"
+            "custom_liquid": "{% render 'case-quantites' %}"
           }
         }
       },
