@@ -1,5 +1,7 @@
 {% for alt in product.metafields.my_fields.case_quantities.value %}
-  {{ forloop.index }} {{ alt.id }}
+<ul>
+  <li>{{ forloop.index }} {{ alt.id }}</li>
+</ul>
 {% endfor %}
 <div class="product__accordion accordion" data-shopify-editor-block="{&quot;id&quot;:&quot;collapsible-row-2&quot;,&quot;type&quot;:&quot;collapsible_tab&quot;}">
               <details id="Details-collapsible-row-2-template--14429536682032__main">
