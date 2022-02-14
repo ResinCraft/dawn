@@ -19,8 +19,8 @@
                 <div class="accordion__content rte" id="ProductAccordion-collapsible-row-2-template--14429536682032__main">
                		<ul class="list">  
                   		{% for case_quantities in product.metafields.my_fields.case_quantities.value %}
-                      		{% assign variant = product.variants | where:"id",case_quantities.id | json %}
-                        	<li>{{ alt.id }} - {{ alt.quantity }}</li>
+                      		{% assign variant = product.variants | where:"id",case_quantities.id %}
+                        	<li>{{ case_quantities.id }} - {{ case_quantities.quantity }}</li>
                     	{% endfor %}
                     </ul>
                 </div>
