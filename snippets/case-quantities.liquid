@@ -17,11 +17,11 @@
 
                 </summary>
                 <div class="accordion__content rte" id="ProductAccordion-collapsible-row-2-template--14429536682032__main">
-                    {% for alt in product.metafields.my_fields.case_quantities.value %}
-                      <ul class="list">
-                        <li>{{ alt.id }} - {{ alt.quantity }}</li>
-                      </ul>
-                    {% endfor %}
+               		<ul class="list">  
+                  		{% for alt in product.metafields.my_fields.case_quantities.value %}
+                        	<li>{{ alt.id }} - {{ alt.quantity }}</li>
+                    	{% endfor %}
+                    </ul>
                 </div>
               </details>
             </div>
