@@ -30,7 +30,13 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "button"
+            "picker_type": "dropdown"
+          }
+        },
+        "1f151766-0009-4a4b-94cc-55f7339b71d2": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'case-quantities' %}"
           }
         },
         "quantity_selector": {
@@ -90,12 +96,6 @@
           "settings": {
             "share_label": "Share"
           }
-        },
-        "1f151766-0009-4a4b-94cc-55f7339b71d2": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'case-quantites' %}"
-          }
         }
       },
       "block_order": [
@@ -104,6 +104,7 @@
         "caption",
         "price",
         "variant_picker",
+        "1f151766-0009-4a4b-94cc-55f7339b71d2",
         "quantity_selector",
         "buy_buttons",
         "description",
@@ -111,8 +112,7 @@
         "collapsible-row-1",
         "collapsible-row-2",
         "collapsible-row-3",
-        "share",
-        "1f151766-0009-4a4b-94cc-55f7339b71d2"
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
