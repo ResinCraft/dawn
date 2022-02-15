@@ -16,7 +16,5 @@
       }
     });
                             
-/*$(document).on("change", ".product-options .selector-wrapper select", function() {
-       alert("changed");
-});*/
+new Shopify.OptionSelectors("product-select", { product: {{ product | json }}  , onVariantSelected: selectCallback });
 </script>
