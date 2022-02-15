@@ -10,6 +10,9 @@
   	const urlParams = new URLSearchParams(queryString);
 	const variant = urlParams.get('variant');
     
+    var element = document.getElementById('stock-level-' + variant.toString());
+
+    element.style.width = null;
 	console.log(variant);
   }
 </script>
