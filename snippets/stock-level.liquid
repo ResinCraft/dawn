@@ -1,5 +1,5 @@
 <ul class="list">  
   {% for variant in product.variants %}
-  <li id="{{ variant.id }}">{{ variant.title }} - {{ variant.inventory_quantity }}</li>
+  <li id="{{ variant.id }}" style="display:none;">{{ variant.title }} - {{ variant.inventory_quantity }}</li>
   {% endfor %}
 </ul>
