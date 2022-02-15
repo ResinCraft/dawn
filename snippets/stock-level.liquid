@@ -15,4 +15,18 @@
         element.style.display = null;
       }
     }
+                            
+let lastUrl = location.href; 
+new MutationObserver(() => {
+  const url = location.href;
+  if (url !== lastUrl) {
+    lastUrl = url;
+    onUrlChange();
+  }
+}).observe(document, {subtree: true, childList: true});
+ 
+ 
+function onUrlChange() {
+  alert('URL changed!', location.href);
+}
 </script>
