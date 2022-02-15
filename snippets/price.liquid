@@ -26,7 +26,7 @@
   endif
 
   if target == product and product.price_varies
-    assign money_price = 'products.product.price.from_price_html' | t: price: money_price | append: " incl. GST"
+    assign money_price = 'products.product.price.from_price_html' | t: price: money_price
   endif
 -%}
 
@@ -45,7 +45,7 @@
     <div class="price__regular">
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
       <span class="price-item price-item--regular">
-        {{ money_price }}
+        {{ money_price| append: " incl. GST" }}
       </span>
     </div>
     <div class="price__sale">
