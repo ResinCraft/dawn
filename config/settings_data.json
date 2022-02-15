@@ -1,5 +1,6 @@
 {
   "current": {
+    "card_style": "standard",
     "favicon": "shopify:\/\/shop_images\/android-chrome-512x512.png",
     "sections": {
       "announcement-bar": {

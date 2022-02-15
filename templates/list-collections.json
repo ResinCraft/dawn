@@ -53,6 +53,30 @@
           "settings": {
             "collection": "silicones-rubbers-mould-materials"
           }
+        },
+        "a2beb35a-699a-49ac-a0bd-a9c91fd67263": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "liquid-plastics-foams-specialty-casting-resins"
+          }
+        },
+        "a00fc1cb-b7c6-4287-bf32-e04edb4495c6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "foams-concrete-casting-industrial-rubbers"
+          }
+        },
+        "0aa14679-4865-4f1c-9005-a317f8c1da1f": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "lifecasting-special-effects"
+          }
+        },
+        "45cd2810-b9a6-4def-b92a-4960b3d743da": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "release-agents-sealers-additives"
+          }
         }
       },
       "block_order": [
@@ -62,7 +86,11 @@
         "735311a0-3b72-4201-ad32-2e0081d2c81c",
         "aa2b39de-c4d8-4f1c-99fc-f5b09aa36ee6",
         "1253eb47-a4f7-47da-8864-38064f5fc254",
-        "b2def460-60db-47be-a37d-9e1f71e044ee"
+        "b2def460-60db-47be-a37d-9e1f71e044ee",
+        "a2beb35a-699a-49ac-a0bd-a9c91fd67263",
+        "a00fc1cb-b7c6-4287-bf32-e04edb4495c6",
+        "0aa14679-4865-4f1c-9005-a317f8c1da1f",
+        "45cd2810-b9a6-4def-b92a-4960b3d743da"
       ],
       "settings": {
         "title": "Collections",
