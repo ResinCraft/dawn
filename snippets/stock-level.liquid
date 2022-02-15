@@ -8,10 +8,10 @@
     
   	const queryString = window.location.search;
   	const urlParams = new URLSearchParams(queryString);
+    alert(urlParams);
 	const variant = urlParams.get('variant');
     
     var element = document.getElementById('stock-level-' + variant.toString());
-    alert('test');
     element.style.display = null;
   }
 </script>
