@@ -35,9 +35,10 @@
         "button"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/IMG_4618.jpg",
-        "image_overlay_opacity": 40,
-        "image_height": "large",
+        "image": "shopify:\/\/shop_images\/272804855_5126039907490136_6079389863242366201_n.jpg",
+        "image_2": "shopify:\/\/shop_images\/IMG_4618.jpg",
+        "image_overlay_opacity": 60,
+        "image_height": "medium",
         "adapt_height_first_image": false,
         "desktop_content_position": "bottom-center",
         "show_text_box": false,
