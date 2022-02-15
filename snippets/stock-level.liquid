@@ -4,6 +4,7 @@
   {% endfor %}
 </ul>
 <script type="text/javascript">
+  	window.addEventListener('popstate', function (event) {
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
       const variant = urlParams.get('variant');
@@ -13,4 +14,5 @@
         var element = document.getElementById('stock-level-' + variant.toString());
         element.style.display = null;
       }
+    });
 </script>
