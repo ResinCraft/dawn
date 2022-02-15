@@ -4,18 +4,13 @@
   {% endfor %}
 </ul>
 <script type="text/javascript">
-  if(urlParams.has('variant')){
-    
   	const queryString = window.location.search;
-    alert(queryString);
-    /*
-    
   	const urlParams = new URLSearchParams(queryString);
-    
 	const variant = urlParams.get('variant');
-    alert('test');
-    var element = document.getElementById('stock-level-' + variant.toString());
-    element.style.display = null;
-    */
-  }
+    
+  	if(urlParams.has('variant'))
+    {
+      var element = document.getElementById('stock-level-' + variant.toString());
+      element.style.display = null;
+    }
 </script>
