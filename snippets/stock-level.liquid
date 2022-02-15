@@ -1,12 +1,15 @@
 <ul class="list">  
   {% for variant in product.variants %}
-  	<li id="{{ variant.id }}" style="display:none;">{{ variant.title }} - {{ variant.inventory_quantity }}</li>
+  	<li id="stock-level-{{ variant.id }}" style="display:none;">{{ variant.title }} - {{ variant.inventory_quantity }}</li>
   {% endfor %}
 </ul>
 <script>
+  if(urlParams.has('variant')){
+    
   	const queryString = window.location.search;
   	const urlParams = new URLSearchParams(queryString);
 	const variant = urlParams.get('variant');
     
 	console.log(variant);
+  }
 </script>
