@@ -3,7 +3,7 @@
   	<li id="stock-level-{{ variant.id }}" style="display:none;">{{ variant.title }} - {{ variant.inventory_quantity }}</li>
   {% endfor %}
 </ul>
-<script>
+<script type="text/javascript">
   if(urlParams.has('variant')){
     
   	const queryString = window.location.search;
