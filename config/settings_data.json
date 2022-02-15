@@ -1,6 +1,7 @@
 {
   "current": {
     "card_style": "standard",
+    "social_facebook_link": "https:\/\/www.facebook.com\/ResinCraftNZ\/",
     "favicon": "shopify:\/\/shop_images\/android-chrome-512x512.png",
     "sections": {
       "announcement-bar": {
@@ -67,7 +68,7 @@
         ],
         "settings": {
           "color_scheme": "background-1",
-          "newsletter_enable": true,
+          "newsletter_enable": false,
           "newsletter_heading": "Subscribe to our emails",
           "show_social": true,
           "enable_country_selector": false,
