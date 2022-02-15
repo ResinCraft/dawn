@@ -2,14 +2,81 @@
   "sections": {
     "main": {
       "type": "main-list-collections",
+      "disabled": true,
       "settings": {
         "title": "Collections",
         "sort": "alphabetical",
         "image_ratio": "square"
       }
+    },
+    "164489839249347c4f": {
+      "type": "collection-list",
+      "blocks": {
+        "16448983920d55ce4b-0": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "general-purpose-resins-cloths-tapes-carbons-fillers"
+          }
+        },
+        "16448983920d55ce4b-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "surfboard-resins-cloths-plugs-accessories"
+          }
+        },
+        "16448983920d55ce4b-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "tools-brushes-rollers-masking-tapes-mixing-dispensing"
+          }
+        },
+        "735311a0-3b72-4201-ad32-2e0081d2c81c": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "river-tables-bench-tops-wood-working"
+          }
+        },
+        "aa2b39de-c4d8-4f1c-99fc-f5b09aa36ee6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "casting-resins-benchtops-jewelry-making"
+          }
+        },
+        "1253eb47-a4f7-47da-8864-38064f5fc254": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "sculpting-and-modelling"
+          }
+        },
+        "b2def460-60db-47be-a37d-9e1f71e044ee": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "silicones-rubbers-mould-materials"
+          }
+        }
+      },
+      "block_order": [
+        "16448983920d55ce4b-0",
+        "16448983920d55ce4b-1",
+        "16448983920d55ce4b-2",
+        "735311a0-3b72-4201-ad32-2e0081d2c81c",
+        "aa2b39de-c4d8-4f1c-99fc-f5b09aa36ee6",
+        "1253eb47-a4f7-47da-8864-38064f5fc254",
+        "b2def460-60db-47be-a37d-9e1f71e044ee"
+      ],
+      "settings": {
+        "title": "Collections",
+        "image_ratio": "square",
+        "color_scheme": "background-1",
+        "swipe_on_mobile": false,
+        "show_view_all": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "164489839249347c4f"
   ]
 }
