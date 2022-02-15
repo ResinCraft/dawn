@@ -8,9 +8,9 @@
     
   	const queryString = window.location.search;
   	const urlParams = new URLSearchParams(queryString);
-    alert(urlParams);
-	const variant = urlParams.get('variant');
     
+	const variant = urlParams.get('variant');
+    alert('test');
     var element = document.getElementById('stock-level-' + variant.toString());
     element.style.display = null;
   }
