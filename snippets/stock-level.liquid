@@ -4,13 +4,15 @@
   {% endfor %}
 </ul>
 <script type="text/javascript">
-  	const queryString = window.location.search;
-  	const urlParams = new URLSearchParams(queryString);
-	const variant = urlParams.get('variant');
-    
-  	if(urlParams.has('variant'))
-    {
-      var element = document.getElementById('stock-level-' + variant.toString());
-      element.style.display = null;
+  	window.addEventListener('popstate', function (event) {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const variant = urlParams.get('variant');
+
+      if(urlParams.has('variant'))
+      {
+        var element = document.getElementById('stock-level-' + variant.toString());
+        element.style.display = null;
+      }
     }
 </script>
