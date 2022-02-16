@@ -12,7 +12,8 @@
     const urlParams = new URLSearchParams(queryString);
     const variant = urlParams.get('variant');
     var stockLevelList = document.getElementById("stock-levels").getElementsByTagName("li");
-    stockLevelList.forEach(updateStockLevels);
+    
+    stockLevelList.forEach(stockLevelList);
 
     function updateStockLevels(listItem) {
       alert(listItem.attr('id'));
