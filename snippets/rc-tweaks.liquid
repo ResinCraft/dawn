@@ -40,7 +40,7 @@
   Array.prototype.forEach.call(selectObjects, function(selectObject) {
     var x = document.getElementById(selectObject.id);
     var option = document.createElement("option");
-    option.text = "Select {{ product.options[2] }}...";
+    option.text = "Select {{ product.options[0] }}...";
     x.add(option, x[0]);
   });
 </script>
