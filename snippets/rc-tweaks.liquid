@@ -10,20 +10,22 @@
   {% endfor %}
 
   if(urlParams.has('variant')) {
-    this.addEventListener('change', this.onVariantChange);
   	onVariantChange()
   }
 
+  this.addEventListener('change', this.onVariantChange);
 
   function onVariantChange() {
     const newQueryString = window.location.search;
     const newUrlParams = new URLSearchParams(newQueryString);
     const newVariant = newUrlParams.get('variant');
 
-    var msg = msgText(stock[newVariant]);
+    if(newVariant){
+      var msg = msgText(stock[newVariant]);
 
-    var element = document.getElementById('stock-level');
-    element.innerHTML = msg;
+      var element = document.getElementById('stock-level');
+      element.innerHTML = msg;
+    }
     //console.log(typeof window.Shopify);
   }
 
