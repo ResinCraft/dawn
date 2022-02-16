@@ -36,10 +36,9 @@
 
 <script type="text/javascript">
   var x = document.getElementsByClassName('select__select');
-  //var x = document.getElementById('Option-template--14429536682032__main-0');
-  console.log(x[0].id);
+  var x = document.getElementById(x[0].id);
   var option = document.createElement("option");
   option.text = "Kiwi";
   
-  x.item(0).add(option, x[0]);
+  x.add(option, x[0]);
 </script>
