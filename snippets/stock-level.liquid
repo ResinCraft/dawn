@@ -13,12 +13,7 @@
     const urlParams = new URLSearchParams(queryString);
     const variant = urlParams.get('variant');
     
-    var msg = "Sold out!";
-    if(stock[variant] > 10){
-      msg = "More than 10 available";
-    } else {
-      msg = "Only " + stock[variant] + " left!";
-    }    
+    var msg = msgText(stock[variant]);
     
     var element = document.getElementById('stock-level');
     console.log(msg);
