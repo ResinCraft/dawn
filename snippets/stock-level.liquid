@@ -16,13 +16,14 @@
     lis.forEach(updateStockLevels);
 
     function updateStockLevels(listItem) {
-      global element = document.getElementById(variant.toString());
+      var element = document.getElementById(variant.toString());
       //console.log(listItem.id + ' == ' + variant)
+      console.log(element);
 	  if(urlParams.has('variant') && listItem.id == variant) {
-        console.log('yes')
+        //console.log('yes')
         element.style.display = null;
       } else {
-        console.log('no')
+        //console.log('no')
         element.style.display = "none";
       }
     }
