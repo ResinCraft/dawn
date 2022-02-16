@@ -9,6 +9,12 @@
   {% endfor %}
 </ul>
 <script type="text/javascript">
+  var stock = {}
+  {% for variant in product.variants %}
+  	{"firstName":"John", "lastName":"Doe"}{{ variant.id }}
+  	stock.push({"id":{{ variant.id }},"stock":{{ variant.inventory_quantity }}});
+  {% endfor %}
+  
   this.addEventListener('change', this.onVariantChange);
   
   function onVariantChange() {
