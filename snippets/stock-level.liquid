@@ -14,7 +14,7 @@
   	{"firstName":"John", "lastName":"Doe"}{{ variant.id }}
   	stock.push({"id":{{ variant.id }},"stock":{{ variant.inventory_quantity }}});
   {% endfor %}
-  
+  console.log(stock);
   this.addEventListener('change', this.onVariantChange);
   
   function onVariantChange() {
