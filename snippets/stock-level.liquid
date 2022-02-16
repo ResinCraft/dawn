@@ -16,7 +16,7 @@
     lis.forEach(updateStockLevels);
 
     function updateStockLevels(listItem) {
-      var element = document.getElementById(variant.toString());
+      global element = document.getElementById(variant.toString());
       //console.log(listItem.id + ' == ' + variant)
 	  if(urlParams.has('variant') && listItem.id == variant) {
         console.log('yes')
