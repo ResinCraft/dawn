@@ -257,6 +257,6 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-    <script src="{{ 'rc-tweaks.js.blade' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'rc-tweaks.js.liquid' | asset_url }}" defer="defer"></script>
   </body>
 </html>
