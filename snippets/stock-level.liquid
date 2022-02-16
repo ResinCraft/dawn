@@ -15,13 +15,14 @@
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const variant = urlParams.get('variant');
+    
+    /*
     let lis = document.getElementById('stock-levels').getElementsByTagName('li');
     
     lis.forEach(updateStockLevels);
 
     function updateStockLevels(listItem) {
       var element = document.getElementById('stock-level-' + variant.toString());
-      console.log('working');
       //console.log(listItem.id + ' == ' + variant)
 	  /*if(urlParams.has('variant') && listItem.id.toString() == ('stock-level-' + variant)) {
         console.log(element)
@@ -30,6 +31,5 @@
         element.style.display = "none";
       }
       */
-    }
-  }
+   }
 </script>
