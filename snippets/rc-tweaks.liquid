@@ -10,10 +10,10 @@
   {% endfor %}
 
   if(urlParams.has('variant')) {
+    this.addEventListener('change', this.onVariantChange);
   	onVariantChange()
   }
 
-  this.addEventListener('change', this.onVariantChange);
 
   function onVariantChange() {
     const newQueryString = window.location.search;
