@@ -5,15 +5,17 @@
   {% for variant in product.variants %}
   	stock[{{ variant.id }}] = {{ variant.inventory_quantity }};
   {% endfor %}
-    
+
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
   this.addEventListener('change', this.onVariantChange);
   
   function onVariantChange() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const variant = urlParams.get('variant');
+    const newQueryString = window.location.search;
+    const newUrlParams = new URLSearchParams(queryString);
+    const newVariant = urlParams.get('variant');
     
-    var msg = msgText(stock[variant]);
+    var msg = msgText(stock[newVariant]);
     
     var element = document.getElementById('stock-level');
     console.log(msg);
