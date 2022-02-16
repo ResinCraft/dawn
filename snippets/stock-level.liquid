@@ -14,15 +14,15 @@
   function onVariantChange() {
     var msg = "Sold out!";
     if(stock[variant] > 10){
-      msg = "More than 10 available"
+      msg = "More than 10 available";
     } else {
-      msg = "Only " + stock[variant] + " left!"
+      msg = "Only " + stock[variant] + " left!";
     
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const variant = urlParams.get('variant');
     
-    var element = document.getElementById('stock-level')
+    var element = document.getElementById('stock-level');
     
     element.innerHTML = msg;
    }
