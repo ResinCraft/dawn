@@ -35,7 +35,12 @@
 </script>
 
 <script type="text/javascript">
-  var x = document.getElementsByClassName('select__select');
+  var selectObjects = document.getElementsByClassName('select__select');
+  
+  Array.prototype.forEach.call(selectObjects, function(selectObject) {
+    // Do stuff here
+    console.log(selectObject.id);
+  });
   var x = document.getElementById(x[0].id);
   var option = document.createElement("option");
   option.text = "Kiwi";
