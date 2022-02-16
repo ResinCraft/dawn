@@ -1,11 +1,14 @@
 <script type="text/javascript">
+  // Global Stuff
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  
+  // Show available stock
   var stock = [];
   {% for variant in product.variants %}
   	stock[{{ variant.id }}] = {{ variant.inventory_quantity }};
   {% endfor %}
 
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
   if(urlParams.has('variant')) {
   	onVariantChange()
   }
@@ -32,9 +35,8 @@
     }
     return text;
   }
-</script>
 
-<script type="text/javascript">
+  // Ask user to select an option
   var selectObjects = document.getElementsByClassName('select__select');
   
   Array.prototype.forEach.call(selectObjects, function(selectObject) {
