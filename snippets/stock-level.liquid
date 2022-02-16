@@ -9,7 +9,7 @@
   {% endfor %}
 </ul>
 <script type="text/javascript">
-  var stock = JSON.parse('{}');
+  var stock = [];
   {% for variant in product.variants %}
   	stock.push({"id":{{ variant.id }},"stock":{{ variant.inventory_quantity }}});
   {% endfor %}
