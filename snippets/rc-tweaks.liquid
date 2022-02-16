@@ -13,24 +13,24 @@
   this.addEventListener('change', this.onVariantChange);
 
   function onVariantChange() {
-      const newQueryString = window.location.search;
-      const newUrlParams = new URLSearchParams(newQueryString);
-      const newVariant = newUrlParams.get('variant');
+    const newQueryString = window.location.search;
+    const newUrlParams = new URLSearchParams(newQueryString);
+    const newVariant = newUrlParams.get('variant');
 
-      var msg = msgText(stock[newVariant]);
+    var msg = msgText(stock[newVariant]);
 
-      var element = document.getElementById('stock-level');
-      console.log(msg);
-      element.innerHTML = msg;
-	}
+    var element = document.getElementById('stock-level');
+    console.log(msg);
+    element.innerHTML = msg;
+  }
 
-    function msgText(stockLevel) {
-      var text = "Sold out!";
-      if(stockLevel > 10) {
-		text = "More than 10 available";
-      } else {
-      	text = "Only " + stockLevel + " left!";
-      }
-      return text;
-  	}
+  function msgText(stockLevel) {
+    var text = "Sold out!";
+    if(stockLevel > 10) {
+      text = "More than 10 available";
+    } else {
+      text = "Only " + stockLevel + " left!";
+    }
+    return text;
+  }
 </script>
