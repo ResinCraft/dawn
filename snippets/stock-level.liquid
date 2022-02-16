@@ -18,12 +18,9 @@
     function updateStockLevels(listItem) {
       var element = document.getElementById('stock-level-' + variant.toString());
       //console.log(listItem.id + ' == ' + variant)
-      console.log(element)
 	  if(urlParams.has('variant') && listItem.id.toString() == ('stock-level-' + variant)) {
-        console.log(element)
         element.style.display = null;
       } else {
-        console.log(element)
         element.style.display = "none";
       }
     }
