@@ -38,6 +38,8 @@
   var selectObjects = document.getElementsByClassName('select__select');
   
   Array.prototype.forEach.call(selectObjects, function(selectObject) {
+    optionText = selectObject.name.match(/\[(.*?)\]/);
+    console.log(optionText);
     var x = document.getElementById(selectObject.id);
     var option = document.createElement("option");
     option.text = "Select {{ product.options[0] }}...";
