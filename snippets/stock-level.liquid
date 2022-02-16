@@ -1,4 +1,4 @@
-<ul class="list">  
+<ul class="list" id="stock-levels">  
   {% for variant in product.variants %}
   	<li id="stock-level-{{ variant.id }}" style="display:none;">{{ variant.title }} - {{ variant.inventory_quantity }}</li>
   {% endfor %}
