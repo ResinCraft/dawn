@@ -11,9 +11,10 @@
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const variant = urlParams.get('variant');
-    var stockLevelList = document.getElementById("stock-levels").getElementsByTagName("li");
+    let lis = document.getElementById('nav_1').getElementsByTagName('li');
+    console.log(lis);
     
-    stockLevelList.forEach(updateStockLevels);
+    lis.forEach(updateStockLevels);
 
     function updateStockLevels(listItem) {
       alert(JSON.stringify(listItem));
