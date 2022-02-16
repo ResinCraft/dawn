@@ -1,13 +1,9 @@
 <p id="stock-level"></p>
-<ul class="list" id="stock-levels">  
-  {% for variant in product.variants %}
-  	<li id="stock-level-{{ variant.id }}" style="display:none;">{{ variant.title }} - {{ variant.inventory_quantity }}</li>
-  {% endfor %}
-</ul>
+
 <script type="text/javascript">
   var stock = [];
   {% for variant in product.variants %}
-  stock[{{ variant.id }}] = {{ variant.inventory_quantity }};
+  	stock[{{ variant.id }}] = {{ variant.inventory_quantity }};
   {% endfor %}
   this.addEventListener('change', this.onVariantChange);
   
