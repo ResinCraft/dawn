@@ -17,8 +17,8 @@
     const variant = urlParams.get('variant');
     
     var element = document.getElementById('stock-level')
-    console.log('content: ' + element[0]);
-    element[0].innerHTML = stock[variant.id]
+    console.log('content: ' + element);
+    element.innerHTML = stock[variant.id]
     
     /*
     let lis = document.getElementById('stock-levels').getElementsByTagName('li');
