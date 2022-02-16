@@ -5,6 +5,7 @@
   {% for variant in product.variants %}
   	stock[{{ variant.id }}] = {{ variant.inventory_quantity }};
   {% endfor %}
+    
   this.addEventListener('change', this.onVariantChange);
   
   function onVariantChange() {
@@ -23,4 +24,14 @@
     console.log(msg);
     element.innerHTML = msg;
    }
+  
+  function msgText(stockLevel) {
+    var text = "Sold out!";
+    if(stock[variant] > 10){
+      text = "More than 10 available";
+    } else {
+      text = "Only " + stock[variant] + " left!";
+    }
+    return text
+  }
 </script>
