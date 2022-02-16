@@ -13,10 +13,10 @@
     const variant = urlParams.get('variant');
     var stockLevelList = document.getElementById("stock-levels").getElementsByTagName("li");
     
-    stockLevelList.forEach(stockLevelList);
+    stockLevelList.forEach(updateStockLevels);
 
     function updateStockLevels(listItem) {
-      alert(listItem.attr('id'));
+      alert(JSON.stringify(listItem));
     }
     if(urlParams.has('variant'))
     {
