@@ -16,7 +16,7 @@
   
   function onVariantChange() {
     const newQueryString = window.location.search;
-    const newUrlParams = new URLSearchParams(queryString);
+    const newUrlParams = new URLSearchParams(newQueryString);
     const newVariant = urlParams.get('variant');
     
     var msg = msgText(stock[newVariant]);
