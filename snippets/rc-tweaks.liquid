@@ -39,6 +39,7 @@
   
   Array.prototype.forEach.call(selectObjects, function(selectObject) {
     optionText = selectObject.name;
+    optionText = optionText.match(/\[(.*?)\]/);
     console.log(optionText);
     var x = document.getElementById(selectObject.id);
     var option = document.createElement("option");
