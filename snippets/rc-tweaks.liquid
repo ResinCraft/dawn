@@ -38,13 +38,8 @@
   var x = document.getElementsByClassName('select__select');
   //var x = document.getElementById('Option-template--14429536682032__main-0');
   
-  
-  x.forEach(function(element) { 
-    console.log(element); 
-  });
-  
   var option = document.createElement("option");
   option.text = "Kiwi";
   
-  x.add(option, x[0]);
+  x.item(0).add(option, x[0]);
 </script>
