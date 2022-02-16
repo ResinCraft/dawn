@@ -16,6 +16,9 @@
     const urlParams = new URLSearchParams(queryString);
     const variant = urlParams.get('variant');
     
+    var element = document.getElementById('stock-level')
+    element[0].innerText = stock[variant.id]
+    
     /*
     let lis = document.getElementById('stock-levels').getElementsByTagName('li');
     
