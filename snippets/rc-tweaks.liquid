@@ -37,9 +37,11 @@
 <script type="text/javascript">
   var x = document.getElementsByClassName('select__select');
   //var x = document.getElementById('Option-template--14429536682032__main-0');
-  console.log(x);
   
   
+  x.forEach(function(element) { 
+    console.log(element); 
+  });
   
   var option = document.createElement("option");
   option.text = "Kiwi";
