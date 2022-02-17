@@ -79,6 +79,9 @@
 </script>
 
 <script type="text/javascript">
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  
   //get the drop down boxes
   var selectObjects = document.getElementsByClassName('select__select');
   
@@ -94,9 +97,11 @@
     //build the option that is going to be inserted into the drop down box
     var option = document.createElement("option");
     option.text = "Select " + optionText + "...";
-    /*if(!urlParams.has('variant')) {
+    
+    
+    if(!urlParams.has('variant')) {
 		option.selected = true;
-    }*/
+    }
     selectObject.add(option, selectObject[0]);
   });
 </script>
