@@ -100,17 +100,22 @@
     return url.substring(0,url.length-1);
   }
   
+  function getOptionText(dropdown)
+  {
+    //get the name of the current drop down box i.e. "options[TypeXYZ]"
+    optionText = selectObject.name;
+    
+    //strip out the option name i.e. "options[TypeXYZ]" => "TypeXYZ"
+    optionText = optionText.match(/\[(.*?)\]/)[1];
+  }
+  
   //get the drop down boxes
   var selectObjects = document.getElementsByClassName('select__select');
   
   //loop through the drop down boxes
   Array.prototype.forEach.call(selectObjects, function(selectObject) {
     
-    //get the name of the current drop down box i.e. "options[TypeXYZ]"
-    optionText = selectObject.name;
-    
-    //strip out the option name i.e. "options[TypeXYZ]" => "TypeXYZ"
-    optionText = optionText.match(/\[(.*?)\]/)[1];
+	var optionText = getOptionText(selectObject)
     
     //build the option that is going to be inserted into the drop down box
     var option = document.createElement("option");
@@ -122,13 +127,13 @@
     }
     selectObject.add(option, selectObject[0]);
   });
-  
+  /*
   this.addEventListener('change', this.onVariantChange);
   
   function onVariantChange() {
     Array.prototype.forEach.call(selectObjects, function(selectObject) {
-	  console.log(selectObject.value);
+	  if(selectObject.value
     });
   }
-  
+  */
 </script>
