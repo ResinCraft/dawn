@@ -33,7 +33,7 @@
   this.addEventListener('change', this.onVariantChange);
 
   function onVariantChange() {
-    if(window.variant.id){
+    if(typeof window.variant.id !== 'undefined'){
       var msg = msgText(stock[newVariant]);
 
       var element = document.getElementById('stock-level');
