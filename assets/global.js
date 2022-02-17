@@ -768,6 +768,7 @@ class VariantSelects extends HTMLElement {
         return this.options[index] === option;
       }).includes(false);
     });
+    console.log('current variant: '+this.currentVariant);
   }
 
   updateMedia() {
@@ -891,4 +892,3 @@ class VariantRadios extends VariantSelects {
 }
 
 customElements.define('variant-radios', VariantRadios);
-console.log('current variant: '+this.currentVariant);
