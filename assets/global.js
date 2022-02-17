@@ -768,7 +768,6 @@ class VariantSelects extends HTMLElement {
         return this.options[index] === option;
       }).includes(false);
     });
-    console.log('current variant: '+this.currentVariant);
   }
 
   updateMedia() {
