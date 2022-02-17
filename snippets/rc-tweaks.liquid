@@ -33,7 +33,12 @@
   this.addEventListener('change', this.onVariantChange);
 
   function onVariantChange() {
-    if(typeof window.variant.id !== 'undefined'){
+    const newQueryString = window.location.search;
+    const newUrlParams = new URLSearchParams(newQueryString);
+    const newVariant = newUrlParams.get('variant');
+	
+    //if(newVariant){
+    if(window.variant.id){
       var msg = msgText(stock[newVariant]);
 
       var element = document.getElementById('stock-level');
