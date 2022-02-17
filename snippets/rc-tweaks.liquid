@@ -146,10 +146,7 @@
       {
         var url = removeParams('variant');
         window.history.pushState("", "", url);
-        var priceElement = document.getElementsByClassName('price-item price-item--regular');
-        priceElement[0].prepend("From ");
       }
     });
   }
-  console.log('{{ product.price_min | money }}');
 </script>
