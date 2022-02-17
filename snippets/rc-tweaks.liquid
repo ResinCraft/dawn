@@ -81,6 +81,24 @@
 <script type="text/javascript">
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
+
+  //removes a particular variable from the url string i.e. removeParams("this") would change "https://test.com/?this=1&that=2" to "https://test.com/?that=2"
+  function removeParams(sParam)
+  {
+    var url = window.location.href.split('?')[0]+'?';
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+      if (sParameterName[0] != sParam) {
+        url = url + sParameterName[0] + '=' + sParameterName[1] + '&'
+      }
+    }
+    return url.substring(0,url.length-1);
+  }
   
   //get the drop down boxes
   var selectObjects = document.getElementsByClassName('select__select');
