@@ -1,5 +1,5 @@
 <script type="text/javascript">
-  var arr = {};
+  var arr = [];
   {% for variant in product.variants %}
   arr.[{{ variant.id }}] = {option1:'{{ variant.option1 }}', option2:'{{ variant.option2 }}', option3:'{{ variant.option3 }}', stock:'{{ variant.inventory_quantity }}'}
   	/*stock[{{ variant.id }}] = {{ variant.inventory_quantity }};*/
