@@ -768,7 +768,7 @@ class VariantSelects extends HTMLElement {
         return this.options[index] === option;
       }).includes(false);
     });
-    window.variant = this.currentVariant;
+    window.variant = (typeof this.currentVariant.id === 'undefined') ? this.currentVariant.id : null;
   }
 
   updateMedia() {
