@@ -86,6 +86,7 @@
   function removeParams(sParam)
   {
     var url = window.location.href.split('?')[0]+'?';
+    console.log(url);
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
         sParameterName,
@@ -151,7 +152,7 @@
 		invalidOption = true;
       }
     });
-	console.log(invalidOption);
+	//console.log(invalidOption);
     if(invalidOption && newUrlParams.has('variant'))
     {
       var url = removeParams('variant');
