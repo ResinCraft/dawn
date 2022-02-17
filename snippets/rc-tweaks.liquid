@@ -92,13 +92,14 @@
     optionText = optionText.match(/\[(.*?)\]/)[1];
     
     //select the selector
-    console.log(selectObject);
-    //var x = document.getElementById(selectObject.id);
+    
+    var x = document.getElementById(selectObject.id);
+    console.log(x);
     var option = document.createElement("option");
     option.text = "Select " + optionText + "...";
     /*if(!urlParams.has('variant')) {
 		option.selected = true;
     }*/
-    selectObject.add(option, x[0]);
+    x.add(option, x[0]);
   });
 </script>
