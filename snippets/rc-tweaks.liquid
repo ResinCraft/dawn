@@ -1,4 +1,24 @@
 <script type="text/javascript">
+  
+  function removeParams(sParam)
+  {
+    var url = window.location.href.split('?')[0]+'?';
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+      if (sParameterName[0] != sParam) {
+        url = url + sParameterName[0] + '=' + sParameterName[1] + '&'
+      }
+    }
+    return url.substring(0,url.length-1);
+  }
+
+window.location = ;
+  
   // Global Stuff
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -19,7 +39,7 @@
     const newQueryString = window.location.search;
     const newUrlParams = new URLSearchParams(newQueryString);
     const newVariant = newUrlParams.get('variant');
-
+	
     if(newVariant){
       var msg = msgText(stock[newVariant]);
 
@@ -28,7 +48,7 @@
     } else {
       element.innerHTML = "";
     }
-    console.log(typeof Shopify);
+    console.log(product.selected_variant);
   }
 
   function msgText(stockLevel) {
