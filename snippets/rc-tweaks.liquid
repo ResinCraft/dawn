@@ -141,6 +141,9 @@
   
   //if an invalid variant has been selected, remove the url preselector i.e. "?variant=1234"
   function onVariantChange() {
+    var newQueryString = window.location.search;
+    var newUrlParams = new URLSearchParams(queryString);
+    
     var invalidOption = false;
     Array.prototype.forEach.call(selectObjects, function(selectObject) {
 	  if(selectObject.value == getOptionText(selectObject))
@@ -148,8 +151,8 @@
 		invalidOption = true;
       }
     });
-    console.log(urlParams.has('variant'));
-    if(invalidOption && urlParams.has('variant'))
+
+    if(invalidOption && newUrlParams.has('variant'))
     {
       var url = removeParams('variant');
       console.log(url);
