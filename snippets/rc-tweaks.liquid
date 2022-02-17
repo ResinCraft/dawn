@@ -109,6 +109,7 @@
     //strip out the option name i.e. "options[TypeXYZ]" => "TypeXYZ"
     optionText = selectName.match(/\[(.*?)\]/)[1];
     
+    //make it more friendly "Select Size..."
     optionText = "Select " + optionText + "..."
     return optionText;
   }
@@ -130,11 +131,15 @@
     if(!urlParams.has('variant')) {
 		option.selected = true;
     }
+    
+    //add the option to the selector at the top
     selectObject.add(option, selectObject[0]);
   });
   
+  //check to see if the variant has been changed
   this.addEventListener('change', this.onVariantChange);
   
+  //if an invalid variant has been selected, remove the url preselector i.e. "?variant=1234"
   function onVariantChange() {
     Array.prototype.forEach.call(selectObjects, function(selectObject) {
 	  if(selectObject.value == getOptionText(selectObject))
