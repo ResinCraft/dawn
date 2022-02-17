@@ -143,7 +143,7 @@
   function onVariantChange() {
     var newQueryString = window.location.search;
     var newUrlParams = new URLSearchParams(queryString);
-    
+    console.log(newUrlParams);
     var invalidOption = false;
     Array.prototype.forEach.call(selectObjects, function(selectObject) {
 	  if(selectObject.value == getOptionText(selectObject))
