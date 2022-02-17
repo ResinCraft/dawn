@@ -142,10 +142,8 @@
   //if an invalid variant has been selected, remove the url preselector i.e. "?variant=1234"
   function onVariantChange() {
     var newQueryString = window.location.search;
-    var newUrlParams = new URLSearchParams(queryString);
-    console.log(newQueryString);
+    var newUrlParams = new URLSearchParams(newQueryString);
     
-    /*
     var invalidOption = false;
     Array.prototype.forEach.call(selectObjects, function(selectObject) {
 	  if(selectObject.value == getOptionText(selectObject))
@@ -153,14 +151,12 @@
 		invalidOption = true;
       }
     });
-    console.log('valid option: '+invalidOption);
-    console.log('has variant in url: '+newUrlParams.get('variant'));
+
     if(invalidOption && newUrlParams.has('variant'))
     {
       var url = removeParams('variant');
       console.log(url);
       window.history.pushState("", "", url);
     }
-    */
   }
 </script>
