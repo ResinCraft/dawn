@@ -147,7 +147,7 @@
         var url = removeParams('variant');
         window.history.pushState("", "", url);
         var priceElement = document.getElementsByClassName('price-item price-item--regular');
-        priceElement.prepend("From ");
+        priceElement[0].prepend("From ");
       }
     });
   }
