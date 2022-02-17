@@ -20,7 +20,6 @@
   // Global Stuff
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  window.history.replaceState({}, document.title, $(location).attr('pathname'));
   // Show available stock
   var stock = [];
   {% for variant in product.variants %}
