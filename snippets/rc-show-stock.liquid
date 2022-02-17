@@ -1,10 +1,10 @@
 <script type="text/javascript">
-  var arr = [];
+  var variant = [];
   {% for variant in product.variants %}
-  arr.[{{ variant.id }}] = {option1:'{{ variant.option1 }}', option2:'{{ variant.option2 }}', option3:'{{ variant.option3 }}', stock:'{{ variant.inventory_quantity }}'}
+  variant.[{{ variant.id }}] = {option1:'{{ variant.option1 }}', option2:'{{ variant.option2 }}', option3:'{{ variant.option3 }}', stock:'{{ variant.inventory_quantity }}'}
   	/*stock[{{ variant.id }}] = {{ variant.inventory_quantity }};*/
   {% endfor %}
-  console.log(arr);
+  console.variant(stock);
 
 </script>
 
