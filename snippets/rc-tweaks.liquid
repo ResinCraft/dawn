@@ -91,8 +91,8 @@
     //strip out the option name i.e. "options[TypeXYZ]" => "TypeXYZ"
     optionText = optionText.match(/\[(.*?)\]/)[1];
     
-    var option = document.createElement("option");
-    option.text = "Select " + optionText + "...";
+    //build the option that is going to be inserted into the drop down box
+    var option = document.createElement("option").text = "Select " + optionText + "...";
     /*if(!urlParams.has('variant')) {
 		option.selected = true;
     }*/
