@@ -44,7 +44,7 @@
       element.innerHTML = msg;
     } else {
       var url = removeParams('variant');
-      console.log(url);
+      window.history.pushState("", "", url);
       element.innerHTML = "";
     }
   }
