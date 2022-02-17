@@ -1,7 +1,11 @@
 <script type="text/javascript">
+  var arr = {};
   {% for variant in product.variants %}
-  	stock[{{ variant.id }}] = {{ variant.inventory_quantity }};
+  arr[] = {id:'value1', option1:'option1', option2:'option2', option3:'option3'}
+  	/*stock[{{ variant.id }}] = {{ variant.inventory_quantity }};*/
   {% endfor %}
+  console.log(arr);
+
 </script>
 
 <script type="text/javascript">
