@@ -27,7 +27,7 @@
   {% endfor %}
 
   if(urlParams.has('variant')) {
-    console.log('running');
+    
     window.variantId = urlParams.get('variant');
     console.log(window.variantId);
   	onVariantChange();
@@ -36,6 +36,7 @@
   this.addEventListener('change', this.onVariantChange);
 
   function onVariantChange() {
+    console.log('running');
     //const newQueryString = window.location.search;
     //const newUrlParams = new URLSearchParams(newQueryString);
     //const newVariant = newUrlParams.get('variant');
