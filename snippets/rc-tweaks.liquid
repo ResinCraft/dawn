@@ -2,9 +2,9 @@
   var arr = {};
   {% for variant in product.variants %}
   	//stock[{{ variant.id }}] = ;
-    arr[] = {id:{{ variant.id }}, name:'value2', stock:{{ variant.inventory_quantity }}}
+    arr[] = {id:{{ variant.id }}, name:'value2', stock:{{ variant.inventory_quantity }}};
   {% endfor %}
-    
+  console.log(arr);
 </script>
 
 <script type="text/javascript">
