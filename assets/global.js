@@ -768,7 +768,7 @@ class VariantSelects extends HTMLElement {
         return this.options[index] === option;
       }).includes(false);
     });
-    window.variantId = (typeof this.currentVariant === 'undefined') ? 'undefined' : this.currentVariant.id;
+    window.variantId = (typeof this.currentVariant === 'undefined') ? this.currentVariant : this.currentVariant.id;
     console.log(window.variantId);
   }
 
