@@ -36,7 +36,7 @@
   this.addEventListener('change', this.onVariantChange);
 
   function onVariantChange() {
-    console.log('running');
+    console.log(window.variantId);
     //const newQueryString = window.location.search;
     //const newUrlParams = new URLSearchParams(newQueryString);
     //const newVariant = newUrlParams.get('variant');
@@ -44,7 +44,7 @@
 	
     //if(newVariant){
     if(typeof window.variantId !== 'undefined'){
-      console.log(window.variantId);
+      
       var msg = msgText(stock[window.variantId]);
 
       element.innerHTML = msg;
