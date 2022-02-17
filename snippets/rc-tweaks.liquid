@@ -149,9 +149,10 @@
       }
     });
     
-    console.log(invalidOption);
+    
     if(invalidOption)
     {
+      console.log(invalidOption);
       var url = removeParams('variant');
       window.history.pushState("", "", url);
     }
