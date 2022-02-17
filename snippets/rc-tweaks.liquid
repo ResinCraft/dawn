@@ -155,7 +155,6 @@
     if(invalidOption && newUrlParams.has('variant'))
     {
       var url = removeParams('variant');
-      console.log(url);
       window.history.pushState("", "", url);
     }
   }
