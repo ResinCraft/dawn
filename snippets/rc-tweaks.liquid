@@ -33,7 +33,7 @@
   this.addEventListener('change', this.onVariantChange);
 
   function onVariantChange() {
-    console.log(this.options[index]);
+    console.log(VariantSelects.name);
     const newQueryString = window.location.search;
     const newUrlParams = new URLSearchParams(newQueryString);
     const newVariant = newUrlParams.get('variant');
