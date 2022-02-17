@@ -27,7 +27,9 @@
   {% endfor %}
 
   if(urlParams.has('variant')) {
-  	onVariantChange()
+    console.log('running');
+    window.variant = urlParams.get('variant');
+  	onVariantChange();
   }
 
   this.addEventListener('change', this.onVariantChange);
