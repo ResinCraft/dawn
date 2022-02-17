@@ -91,10 +91,6 @@
     //strip out the option name i.e. "options[TypeXYZ]" => "TypeXYZ"
     optionText = optionText.match(/\[(.*?)\]/)[1];
     
-    //select the selector
-    
-    var x = document.getElementById(selectObject.id);
-    console.log(x[0]);
     var option = document.createElement("option");
     option.text = "Select " + optionText + "...";
     /*if(!urlParams.has('variant')) {
