@@ -149,7 +149,7 @@
       }
     });
     
-    if(invalidOption)
+    if(invalidOption && urlParams.has('variant'))
     {
       var url = removeParams('variant');
       console.log(url);
