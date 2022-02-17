@@ -98,10 +98,19 @@
     var option = document.createElement("option");
     option.text = "Select " + optionText + "...";
     
-    
+    //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
     if(!urlParams.has('variant')) {
 		option.selected = true;
     }
     selectObject.add(option, selectObject[0]);
   });
+  
+  this.addEventListener('change', this.onVariantChange);
+  
+  function onVariantChange() {
+    Array.prototype.forEach.call(selectObjects, function(selectObject) {
+	  console.log(selectObject);
+    }
+  }
+  
 </script>
