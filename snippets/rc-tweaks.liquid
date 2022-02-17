@@ -139,7 +139,8 @@
     Array.prototype.forEach.call(selectObjects, function(selectObject) {
 	  if(selectObject.value == getOptionText(selectObject))
       {
-        console.log('no value');
+        var url = removeParams('variant');
+        window.history.pushState("", "", url);
       }
     });
   }
