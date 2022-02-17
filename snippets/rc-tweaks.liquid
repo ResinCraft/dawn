@@ -19,7 +19,7 @@
     const newQueryString = window.location.search;
     const newUrlParams = new URLSearchParams(newQueryString);
     const newVariant = newUrlParams.get('variant');
-	console.log(${this.dataset.url});
+
     if(newVariant){
       var msg = msgText(stock[newVariant]);
 
