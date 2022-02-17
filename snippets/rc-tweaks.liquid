@@ -141,17 +141,18 @@
   
   //if an invalid variant has been selected, remove the url preselector i.e. "?variant=1234"
   function onVariantChange() {
+    var invalidOption = false;
     Array.prototype.forEach.call(selectObjects, function(selectObject) {
-      var invalidOption = false;
 	  if(selectObject.value == getOptionText(selectObject))
       {
 		invalidOption = true;
       }
-      if(invalidOption)
-      {
-        var url = removeParams('variant');
-        window.history.pushState("", "", url);
-      }
     });
+    
+    if(invalidOption)
+    {
+      var url = removeParams('variant');
+      window.history.pushState("", "", url);
+    }
   }
 </script>
