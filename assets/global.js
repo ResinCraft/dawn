@@ -891,4 +891,4 @@ class VariantRadios extends VariantSelects {
 }
 
 customElements.define('variant-radios', VariantRadios);
-console.log(this.currentVariant);
+console.log('current variant: '+this.currentVariant);
