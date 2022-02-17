@@ -152,7 +152,7 @@
       }
     });
     console.log('valid option: '+invalidOption);
-    console.log('has variant in url: '+newUrlParams.has('variant'));
+    console.log('has variant in url: '+newUrlParams.get('variant'));
     if(invalidOption && newUrlParams.has('variant'))
     {
       var url = removeParams('variant');
