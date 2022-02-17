@@ -132,13 +132,16 @@
     }
     selectObject.add(option, selectObject[0]);
   });
-  /*
+  
   this.addEventListener('change', this.onVariantChange);
   
   function onVariantChange() {
     Array.prototype.forEach.call(selectObjects, function(selectObject) {
-	  if(selectObject.value
+	  if(selectObject.value == getOptionText(selectObject))
+      {
+        console.log('no value');
+      }
     });
   }
-  */
+  
 </script>
