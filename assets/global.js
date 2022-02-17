@@ -765,7 +765,7 @@ class VariantSelects extends HTMLElement {
   updateMasterId() {
     this.currentVariant = this.getVariantData().find((variant) => {
       return !variant.options.map((option, index) => {
-        window.variant = this.options;
+        window.variant = ${this.currentVariant.id};
         return this.options[index] === option;
       }).includes(false);
     });
