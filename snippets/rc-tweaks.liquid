@@ -100,6 +100,7 @@
     return url.substring(0,url.length-1);
   }
   
+  //returns the text for the option, i.e. "Select Size..."
   function getOptionText(selectObject)
   {
     //get the name of the current drop down box i.e. "options[TypeXYZ]"
@@ -116,11 +117,12 @@
   //loop through the drop down boxes
   Array.prototype.forEach.call(selectObjects, function(selectObject) {
     
+    //get the text that going to be in the default option
 	var optionText = getOptionText(selectObject)
     
     //build the option that is going to be inserted into the drop down box
     var option = document.createElement("option");
-    option.text = "Select " + optionText + "...";
+    option.text = optionText;
     
     //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
     if(!urlParams.has('variant')) {
