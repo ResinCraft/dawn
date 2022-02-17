@@ -1,4 +1,13 @@
 <script type="text/javascript">
+  var arr = {};
+  {% for variant in product.variants %}
+  	//stock[{{ variant.id }}] = ;
+    arr[] = {id:{{ variant.id }}, name:'value2', stock:{{ variant.inventory_quantity }}}
+  {% endfor %}
+    
+</script>
+
+<script type="text/javascript">
   /*
   function removeParams(sParam)
   {
