@@ -39,7 +39,7 @@
     const newVariant = newUrlParams.get('variant');
 	
     //if(newVariant){
-    if(typeof window.variant.id !== 'undefined'){
+    if(typeof window.variant !== 'undefined'){
       var msg = msgText(stock[newVariant]);
 
       var element = document.getElementById('stock-level');
