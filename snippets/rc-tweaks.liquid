@@ -28,7 +28,7 @@
 
   if(urlParams.has('variant')) {
     console.log('running');
-    window.variant = urlParams.get('variant');
+    window.variant.id = urlParams.get('variant');
     console.log(window.variant);
   	onVariantChange();
   }
@@ -42,8 +42,8 @@
     var element = document.getElementById('stock-level');
 	
     //if(newVariant){
-    if(typeof window.variant !== 'undefined'){
-      var msg = msgText(stock[window.variant]);
+    if(typeof window.variant.id !== 'undefined'){
+      var msg = msgText(stock[window.variant.id]);
 
       element.innerHTML = msg;
     } else {
