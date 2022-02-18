@@ -1,5 +1,4 @@
 <script type="text/javascript">
-	const element = "";
 	function msgText(stockLevel) {
 		var text = "Sold out!";
         if(stockLevel > 10) {
@@ -24,7 +23,7 @@
   		elem.setAttribute('id', "stock-level");
 		target = document.getElementsByClassName("product-form__input product-form__quantity")[0];
 		target.parentNode.insertBefore(elem, target);
-  		element = document.getElementById('stock-level');
+  		var element = document.getElementById('stock-level');
   	}
     console.log('element: ' + element);           
     this.addEventListener('change', this.onVariantChange);
