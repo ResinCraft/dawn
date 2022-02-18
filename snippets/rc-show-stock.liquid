@@ -33,7 +33,15 @@
           return true;
         });
 		
-  		var element = document.getElementById('stock-level');
+  		if(typeof document.getElementById('stock-level') !== 'undefined')
+        {
+          var element = document.getElementById('stock-level');
+        } else {
+          const elem = document.createElement('p');
+          elementArray = document.getElementsByClassName("product-form__input product-form__quantity");
+          target.parentNode.insertBefore(elem, elementArray[0]);
+        }
+  		
   		if(typeof result[0] !== 'undefined'){
 			var msg = msgText(result[0].stock);
           	element.innerHTML = msg;
