@@ -1,4 +1,14 @@
 <script type="text/javascript">
+
+    function msgText(stockLevel) {
+      var text = "Sold out!";
+      if(stockLevel > 10) {
+        text = "More than 10 available";
+      } else {
+        text = "Only " + stockLevel + " left!";
+      }
+      return text;
+    }
   
     var variant = [];
     {% for variant in product.variants %}
