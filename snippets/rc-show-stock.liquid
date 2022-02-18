@@ -10,11 +10,13 @@
         return text;
     }
   
+  	//build a list of valid variants
     var variant = [];
     {% for variant in product.variants %}
   		variant.push({id:{{ variant.id }}, option1:'{{ variant.option1 }}', option2:'{{ variant.option2 }}', option3:'{{ variant.option3 }}', stock:'{{ variant.inventory_quantity }}'});
     {% endfor %}
 
+	//check to see if a custom location for the stock level has been set else just pop it above the quantity selector
 	if(document.getElementById('stock-level') !== null){
 		var element = document.getElementById('stock-level');
 	} else {
@@ -24,16 +26,22 @@
 		target.parentNode.insertBefore(elem, target);
   		var element = document.getElementById('stock-level');
   	}
-    console.log('element: ' + element);           
+    
+    
+    //check to see if the user has changed the selection
     this.addEventListener('change', this.onVariantChange);
     function onVariantChange(){
-		var selectObjects = document.getElementsByClassName('select__select');
+		
+      	//get the option selectors
+      	var selectObjects = document.getElementsByClassName('select__select');
+      
+      	//build a list of items that 
 		var filterItems = {};
   		Array.prototype.forEach.call(selectObjects, function(selectObject, i) {
     		var itemString = "option"+(i+1);
     		filterItems[itemString] = selectObject.value;
   		});
-
+      console.log('filterItems: '+filterItems);
         result = variant.filter(function(item) {
           for (var key in filterItems) {
             if (item[key] === undefined || item[key] != filterItems[key])
