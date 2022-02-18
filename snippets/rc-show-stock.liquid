@@ -34,7 +34,7 @@
         });
 		
   		var element = document.getElementById('stock-level');
-  		if(typeof result[0].stock !== 'undefined'){
+  		if(typeof result[0] !== 'undefined'){
 			var msg = msgText(stock[window.variantId]);
           	element.innerHTML = msg;
         } else {
