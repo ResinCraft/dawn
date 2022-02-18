@@ -57,17 +57,13 @@
     
     //check to see if the user has changed the selection
     this.addEventListener('change', this.onVariantChange);
-    function onVariantChange(){
-		
-
-  		
+    function onVariantChange(){  		
       	//if the above filter function finds a match, then display the stock level
-  		if(typeof result[0] !== 'undefined'){
+  		if(validSelection()){
 			var msg = msgText(result[0].stock);
           	element.innerHTML = msg;
         } else {
           	element.innerHTML = '';
         }
-        
 	}
 </script>
