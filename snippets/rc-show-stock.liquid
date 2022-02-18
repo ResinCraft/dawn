@@ -4,7 +4,7 @@
     {% for variant in product.variants %}
   		variant.push({id:{{ variant.id }}, option1:'{{ variant.option1 }}', option2:'{{ variant.option2 }}', option3:'{{ variant.option3 }}', stock:'{{ variant.inventory_quantity }}'});
     {% endfor %}
-	console.log(variant);
+
     this.addEventListener('change', this.onVariantChange);
     function onVariantChange() 
 	{
@@ -14,7 +14,7 @@
     		var itemString = "option"+i;
     		filterItems[itemString] = selectObject.value;
   		});
-  		console.log(filterItems);
+
         result = variant.filter(function(item) {
           for (var key in filterItems) {
             if (item[key] === undefined || item[key] != filter[key])
