@@ -1,13 +1,10 @@
 <script type="text/javascript">
 	var productOptionNames = [];
 	var productOptionValues = [];
-  	productOptionValues[1] = [];
-	productOptionValues[2] = [];
-	productOptionValues[3] = [];
-	//productOptionValues.push({ {{ product_option.name[0] }}:'{{ value }}' });
 
 	{% for product_option in product.options_with_values %}
   		productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
+		productOptionValues[{{ forloop.index }}] = []
 			{% for value in product_option.values %}
 				productOptionValues[{{ forloop.parentloop.index }}].push("{{ value | replace: '"', '\\"' }}");
 			{% endfor %}
