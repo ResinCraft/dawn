@@ -35,7 +35,7 @@
 		
   		var element = document.getElementById('stock-level');
   		if(typeof result[0] !== 'undefined'){
-			var msg = msgText(stock[window.variantId]);
+			var msg = msgText(result[0].stock);
           	element.innerHTML = msg;
         } else {
           	element.innerHTML = '';
