@@ -41,7 +41,7 @@
     		var itemString = "option"+(i+1);
     		filterItems[itemString] = selectObject.value;
   		});
-      console.log('filterItems: '+filterItems);
+      	console.log('filterItems: '+filterItems);
         result = variant.filter(function(item) {
           for (var key in filterItems) {
             if (item[key] === undefined || item[key] != filterItems[key])
