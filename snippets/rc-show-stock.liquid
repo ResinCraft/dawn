@@ -11,9 +11,9 @@
   function onVariantChange() {
 		var selectObjects = document.getElementsByClassName('select__select');
         var filter = {
-          	option1: selectObjects[0],
-          	option2: selectObjects[1],
-			option3: selectObjects[2]
+          	option1: selectObjects[0].value,
+          	option2: selectObjects[1].value,
+			option3: selectObjects[2].value
         };
   		console.log(filter);
   /*
