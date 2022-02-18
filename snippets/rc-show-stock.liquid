@@ -20,7 +20,8 @@
                                  var itemString = "option"+i;
                                  filterItems[itemString] = selectObject.value;
 		});
-  		
+    console.log(filterItems);
+  		/*
         result = variant.filter(function(item) {
           for (var key in filterItems) {
             if (item[key] === undefined || item[key] != filter[key])
@@ -28,6 +29,7 @@
           }
           return true;
         });
+        */
 		//const result = selectObjects[0].value
 		//const result = variant.filter(option1 => selectObjects[0].value);                
 		console.log(result);
