@@ -19,6 +19,7 @@
 		var element = document.getElementById('stock-level');
 	} else {
 		const elem = document.createElement('p');
+  		elem.setAttribute('id', "stock-level");
 		elementArray = document.getElementsByClassName("product-form__input product-form__quantity");
 		target.parentNode.insertBefore(elem, elementArray[0]);
   	}
