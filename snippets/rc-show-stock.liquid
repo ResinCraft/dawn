@@ -32,8 +32,14 @@
           }
           return true;
         });
-          
-		console.log(result[0].stock);
+		
+  		var element = document.getElementById('stock-level');
+  		if(typeof result[0].stock !== 'undefined'){
+			var msg = msgText(stock[window.variantId]);
+          	element.innerHTML = msg;
+        } else {
+          	element.innerHTML = '';
+        }
         
 	}
 </script>
