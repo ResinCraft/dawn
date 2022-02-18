@@ -3,7 +3,7 @@
 	{% for option in product.options %}
   		productOptions.push({option{{ forloop.index }}:"{{ option }}"});
 	{% endfor %}
-    //console.log("productOptions: "+productOptions[0].option1);
+    console.log("productOptions: "+productOptions[0].option1);
   
   	//build a list of valid variants
     var variant = [];
@@ -15,7 +15,7 @@
       	
   	}
     function hideSelectors() {
-        const collection = document.getElementsByClassName("select__select");
+          //const collection = document.getElementsByName("options["+productOptions[0].option1+"]);options[Size]"
         result = selectValidOption(collection[0]);
         console.log(result);
     }
