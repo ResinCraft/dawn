@@ -22,6 +22,12 @@
             "text_style": "subtitle"
           }
         },
+        "cfcc0c47-0fbf-4cf1-9484-fd5c9ef211fa": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'stock-level' %}"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {
@@ -31,12 +37,6 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "dropdown"
-          }
-        },
-        "cfcc0c47-0fbf-4cf1-9484-fd5c9ef211fa": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% render 'stock-level' %}"
           }
         },
         "1f151766-0009-4a4b-94cc-55f7339b71d2": {
@@ -109,9 +109,9 @@
         "vendor",
         "title",
         "caption",
+        "cfcc0c47-0fbf-4cf1-9484-fd5c9ef211fa",
         "price",
         "variant_picker",
-        "cfcc0c47-0fbf-4cf1-9484-fd5c9ef211fa",
         "1f151766-0009-4a4b-94cc-55f7339b71d2",
         "quantity_selector",
         "buy_buttons",
