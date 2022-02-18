@@ -17,7 +17,9 @@
 
 	if(typeof document.getElementById('stock-level') !== 'undefined'){
 		var element = document.getElementById('stock-level');
+                      console.log('found-it');
 	} else {
+                     console.log('didnt found-it');
 		const elem = document.createElement('p');
   		elem.setAttribute('id', "stock-level");
 		elementArray = document.getElementsByClassName("product-form__input product-form__quantity");
