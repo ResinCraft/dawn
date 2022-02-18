@@ -46,10 +46,10 @@
 
       function setOptionText(selectObject)
       {
-        console.log(selectObject);
         //build the option that is going to be inserted into the drop down box
         var option = document.createElement("option");
 		var optionText = getOptionText(selectObject)
+        console.log(optionText);
 
         //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
         if(!urlParams.has('variant')) {
