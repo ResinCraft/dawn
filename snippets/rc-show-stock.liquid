@@ -10,13 +10,12 @@
   this.addEventListener('change', this.onVariantChange);
   function onVariantChange() {
 		var selectObjects = document.getElementsByClassName('select__select');
-		var filterItems = JSON.parse('{}');
+		var filterItems = [];
 		Array.prototype.forEach.call(selectObjects, function(selectObject) {
-          //console.log(selectObject.value);
-          filterItems[].push({'1': selectObject.value});
+          filterItems['1'] = selectObject.value;
 		});
 
-  		console.log(filter);
+  		console.log(filterItems);
   /*
         result = variant.filter(function(item) {
           for (var key in filter) {
