@@ -11,8 +11,8 @@
   function onVariantChange() {
 		var selectObjects = document.getElementsByClassName('select__select');
 		var filterItems = [];
-		Array.prototype.forEach.call(selectObjects, function(selectObject) {
-          filterItems['1'] = selectObject.value;
+		Array.prototype.forEach.call(selectObjects, function(selectObject, i) {
+          filterItems[i] = selectObject.value;
 		});
 
   		console.log(filterItems);
