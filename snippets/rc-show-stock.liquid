@@ -1,43 +1,11 @@
 <script type="text/javascript">
-	var test = "test";  
-</script>
-
-<script type="text/javascript">
-  	console.log(test);
-  	//set up some stock level messages i.e. "Only 4 left!"
-	function msgText(stockLevel) {
-		var text = "";
-      	var showStockLevel = 10; //change this value for maximum stock you want to show
-        if(stockLevel > showStockLevel) { 
-          text = "More than " + showStockLevel + " available";
-        } else if(stockLevel > 0) {
-          text = "Only " + stockLevel + " left!";
-        }
-        return text;
-    }
-  
   	//build a list of valid variants
     var variant = [];
     {% for variant in product.variants %}
   		variant.push({id:{{ variant.id }}, option1:'{{ variant.option1 }}', option2:'{{ variant.option2 }}', option3:'{{ variant.option3 }}', stock:'{{ variant.inventory_quantity }}'});
     {% endfor %}
-
-	//check to see if a custom location for the stock level has been set else just pop it above the quantity selector
-	if(document.getElementById('stock-level') !== null){
-		var element = document.getElementById('stock-level');
-	} else {
-		elem = document.createElement('p');
-  		elem.setAttribute('id', "stock-level");
-		target = document.getElementsByClassName("product-form__input product-form__quantity")[0];
-		target.parentNode.insertBefore(elem, target);
-  		var element = document.getElementById('stock-level');
-  	}
-    
-    
-    //check to see if the user has changed the selection
-    this.addEventListener('change', this.onVariantChange);
-    function onVariantChange(){
-		
+                      
+	function validSelection() {
       	//get the option selectors
       	var selectObjects = document.getElementsByClassName('select__select');
       
@@ -56,6 +24,42 @@
           }
           return true;
         });
+  		if(typeof result[0] !== 'undefined') ? true : false;
+	}
+</script>
+
+<script type="text/javascript">
+  	//set up some stock level messages i.e. "Only 4 left!"
+	function msgText(stockLevel) {
+		var text = "";
+      	var showStockLevel = 10; //change this value for maximum stock you want to show
+        if(stockLevel > showStockLevel) { 
+          text = "More than " + showStockLevel + " available";
+        } else if(stockLevel > 0) {
+          text = "Only " + stockLevel + " left!";
+        }
+        return text;
+    }
+  
+
+
+	//check to see if a custom location for the stock level has been set else just pop it above the quantity selector
+	if(document.getElementById('stock-level') !== null){
+		var element = document.getElementById('stock-level');
+	} else {
+		elem = document.createElement('p');
+  		elem.setAttribute('id', "stock-level");
+		target = document.getElementsByClassName("product-form__input product-form__quantity")[0];
+		target.parentNode.insertBefore(elem, target);
+  		var element = document.getElementById('stock-level');
+  	}
+    
+    
+    //check to see if the user has changed the selection
+    this.addEventListener('change', this.onVariantChange);
+    function onVariantChange(){
+		
+
   		
       	//if the above filter function finds a match, then display the stock level
   		if(typeof result[0] !== 'undefined'){
