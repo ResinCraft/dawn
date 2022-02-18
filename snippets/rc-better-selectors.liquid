@@ -1,10 +1,9 @@
 <script type="text/javascript">
   	var productOptions = [];
-  
 	{% for option in product.options %}
-  productOptions.push({option{{ forloop.index }}:"{{ option }}"});
+  		productOptions.push({option{{ forloop.index }}:"{{ option }}"});
 	{% endfor %}
-    console.log("productOptions: "+productOptions[0].option1);
+    //console.log("productOptions: "+productOptions[0].option1);
   
   	//build a list of valid variants
     var variant = [];
