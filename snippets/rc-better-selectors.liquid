@@ -13,9 +13,9 @@
 	//productOptionValues.push({ {{ product_option.name[0] }}:'{{ value }}' });
 
 	{% for product_option in product.options_with_values %}
-  		productOptionNames.push("{{ product_option.name | replace '"', '\\"' }}");
+  		productOptionNames.push("{{ product_option.name | escape }}");
 			{% for value in product_option.values %}
-				productOptionValues[{{ forloop.parentloop.index }}].push("{{ value | replace '"', '\\"' }}");
+				productOptionValues[{{ forloop.parentloop.index }}].push("{{ value | escape }}");
 			{% endfor %}
 	{% endfor %}
   	console.log("productOptionNames: "+productOptionNames);
@@ -26,7 +26,7 @@
   	//build a list of valid variants
     var variant = [];
     {% for variant in product.variants %}
-  		variant.push({id:{{ variant.id }}, option1:"{{ variant.option1 | replace '"', '\\"' }}", option2:"{{ variant.option2 | replace '"', '\\"' }}", option3:"{{ variant.option3 | replace '"', '\\"' }}", stock:'{{ variant.inventory_quantity }}'});
+  		variant.push({id:{{ variant.id }}, option1:"{{ variant.option1 | escape }}", option2:"{{ variant.option2 | escape }}", option3:"{{ variant.option3 | escape }}", stock:'{{ variant.inventory_quantity }}'});
     {% endfor %}
 	
   	function selectValidOption(select) {
