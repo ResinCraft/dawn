@@ -24,7 +24,6 @@
         },
         "cfcc0c47-0fbf-4cf1-9484-fd5c9ef211fa": {
           "type": "custom_liquid",
-          "disabled": true,
           "settings": {
             "custom_liquid": "{% render 'stock-level' %}"
           }
