@@ -2,7 +2,7 @@
   
     var variant = [];
     {% for variant in product.variants %}
-  		variant.push = {id:{{ variant.id }}, option1:'{{ variant.option1 }}', option2:'{{ variant.option2 }}', option3:'{{ variant.option3 }}', stock:'{{ variant.inventory_quantity }}'};
+  		variant[] = {id:{{ variant.id }}, option1:'{{ variant.option1 }}', option2:'{{ variant.option2 }}', option3:'{{ variant.option3 }}', stock:'{{ variant.inventory_quantity }}'};
     {% endfor %}
 	console.log(variant);
     this.addEventListener('change', this.onVariantChange);
