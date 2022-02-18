@@ -14,20 +14,15 @@
     		var itemString = "option"+(i+1);
     		filterItems[itemString] = selectObject.value;
   		});
-  		//console.log(filterItems);
+
         result = variant.filter(function(item) {
           for (var key in filterItems) {
-            //console.log(item['option1']);
             if (item[key] === undefined || item[key] != filterItems[key])
-              //console.log('false: ' + item[key])
               return false;
           }
-          //console.log('true: ' + item[key])
           return true;
         });
-        
-		//const result = selectObjects[0].value
-		//const result = variant.filter(option1 => selectObjects[0].value);                
+          
 		console.log(result[0].stock);
         
 	}
