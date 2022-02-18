@@ -1,10 +1,5 @@
 <script type="text/javascript">
   
-  var filterTest = {
-  address: 'England',
-  name: 'Mark'
-};
-  console.log(filterTest);
   var variant = [];
   {% for variant in product.variants %}
   	variant[{{ variant.id }}] = {option1:'{{ variant.option1 }}', option2:'{{ variant.option2 }}', option3:'{{ variant.option3 }}', stock:'{{ variant.inventory_quantity }}'};
