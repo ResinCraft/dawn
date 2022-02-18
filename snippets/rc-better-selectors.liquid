@@ -3,7 +3,7 @@
 	{% for option in product.options %}
   		productOptions.push("{{ option | replace: '"', '\\"' }}");
 	{% endfor %}
-    //console.log("productOptions: "+productOptions[0]);
+    console.log("productOptions: "+productOptions[0]);
 
 	var productOptionNames = [];
 	var productOptionValues = [];
