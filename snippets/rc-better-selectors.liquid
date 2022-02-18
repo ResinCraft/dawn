@@ -2,7 +2,7 @@
   	var productOptions = [];
   
 	{% for option in product.options %}
-  productOptions.push("option{{ forloop.index }}:{{ option }}");
+  productOptions.push({option{{ forloop.index }}:"{{ option }}"});
 	{% endfor %}
     console.log("productOptions: "+productOptions);
   
