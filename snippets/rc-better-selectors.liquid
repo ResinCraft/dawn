@@ -20,10 +20,21 @@
     {% for variant in product.variants %}
   		variants.push({id:{{ variant.id }}, option1:"{{ variant.option1 | replace: '"', '\\"' }}", option2:"{{ variant.option2 | replace: '"', '\\"' }}", option3:"{{ variant.option3 | replace: '"', '\\"' }}", stock:'{{ variant.inventory_quantity }}'});
     {% endfor %}
+                                
+	function getSelector(optionId) {
+		selectName = "options[" + productOptions[optionId] + "]";
+        var collection = document.getElementsByName();
+        return collection[0];
+	}
+</script>
+
+<script type="text/javascript">
+  	
 </script>
 
 <script type="text/javascript">
   	function selectValidOption(select) {
+      	
       	return select;
   	}
 
