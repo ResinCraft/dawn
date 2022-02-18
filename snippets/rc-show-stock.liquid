@@ -10,7 +10,19 @@
   this.addEventListener('change', this.onVariantChange);
   function onVariantChange() {
 		var selectObjects = document.getElementsByClassName('select__select');
-		const result = selectObjects[0].value
+        var filter = {
+          	option1: selectObjects[0],
+          	option2: selectObjects[1],
+			option3: selectObjects[2]
+        };
+        result = variant.filter(function(item) {
+          for (var key in filter) {
+            if (item[key] === undefined || item[key] != filter[key])
+              return false;
+          }
+          return true;
+        });
+		//const result = selectObjects[0].value
 		//const result = variant.filter(option1 => selectObjects[0].value);                
 		console.log(result);
 	}
