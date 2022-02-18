@@ -16,8 +16,8 @@
   		});
 
         result = variant.filter(function(item) {
-          console.log(item)
           for (var key in filterItems) {
+            console.log(key);
             if (item[key] === undefined || item[key] != filter[key])
               console.log(item[key])
               return false;
