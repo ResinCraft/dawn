@@ -14,10 +14,10 @@
     		var itemString = "option"+i;
     		filterItems[itemString] = selectObject.value;
   		});
-  		console.log(filterItems);
+  		//console.log(filterItems);
         result = variant.filter(function(item) {
           for (var key in filterItems) {
-            //console.log(item);
+            console.log(item);
             if (item[key] === undefined || item[key] != filter[key])
               //console.log('false: ' + item[key])
               return false;
