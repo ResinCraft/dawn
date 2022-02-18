@@ -22,9 +22,9 @@
                      console.log('didnt found-it');
 		elem = document.createElement('p');
   		elem.setAttribute('id', "stock-level");
-		elementArray = document.getElementsByClassName("product-form__input product-form__quantity");
+		target = document.getElementsByClassName("product-form__input product-form__quantity")[0];
   		console.log('elementArray: '+elementArray);
-		target.parentNode.insertBefore(elem, elementArray[0]);
+		target.parentNode.insertBefore(elem, target);
   		element = document.getElementById('stock-level');
   	}
     console.log('element: ' + element);           
