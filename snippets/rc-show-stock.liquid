@@ -13,7 +13,7 @@
 		var filter = JSON.parse('{}');
 		Array.prototype.forEach.call(selectObjects, function(selectObject) {
           //console.log(selectObject.value);
-          filter.push({1: selectObject.value});
+          filter.push({selectObject.value: selectObject.value});
 		});
 
   		console.log(filter);
