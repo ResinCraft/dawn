@@ -12,7 +12,7 @@
 		var selectObjects = document.getElementsByClassName('select__select');
 		var filter = JSON.parse({});
 		Array.prototype.forEach.call(selectObjects, function(selectObject) {
-          filter.push({selectObject: selectObject});
+          filter.push({1: selectObject.value});
 		});
 
   		console.log(filter);
