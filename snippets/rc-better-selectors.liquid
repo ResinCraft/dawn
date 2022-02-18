@@ -61,7 +61,10 @@
     </script>
 
     <script type="text/javascript">
-          setOptionText(getSelector(1));
+      	const selects = document.getElementsByClassName("select__select");
+      	Array.prototype.forEach.call(selects, function(select) {
+          setOptionText(select);
+        });
 
         /*function selectValidOption(select) {
 
