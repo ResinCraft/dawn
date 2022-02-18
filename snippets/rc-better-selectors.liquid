@@ -1,7 +1,8 @@
 <script type="text/javascript">
 	var productOptionNames = [];
 	var productOptionValues = [];
-
+  	var variants = [];
+  
 	{% for product_option in product.options_with_values %}
   		productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
 		productOptionValues[{{ forloop.index }}] = []
@@ -13,13 +14,15 @@
   	//console.log("productOptionValues[1]: "+productOptionValues[1]);
   	//console.log("productOptionValues[2]: "+productOptionValues[2]);
   	//console.log("productOptionValues[3]: "+productOptionValues[3]);
-  
+                                
   	//build a list of valid variants
-    var variant = [];
+    
     {% for variant in product.variants %}
-  		variant.push({id:{{ variant.id }}, option1:"{{ variant.option1 | replace: '"', '\\"' }}", option2:"{{ variant.option2 | replace: '"', '\\"' }}", option3:"{{ variant.option3 | replace: '"', '\\"' }}", stock:'{{ variant.inventory_quantity }}'});
+  		variants.push({id:{{ variant.id }}, option1:"{{ variant.option1 | replace: '"', '\\"' }}", option2:"{{ variant.option2 | replace: '"', '\\"' }}", option3:"{{ variant.option3 | replace: '"', '\\"' }}", stock:'{{ variant.inventory_quantity }}'});
     {% endfor %}
-	
+</script>
+
+<script type="text/javascript">
   	function selectValidOption(select) {
       	return select;
   	}
