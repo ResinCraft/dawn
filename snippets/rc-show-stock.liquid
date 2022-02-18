@@ -18,8 +18,10 @@
         result = variant.filter(function(item) {
           for (var key in filterItems) {
             if (item[key] === undefined || item[key] != filter[key])
+              console.log(item[key])
               return false;
           }
+          console.log(item[key])
           return true;
         });
         
