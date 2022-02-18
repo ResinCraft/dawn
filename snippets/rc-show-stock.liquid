@@ -20,12 +20,12 @@
                       console.log('found-it');
 	} else {
                      console.log('didnt found-it');
-		const elem = document.createElement('p');
+		elem = document.createElement('p');
   		elem.setAttribute('id', "stock-level");
 		elementArray = document.getElementsByClassName("product-form__input product-form__quantity");
   		console.log('elementArray: '+elementArray);
 		target.parentNode.insertBefore(elem, elementArray[0]);
-  		const element = document.getElementById('stock-level');
+  		element = document.getElementById('stock-level');
   	}
     console.log('element: ' + element);           
     this.addEventListener('change', this.onVariantChange);
