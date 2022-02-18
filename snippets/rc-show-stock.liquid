@@ -22,7 +22,8 @@
   		elem.setAttribute('id', "stock-level");
 		elementArray = document.getElementsByClassName("product-form__input product-form__quantity");
   		console.log(elementArray);
-		var element = target.parentNode.insertBefore(elem, elementArray[0]);
+		target.parentNode.insertBefore(elem, elementArray[0]);
+  		var element = document.getElementById('stock-level');
   	}
            console.log('element' + element);           
     this.addEventListener('change', this.onVariantChange);
