@@ -1,7 +1,7 @@
 <script type="text/javascript">
   	var productOptions = [];
 	{% for option in product.options %}
-  		productOptions.push("{{ option }}");
+  		productOptions.push("{{ option | escape }}");
 	{% endfor %}
     //console.log("productOptions: "+productOptions[0]);
 
