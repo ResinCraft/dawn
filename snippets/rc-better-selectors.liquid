@@ -7,7 +7,7 @@
 
 	var productOptionNames = [];
   	var productOptionValues = [];
-	productOptionValues.push({ {{ product_option.name[0] }}:'{{ value }}' });
+	//productOptionValues.push({ {{ product_option.name[0] }}:'{{ value }}' });
 
 	{% for product_option in product.options_with_values %}
   		productOptionNames.push("{{ product_option.name }}");
