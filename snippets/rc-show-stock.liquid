@@ -14,7 +14,6 @@
     		var itemString = "option"+i;
     		filterItems[itemString] = selectObject.value;
   		});
-    	console.log(variant);
   		
         result = variant.filter(function(item) {
           for (var key in filterItems) {
@@ -26,7 +25,7 @@
         
 		//const result = selectObjects[0].value
 		//const result = variant.filter(option1 => selectObjects[0].value);                
-		//console.log(result);
+		console.log(result);
         
 	}
 </script>
