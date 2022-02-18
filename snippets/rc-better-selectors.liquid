@@ -9,6 +9,7 @@
 	{% for product_option in product.options_with_values %}
   		selectOptions.push("{{ product_option }}");
 	{% endfor %}
+  	console.log("selectOptions: "+selectOptions);
   
   	//build a list of valid variants
     var variant = [];
