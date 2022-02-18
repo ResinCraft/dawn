@@ -1,13 +1,13 @@
 <script type="text/javascript">
 
-    function msgText(stockLevel) {
-      var text = "Sold out!";
-      if(stockLevel > 10) {
-        text = "More than 10 available";
-      } else {
-        text = "Only " + stockLevel + " left!";
-      }
-      return text;
+	function msgText(stockLevel) {
+		var text = "Sold out!";
+        if(stockLevel > 10) {
+          text = "More than 10 available";
+        } else {
+          text = "Only " + stockLevel + " left!";
+        }
+        return text;
     }
   
     var variant = [];
@@ -15,6 +15,15 @@
   		variant.push({id:{{ variant.id }}, option1:'{{ variant.option1 }}', option2:'{{ variant.option2 }}', option3:'{{ variant.option3 }}', stock:'{{ variant.inventory_quantity }}'});
     {% endfor %}
 
+	if(typeof document.getElementById('stock-level') !== 'undefined')
+		{
+			var element = document.getElementById('stock-level');
+		} else {
+			const elem = document.createElement('p');
+			elementArray = document.getElementsByClassName("product-form__input product-form__quantity");
+			target.parentNode.insertBefore(elem, elementArray[0]);
+  		}
+                      
     this.addEventListener('change', this.onVariantChange);
     function onVariantChange() 
 	{
@@ -32,15 +41,6 @@
           }
           return true;
         });
-		
-  		if(typeof document.getElementById('stock-level') !== 'undefined')
-        {
-          var element = document.getElementById('stock-level');
-        } else {
-          const elem = document.createElement('p');
-          elementArray = document.getElementsByClassName("product-form__input product-form__quantity");
-          target.parentNode.insertBefore(elem, elementArray[0]);
-        }
   		
   		if(typeof result[0] !== 'undefined'){
 			var msg = msgText(result[0].stock);
