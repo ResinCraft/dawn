@@ -23,7 +23,7 @@
                                 
 	function getSelector(optionId) {
 		selectName = "options[" + productOptionNames[optionId] + "]";
-        var collection = document.getElementsByName();
+        var collection = document.getElementsByName(selectName);
         return collection[0];
 	}
 </script>
