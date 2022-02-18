@@ -19,10 +19,10 @@
           for (var key in filterItems) {
             console.log(key);
             if (item[key] === undefined || item[key] != filter[key])
-              console.log(item[key])
+              console.log('false: ' + item[key])
               return false;
           }
-          console.log(item[key])
+          console.log('true: ' + item[key])
           return true;
         });
         
