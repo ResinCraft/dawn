@@ -10,9 +10,9 @@
   this.addEventListener('change', this.onVariantChange);
   function onVariantChange() {
 		var selectObjects = document.getElementsByClassName('select__select');
-		var filter = JSON.parse({});
+		//var filter = JSON.parse({});
 		Array.prototype.forEach.call(selectObjects, function(selectObject) {
-          console.log(selectObject);
+          console.log(selectObject.value);
           //filter.push({1: selectObject.value});
 		});
 
