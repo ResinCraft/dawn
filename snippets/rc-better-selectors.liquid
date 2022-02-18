@@ -2,7 +2,7 @@
   	var productOptions = {};
   
 	{% for option in product.options %}
-  	productOptions.push({{{ option }}})
+  	productOptions.push({{ option }})
 	{% endfor %}
     console.log("productOptions: "+productOptions);
   
