@@ -22,7 +22,7 @@
     {% endfor %}
                                 
 	function getSelector(optionId) {
-		selectName = "options[" + productOptions[optionId] + "]";
+		selectName = "options[" + productOptionNames[optionId] + "]";
         var collection = document.getElementsByName();
         return collection[0];
 	}
