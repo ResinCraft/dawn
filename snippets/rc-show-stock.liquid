@@ -35,13 +35,14 @@
       	//get the option selectors
       	var selectObjects = document.getElementsByClassName('select__select');
       
-      	//build a list of items that 
+      	//build a list of items that have been selected in option1, {option2} and {option3}
 		var filterItems = {};
   		Array.prototype.forEach.call(selectObjects, function(selectObject, i) {
     		var itemString = "option"+(i+1);
     		filterItems[itemString] = selectObject.value;
   		});
-      	console.log('filterItems: '+ filterItems);
+
+      	
         result = variant.filter(function(item) {
           for (var key in filterItems) {
             if (item[key] === undefined || item[key] != filterItems[key])
