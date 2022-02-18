@@ -4,7 +4,7 @@
 		var text = "Sold out!";
         if(stockLevel > 10) {
           text = "More than 10 available";
-        } else {
+        } elseif(stockLevel > 0) {
           text = "Only " + stockLevel + " left!";
         }
         return text;
