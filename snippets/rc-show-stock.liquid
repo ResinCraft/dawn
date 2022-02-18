@@ -24,10 +24,10 @@
         result = variant.filter(function(item) {
           for (var key in filterItems) {
             if (item[key] === undefined || item[key] != filter[key])
-              console.log('false: '+key);
+              console.log('false: '+item[key]);
               return false;
           }
-          console.log('true: '+key);
+          console.log('true: '+item[key]);
           return true;
         });
 		//const result = selectObjects[0].value
