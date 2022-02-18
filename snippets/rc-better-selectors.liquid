@@ -10,7 +10,7 @@
 	{% for product_option in product.options_with_values %}
   		productOptionNames.push("{{ product_option.name }}");
 			{% for value in product_option.values %}
-				productOptionValues.push({{{ product_option.name }}:'{{ value }}'});
+				productOptionValues.push({ {{ product_option.name }}:'{{ value }}'});
 			{% endfor %}
 	{% endfor %}
   	console.log("selectOptions: "+selectOptions);
