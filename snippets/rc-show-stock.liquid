@@ -1,4 +1,5 @@
 <script type="text/javascript">
+  	//set up some stock level messages i.e. "Only 4 left!"
 	function msgText(stockLevel) {
 		var text = "Sold out!";
         if(stockLevel > 10) {
@@ -16,9 +17,7 @@
 
 	if(document.getElementById('stock-level') !== null){
 		var element = document.getElementById('stock-level');
-                      console.log('found-it');
 	} else {
-                     console.log('didnt found-it');
 		elem = document.createElement('p');
   		elem.setAttribute('id', "stock-level");
 		target = document.getElementsByClassName("product-form__input product-form__quantity")[0];
