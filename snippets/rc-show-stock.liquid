@@ -4,7 +4,8 @@
     {% for variant in product.variants %}
   		variant.push({id:{{ variant.id }}, option1:'{{ variant.option1 }}', option2:'{{ variant.option2 }}', option3:'{{ variant.option3 }}', stock:'{{ variant.inventory_quantity }}'});
     {% endfor %}
-                      
+	
+	//see if the user has selected a valid combination
 	function validSelection() {
       	//get the option selectors
       	var selectObjects = document.getElementsByClassName('select__select');
@@ -24,6 +25,8 @@
           }
           return true;
         });
+  
+  		//if the combo exists, then say so
   		return (typeof result[0] !== 'undefined') ? true : false;
 	}
 
