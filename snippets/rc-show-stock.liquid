@@ -43,8 +43,8 @@
     }
   
 
-
-	//check to see if a custom location for the stock level has been set else just pop it above the quantity selector
+  	//if you'd like to position the stock indicator in a custom place, create an element as follows: <p id="stock-level></p>
+	//otherwise it will default to be just above the quantity selector
 	if(document.getElementById('stock-level') !== null){
 		var element = document.getElementById('stock-level');
 	} else {
