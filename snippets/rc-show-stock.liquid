@@ -18,7 +18,7 @@
                                  var filterItems = {};
 		Array.prototype.forEach.call(selectObjects, function(selectObject, i) {
                                  itemString = "option"+i;
-                                 filterItems.itemString = {selectObject.value};
+                                 filterItems.itemString = selectObject.value;
 		});
   		
 console.log(filterItems);
