@@ -41,10 +41,26 @@
         optionText = "Select " + optionText + "..."
         return optionText;
       }
+    
+	function setOptionText(selectObject)
+    {
+      //build the option that is going to be inserted into the drop down box
+      var option = document.createElement("option");
+      option.text = optionText;
+
+      //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
+      if(!urlParams.has('variant')) {
+        option.selected = true;
+      }
+
+      //add the option to the selector at the top
+      selectObject.add(option, selectObject);
+    }   	
   </script>
 
   <script type="text/javascript">
-      console.log(getSelector(1));
+		console.log(getSelector(1));
+		
       /*function selectValidOption(select) {
 
           return select;
