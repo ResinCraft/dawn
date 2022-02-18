@@ -2,8 +2,8 @@
   	//set up some stock level messages i.e. "Only 4 left!"
 	function msgText(stockLevel) {
 		var text = "";
-      	var showStockLevel = 10;
-        if(stockLevel > showStockLevel) { //change this value if you want to show 
+      	var showStockLevel = 10; //change this value for maximum stock you want to show
+        if(stockLevel > showStockLevel) { 
           text = "More than " + showStockLevel + " available";
         } else if(stockLevel > 0) {
           text = "Only " + stockLevel + " left!";
