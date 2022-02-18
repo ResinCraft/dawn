@@ -43,7 +43,7 @@
     		filterItems[itemString] = selectObject.value;
   		});
 
-      	
+		//some form of voodoo that matches the users selection with the list of valid variant combinations
         result = variant.filter(function(item) {
           for (var key in filterItems) {
             if (item[key] === undefined || item[key] != filterItems[key])
@@ -52,6 +52,7 @@
           return true;
         });
   		
+      	//if the above filter function finds a match, then display the stock level
   		if(typeof result[0] !== 'undefined'){
 			var msg = msgText(result[0].stock);
           	element.innerHTML = msg;
