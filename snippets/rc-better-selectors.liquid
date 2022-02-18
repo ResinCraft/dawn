@@ -5,9 +5,13 @@
 	{% endfor %}
     console.log("productOptions: "+productOptions[0]);
 
-	var selectOptions = [];
+	var productOptionNames = [];
+  	var productOptionValues = [];
 	{% for product_option in product.options_with_values %}
-  		selectOptions.push("{{ product_option }}");
+  		productOptionNames.push("{{ product_option.name }}");
+			{% for value in product_option.values %}
+				
+			{% endfor %}
 	{% endfor %}
   	console.log("selectOptions: "+selectOptions);
   
