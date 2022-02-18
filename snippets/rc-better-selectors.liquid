@@ -1,16 +1,16 @@
 <script type="text/javascript">
   	var productOptions = [];
 	{% for option in product.options %}
-  		productOptions.push({option{{ forloop.index }}:"{{ option }}"});
+  		productOptions.push("{{ option }}");
 	{% endfor %}
-    console.log("productOptions: "+productOptions[0].option1);
+    console.log("productOptions: "+productOptions[0]);
   
   	//build a list of valid variants
     var variant = [];
     {% for variant in product.variants %}
   		variant.push({id:{{ variant.id }}, option1:'{{ variant.option1 }}', option2:'{{ variant.option2 }}', option3:'{{ variant.option3 }}', stock:'{{ variant.inventory_quantity }}'});
     {% endfor %}
-
+	
   	function selectValidOption(select) {
       	
   	}
