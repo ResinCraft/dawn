@@ -23,11 +23,11 @@
 		const elem = document.createElement('p');
   		elem.setAttribute('id', "stock-level");
 		elementArray = document.getElementsByClassName("product-form__input product-form__quantity");
-  		console.log('elementArray'+elementArray);
+  		console.log('elementArray: '+elementArray);
 		target.parentNode.insertBefore(elem, elementArray[0]);
   		const element = document.getElementById('stock-level');
   	}
-    console.log('element' + element);           
+    console.log('element: ' + element);           
     this.addEventListener('change', this.onVariantChange);
     function onVariantChange(){
 		var selectObjects = document.getElementsByClassName('select__select');
