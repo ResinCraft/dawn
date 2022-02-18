@@ -11,7 +11,7 @@
 		var selectObjects = document.getElementsByClassName('select__select');
 		var filterItems = {};
   		Array.prototype.forEach.call(selectObjects, function(selectObject, i) {
-    		var itemString = "option"+i;
+    		var itemString = "option"+(i+1);
     		filterItems[itemString] = selectObject.value;
   		});
   		//console.log(filterItems);
