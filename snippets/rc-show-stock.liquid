@@ -12,7 +12,7 @@
 		var selectObjects = document.getElementsByClassName('select__select');
 		var filter = {}
 		Array.prototype.forEach.call(selectObjects, function(selectObject) {
-          filter.push({selectObject.value: selectObject.value});
+          filter.push({selectObject: selectObject});
 		}
 
   		console.log(filter);
