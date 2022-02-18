@@ -13,9 +13,9 @@
 	//productOptionValues.push({ {{ product_option.name[0] }}:'{{ value }}' });
 
 	{% for product_option in product.options_with_values %}
-  		productOptionNames.push("{{ product_option.name }}");
+  		productOptionNames.push(encodeURI({{ product_option.name }}));
 			{% for value in product_option.values %}
-				productOptionValues[{{ forloop.parentloop.index }}].push("{{ value }}");
+				productOptionValues[{{ forloop.parentloop.index }}].push(encodeURI({{ value }}));
 			{% endfor %}
 	{% endfor %}
   	console.log("productOptionNames: "+productOptionNames);
