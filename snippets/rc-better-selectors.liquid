@@ -55,11 +55,17 @@
          }
     }
   
-    function validateOptions(select,parent)
+    function buildOptions(select,parent)
     {
+        removeOptions(select);	
+        var selectVariants = variants.filter((({ option1 }) => option1 === parent));
+      	Array.prototype.forEach.call(selectVariants, function(variant, i) {
+          console.log('variant: '+variant);
+        }
         //console.log('select: '+select);
         //console.log('parent: '+parent);
-      	removeOptions(select);
+      	/*
+        removeOptions(select);
         Array.prototype.forEach.call(select, function(option, i) {
           	var result = undefined;
             console.log('option2-'+i+': '+option.value);
@@ -75,6 +81,7 @@
               	select.add(option);
             }
         });
+        */
     }
   
     function modifySelect(select)
