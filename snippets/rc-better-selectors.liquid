@@ -29,8 +29,7 @@
         select.add(option, select[0]);
     }
     const selects = document.getElementsByClassName("select__select");
-  	console.log('selects: '+selects);
     Array.prototype.forEach.call(selects, function(select, i) {
-        setDefaultOption(select[i],productOptionNames[i]);
+        setDefaultOption(select,productOptionNames[i]);
     });
 </script>
