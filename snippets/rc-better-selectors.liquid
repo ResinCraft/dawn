@@ -49,11 +49,15 @@
           case 1:
             if(selects[selectorIndex - 1].selectedIndex == 0){
                 selectContainers[selectorIndex].style.display = 'none';
+            } else {
+              	selectContainers[selectorIndex].style.display = '';
             }
             break;
           case 2:
             if(selects[selectorIndex - 1].selectedIndex == 0 || selects[selectorIndex - 2].selectedIndex == 0){
                 selectContainers[selectorIndex].style.display = 'none';
+            } else {
+              	selectContainers[selectorIndex].style.display = '';
             }
         }
     }
