@@ -96,11 +96,7 @@
               }
               return true;
             });
-			
-            if(!result && newUrlParams.has('variant')) {
-              var url = removeParams('variant');
-              window.history.pushState("", "", url);
-            }
+
             //if the combo exists, then say so
             return (typeof result[0] !== 'undefined') ? true : false;
       }
