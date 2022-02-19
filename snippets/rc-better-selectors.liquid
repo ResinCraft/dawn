@@ -47,6 +47,7 @@
           //var newOption = jQuery('<option></option>').val(option).html(option);
           var newOption = document.createElement("option");
           newOption.value = option;
+          console.log('newOption: '+newOption);
           selector.add(newOption);
         }
         console.log("this: "+availableOptions.includes(initialValue));
