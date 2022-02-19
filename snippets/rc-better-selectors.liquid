@@ -2,7 +2,6 @@
     <script type="text/javascript">
       var Shopify = Shopify || {};
       const selects = document.getElementsByClassName("select__select");
-      console.log(selects[0]);
       Shopify.optionsMap = {};
 
       Shopify.updateOptionsInSelector = function(selectorIndex) {
@@ -23,7 +22,7 @@
         }
       }
       
-      var initialValue = selector.value;
+      var initialValue = undefined;
       selector.empty();    
       var availableOptions = Shopify.optionsMap[key];
       console.log(availableOptions);
