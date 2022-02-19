@@ -3,7 +3,7 @@
     var productOptionValues = [];
     {% for product_option in product.options_with_values %}
         productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
-        productOptionValues[{{ forloop.index }}] = [];
+        productOptionValues[{{ forloop.index }}] =  new Array();
         {% for value in product_option.values %}
             productOptionValues[{{ forloop.parentloop.index }}].push("{{ value | replace: '"', '\\"' }}");
         {% endfor %}
