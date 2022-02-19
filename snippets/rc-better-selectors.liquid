@@ -48,7 +48,6 @@
           var newOption = document.createElement("option");
           newOption.value = option;
           selector.add(newOption);
-          console.log('added option');
         }
         console.log("this: "+availableOptions.includes(initialValue));
         if (availableOptions.includes(initialValue) !== -1) {
@@ -83,6 +82,8 @@
             }
           }
         }
+        // Update options right away.
+        Shopify.updateOptionsInSelector(0);
       }
       {% if product.available and product.options.size > 1 %}
         var $addToCartForm = document.getElementsByClassName("select__select")[0].form;
