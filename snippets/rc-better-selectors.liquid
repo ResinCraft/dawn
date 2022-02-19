@@ -3,13 +3,13 @@
     var productOptionValues = [];
     {% for product_option in product.options_with_values %}
         productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
-        productOptionValues[{{ forloop.index }}] =  new Array();
+        productOptionValues[{{ forloop.index | minus:1 }}] =  new Array();
         {% for value in product_option.values %}
             productOptionValues[{{ forloop.parentloop.index | minus:1 }}].push("{{ value | replace: '"', '\\"' }}");
         {% endfor %}
     {% endfor %}  
                                 console.log('productOptionNames: '+productOptionNames);
-  console.log('productOptionValues: '+productOptionValues[2]);
+  console.log('productOptionValues: '+productOptionValues);
     function setDefaultOption(selectObject)
     {
     //text for the option, i.e. "Select Size..."
