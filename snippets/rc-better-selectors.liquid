@@ -76,26 +76,45 @@
           selectObject.add(option, selectObject[0]);
         }
   
+      //see if the user has selected a valid combination
+      function validSelection() {
+            //get the option selectors
+            var selectObjects = document.getElementsByClassName('select__select');
+
+            //build a list of items that have been selected in option1, {option2} and {option3}
+            var filterItems = {};
+            Array.prototype.forEach.call(selectObjects, function(selectObject, i) {
+                var itemString = "option"+(i+1);
+                filterItems[itemString] = selectObject.value;
+            });
+
+            //some form of voodoo that matches the users selection with the list of valid variant combinations
+            result = variant.filter(function(item) {
+              for (var key in filterItems) {
+                if (item[key] === undefined || item[key] != filterItems[key])
+                  return false;
+              }
+              return true;
+            });
+			
+            if(!result) {
+              var url = removeParams('variant');
+              window.history.pushState("", "", url);
+            }
+            //if the combo exists, then say so
+            return (typeof result[0] !== 'undefined') ? true : false;
+      }
+  
         //check to see if the variant has been changed, run onVariantChange function
         this.addEventListener('change', this.onVariantChange);
 
         //if an invalid variant has been selected, remove the url preselector i.e. "?variant=1234"
         function onVariantChange() {
-          var newQueryString = window.location.search;
-          var newUrlParams = new URLSearchParams(newQueryString);
-			var selectObjects = document.getElementsByClassName('select__select');
-          var invalidOption = false;
-          Array.prototype.forEach.call(selectObjects, function(selectObject) {
-            if(selectObject.value == getOptionText(selectObject))
-            {
-              invalidOption = true;
-            }
-          });
+			validSelection()
 
           if(invalidOption && newUrlParams.has('variant'))
           {
-            var url = removeParams('variant');
-            window.history.pushState("", "", url);
+
           }
         }
     </script>
