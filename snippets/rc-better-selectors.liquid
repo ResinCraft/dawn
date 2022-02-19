@@ -20,4 +20,8 @@
     //add the option to the selector at the top
     selectObject.add(option, selectObject[0]);
   }
+  const selects = document.getElementsByClassName("select__select");
+  Array.prototype.forEach.call(selects, function(select) {
+    setOptionText(select);
+  });
 </script>
