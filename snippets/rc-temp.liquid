@@ -1,82 +1,125 @@
-<script type="text/javascript">
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        var productOptionNames = [];
-        var productOptionValues = [];
-        var variants = [];
 
-        {% for product_option in product.options_with_values %}
-            productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
-            productOptionValues[{{ forloop.index }}] = []
-                {% for value in product_option.values %}
-                    productOptionValues[{{ forloop.parentloop.index }}].push("{{ value | replace: '"', '\\"' }}");
-                {% endfor %}
-        {% endfor %}
-        //console.log("productOptionNames: "+productOptionNames);
-        //console.log("productOptionValues[1]: "+productOptionValues[1]);
-        //console.log("productOptionValues[2]: "+productOptionValues[2]);
-        //console.log("productOptionValues[3]: "+productOptionValues[3]);
-
-        //build a list of valid variants
-
-        {% for variant in product.variants %}
-            variants.push({id:{{ variant.id }}, option1:"{{ variant.option1 | replace: '"', '\\"' }}", option2:"{{ variant.option2 | replace: '"', '\\"' }}", option3:"{{ variant.option3 | replace: '"', '\\"' }}", stock:'{{ variant.inventory_quantity }}'});
-        {% endfor %}
-
-        function getSelector(optionId) {
-            selectName = "options[" + productOptionNames[optionId] + "]";
-            var collection = document.getElementsByName(selectName);
-            return collection[0];
-        }
-
-        //returns the text for the option, i.e. "Select Size..."
-        function getOptionText(selectObject)
-        {
-          //get the name of the current drop down box i.e. "options[TypeXYZ]"
-          selectName = selectObject.name;
-
-          //strip out the option name i.e. "options[TypeXYZ]" => "TypeXYZ"
-          optionText = selectName.match(/\[(.*?)\]/)[1];
-
-          //make it more friendly "Select Size..."
-          optionText = "Select " + optionText + "..."
-          return optionText;
-        }
-
-      function setOptionText(selectObject)
-      {
-        //build the option that is going to be inserted into the drop down box
-        var option = document.createElement("option");
-		option.text = getOptionText(selectObject)
-
-        //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
-        if(!urlParams.has('variant')) {
-          option.selected = true;
-        }
-
-        //add the option to the selector at the top
-        selectObject.add(option, selectObject[0]);
-      }   	
-    </script>
-
+      
+{% if request.page_type == 'product' %}
     <script type="text/javascript">
+      function removeOptions(selectElement) {
+         var i, L = selectElement.options.length - 1;
+         for(i = L; i >= 0; i--) {
+            selectElement.remove(i);
+         }
+      }
+      
+      // Required functionality from depricated options_selection.js
+      Shopify.arrayIncludes = function(e, t) {
+        for (var n = 0; n < e.length; n++)
+            if (e[n] == t) return !0;
+        return !1
+      }, Shopify.uniq = function(e) {
+          for (var t = [], n = 0; n < e.length; n++) Shopify.arrayIncludes(t, e[n]) || t.push(e[n]);
+          return t
+      }
+      
+      var Shopify = Shopify || {};
+      const selects = document.getElementsByClassName("select__select");
+      Shopify.optionsMap = {};
 
-      	const selects = document.getElementsByClassName("select__select");
-      	Array.prototype.forEach.call(selects, function(select) {
-          setOptionText(select);
+      Shopify.updateOptionsInSelector = function(selectorIndex) {
+		
+        switch (selectorIndex) {
+          case 0:
+            var key = 'root';
+            var selector = selects[0];
+            break;
+          case 1:
+            var key = selects[0].value;
+            var selector = selects[1];
+            break;
+          case 2:
+            var key = selects[0].value;  
+            key += ' / ' + selects[1].value;
+            var selector = selects[2];
+        }
+        console.log("key1: "+key);
+        var initialValue = undefined;
+        removeOptions(selector);
+        
+        var availableOptions = Shopify.optionsMap[key];
+        
+        //console.log('availableOptions: ' + availableOptions);
+        for (var i=0; i<availableOptions.length; i++) {
+          var option = availableOptions[i];
+          //var newOption = jQuery('<option></option>').val(option).html(option);
+          var newOption = document.createElement("option");
+          newOption.text = option;
+          console.log('newOption: '+newOption);
+          selector.add(newOption);
+        }
+        //console.log("this: "+availableOptions.includes(initialValue));
+        if (availableOptions.includes(initialValue) !== -1) {
+          selector.value = initialValue;
+        }
+        //selector.trigger('change');
+      }
+      
+      Shopify.linkOptionSelectors = function(product) {
+        //console.log('linking options: '+product.options.length);
+        // Building our mapping object.
+        for (var i=0; i<product.variants.length; i++) {
+          var variant = product.variants[i];
+          if (variant.available) {
+            // Gathering values for the 1st drop-down.
+            Shopify.optionsMap['root'] = Shopify.optionsMap['root'] || [];
+            Shopify.optionsMap['root'].push(variant.option1);
+            Shopify.optionsMap['root'] = Shopify.uniq(Shopify.optionsMap['root']);
+            // Gathering values for the 2nd drop-down.
+            if (product.options.length > 1) {
+              var key = variant.option1;
+              Shopify.optionsMap[key] = Shopify.optionsMap[key] || [];
+              Shopify.optionsMap[key].push(variant.option2);
+              Shopify.optionsMap[key] = Shopify.uniq(Shopify.optionsMap[key]);
+            }
+            // Gathering values for the 3rd drop-down.
+            if (product.options.length === 3) {
+              var key = variant.option1 + ' / ' + variant.option2;
+              Shopify.optionsMap[key] = Shopify.optionsMap[key] || [];
+              Shopify.optionsMap[key].push(variant.option3);
+              Shopify.optionsMap[key] = Shopify.uniq(Shopify.optionsMap[key]);
+            }
+          }
+          //console.log('root: '+Shopify.optionsMap['root']);
+        }
+        // Update options right away.
+        Shopify.updateOptionsInSelector(0);
+        if (product.options.length > 1) Shopify.updateOptionsInSelector(1);
+        if (product.options.length === 3) Shopify.updateOptionsInSelector(2);
+        // When there is an update in the first dropdown.
+        /*jQuery(".single-option-selector:eq(0)").change(function() {
+          Shopify.updateOptionsInSelector(1);
+          if (product.options.length === 3) Shopify.updateOptionsInSelector(2);
+          return true;
         });
-
-        /*function selectValidOption(select) {
-
-            return select;
-        }
-
-        function hideSelectors() {
-            console.log("options[" + productOptions[0] + "]");
-            const collection = document.getElementsByName("options[" + productOptions[0] + "]");
-            result = selectValidOption(collection[0]);
-            console.log(result);
-        }
-        this.addEventListener('change', this.hideSelectors);
-        hideSelectors();
+        // When there is an update in the second dropdown.
+        jQuery(".single-option-selector:eq(1)").change(function() {
+          if (product.options.length === 3) Shopify.updateOptionsInSelector(2);
+          return true;
+        });  
         */
+      }
+      {% if product.available and product.options.size > 1 %}
+        var $addToCartForm = document.getElementsByClassName("select__select")[0].form;
+        if (window.MutationObserver && $addToCartForm.length) {
+          
+          if (typeof observer === 'object' && typeof observer.disconnect === 'function') {
+            
+            observer.disconnect();
+          }
+          var config = { childList: true, subtree: true };
+          var observer = new MutationObserver(function() {      
+            Shopify.linkOptionSelectors({{ product | json }});
+            observer.disconnect();
+          });  
+          observer.observe($addToCartForm, config);
+        }
+      {% endif %}
+    </script>
+{% endif %}
