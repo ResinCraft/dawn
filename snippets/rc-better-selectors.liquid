@@ -6,22 +6,20 @@
   var variants = [];
 
   {% for product_option in product.options_with_values %}
-  productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
-productOptionValues[{{ forloop.index }}] = [];
-                          {% for value in product_option.values %}
-                          productOptionValues[{{ forloop.parentloop.index }}].push("{{ value | replace: '"', '\\"' }}");
-                          {% endfor %}
-                          {% endfor %}
-                          //console.log("productOptionNames: "+productOptionNames);
-                          //console.log("productOptionValues[1]: "+productOptionValues[1]);
-                          //console.log("productOptionValues[2]: "+productOptionValues[2]);
-                          //console.log("productOptionValues[3]: "+productOptionValues[3]);
-
-                          //build a list of valid variants
-
-                          {% for variant in product.variants %}
-                          variants.push({id:{{ variant.id }}, option1:"{{ variant.option1 | replace: '"', '\\"' }}", option2:"{{ variant.option2 | replace: '"', '\\"' }}", option3:"{{ variant.option3 | replace: '"', '\\"' }}", stock:'{{ variant.inventory_quantity }}'});
-                          {% endfor %}
+  	productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
+	productOptionValues[{{ forloop.index }}] = [];
+    {% for value in product_option.values %}
+    	productOptionValues[{{ forloop.parentloop.index }}].push("{{ value | replace: '"', '\\"' }}");
+    {% endfor %}
+  {% endfor %}
+    //console.log("productOptionNames: "+productOptionNames);
+    //console.log("productOptionValues[1]: "+productOptionValues[1]);
+    //console.log("productOptionValues[2]: "+productOptionValues[2]);
+    //console.log("productOptionValues[3]: "+p
+    //build a
+    {% for variant in product.variants %}
+    variants.push({id:{{ variant.id }}, option1:"{{ variant.option1 | replace: '"', '\\"' }}", option2:"{{ variant.option2 | replace: '"', '\\"' }}", option3:"{{ variant.option3 | replace: '"', '\\"' }}", stock:'{{ variant.inventory_quantity }}'});
+    {% endfor %}
 
                           /*function getSelector(optionId) {
             selectName = "options[" + productOptionNames[optionId] + "]";
