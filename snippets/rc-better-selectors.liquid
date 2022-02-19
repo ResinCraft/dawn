@@ -48,7 +48,7 @@
       }
       
       Shopify.linkOptionSelectors = function(product) {
-        console.log(Shopify);
+        console.log(Shopify.optionsMap['root']);
         // Building our mapping object.
         for (var i=0; i<product.variants.length; i++) {
           var variant = product.variants[i];
