@@ -59,8 +59,10 @@
           	//console.log('parent'+i+': '+JSON.stringify(result));
           	result = result.find((({ option2 }) => option2 === option.value));
           	//console.log('result'+i+': '+JSON.stringify(result));
-            if(!result){
-              
+            if(result){
+				var option = document.createElement("option");
+              	option.text = option.value;
+              	select.add(option);
             }
         });
     }
