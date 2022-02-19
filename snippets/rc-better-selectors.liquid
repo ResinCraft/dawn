@@ -52,8 +52,9 @@
         console.log('select: '+select);
         console.log('parent: '+parent);
         Array.prototype.forEach.call(select, function(option) {
+          	var result = undefined;
             console.log('option: '+option.value);
-          	var result = variants.find( (({ option1 }) => option1 == parent) && (({ option2 }) => option2 == option.value ));
+          	 result = variants.find( (({ option1 }) => option1 == parent) && (({ option2 }) => option2 == option.value ));
           	console.log('result: '+result);
         });
     }
