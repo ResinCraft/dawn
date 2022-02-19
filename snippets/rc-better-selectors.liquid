@@ -40,8 +40,8 @@
           selector.add(newOption);
           //selector.append(newOption);
         }
-		
-        if (availableOptions.includes(initialValue)) !== -1) {
+		console.log(availableOptions.includes(initialValue));
+        if (availableOptions.includes(initialValue)) != -1) {
           selector.value = initialValue;
         }
         selector.trigger('change');  
