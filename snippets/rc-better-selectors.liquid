@@ -21,6 +21,8 @@ Shopify.updateOptionsInSelector = function(selectorIndex) {
       key += ' / ' + jQuery('.single-option-selector:eq(1)').val();
       var selector = jQuery('.single-option-selector:eq(2)');
   }
+  
+  /*
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         var productOptionNames = [];
@@ -82,6 +84,7 @@ Shopify.updateOptionsInSelector = function(selectorIndex) {
     </script>
 
     <script type="text/javascript">
+      /*
       	const selects = document.getElementsByClassName("select__select");
       	Array.prototype.forEach.call(selects, function(select) {
           setOptionText(select);
