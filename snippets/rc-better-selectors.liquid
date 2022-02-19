@@ -97,7 +97,7 @@
               return true;
             });
 			
-            if(!result) {
+            if(!result && newUrlParams.has('variant')) {
               var url = removeParams('variant');
               window.history.pushState("", "", url);
             }
@@ -111,11 +111,6 @@
         //if an invalid variant has been selected, remove the url preselector i.e. "?variant=1234"
         function onVariantChange() {
 			validSelection()
-
-          if(invalidOption && newUrlParams.has('variant'))
-          {
-
-          }
         }
     </script>
 
