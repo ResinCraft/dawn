@@ -17,6 +17,7 @@
 
     console.log(inventory.find(fruit.name === 'cherries'));
     // { name: 'cherries', quantity: 5 }
+    inventory.find( ({ option1 }) => option1 === '12mm (1/2 in.)' )
     */
     var variants = [];
     {% for variant in product.variants %}
@@ -25,7 +26,7 @@
 
     //console.log('productOptionNames: '+productOptionNames);
     console.log('productOptionValues: '+productOptionValues[0]);
-    console.log('variants: '+inventory.find(variants.option1 === '12mm (1/2 in.)'));
+    console.log('variants: '+variants.find( ({ option1 }) => option1 === '12mm (1/2 in.)' ));
     
     function setDefaultOption(select,optionName)
     {
