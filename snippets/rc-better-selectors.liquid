@@ -75,6 +75,7 @@
       }
       {% if product.available and product.options.size > 1 %}
         var $addToCartForm = document.getElementsByClassName("select__select")[0].form;
+      console.log($addToCartForm);
         if (window.MutationObserver && $addToCartForm.length) {
           if (typeof observer === 'object' && typeof observer.disconnect === 'function') {
             observer.disconnect();
