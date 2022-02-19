@@ -22,5 +22,10 @@
             var selector = selects[2];
         }
       }
+      
+      var initialValue = selector.val();
+      selector.empty();    
+      var availableOptions = Shopify.optionsMap[key];
+      console.log(availableOptions);
     </script>
 {% endif %}
