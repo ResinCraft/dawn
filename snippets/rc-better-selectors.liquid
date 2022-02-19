@@ -1,5 +1,7 @@
 {% if request.page_type == 'product' %}
     <script type="text/javascript">
+      var Shopify = Shopify || {};
+      console.log('shopify: '+Shopify);
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         var productOptionNames = [];
