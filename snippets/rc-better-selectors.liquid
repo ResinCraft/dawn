@@ -8,32 +8,33 @@
             productOptionValues[{{ forloop.parentloop.index | minus:1 }}].push("{{ value | replace: '"', '\\"' }}");
         {% endfor %}
     {% endfor %}  
-                                console.log('productOptionNames: '+productOptionNames);
-  console.log('productOptionValues: '+productOptionValues[1]);
-    function setDefaultOption(selectObject)
+    //console.log('productOptionNames: '+productOptionNames);
+    //console.log('productOptionValues: '+productOptionValues[0,1,2]);
+    
+    function setDefaultOption(select)
     {
-    //text for the option, i.e. "Select Size..."
-    selectName = selectObject.name;
-    //strip out the option name i.e. "options[TypeXYZ]" => "TypeXYZ"
-    optionText = selectName.match(/\[(.*?)\]/)[1];
-    //make it more friendly "Select Size..."
-    optionText = "Select " + optionText + "..."
+        //text for the option, i.e. "Select Size..."
+        selectName = select.name;
+        //strip out the option name i.e. "options[TypeXYZ]" => "TypeXYZ"
+        optionText = selectName.match(/\[(.*?)\]/)[1];
+        //make it more friendly "Select Size..."
+        optionText = "Select " + optionText + "..."
 
-    //build the option that is going to be inserted into the drop down box
-    var option = document.createElement("option");
-    option.text = optionText;
+        //build the option that is going to be inserted into the drop down box
+        var option = document.createElement("option");
+        option.text = optionText;
 
-    //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
-    const urlParams = new URLSearchParams(window.location.search);
-    if(!urlParams.has('variant')) {
-    option.selected = true;
+        //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
+        const urlParams = new URLSearchParams(window.location.search);
+        if(!urlParams.has('variant')) {
+        option.selected = true;
     }
 
     //add the option to the selector at the top
-    selectObject.add(option, selectObject[0]);
+    selectObject.add(option, select[0]);
     }
     const selects = document.getElementsByClassName("select__select");
-    Array.prototype.forEach.call(selects, function(select) {
-    setDefaultOption(select);
+    Array.prototype.forEach.call(selects, function(select, i) {
+        setDefaultOption(select[i],productOptionNames[i]);
     });
 </script>
