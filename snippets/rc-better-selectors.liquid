@@ -1,13 +1,8 @@
 <script type="text/javascript">
     var productOptionNames = [];
     var productOptionValues = [];
-    {% for product_option in product.options_with_values %}
+    {% for product_option in product.options %}
         productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
-        /*productOptionValues[{{ forloop.index | minus:1 }}] =  new Array();
-        {% for value in product_option.values %}
-            productOptionValues[{{ forloop.parentloop.index | minus:1 }}].push("{{ value | replace: '"', '\\"' }}");
-        {% endfor %}
-        */
     {% endfor %}
 
     var variants = [];
@@ -43,6 +38,14 @@
         console.log('parent: '+parent);
         Array.prototype.forEach.call(select, function(option) {
             console.log('option: '+option.value);
+            //some form of voodoo that matches the users selection with the list of valid variant combinations
+            result = variants.filter(function(item) {
+                for (var key in filterItems) {
+                if (item[key] === undefined || item[key] != filterItems[key])
+                    return false;
+                }
+                return true;
+            });
         });
     }
 
