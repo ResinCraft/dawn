@@ -7,11 +7,15 @@
          }
       }
       
-      Shopify.uniq = function(e) {
-          for (var t = [], n = 0; n < e.length; n++)
-              Shopify.arrayIncludes(t, e[n]) || t.push(e[n]);
+      // Required functionality from depricated options_selection.js
+      Shopify.arrayIncludes = function(e, t) {
+        for (var n = 0; n < e.length; n++)
+            if (e[n] == t) return !0;
+        return !1
+      }, Shopify.uniq = function(e) {
+          for (var t = [], n = 0; n < e.length; n++) Shopify.arrayIncludes(t, e[n]) || t.push(e[n]);
           return t
-      };
+      }
       
       var Shopify = Shopify || {};
       const selects = document.getElementsByClassName("select__select");
