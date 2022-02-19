@@ -85,6 +85,20 @@
         }
         // Update options right away.
         Shopify.updateOptionsInSelector(0);
+        if (product.options.length > 1) Shopify.updateOptionsInSelector(1);
+        if (product.options.length === 3) Shopify.updateOptionsInSelector(2);
+        // When there is an update in the first dropdown.
+        /*jQuery(".single-option-selector:eq(0)").change(function() {
+          Shopify.updateOptionsInSelector(1);
+          if (product.options.length === 3) Shopify.updateOptionsInSelector(2);
+          return true;
+        });
+        // When there is an update in the second dropdown.
+        jQuery(".single-option-selector:eq(1)").change(function() {
+          if (product.options.length === 3) Shopify.updateOptionsInSelector(2);
+          return true;
+        });  
+        */
       }
       {% if product.available and product.options.size > 1 %}
         var $addToCartForm = document.getElementsByClassName("select__select")[0].form;
