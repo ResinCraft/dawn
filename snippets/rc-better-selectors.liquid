@@ -51,11 +51,10 @@
     {
         console.log('select: '+select);
         console.log('parent: '+parent);
-      	validOptions = variants.find(  );
       	console.log('validOptions: '+JSON.stringify(validOptions))
         Array.prototype.forEach.call(select, function(option) {
             console.log('option: '+option.value);
-          	var result = variants.find( ({ option1 }) => option1 === parent && ({ option2 }) => option2 === option.value );
+          	var result = variants.find( (({ option1 }) => option1 == parent) && (({ option2 }) => option2 == option.value ));
           	console.log('result: '+JSON.stringify(result));
         });
     }
