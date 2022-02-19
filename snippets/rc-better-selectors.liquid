@@ -1,6 +1,18 @@
 <script type="text/javascript">
-  function setDefaultOption(selectObject)
-  {
+    var productOptionNames = [];
+    var productOptionValues = [];
+
+    {% for product_option in product.options_with_values %}
+        productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
+        productOptionValues[{{ forloop.index }}] = [];
+        {% for value in product_option.values %}
+            productOptionValues[{{ forloop.parentloop.index }}].push("{{ value | replace: '"', '\\"' }}");
+        {% endfor %}
+    {% endfor %}  
+                                console.log('productOptionNames: '+productOptionNames);
+  console.log('productOptionValues: '+productOptionValues);
+    function setDefaultOption(selectObject)
+    {
     //text for the option, i.e. "Select Size..."
     selectName = selectObject.name;
     //strip out the option name i.e. "options[TypeXYZ]" => "TypeXYZ"
@@ -15,14 +27,14 @@
     //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
     const urlParams = new URLSearchParams(window.location.search);
     if(!urlParams.has('variant')) {
-      option.selected = true;
+    option.selected = true;
     }
 
     //add the option to the selector at the top
     selectObject.add(option, selectObject[0]);
-  }
-  const selects = document.getElementsByClassName("select__select");
-  Array.prototype.forEach.call(selects, function(select) {
+    }
+    const selects = document.getElementsByClassName("select__select");
+    Array.prototype.forEach.call(selects, function(select) {
     setDefaultOption(select);
-  });
+    });
 </script>
