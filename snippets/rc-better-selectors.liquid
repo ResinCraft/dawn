@@ -1,36 +1,36 @@
 <script type="text/javascript">
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        var productOptionNames = [];
-        var productOptionValues = [];
-        var variants = [];
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  var productOptionNames = [];
+  var productOptionValues = [];
+  var variants = [];
 
-        {% for product_option in product.options_with_values %}
-            productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
-            productOptionValues[{{ forloop.index }}] = []
-                {% for value in product_option.values %}
-                    productOptionValues[{{ forloop.parentloop.index }}].push("{{ value | replace: '"', '\\"' }}");
-                {% endfor %}
-        {% endfor %}
-        //console.log("productOptionNames: "+productOptionNames);
-        //console.log("productOptionValues[1]: "+productOptionValues[1]);
-        //console.log("productOptionValues[2]: "+productOptionValues[2]);
-        //console.log("productOptionValues[3]: "+productOptionValues[3]);
+  {% for product_option in product.options_with_values %}
+  productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
+productOptionValues[{{ forloop.index }}] = [];
+                          {% for value in product_option.values %}
+                          productOptionValues[{{ forloop.parentloop.index }}].push("{{ value | replace: '"', '\\"' }}");
+                          {% endfor %}
+                          {% endfor %}
+                          //console.log("productOptionNames: "+productOptionNames);
+                          //console.log("productOptionValues[1]: "+productOptionValues[1]);
+                          //console.log("productOptionValues[2]: "+productOptionValues[2]);
+                          //console.log("productOptionValues[3]: "+productOptionValues[3]);
 
-        //build a list of valid variants
+                          //build a list of valid variants
 
-        {% for variant in product.variants %}
-            variants.push({id:{{ variant.id }}, option1:"{{ variant.option1 | replace: '"', '\\"' }}", option2:"{{ variant.option2 | replace: '"', '\\"' }}", option3:"{{ variant.option3 | replace: '"', '\\"' }}", stock:'{{ variant.inventory_quantity }}'});
-        {% endfor %}
+                          {% for variant in product.variants %}
+                          variants.push({id:{{ variant.id }}, option1:"{{ variant.option1 | replace: '"', '\\"' }}", option2:"{{ variant.option2 | replace: '"', '\\"' }}", option3:"{{ variant.option3 | replace: '"', '\\"' }}", stock:'{{ variant.inventory_quantity }}'});
+                          {% endfor %}
 
-        function getSelector(optionId) {
+                          /*function getSelector(optionId) {
             selectName = "options[" + productOptionNames[optionId] + "]";
             var collection = document.getElementsByName(selectName);
             return collection[0];
-        }
-  
-        //removes a particular variable from the url string i.e. removeParams("this") would change "https://test.com/?this=1&that=2" to "https://test.com/?that=2"
-        function removeParams(sParam)
+        }*/
+
+                          //removes a particular variable from the url string i.e. removeParams("this") would change "https://test.com/?this=1&that=2" to "https://test.com/?that=2"
+                          /*function removeParams(sParam)
         {
           var url = window.location.href.split('?')[0]+'?';
           var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -45,76 +45,76 @@
             }
           }
           return url.substring(0,url.length-1);
-        }
-  
-        //returns the text for the option, i.e. "Select Size..."
-        function getOptionText(selectObject)
-        {
-          //get the name of the current drop down box i.e. "options[TypeXYZ]"
-          selectName = selectObject.name;
+        }*/
 
-          //strip out the option name i.e. "options[TypeXYZ]" => "TypeXYZ"
-          optionText = selectName.match(/\[(.*?)\]/)[1];
+                          //returns the text for the option, i.e. "Select Size..."
+                          function getOptionText(selectObject)
+  {
+    //get the name of the current drop down box i.e. "options[TypeXYZ]"
+    selectName = selectObject.name;
 
-          //make it more friendly "Select Size..."
-          optionText = "Select " + optionText + "..."
-          return optionText;
-        }
+    //strip out the option name i.e. "options[TypeXYZ]" => "TypeXYZ"
+    optionText = selectName.match(/\[(.*?)\]/)[1];
 
-        function setOptionText(selectObject)
-        {
-          //build the option that is going to be inserted into the drop down box
-          var option = document.createElement("option");
-          option.text = getOptionText(selectObject)
+    //make it more friendly "Select Size..."
+    optionText = "Select " + optionText + "..."
+    return optionText;
+  }
 
-          //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
-          if(!urlParams.has('variant')) {
-            option.selected = true;
-          }
+  function setOptionText(selectObject)
+  {
+    //build the option that is going to be inserted into the drop down box
+    var option = document.createElement("option");
+    option.text = getOptionText(selectObject)
 
-          //add the option to the selector at the top
-          selectObject.add(option, selectObject[0]);
-        }
-  
-      //see if the user has selected a valid combination
-      function validSelection() {
-            //get the option selectors
-            var selectObjects = document.getElementsByClassName('select__select');
+    //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
+    if(!urlParams.has('variant')) {
+      option.selected = true;
+    }
 
-            //build a list of items that have been selected in option1, {option2} and {option3}
-            var filterItems = {};
-            Array.prototype.forEach.call(selectObjects, function(selectObject, i) {
-                var itemString = "option"+(i+1);
-                filterItems[itemString] = selectObject.value;
-            });
+    //add the option to the selector at the top
+    selectObject.add(option, selectObject[0]);
+  }
 
-            //some form of voodoo that matches the users selection with the list of valid variant combinations
-            result = variants.filter(function(item) {
-              for (var key in filterItems) {
-                if (item[key] === undefined || item[key] != filterItems[key])
-                  return false;
-              }
-              return true;
-            });
+  //see if the user has selected a valid combination
+  function validSelection() {
+    //get the option selectors
+    var selectObjects = document.getElementsByClassName('select__select');
 
-            //if the combo exists, then say so
-            return (typeof result[0] !== 'undefined') ? true : false;
+    //build a list of items that have been selected in option1, {option2} and {option3}
+    var filterItems = {};
+    Array.prototype.forEach.call(selectObjects, function(selectObject, i) {
+      var itemString = "option"+(i+1);
+      filterItems[itemString] = selectObject.value;
+    });
+
+    //some form of voodoo that matches the users selection with the list of valid variant combinations
+    result = variants.filter(function(item) {
+      for (var key in filterItems) {
+        if (item[key] === undefined || item[key] != filterItems[key])
+          return false;
       }
-  
-        //check to see if the variant has been changed, run onVariantChange function
-        this.addEventListener('change', this.onVariantChange);
+      return true;
+    });
 
-        //if an invalid variant has been selected, remove the url preselector i.e. "?variant=1234"
-        function onVariantChange() {
-			validSelection()
-        }
+    //if the combo exists, then say so
+    return (typeof result[0] !== 'undefined') ? true : false;
+  }
 
-      	const selects = document.getElementsByClassName("select__select");
-      	Array.prototype.forEach.call(selects, function(select) {
-          setOptionText(select);
-        });
+  //check to see if the variant has been changed, run onVariantChange function
+  this.addEventListener('change', this.onVariantChange);
 
-        /*function selectValidOption(select) {
+  //if an invalid variant has been selected, remove the url preselector i.e. "?variant=1234"
+  function onVariantChange() {
+    validSelection()
+  }
+
+  const selects = document.getElementsByClassName("select__select");
+  Array.prototype.forEach.call(selects, function(select) {
+    setOptionText(select);
+  });
+
+  /*function selectValidOption(select) {
 
             return select;
         }
