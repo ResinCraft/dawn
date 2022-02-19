@@ -7,6 +7,12 @@
          }
       }
       
+      Shopify.uniq = function(e) {
+          for (var t = [], n = 0; n < e.length; n++)
+              Shopify.arrayIncludes(t, e[n]) || t.push(e[n]);
+          return t
+      };
+      
       var Shopify = Shopify || {};
       const selects = document.getElementsByClassName("select__select");
       Shopify.optionsMap = {};
