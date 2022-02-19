@@ -36,6 +36,15 @@
         select.add(option, select[0]);
     }
 
+    function validateOptions(options,parent)
+    {
+        console.log('select: '+select);
+        console.log('parent: '+parent);
+        /*Array.prototype.forEach.call(selects, function(select, i) {
+
+        });*/
+    }
+
     function modifySelect(select)
     {
         const selects = document.getElementsByClassName("select__select");
@@ -50,6 +59,7 @@
             if(selects[selectorIndex - 1].selectedIndex == 0){
                 selectContainers[selectorIndex].style.display = 'none';
             } else {
+                validateOptions(select,selectContainers[selectorIndex - 1].value)
               	selectContainers[selectorIndex].style.display = '';
             }
             break;
