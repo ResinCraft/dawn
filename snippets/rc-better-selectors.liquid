@@ -59,7 +59,7 @@
             if(selects[selectorIndex - 1].selectedIndex == 0){
                 selectContainers[selectorIndex].style.display = 'none';
             } else {
-                validateOptions(select,selectContainers[selectorIndex - 1].value)
+                validateOptions(select,selects[selectorIndex - 1].value)
               	selectContainers[selectorIndex].style.display = '';
             }
             break;
