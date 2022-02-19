@@ -11,14 +11,9 @@
     //console.log('productOptionNames: '+productOptionNames);
     //console.log('productOptionValues: '+productOptionValues[0,1,2]);
     
-    function setDefaultOption(select)
+    function setDefaultOption(select,optionName)
     {
-        //text for the option, i.e. "Select Size..."
-        selectName = select.name;
-        //strip out the option name i.e. "options[TypeXYZ]" => "TypeXYZ"
-        optionText = selectName.match(/\[(.*?)\]/)[1];
-        //make it more friendly "Select Size..."
-        optionText = "Select " + optionText + "..."
+        optionText = "Select " + optionName + "..."
 
         //build the option that is going to be inserted into the drop down box
         var option = document.createElement("option");
