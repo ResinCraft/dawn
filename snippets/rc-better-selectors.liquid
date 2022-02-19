@@ -59,8 +59,8 @@
     {
         removeOptions(select);	
         var selectVariants = variants.filter((({ option1 }) => option1 === parent));
-      	Array.prototype.forEach.call(selectVariants, function(variant, i) {
-          console.log('variant: '+variant);
+      	Array.prototype.forEach.call(selectVariants, function(variants, i) {
+          console.log('variant: '+variants);
         });
         //console.log('select: '+select);
         //console.log('parent: '+parent);;
