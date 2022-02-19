@@ -7,12 +7,12 @@
 
     var variants = [];
     {% for variant in product.variants %}
-      variants.push({id:{{ variant.id }}, option1:"{{ variant.option1 | replace: '"', '\\"' }}", option2:"{{ variant.option2 | replace: '"', '\\"' }}", option3:"{{ variant.option3 | replace: '"', '\\"' }}", stock:'{{ variant.inventory_quantity }}'});
+      variants.push("{{variants.option1}} / {{variants.option2}} / {{variants.option3}}");
     {% endfor %}
 
     //console.log('productOptionNames: '+productOptionNames);
     console.log('productOptionValues: '+productOptionValues[0]);
-    console.log('variants');
+    console.log('variants: '+variants);
     
     function setDefaultOption(select,optionName)
     {
