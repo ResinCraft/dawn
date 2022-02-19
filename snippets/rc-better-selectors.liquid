@@ -5,9 +5,9 @@
         productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
     {% endfor %}
 
-    var variants = [];
+    var variants2 = [];
     {% for variant in product.variants %}
-      variants.push("{{variant.option1}} / {{variant.option2}} / {{variant.option3}}");
+        variants2.push("{{variant.option1}} / {{variant.option2}}");
     {% endfor %}
 
     //console.log('productOptionNames: '+productOptionNames);
