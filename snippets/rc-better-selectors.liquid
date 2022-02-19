@@ -37,11 +37,11 @@
             key += ' / ' + selects[1].value;
             var selector = selects[2];
         }
-        console.log("key: "+key);
+        //console.log("key: "+key);
         var initialValue = undefined;
         removeOptions(selector);
         var availableOptions = Shopify.optionsMap[key];
-        console.log('availableOptions: ' + availableOptions);
+        //console.log('availableOptions: ' + availableOptions);
         for (var i=0; i<availableOptions.length; i++) {
           var option = availableOptions[i];
           //var newOption = jQuery('<option></option>').val(option).html(option);
@@ -50,7 +50,7 @@
           console.log('newOption: '+newOption);
           selector.add(newOption);
         }
-        console.log("this: "+availableOptions.includes(initialValue));
+        //console.log("this: "+availableOptions.includes(initialValue));
         if (availableOptions.includes(initialValue) !== -1) {
           selector.value = initialValue;
         }
@@ -58,7 +58,7 @@
       }
       
       Shopify.linkOptionSelectors = function(product) {
-        console.log('linking options: '+product);
+        console.log('linking options: '+product.options.length);
         // Building our mapping object.
         for (var i=0; i<product.variants.length; i++) {
           var variant = product.variants[i];
