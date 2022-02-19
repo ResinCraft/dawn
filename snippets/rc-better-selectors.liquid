@@ -3,10 +3,11 @@
     var productOptionValues = [];
     {% for product_option in product.options_with_values %}
         productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
-        productOptionValues[{{ forloop.index | minus:1 }}] =  new Array();
+        /*productOptionValues[{{ forloop.index | minus:1 }}] =  new Array();
         {% for value in product_option.values %}
             productOptionValues[{{ forloop.parentloop.index | minus:1 }}].push("{{ value | replace: '"', '\\"' }}");
         {% endfor %}
+        */
     {% endfor %}
 
     var variants = [];
@@ -14,9 +15,9 @@
       variants.push({id:{{ variant.id }}, option1:"{{ variant.option1 | replace: '"', '\\"' }}", option2:"{{ variant.option2 | replace: '"', '\\"' }}", option3:"{{ variant.option3 | replace: '"', '\\"' }}", stock:'{{ variant.inventory_quantity }}'});
     {% endfor %}
 
-    console.log('productOptionNames: '+productOptionNames);
-    console.log('productOptionValues: '+productOptionValues[1]);
-    console.log('variants: '+JSON.stringify(variants));
+    //console.log('productOptionNames: '+productOptionNames);
+    console.log('productOptionValues: '+productOptionValues[0]);
+    //console.log('variants: '+JSON.stringify(variants));
     
     function setDefaultOption(select,optionName)
     {
@@ -41,7 +42,15 @@
         console.log('select: '+select);
         console.log('parent: '+parent);
         Array.prototype.forEach.call(select, function(option) {
-          console.log('option: '+option.value);
+            console.log('option: '+option.value);
+            //some form of voodoo that matches the users selection with the list of valid variant combinations
+            result = variants.filter(function(item) {
+                for (var key in filterItems) {
+                if (item[key] === undefined || item[key] != filterItems[key])
+                    return false;
+                }
+                return true;
+            });
         });
     }
 
