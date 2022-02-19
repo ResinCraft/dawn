@@ -56,14 +56,25 @@
             console.log('option2-'+i+': '+option.value);
           	//console.log('option1-'+i+': '+parent);
           	result = variants.filter((({ option1 }) => option1 === parent));
-          	console.log('parent'+i+': '+JSON.stringify(result));
+          	//console.log('parent'+i+': '+JSON.stringify(result));
           	result = result.find((({ option2 }) => option2 === option.value));
-          	console.log('result'+i+': '+JSON.stringify(result));
+          	//console.log('result'+i+': '+JSON.stringify(result));
+            if(!result){
+              
+            }
         });
     }
 
+    function removeOptions(selectElement) {
+         var i, L = selectElement.options.length - 1;
+         for(i = L; i >= 0; i--) {
+         	selectElement.remove(i);
+         }
+    }
+  
     function modifySelect(select)
     {
+      	removeOptions(select);
         const selects = document.getElementsByClassName("select__select");
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
         selectName = select.name;
