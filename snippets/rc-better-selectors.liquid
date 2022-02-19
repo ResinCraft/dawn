@@ -40,7 +40,9 @@
         //console.log("key: "+key);
         var initialValue = undefined;
         removeOptions(selector);
+        
         var availableOptions = Shopify.optionsMap[key];
+        
         console.log('availableOptions: ' + availableOptions);
         for (var i=0; i<availableOptions.length; i++) {
           var option = availableOptions[i];
