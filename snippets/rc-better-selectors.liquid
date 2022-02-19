@@ -39,6 +39,7 @@
     function modifySelect(select)
     {
         const selects = document.getElementsByClassName("select__select");
+      	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
         selectName = select.name;
         optionText = selectName.match(/\[(.*?)\]/)[1];
         selectorIndex = productOptionNames.indexOf(optionText);
@@ -47,12 +48,12 @@
             break;
           case 1:
             if(selects[selectorIndex - 1].selectedIndex == 0){
-                select.style.display = 'none';
+                selectContainers[selectorIndex].style.display = 'none';
             }
             break;
           case 2:
             if(selects[selectorIndex - 1].selectedIndex == 0 || selects[selectorIndex - 2].selectedIndex == 0){
-                select.style.display = 'none';
+                selectContainers[selectorIndex].style.display = 'none';
             }
         }
     }
