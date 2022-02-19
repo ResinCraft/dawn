@@ -51,6 +51,8 @@
     {
         console.log('select: '+select);
         console.log('parent: '+parent);
+      	result = variants.find( ({ option1 }) => option1 === parent );
+      	console.log('validOptions: '+JSON.stringify(result))
         Array.prototype.forEach.call(select, function(option) {
             console.log('option: '+option.value);
           	var result = variants.find( ({ option1 }) => option1 === option.value );
