@@ -1,7 +1,7 @@
 <script type="text/javascript">
     var productOptionNames = [];
     var productOptionValues = [];
-
+  {{ product.options_with_values }}
     {% for product_option in product.options_with_values %}
         productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
         productOptionValues[{{ forloop.index }}] = [];
