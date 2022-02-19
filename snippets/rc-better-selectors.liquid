@@ -53,7 +53,7 @@
         console.log('parent: '+parent);
         Array.prototype.forEach.call(select, function(option, i) {
           	var result = undefined;
-            console.log('option: '+option.value);
+            console.log('option'+i+': '+option.value);
           	 result = variants.find( (({ option1 }) => option1 == parent) && (({ option2 }) => option2 == option.value ));
           	console.log('result'+i+': '+JSON.stringify(result));
         });
