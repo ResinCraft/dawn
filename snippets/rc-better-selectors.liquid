@@ -1,5 +1,12 @@
 {% if request.page_type == 'product' %}
     <script type="text/javascript">
+      function removeOptions(selectElement) {
+         var i, L = selectElement.options.length - 1;
+         for(i = L; i >= 0; i--) {
+            selectElement.remove(i);
+         }
+      }
+      
       var Shopify = Shopify || {};
       const selects = document.getElementsByClassName("select__select");
       Shopify.optionsMap = {};
@@ -21,7 +28,7 @@
             var selector = selects[2];
         }
         var initialValue = undefined;
-        //selector.empty();    
+        removeOptions(selector);
         var availableOptions = Shopify.optionsMap[key];
         console.log('availableOptions: ' + availableOptions);
         for (var i=0; i<availableOptions.length; i++) {
