@@ -27,6 +27,7 @@
             key += ' / ' + selects[1].value;
             var selector = selects[2];
         }
+        console.log("key:"+key);
         var initialValue = undefined;
         removeOptions(selector);
         var availableOptions = Shopify.optionsMap[key];
