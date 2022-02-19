@@ -72,19 +72,20 @@
             }
           }
         }
-{% if product.available and product.options.size > 1 %}
-  var $addToCartForm = $('form[action="/cart/add"]');
-  if (window.MutationObserver && $addToCartForm.length) {
-    if (typeof observer === 'object' && typeof observer.disconnect === 'function') {
-      observer.disconnect();
-    }
-    var config = { childList: true, subtree: true };
-    var observer = new MutationObserver(function() {      
-      Shopify.linkOptionSelectors({{ product | json }});
-      observer.disconnect();
-    });  
-    observer.observe($addToCartForm[0], config);
-  }
-{% endif %}
+      }
+      {% if product.available and product.options.size > 1 %}
+        var $addToCartForm = $('form[action="/cart/add"]');
+        if (window.MutationObserver && $addToCartForm.length) {
+          if (typeof observer === 'object' && typeof observer.disconnect === 'function') {
+            observer.disconnect();
+          }
+          var config = { childList: true, subtree: true };
+          var observer = new MutationObserver(function() {      
+            Shopify.linkOptionSelectors({{ product | json }});
+            observer.disconnect();
+          });  
+          observer.observe($addToCartForm[0], config);
+        }
+      {% endif %}
     </script>
 {% endif %}
