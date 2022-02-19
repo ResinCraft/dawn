@@ -4,7 +4,7 @@
         var productOptionNames = [];
         var productOptionValues = [];
         var variants = [];
-
+		console.log(Shopify.optionsMap);
         {% for product_option in product.options_with_values %}
             productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
             productOptionValues[{{ forloop.index }}] = []
