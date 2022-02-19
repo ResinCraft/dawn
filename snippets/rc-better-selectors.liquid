@@ -31,7 +31,10 @@
 
     function modifySelect(select)
     {
-        console.log(select.name);
+        selectName = selectObject.name;
+        optionText = selectName.match(/\[(.*?)\]/)[1];
+        index = productOptionNames.indexOf(optionText);
+        console.log('index: '+index);
     }
 
     const selects = document.getElementsByClassName("select__select");
