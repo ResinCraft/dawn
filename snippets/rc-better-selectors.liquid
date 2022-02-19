@@ -43,20 +43,43 @@
           return optionText;
         }
 
-      function setOptionText(selectObject)
-      {
-        //build the option that is going to be inserted into the drop down box
-        var option = document.createElement("option");
-		option.text = getOptionText(selectObject)
+        function setOptionText(selectObject)
+        {
+          //build the option that is going to be inserted into the drop down box
+          var option = document.createElement("option");
+          option.text = getOptionText(selectObject)
 
-        //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
-        if(!urlParams.has('variant')) {
-          option.selected = true;
+          //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
+          if(!urlParams.has('variant')) {
+            option.selected = true;
+          }
+
+          //add the option to the selector at the top
+          selectObject.add(option, selectObject[0]);
         }
+  
+        //check to see if the variant has been changed, run onVariantChange function
+        this.addEventListener('change', this.onVariantChange);
 
-        //add the option to the selector at the top
-        selectObject.add(option, selectObject[0]);
-      }   	
+        //if an invalid variant has been selected, remove the url preselector i.e. "?variant=1234"
+        function onVariantChange() {
+          var newQueryString = window.location.search;
+          var newUrlParams = new URLSearchParams(newQueryString);
+
+          var invalidOption = false;
+          Array.prototype.forEach.call(selectObjects, function(selectObject) {
+            if(selectObject.value == getOptionText(selectObject))
+            {
+              invalidOption = true;
+            }
+          });
+
+          if(invalidOption && newUrlParams.has('variant'))
+          {
+            var url = removeParams('variant');
+            window.history.pushState("", "", url);
+          }
+        }
     </script>
 
     <script type="text/javascript">
