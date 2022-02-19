@@ -4,15 +4,28 @@
     {% for product_option in product.options_with_values %}
         productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
     {% endfor %}
+    /*
+    const variants = [
+        {option1: 'apples', quantity: 2},
+        {name: 'bananas', quantity: 0},
+        {name: 'cherries', quantity: 5}
+    ];
 
-    var variants2 = [];
+    function isCherries(fruit) {
+    return fruit.name === 'cherries';
+    }
+
+    console.log(inventory.find(isCherries));
+    // { name: 'cherries', quantity: 5 }
+    */
+    var variants = [];
     {% for variant in product.variants %}
-        variants2.push("{{variant.option1}} / {{variant.option2}}");
+        variants.push({option1: '{{variant.option1}}', option2: '{{variant.option2}}', option3: '{{variant.option3}}'});
     {% endfor %}
 
     //console.log('productOptionNames: '+productOptionNames);
     console.log('productOptionValues: '+productOptionValues[0]);
-    console.log('variants: '+variants2);
+    console.log('variants: '+variants);
     
     function setDefaultOption(select,optionName)
     {
