@@ -1,0 +1,82 @@
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        var productOptionNames = [];
+        var productOptionValues = [];
+        var variants = [];
+
+        {% for product_option in product.options_with_values %}
+            productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
+            productOptionValues[{{ forloop.index }}] = []
+                {% for value in product_option.values %}
+                    productOptionValues[{{ forloop.parentloop.index }}].push("{{ value | replace: '"', '\\"' }}");
+                {% endfor %}
+        {% endfor %}
+        //console.log("productOptionNames: "+productOptionNames);
+        //console.log("productOptionValues[1]: "+productOptionValues[1]);
+        //console.log("productOptionValues[2]: "+productOptionValues[2]);
+        //console.log("productOptionValues[3]: "+productOptionValues[3]);
+
+        //build a list of valid variants
+
+        {% for variant in product.variants %}
+            variants.push({id:{{ variant.id }}, option1:"{{ variant.option1 | replace: '"', '\\"' }}", option2:"{{ variant.option2 | replace: '"', '\\"' }}", option3:"{{ variant.option3 | replace: '"', '\\"' }}", stock:'{{ variant.inventory_quantity }}'});
+        {% endfor %}
+
+        function getSelector(optionId) {
+            selectName = "options[" + productOptionNames[optionId] + "]";
+            var collection = document.getElementsByName(selectName);
+            return collection[0];
+        }
+
+        //returns the text for the option, i.e. "Select Size..."
+        function getOptionText(selectObject)
+        {
+          //get the name of the current drop down box i.e. "options[TypeXYZ]"
+          selectName = selectObject.name;
+
+          //strip out the option name i.e. "options[TypeXYZ]" => "TypeXYZ"
+          optionText = selectName.match(/\[(.*?)\]/)[1];
+
+          //make it more friendly "Select Size..."
+          optionText = "Select " + optionText + "..."
+          return optionText;
+        }
+
+      function setOptionText(selectObject)
+      {
+        //build the option that is going to be inserted into the drop down box
+        var option = document.createElement("option");
+		option.text = getOptionText(selectObject)
+
+        //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
+        if(!urlParams.has('variant')) {
+          option.selected = true;
+        }
+
+        //add the option to the selector at the top
+        selectObject.add(option, selectObject[0]);
+      }   	
+    </script>
+
+    <script type="text/javascript">
+
+      	const selects = document.getElementsByClassName("select__select");
+      	Array.prototype.forEach.call(selects, function(select) {
+          setOptionText(select);
+        });
+
+        /*function selectValidOption(select) {
+
+            return select;
+        }
+
+        function hideSelectors() {
+            console.log("options[" + productOptions[0] + "]");
+            const collection = document.getElementsByName("options[" + productOptions[0] + "]");
+            result = selectValidOption(collection[0]);
+            console.log(result);
+        }
+        this.addEventListener('change', this.hideSelectors);
+        hideSelectors();
+        */
