@@ -40,9 +40,9 @@
           selector.add(newOption);
           //selector.append(newOption);
         }
-
-        if (jQuery.inArray(initialValue, availableOptions) !== -1) {
-          selector.val(initialValue);
+		
+        if (availableOptions.includes(initialValue)) !== -1) {
+          selector.value = initialValue;
         }
         selector.trigger('change');  
       }
