@@ -37,7 +37,7 @@
             key += ' / ' + selects[1].value;
             var selector = selects[2];
         }
-        //console.log("key: "+key);
+        console.log("key: "+key);
         var initialValue = undefined;
         removeOptions(selector);
         
@@ -84,7 +84,7 @@
               Shopify.optionsMap[key] = Shopify.uniq(Shopify.optionsMap[key]);
             }
           }
-          console.log('root: '+Shopify.optionsMap['root']);
+          //console.log('root: '+Shopify.optionsMap['root']);
         }
         // Update options right away.
         Shopify.updateOptionsInSelector(0);
