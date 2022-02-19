@@ -16,7 +16,7 @@
 
     //console.log('productOptionNames: '+productOptionNames);
     //console.log('productOptionValues: '+productOptionValues[0,1,2]);
-    console.log('variants: '+variants);
+    console.log('variants: '+variants[0]);
     
     function setDefaultOption(select,optionName)
     {
@@ -38,6 +38,7 @@
 
     function modifySelect(select)
     {
+        const selects = document.getElementsByClassName("select__select");
         selectName = select.name;
         optionText = selectName.match(/\[(.*?)\]/)[1];
         selectorIndex = productOptionNames.indexOf(optionText);
@@ -45,13 +46,14 @@
           case 0:
             break;
           case 1:
-            var key = selects[0].value;
-            var selector = selects[1];
+            if(selects[selectorIndex - 1].selectedIndex == 0){
+                select.style.display = 'none';
+            }
             break;
           case 2:
-            var key = selects[0].value;  
-            key += ' / ' + selects[1].value;
-            var selector = selects[2];
+            if(selects[selectorIndex - 1].selectedIndex == 0 || selects[selectorIndex - 2].selectedIndex == 0){
+                select.style.display = 'none';
+            }
         }
     }
 
