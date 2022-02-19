@@ -22,11 +22,11 @@
         //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
         const urlParams = new URLSearchParams(window.location.search);
         if(!urlParams.has('variant')) {
-        option.selected = true;
-    }
+            option.selected = true;
+        }
 
-    //add the option to the selector at the top
-    selectObject.add(option, select[0]);
+        //add the option to the selector at the top
+        select.add(option, select[0]);
     }
     const selects = document.getElementsByClassName("select__select");
     Array.prototype.forEach.call(selects, function(select, i) {
