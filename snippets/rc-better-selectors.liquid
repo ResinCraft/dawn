@@ -61,9 +61,10 @@
         var selectVariants = variants.filter((({ option1 }) => option1 === parent));
       	Array.prototype.forEach.call(selectVariants, function(variants) {
           	Array.prototype.forEach.call(variants, function(variant) {
-				var option = document.createElement("option");
-              	option.text = option.value;
-              	select.add(option);				
+				/*var option = document.createElement("option");
+              	option.text = variant.value;
+              	select.add(option);				*/
+              	console.log('variants: '+JSON.stringify(variant));
 			});
         });
         //console.log('select: '+select);
