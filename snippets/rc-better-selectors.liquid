@@ -52,7 +52,7 @@
         console.log('select: '+select);
         console.log('parent: '+parent);
       	validOptions = variants.find( ({ option1 }) => option1 === parent );
-      	console.log('validOptions: '+JSON.stringify(result))
+      	console.log('validOptions: '+JSON.stringify(validOptions))
         Array.prototype.forEach.call(select, function(option) {
             console.log('option: '+option.value);
           	var result = validOptions.find( ({ option2 }) => option2 === option.value );
