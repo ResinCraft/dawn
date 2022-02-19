@@ -18,9 +18,9 @@
     //console.log("productOptionValues[3]: "+p
     //build a
     {% for variant in product.variants %}
-    variants.push({id:{{ variant.id }}, option1:"{{ variant.option1 | replace: '"', '\\"' }}", option2:"{{ variant.option2 | replace: '"', '\\"' }}", option3:"{{ variant.option3 | replace: '"', '\\"' }}", stock:'{{ variant.inventory_quantity }}'});
+    	variants.push({id:{{ variant.id }}, option1:"{{ variant.option1 | replace: '"', '\\"' }}", option2:"{{ variant.option2 | replace: '"', '\\"' }}", option3:"{{ variant.option3 | replace: '"', '\\"' }}", stock:'{{ variant.inventory_quantity }}'});
     {% endfor %}
-
+	console.log(variants);
                           /*function getSelector(optionId) {
             selectName = "options[" + productOptionNames[optionId] + "]";
             var collection = document.getElementsByName(selectName);
