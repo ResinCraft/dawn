@@ -55,7 +55,7 @@
           	var result = undefined;
             console.log('option2-'+i+': '+option.value);
           	console.log('option1-'+i+': '+parent);
-          	result[] = variants.find((({ option1 }) => option1 === parent));
+          	result = [variants.find((({ option1 }) => option1 === parent))];
           	console.log('parent'+i+': '+JSON.stringify(result));
           	result = result.find((({ option2 }) => option2 === option.value));
           	console.log('result'+i+': '+JSON.stringify(result));
