@@ -67,4 +67,12 @@
         setDefaultOption(select,productOptionNames[i]);
         modifySelect(select);
     });
+
+    this.addEventListener('change', this.onVariantChange);
+
+    function onVariantChange() {
+        Array.prototype.forEach.call(selects, function(select) {
+            modifySelect(select);
+        });
+    }
 </script>
