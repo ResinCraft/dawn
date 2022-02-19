@@ -6,16 +6,16 @@
     {% endfor %}
     /*
     const variants = [
-        {option1: 'apples', quantity: 2},
+        {name: 'apples', quantity: 2},
         {name: 'bananas', quantity: 0},
         {name: 'cherries', quantity: 5}
     ];
 
     function isCherries(fruit) {
-    return fruit.name === 'cherries';
+    return ;
     }
 
-    console.log(inventory.find(isCherries));
+    console.log(inventory.find(fruit.name === 'cherries'));
     // { name: 'cherries', quantity: 5 }
     */
     var variants = [];
@@ -25,7 +25,7 @@
 
     //console.log('productOptionNames: '+productOptionNames);
     console.log('productOptionValues: '+productOptionValues[0]);
-    console.log('variants: '+variants);
+    console.log('variants: '+inventory.find(variants.option1 === '12mm (1/2 in.)'));
     
     function setDefaultOption(select,optionName)
     {
