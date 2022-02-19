@@ -5,7 +5,7 @@
         productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
         productOptionValues[{{ forloop.index }}] =  new Array();
         {% for value in product_option.values %}
-            productOptionValues[{{ forloop.parentloop.index }}].push("{{ value | replace: '"', '\\"' }}");
+            productOptionValues[{{ forloop.parentloop.index | minus:1 }}].push("{{ value | replace: '"', '\\"' }}");
         {% endfor %}
     {% endfor %}  
                                 console.log('productOptionNames: '+productOptionNames);
