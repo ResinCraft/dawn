@@ -46,7 +46,7 @@
           var option = availableOptions[i];
           //var newOption = jQuery('<option></option>').val(option).html(option);
           var newOption = document.createElement("option");
-          newOption.value = option;
+          newOption.text = option;
           console.log('newOption: '+newOption);
           selector.add(newOption);
         }
