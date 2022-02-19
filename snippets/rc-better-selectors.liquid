@@ -28,7 +28,25 @@
             var collection = document.getElementsByName(selectName);
             return collection[0];
         }
+  
+        //removes a particular variable from the url string i.e. removeParams("this") would change "https://test.com/?this=1&that=2" to "https://test.com/?that=2"
+        function removeParams(sParam)
+        {
+          var url = window.location.href.split('?')[0]+'?';
+          var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+              sURLVariables = sPageURL.split('&'),
+              sParameterName,
+              i;
 
+          for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] != sParam) {
+              url = url + sParameterName[0] + '=' + sParameterName[1] + '&'
+            }
+          }
+          return url.substring(0,url.length-1);
+        }
+  
         //returns the text for the option, i.e. "Select Size..."
         function getOptionText(selectObject)
         {
