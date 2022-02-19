@@ -7,12 +7,12 @@
 
     var variants = [];
     {% for variant in product.variants %}
-      variants.push("{{variants.option1}} / {{variants.option2}} / {{variants.option3}}");
+      variants.push("{{variant.option1}} / {{variant.option2}} / {{variant.option3}}");
     {% endfor %}
 
     //console.log('productOptionNames: '+productOptionNames);
     console.log('productOptionValues: '+productOptionValues[0]);
-    console.log('variants: '+variants);
+    console.log('variants: '+variants[0]);
     
     function setDefaultOption(select,optionName)
     {
