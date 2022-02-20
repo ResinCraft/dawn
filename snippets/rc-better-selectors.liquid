@@ -61,9 +61,8 @@
   
     function buildOptions(select,parentSelect)
     {
-        var parentSelectName = parentSelect.name;
-        var optionText = parentSelectName.match(/\[(.*?)\]/)[1];
-        var filteredVariants = variants.filter((item)=>item[optionText] === parentSelect.value);
+        var parentOptionText = parentSelect.name.match(/\[(.*?)\]/)[1];
+        var filteredVariants = variants.filter((item)=>item[parentOptionText] === parentSelect.value);
 
       	Array.prototype.forEach.call(filteredVariants, function(variant) {
           	console.log('variants: '+JSON.stringify(variant));
