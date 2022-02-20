@@ -45,7 +45,6 @@
   
     function buildOptions(select,parentSelect)
     {
-      	const urlParams = new URLSearchParams(window.location.search);
         var parentOptionText = parentSelect.name.match(/\[(.*?)\]/)[1];
       	var selectOptionText = select.name.match(/\[(.*?)\]/)[1];
         var filteredVariants = variants.filter((item)=>item[parentOptionText] === parentSelect.value);
@@ -62,6 +61,10 @@
   
     function modifySelect(select,parentSelect)
     {
+      	const urlParams = new URLSearchParams(window.location.search);
+      	if(select.selectedIndex == 0) {
+          	urlParams.delete('variant');
+      	}
       	const selectIndex = findSelectIndex(select);
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
         if(selects[selectorIndex - 1].selectedIndex == 0){
