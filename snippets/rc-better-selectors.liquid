@@ -58,7 +58,8 @@
     function findOptions(option,searchString) {
         console.log('option: '+option);
         console.log('value: '+searchString);
-		var selectVariants = variants.filter((({ option1 }) => option1 === searchString));
+		//var selectVariants = variants.filter((({ option1 }) => option1 === searchString));
+      	var selectVariants = array.filter((item)=>item[option] === searchString))
       	console.log('selectVariants: '+JSON.stringify(selectVariants));
       	return selectVariants;
     }
