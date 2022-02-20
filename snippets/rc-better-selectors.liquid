@@ -98,6 +98,7 @@
   
     function modifySelect(select)
     {
+      	const selectIndex = findSelectIndex(select);
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
         if(selects[selectorIndex - 1].selectedIndex == 0){
           selectContainers[selectorIndex].style.display = 'none';
@@ -133,9 +134,6 @@
 
     const selects = document.getElementsByClassName("select__select");
   	setDefaultOption(selects[0]);
-
-    
-    const selectIndex = findSelectIndex(select);
   
     switch (selects.length) {
       	case 1:    	
