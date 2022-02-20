@@ -99,7 +99,6 @@
   
     function modifySelect(select,parentValue)
     {
-      console.log('parentValueasdasd: '+parentValue);
       	const selectIndex = findSelectIndex(select);
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
         if(selects[selectorIndex - 1].selectedIndex == 0){
@@ -118,7 +117,7 @@
       	case 1:    	
         break;
       	case 2:
-        	modifySelect(selects[1]);
+        	modifySelect(selects[1],selects[0].value);
         	selects[0].addEventListener('change', function() {modifySelect(selects[1],selects[0].value)});
         break;
       	case 3:
