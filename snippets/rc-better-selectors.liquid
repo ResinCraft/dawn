@@ -42,6 +42,11 @@
     }
 
     function findOptions(option,searchString) {
+        selectName = select.name;
+        optionText = selectName.match(/\[(.*?)\]/)[1];
+        selectorIndex = productOptionNames.indexOf(optionText);
+      	parent = selects[selectorIndex - 1].value;
+      
         console.log('option: '+option);
         console.log('searchString: '+searchString);
 		//var selectVariants = variants.filter((({ option1 }) => option1 === searchString));
@@ -50,7 +55,7 @@
       	return selectVariants;
     }
   
-    function buildOptions(select,parent)
+    function buildOptions(select)
     {
         var options = findOptions(select,parent);
         console.log('options: '+options);
@@ -90,14 +95,12 @@
     {
         const selects = document.getElementsByClassName("select__select");
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
-        selectName = select.name;
-        optionText = selectName.match(/\[(.*?)\]/)[1];
-        selectorIndex = productOptionNames.indexOf(optionText);
+
         switch (selectorIndex) {
           case 0:
             break;
           case 1:
-            buildOptions(select,selects[selectorIndex - 1].value);
+            buildOptions(select);
             /*if(selects[selectorIndex - 1].selectedIndex == 0){
                 selectContainers[selectorIndex].style.display = 'none';
             } else {
