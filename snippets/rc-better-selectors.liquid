@@ -56,6 +56,8 @@
     }
 
     function findOptions(option,value) {
+        console.log('option: '+option);
+        console.log('value: '+value);;		
 		var selectVariants = variants.filter((({ option }) => option === value));
       	return selectVariants;
     }
