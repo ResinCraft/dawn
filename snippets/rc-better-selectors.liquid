@@ -61,17 +61,15 @@
   
     function buildOptions(select,parentValue)
     {
-      	const selectIndex = findSelectIndex(select);
-      	option
-        var options = variants.filter((item)=>item[option] === parentValue);
-      	removeOptions(select);
-        var selectVariants = variants.filter((({ option1 }) => option1 === parent));
+        selectName = select.name;
+        optionText = selectName.match(/\[(.*?)\]/)[1];     	
+        var options = variants.filter((item)=>item[optionText] === parentValue);
+        //var selectVariants = variants.filter((({ option1 }) => option1 === parent));
       	Array.prototype.forEach.call(selectVariants, function(variants) {
           	Array.prototype.forEach.call(variants, function(variant) {
-				/*var option = document.createElement("option");
+				var option = document.createElement("option");
               	option.text = variant.value;
-              	select.add(option);				*/
-              	console.log('variants: '+JSON.stringify(variant));
+              	select.add(option);
 			});
         });
         //console.log('select: '+select);
@@ -108,28 +106,6 @@
           buildOptions(select,parentValue);
           selectContainers[selectorIndex].style.display = '';
 		}
-        /*switch (selectorIndex) {
-          case 0:
-            break;
-          case 1:
-            
-            /*if(selects[selectorIndex - 1].selectedIndex == 0){
-                selectContainers[selectorIndex].style.display = 'none';
-            } else {
-                buildOptions(select,selects[selectorIndex - 1].value)
-              	selectContainers[selectorIndex].style.display = '';
-            }
-            */
-      /*
-            break;
-          case 2:
-            if(selects[selectorIndex - 1].selectedIndex == 0 || selects[selectorIndex - 2].selectedIndex == 0){
-                selectContainers[selectorIndex].style.display = 'none';
-            } else {
-              	selectContainers[selectorIndex].style.display = '';
-            }
-        }
-        */
     }
 
     const selects = document.getElementsByClassName("select__select");
@@ -149,23 +125,4 @@
         	selects[1].addEventListener('change', function() {modifySelect(selects[2])});
         break;
     }
-  /*
-  	if(selects.count > 1){
-  		selects[0].addEventListener('change', modifySelect(selects[1]));
-    }
-  	selects[1].addEventListener('change', modifySelect(selects[2]));
-  
-    Array.prototype.forEach.call(selects, function(select, i) {
-        //setDefaultOption(select,productOptionNames[i]);
-        modifySelect(select);
-    });
-
-    this.addEventListener('change', this.onVariantChange);
-
-    function onVariantChange() {
-        Array.prototype.forEach.call(selects, function(select) {
-            modifySelect(select);
-        });
-    }
-    */
 </script>
