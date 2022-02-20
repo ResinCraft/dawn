@@ -58,7 +58,7 @@
     function findOptions(option,value) {
         console.log('option: '+option);
         console.log('value: '+value);	
-		var selectVariants = variants.filter((([ option ]) => option1 === value));
+		var selectVariants = variants.filter((([ option ]) => option === value));
       	console.log('selectVariants: '+JSON.stringify(selectVariants));
       	return selectVariants;
     }
