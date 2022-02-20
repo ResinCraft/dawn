@@ -138,8 +138,7 @@
         break;
       	case 2:
         	modifySelect(selects[1]);
-        	selects[0].addEventListener('change', function() {
-              alert(this.value)});
+        	selects[0].addEventListener('change', function() {modifySelect(selects[1])});
         break;
       	case 3:
         	modifySelect(selects[1]);
