@@ -63,9 +63,9 @@
     {
         selectName = select.name;
         optionText = selectName.match(/\[(.*?)\]/)[1];     	
-        var options = variants.filter((item)=>item[optionText] === parentValue);
+        var filteredVariants = variants.filter((item)=>item[optionText] === parentValue);
         //var selectVariants = variants.filter((({ option1 }) => option1 === parent));
-      	Array.prototype.forEach.call(selectVariants, function(variants) {
+      	Array.prototype.forEach.call(filteredVariants, function(variants) {
           	Array.prototype.forEach.call(variants, function(variant) {
 				var option = document.createElement("option");
               	option.text = variant.value;
