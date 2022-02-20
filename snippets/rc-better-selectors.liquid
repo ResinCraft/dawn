@@ -9,7 +9,23 @@
     {% for variant in product.variants %}
 		variants.push({id: {{variant.id}}, "{{ product.options_with_values[0].name | replace: '"', '\\"' }}": "{{variant.option1 | replace: '"', '\\"'}}", "{{ product.options_with_values[1].name | replace: '"', '\\"' }}": "{{variant.option2 | replace: '"', '\\"'}}", "{{ product.options_with_values[2].name | replace: '"', '\\"' }}": "{{variant.option3 | replace: '"', '\\"'}}"});
     {% endfor %}
-    
+
+    function removeParams(sParam) {
+          var url = window.location.href.split('?')[0]+'?';
+          var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+              sURLVariables = sPageURL.split('&'),
+              sParameterName,
+              i;
+
+          for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] != sParam) {
+              url = url + sParameterName[0] + '=' + sParameterName[1] + '&'
+            }
+		}
+		return url.substring(0,url.length-1);
+	}
+                                
     function setDefaultOption(select)
     {
         selectName = select.name;
@@ -62,9 +78,8 @@
   
     function modifySelect(select,parentSelect)
     {
-      	const url = window.location.href;
       	if(select.selectedIndex == 0) {
-          	var newUrl = url.delete('variant');
+          	var newUrl = removeParams('variant');
           	console.log(newUrl);
           	window.history.pushState('object', document.title, newUrl);
       	}
