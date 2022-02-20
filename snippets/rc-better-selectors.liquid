@@ -2,7 +2,7 @@
     var productOptionNames = [];
     var productOptionValues = [];
     {% for product_option in product.options_with_values %}
-        productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
+        productOptionNames.push("{{ product_option.name | replace: '"', '\\\"' }}");
     {% endfor %}
     /*
     const variants = [
