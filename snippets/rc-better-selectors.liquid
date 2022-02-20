@@ -51,8 +51,8 @@
     function findOptions(select) {
 
       	parent = selects[selectorIndex - 1].value;
-        console.log('option: '+option);
-        console.log('searchString: '+parent);
+        //console.log('option: '+option);
+        //console.log('searchString: '+parent);
 		//var selectVariants = variants.filter((({ option1 }) => option1 === searchString));
       	var selectVariants = variants.filter((item)=>item[option] === parent);
       	console.log('selectVariants: '+JSON.stringify(selectVariants));
