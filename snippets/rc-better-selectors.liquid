@@ -103,7 +103,9 @@
         if(selects[selectorIndex - 1].selectedIndex == 0){
           selectContainers[selectorIndex].style.display = 'none';
         } else {
-          //buildOptions(select);
+          removeOptions(select);
+          setDefaultOption(selects[0]);
+          buildOptions(select);
           selectContainers[selectorIndex].style.display = '';
 		}
         /*switch (selectorIndex) {
@@ -132,7 +134,7 @@
 
     const selects = document.getElementsByClassName("select__select");
   	setDefaultOption(selects[0]);
-  console.log('selects length'+selects.length);
+  	console.log('selects length'+selects.length);
     switch (selects.length) {
       	case 1:    	
         break;
