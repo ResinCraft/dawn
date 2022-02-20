@@ -7,7 +7,7 @@
 
     var variants = [];
     {% for variant in product.variants %}
-		variants.push({id: {{variant.id}}, option1: "{{variant.option1 | replace: '"', '\\"'}}", option2: "{{variant.option2 | replace: '"', '\\"'}}", option3: "{{variant.option3 | replace: '"', '\\"'}}"});
+		variants.push({id: {{variant.id}}, {{ product[0].options_with_values | replace: '"', '\\"' }}: "{{variant.option1 | replace: '"', '\\"'}}", option2: "{{variant.option2 | replace: '"', '\\"'}}", option3: "{{variant.option3 | replace: '"', '\\"'}}"});
     {% endfor %}
 
     //console.log('productOptionNames: '+productOptionNames);
