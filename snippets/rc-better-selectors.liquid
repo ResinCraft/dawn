@@ -70,7 +70,7 @@
           	//Array.prototype.forEach.call(variants, function(variant) {
                   console.log('variant: '+JSON.stringify(variant[selectOptionText]));
 				var option = document.createElement("option");
-              	option.text = variant.selectOptionText;
+              	option.text = variant[selectOptionText];
               	select.add(option);
 			//});
         });
