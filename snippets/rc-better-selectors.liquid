@@ -53,7 +53,7 @@
       	Array.prototype.forEach.call(filteredVariants, function(variant) {
             var option = document.createElement("option");
             option.text = variant[selectOptionText];
-            if(urlParams.has('variant') && variant[id] == urlParams.get('variant')){
+            if(urlParams.has('variant') && variant['id'] == urlParams.get('variant')){
 				option.selected = true;
             }
             select.add(option);
