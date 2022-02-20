@@ -68,9 +68,9 @@
       	Array.prototype.forEach.call(filteredVariants, function(variant) {
           	console.log('variants: '+JSON.stringify(variant));
           	//Array.prototype.forEach.call(variants, function(variant) {
-                  console.log('variant: '+JSON.stringify(variant[optionText]));
+                  console.log('variant: '+JSON.stringify(variant[selectOptionText]));
 				var option = document.createElement("option");
-              	option.text = variant.optionText;
+              	option.text = variant.selectOptionText;
               	select.add(option);
 			//});
         });
