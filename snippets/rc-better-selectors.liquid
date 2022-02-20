@@ -7,7 +7,7 @@
 
     var variants = [];
     {% for variant in product.variants %}
-		variants.push({id: {{variant.id}}, option1: "{{variant.option1 | replace: '"', '\\"'}}", option2: "{{variant.option2 | replace: '"', '\\"'}}", option3: "{{variant.option3 | replace: '"', '\\"'}}"});
+		variants.push({id: {{variant.id}}, {{ product_option[0].name | replace: '"', '\\"' }}: "{{variant.option1 | replace: '"', '\\"'}}", option2: "{{variant.option2 | replace: '"', '\\"'}}", option3: "{{variant.option3 | replace: '"', '\\"'}}"});
     {% endfor %}
 
     //console.log('productOptionNames: '+productOptionNames);
@@ -54,14 +54,16 @@
         //console.log('option: '+option);
         //console.log('searchString: '+parent);
 		//var selectVariants = variants.filter((({ option1 }) => option1 === searchString));
-      	var selectVariants = variants.filter((item)=>item[option] === parent);
+      	
       	console.log('selectVariants: '+JSON.stringify(selectVariants));
       	return selectVariants;
     }
   
-    function buildOptions(select)
+    function buildOptions(select,parentValue)
     {
-        var options = findOptions(select);
+      	const selectIndex = findSelectIndex(select);
+      	option
+        var options = variants.filter((item)=>item[option] === parentValue);
       	removeOptions(select);
         var selectVariants = variants.filter((({ option1 }) => option1 === parent));
       	Array.prototype.forEach.call(selectVariants, function(variants) {
@@ -99,13 +101,13 @@
         const selects = document.getElementsByClassName("select__select");
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
 		const selectIndex = findSelectIndex(select);
-      	console.log('running'+selects[selectorIndex - 1].selectedIndex);
+
         if(selects[selectorIndex - 1].selectedIndex == 0){
           selectContainers[selectorIndex].style.display = 'none';
         } else {
           removeOptions(select);
           setDefaultOption(select);
-          buildOptions(select);
+          buildOptions(select,selects[selectorIndex - 1].value);
           selectContainers[selectorIndex].style.display = '';
 		}
         /*switch (selectorIndex) {
