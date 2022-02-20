@@ -41,12 +41,15 @@
          }
     }
 
-    function findOptions(select) {
+  	function selectIndex(select){
         selectName = select.name;
         optionText = selectName.match(/\[(.*?)\]/)[1];
         selectorIndex = productOptionNames.indexOf(optionText);
+    }
+  
+    function findOptions(select) {
+
       	parent = selects[selectorIndex - 1].value;
-      
         console.log('option: '+option);
         console.log('searchString: '+parent);
 		//var selectVariants = variants.filter((({ option1 }) => option1 === searchString));
@@ -95,7 +98,7 @@
     {
         const selects = document.getElementsByClassName("select__select");
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
-
+		const selectIndex = selectIndex(select);
         switch (selectorIndex) {
           case 0:
             break;
