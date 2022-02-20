@@ -62,10 +62,10 @@
   
     function modifySelect(select,parentSelect)
     {
-      	console.log(select.selectedIndex);
       	const urlParams = new URLSearchParams(window.location.search);
       	if(select.selectedIndex == 0) {
           	var newUrl = urlParams.delete('variant');
+          	console.log(newUrl);
           	window.history.pushState('object', document.title, newUrl);
       	}
       	const selectIndex = findSelectIndex(select);
