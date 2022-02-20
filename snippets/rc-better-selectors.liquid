@@ -131,9 +131,9 @@
     }
 
     const selects = document.getElementsByClassName("select__select");
+  	setDefaultOption(selects[0]);
     switch (selects.length) {
-      	case 1:
-        	setDefaultOption(selects[0]);
+      	case 1:    	
         break;
       	case 2:
         	modifySelect(selects[1]);
