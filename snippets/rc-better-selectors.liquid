@@ -57,7 +57,7 @@
 
     function findOptions(option,searchString) {
         console.log('option: '+option);
-        console.log('value: '+searchString);
+        console.log('searchString: '+searchString);
 		//var selectVariants = variants.filter((({ option1 }) => option1 === searchString));
       	var selectVariants = variants.filter((item)=>item[option] === searchString);
       	console.log('selectVariants: '+JSON.stringify(selectVariants));
@@ -68,7 +68,7 @@
     {
         var options = findOptions(select,parent);
         console.log('options: '+options);
-      	removeOptions(select);	
+      	removeOptions(select);
         var selectVariants = variants.filter((({ option1 }) => option1 === parent));
       	Array.prototype.forEach.call(selectVariants, function(variants) {
           	Array.prototype.forEach.call(variants, function(variant) {
