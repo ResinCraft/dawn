@@ -63,10 +63,10 @@
     {
         selectName = select.name;
         var optionText = selectName.match(/\[(.*?)\]/)[1];
-      	console.log(optionText);
-      	console.log(parentValue);
+      	console.log('optionText: '+optionText);
+      	console.log('parentValue: '+parentValue);
         var filteredVariants = variants.filter((item)=>item[optionText] === parentValue);
-      	console.log(JSON.stringify(filteredVariants));
+      console.log('filteredVariants: '+JSON.stringify(filteredVariants));
         //var selectVariants = variants.filter((({ option1 }) => option1 === parent));
       	Array.prototype.forEach.call(filteredVariants, function(variants) {
           	Array.prototype.forEach.call(variants, function(variant) {
