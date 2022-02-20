@@ -134,7 +134,8 @@
         	selects[0].addEventListener('change', modifySelect(selects[1]));
         break;
       	case 3:
-        console.log('3 option');
+        	modifySelect(selects[2])
+        	selects[1].addEventListener('change', modifySelect(selects[2]));
         break;
     }
   /*
