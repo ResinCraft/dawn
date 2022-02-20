@@ -61,7 +61,7 @@
   
     function modifySelect(select,parentSelect)
     {
-      	const urlParams = new URLSearchParams(window.location.search);
+      	var urlParams = new URLSearchParams(window.location.search);
       	if(select.selectedIndex == 0) {
           	urlParams.delete('variant');
       	}
