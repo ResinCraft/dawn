@@ -59,7 +59,7 @@
       	return selectVariants;
     }
   
-    function buildOptions(select,parentValue)
+    function buildOptions(select,parentSelect)
     {
         selectName = select.name;
         var optionText = selectName.match(/\[(.*?)\]/)[1];
@@ -97,7 +97,7 @@
         */
     }
   
-    function modifySelect(select,parentValue)
+    function modifySelect(select,parentSelect)
     {
       	const selectIndex = findSelectIndex(select);
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
@@ -106,7 +106,7 @@
         } else {
           removeOptions(select);
           setDefaultOption(select);
-          buildOptions(select,parentValue);
+          buildOptions(select,parentSelect);
           selectContainers[selectorIndex].style.display = '';
 		}
     }
@@ -118,7 +118,7 @@
         break;
       	case 2:
         	modifySelect(selects[1],selects[0].value);
-        	selects[0].addEventListener('change', function() {modifySelect(selects[1],selects[0].value)});
+        	selects[0].addEventListener('change', function() {modifySelect(selects[1],selects[0])});
         break;
       	case 3:
         	modifySelect(selects[1]);
