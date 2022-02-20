@@ -55,10 +55,9 @@
          }
     }
 
-    function findOptions(option,value) {
+    function findOptions(option,searchString) {
         console.log('option: '+option);
         console.log('value: '+value);
-      	var searchString = "12mm (1/2 in.)";
 		var selectVariants = variants.filter((({ option1 }) => option1 === searchString));
       	console.log('selectVariants: '+JSON.stringify(selectVariants));
       	return selectVariants;
