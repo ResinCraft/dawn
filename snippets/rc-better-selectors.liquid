@@ -63,8 +63,6 @@
     {
         parentSelectName = parentSelect.name;
         var optionText = parentSelectName.match(/\[(.*?)\]/)[1];
-      	console.log('optionText: '+optionText);
-      	console.log('parentValue: '+parentValue);
         var filteredVariants = variants.filter((item)=>item[optionText] === parentValue);
       console.log('filteredVariants: '+JSON.stringify(filteredVariants));
         //var selectVariants = variants.filter((({ option1 }) => option1 === parent));
