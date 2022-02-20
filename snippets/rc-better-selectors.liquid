@@ -99,7 +99,7 @@
         const selects = document.getElementsByClassName("select__select");
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
 		const selectIndex = findSelectIndex(select);
-      	console.log(selects[selectorIndex - 1].selectedIndex);
+      	console.log('running'+selects[selectorIndex - 1].selectedIndex);
         if(selects[selectorIndex - 1].selectedIndex == 0){
           selectContainers[selectorIndex].style.display = 'none';
         } else {
