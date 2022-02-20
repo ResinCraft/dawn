@@ -85,8 +85,8 @@
         	selects[0].addEventListener('change', function() {modifySelect(selects[1],selects[0])});
         break;
       	case 3:
-        	modifySelect(selects[1]);
-        	modifySelect(selects[2]);
+        	modifySelect(selects[1],selects[0]);
+        	modifySelect(selects[2],selects[1]);
             selects[0].addEventListener('change', function() {modifySelect(selects[1])});
         	selects[1].addEventListener('change', function() {modifySelect(selects[2])});
         break;
