@@ -41,7 +41,7 @@
          }
     }
 
-  	function selectIndex(select){
+  	function findSelectIndex(select){
         selectName = select.name;
         optionText = selectName.match(/\[(.*?)\]/)[1];
         selectorIndex = productOptionNames.indexOf(optionText);
@@ -98,7 +98,7 @@
     {
         const selects = document.getElementsByClassName("select__select");
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
-		const selectIndex = selectIndex(select);
+		const selectIndex = findSelectIndex(select);
         switch (selectorIndex) {
           case 0:
             break;
