@@ -13,7 +13,7 @@
     //console.log('productOptionNames: '+productOptionNames);
     //console.log('productOptionValues: '+productOptionValues[0]);
   	//var result = variants.find( ({ option1 }) => option1 === '12mm (1/2 in.)' );
-    console.log('variants: '+JSON.stringify(variants[0]));
+    //console.log('variants: '+JSON.stringify(variants[0]));
     
     function setDefaultOption(select)
     {
@@ -98,10 +98,7 @@
   
     function modifySelect(select)
     {
-        const selects = document.getElementsByClassName("select__select");
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
-		const selectIndex = findSelectIndex(select);
-
         if(selects[selectorIndex - 1].selectedIndex == 0){
           selectContainers[selectorIndex].style.display = 'none';
         } else {
@@ -136,13 +133,16 @@
 
     const selects = document.getElementsByClassName("select__select");
   	setDefaultOption(selects[0]);
-  	console.log('selects length'+selects.length);
+
+    
+    const selectIndex = findSelectIndex(select);
+  
     switch (selects.length) {
       	case 1:    	
         break;
       	case 2:
         	modifySelect(selects[1]);
-        	selects[0].addEventListener('change', function() {modifySelect(selects[1])});
+        	selects[0].addEventListener('change', function() {modifySelect(selects[1],selects[0].value)});
         break;
       	case 3:
         	modifySelect(selects[1]);
