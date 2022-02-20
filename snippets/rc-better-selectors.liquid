@@ -15,9 +15,10 @@
   	//var result = variants.find( ({ option1 }) => option1 === '12mm (1/2 in.)' );
     //console.log('variants: '+JSON.stringify(variants));
     
-    function setDefaultOption(select,optionName)
+    function setDefaultOption(select)
     {
-        optionText = "Select " + optionName + "..."
+        selectName = select.name;
+        optionText = "Select " + selectName.match(/\[(.*?)\]/)[1] + "..."
 
         //build the option that is going to be inserted into the drop down box
         var option = document.createElement("option");
