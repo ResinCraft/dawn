@@ -65,7 +65,8 @@
       	console.log(select.selectedIndex);
       	const urlParams = new URLSearchParams(window.location.search);
       	if(select.selectedIndex == 0) {
-          	urlParams.delete('variant');
+          	var newUrl = urlParams.delete('variant');
+          	window.history.pushState('object', document.title, newUrl);
       	}
       	const selectIndex = findSelectIndex(select);
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
