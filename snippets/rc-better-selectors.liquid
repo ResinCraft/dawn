@@ -99,6 +99,7 @@
   
     function modifySelect(select,parentValue)
     {
+      console.log('parentValue: '+parentValue);
       	const selectIndex = findSelectIndex(select);
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
         if(selects[selectorIndex - 1].selectedIndex == 0){
@@ -113,7 +114,6 @@
 
     const selects = document.getElementsByClassName("select__select");
   	setDefaultOption(selects[0]);
-  console.log('selects[0].value: '+selects[0].value);
     switch (selects.length) {
       	case 1:    	
         break;
