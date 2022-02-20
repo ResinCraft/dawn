@@ -96,7 +96,7 @@
         */
     }
   
-    function modifySelect(select)
+    function modifySelect(select,parentValue)
     {
       	const selectIndex = findSelectIndex(select);
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
@@ -105,7 +105,7 @@
         } else {
           removeOptions(select);
           setDefaultOption(select);
-          buildOptions(select,selects[selectorIndex - 1].value);
+          buildOptions(select,parentValue);
           selectContainers[selectorIndex].style.display = '';
 		}
         /*switch (selectorIndex) {
