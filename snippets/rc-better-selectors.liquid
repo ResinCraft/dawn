@@ -67,6 +67,7 @@
 
       	Array.prototype.forEach.call(filteredVariants, function(variants) {
           	Array.prototype.forEach.call(variants, function(variant) {
+              console.log(select);
 				var option = document.createElement("option");
               	option.text = variant.value;
               	select.add(option);
