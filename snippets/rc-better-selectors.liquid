@@ -66,7 +66,8 @@
   
     function buildOptions(select,parent)
     {
-      console.log('select: '+select);
+        var options = findOptions(select,parent);
+        console.log('options: '+options);
       	removeOptions(select);	
         var selectVariants = variants.filter((({ option1 }) => option1 === parent));
       	Array.prototype.forEach.call(selectVariants, function(variants) {
@@ -110,8 +111,7 @@
           case 0:
             break;
           case 1:
-            var options = findOptions("option1",selects[selectorIndex - 1].value);
-            buildOptions(options);
+            buildOptions(select,selects[selectorIndex - 1].value);
             /*if(selects[selectorIndex - 1].selectedIndex == 0){
                 selectContainers[selectorIndex].style.display = 'none';
             } else {
