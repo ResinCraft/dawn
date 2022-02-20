@@ -54,6 +54,11 @@
          	selectElement.remove(i);
          }
     }
+
+    function findOptions(option,value) {
+		var selectVariants = variants.filter((({ option }) => option === value));
+      	return selectVariants;
+    }
   
     function buildOptions(select,parent)
     {
@@ -100,12 +105,15 @@
           case 0:
             break;
           case 1:
-            if(selects[selectorIndex - 1].selectedIndex == 0){
+            var options = findOptions("option1",selects[selectorIndex - 1].value);
+            buildOptions(options);
+            /*if(selects[selectorIndex - 1].selectedIndex == 0){
                 selectContainers[selectorIndex].style.display = 'none';
             } else {
                 buildOptions(select,selects[selectorIndex - 1].value)
               	selectContainers[selectorIndex].style.display = '';
             }
+            */
             break;
           case 2:
             if(selects[selectorIndex - 1].selectedIndex == 0 || selects[selectorIndex - 2].selectedIndex == 0){
