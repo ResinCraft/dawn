@@ -4,30 +4,16 @@
     {% for product_option in product.options_with_values %}
         productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
     {% endfor %}
-    /*
-    const variants = [
-        {name: 'apples', quantity: 2},
-        {name: 'bananas', quantity: 0},
-        {name: 'cherries', quantity: 5}
-    ];
 
-    function isCherries(fruit) {
-    return ;
-    }
-
-    console.log(inventory.find(fruit.name === 'cherries'));
-    // { name: 'cherries', quantity: 5 }
-    inventory.find( ({ option1 }) => option1 === '12mm (1/2 in.)' )
-    */
     var variants = [];
     {% for variant in product.variants %}
-                                variants.push({id: {{variant.id}}, option1: "{{variant.option1 | replace: '"', '\\"'}}", option2: "{{variant.option2 | replace: '"', '\\"'}}", option3: "{{variant.option3 | replace: '"', '\\"'}}"});
+		variants.push({id: {{variant.id}}, option1: "{{variant.option1 | replace: '"', '\\"'}}", option2: "{{variant.option2 | replace: '"', '\\"'}}", option3: "{{variant.option3 | replace: '"', '\\"'}}"});
     {% endfor %}
 
     //console.log('productOptionNames: '+productOptionNames);
     //console.log('productOptionValues: '+productOptionValues[0]);
   	//var result = variants.find( ({ option1 }) => option1 === '12mm (1/2 in.)' );
-    console.log('variants: '+JSON.stringify(variants));
+    //console.log('variants: '+JSON.stringify(variants));
     
     function setDefaultOption(select,optionName)
     {
