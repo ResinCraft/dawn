@@ -59,7 +59,7 @@
         console.log('option: '+option);
         console.log('value: '+value);
       //"12mm (1/2 in.)"
-      var selectVariants = variants.filter((({ option1 }) => option1 === { value }));
+      var selectVariants = variants.filter((({ option1 }) => option1 == { value }));
       	console.log('selectVariants: '+JSON.stringify(selectVariants));
       	return selectVariants;
     }
