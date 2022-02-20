@@ -66,7 +66,7 @@
         var filteredVariants = variants.filter((item)=>item[optionText] === parentSelect.value);
 
       	Array.prototype.forEach.call(filteredVariants, function(variants) {
-          console.log('variants: '+variants);
+          console.log('variants: '+JSON.stringify(variants));
           	Array.prototype.forEach.call(variants, function(variant) {
               console.log('variant: '+variant);
 				var option = document.createElement("option");
