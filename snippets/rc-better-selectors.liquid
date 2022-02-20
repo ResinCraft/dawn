@@ -45,6 +45,7 @@
   
     function buildOptions(select,parentSelect)
     {
+      	var urlParams = new URLSearchParams(window.location.search);
         var parentOptionText = parentSelect.name.match(/\[(.*?)\]/)[1];
       	var selectOptionText = select.name.match(/\[(.*?)\]/)[1];
         var filteredVariants = variants.filter((item)=>item[parentOptionText] === parentSelect.value);
@@ -61,7 +62,7 @@
   
     function modifySelect(select,parentSelect)
     {
-      	var urlParams = new URLSearchParams(window.location.search);
+      	const urlParams = new URLSearchParams(window.location.search);
       	if(select.selectedIndex == 0) {
           	urlParams.delete('variant');
       	}
