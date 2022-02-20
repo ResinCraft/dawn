@@ -21,7 +21,7 @@
     */
     var variants = [];
     {% for variant in product.variants %}
-                                variants.push({id: {{variant.id}}, option1: "{{variant.option1}}", option2: "{{variant.option2}}", option3: "{{variant.option3}}"});
+                                variants.push({id: {{variant.id}}, option1: "{{variant.option1 | replace: '"', '\\"'}}", option2: "{{variant.option2 | replace: '"', '\\"'}}", option3: "{{variant.option3 | replace: '"', '\\"'}}"});
     {% endfor %}
 
     //console.log('productOptionNames: '+productOptionNames);
