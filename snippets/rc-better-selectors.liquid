@@ -67,7 +67,7 @@
     function buildOptions(select,parent)
     {
         removeOptions(select);	
-        var selectVariants = variants.filter((({ option1 }) => option1 === parent));
+        var selectVariants = variants.filter((({ option }) => option1 === parent));
       	Array.prototype.forEach.call(selectVariants, function(variants) {
           	Array.prototype.forEach.call(variants, function(variant) {
 				/*var option = document.createElement("option");
