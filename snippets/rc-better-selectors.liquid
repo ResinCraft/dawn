@@ -48,17 +48,6 @@
         selectorIndex = productOptionNames.indexOf(optionText);
     }
   
-    function findOptions(select) {
-
-      	parent = selects[selectorIndex - 1].value;
-        //console.log('option: '+option);
-        //console.log('searchString: '+parent);
-		//var selectVariants = variants.filter((({ option1 }) => option1 === searchString));
-      	
-      	console.log('selectVariants: '+JSON.stringify(selectVariants));
-      	return selectVariants;
-    }
-  
     function buildOptions(select,parentSelect)
     {
         var parentOptionText = parentSelect.name.match(/\[(.*?)\]/)[1];
@@ -66,34 +55,10 @@
         var filteredVariants = variants.filter((item)=>item[parentOptionText] === parentSelect.value);
 
       	Array.prototype.forEach.call(filteredVariants, function(variant) {
-          	console.log('variants: '+JSON.stringify(variant));
-          	//Array.prototype.forEach.call(variants, function(variant) {
-                  console.log('variant: '+JSON.stringify(variant[selectOptionText]));
-				var option = document.createElement("option");
-              	option.text = variant[selectOptionText];
-              	select.add(option);
-			//});
+            var option = document.createElement("option");
+            option.text = variant[selectOptionText];
+            select.add(option);
         });
-        //console.log('select: '+select);
-        //console.log('parent: '+parent);;
-      	/*
-        removeOptions(select);
-        Array.prototype.forEach.call(select, function(option, i) {
-          	var result = undefined;
-            console.log('option2-'+i+': '+option.value);
-          	//console.log('option1-'+i+': '+parent);
-          	result = variants.filter((({ option1 }) => option1 === parent));
-          	//console.log('parent'+i+': '+JSON.stringify(result));
-          	result = result.find((({ option2 }) => option2 === option.value));
-          	console.log('result'+i+': '+JSON.stringify(result));
-            if(result){
-              	console.log('adding');
-				var option = document.createElement("option");
-              	option.text = option.value;
-              	select.add(option);
-            }
-        });
-        */
     }
   
     function modifySelect(select,parentSelect)
