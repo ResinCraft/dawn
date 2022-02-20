@@ -138,7 +138,7 @@
         break;
       	case 2:
         	modifySelect(selects[1]);
-        	selects[0].addEventListener('change', this.modifySelect(selects[1]));
+        	this.addEventListener('change', modifySelect(selects[1]));
         break;
       	case 3:
         	modifySelect(selects[1]);
