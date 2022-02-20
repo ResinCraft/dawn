@@ -13,7 +13,7 @@
     //console.log('productOptionNames: '+productOptionNames);
     //console.log('productOptionValues: '+productOptionValues[0]);
   	//var result = variants.find( ({ option1 }) => option1 === '12mm (1/2 in.)' );
-    console.log('variants: '+JSON.stringify(variants[0]));
+    //console.log('variants: '+JSON.stringify(variants));
     
     function setDefaultOption(select)
     {
@@ -66,7 +66,6 @@
         var filteredVariants = variants.filter((item)=>item[optionText] === parentSelect.value);
 
       	Array.prototype.forEach.call(filteredVariants, function(variants) {
-          
           	Array.prototype.forEach.call(variants, function(variant) {
               console.log('variant: '+variant);
 				var option = document.createElement("option");
