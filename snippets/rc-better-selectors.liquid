@@ -42,6 +42,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         if(!urlParams.has('variant')) {
           select.selectedIndex = 0;
+          select.dispatchEvent(new Event("change"));
         }
     }
 
@@ -105,7 +106,6 @@
       	case 2:
         	modifySelect(selects[1],selects[0]);
         	selects[0].addEventListener('change', function() {modifySelect(selects[1],selects[0])});
-                  selects[0].dispatchEvent(new Event("change"));
         break;
       	case 3:
         	modifySelect(selects[1],selects[0]);
