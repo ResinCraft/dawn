@@ -71,7 +71,6 @@
             option.text = variant[selectOptionText];
             if(urlParams.has('variant') && variant['id'] == urlParams.get('variant')){
 				option.selected = true;
-              	toggleAddButton(false);
             }
             select.add(option);
         });
@@ -99,6 +98,7 @@
 
     const selects = document.getElementsByClassName("select__select");
   	setDefaultOption(selects[0]);
+  toggleAddButton(false);
   	selects[0].dispatchEvent(new Event('change'));
     switch (selects.length) {
       	case 1:    	
