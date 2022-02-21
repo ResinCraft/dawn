@@ -39,7 +39,7 @@
         const urlParams = new URLSearchParams(window.location.search);
       	
         if(!urlParams.has('variant')) {
-            option.selected = true;
+            option.setAttribute('selected', true);
         }
 
         //add the option to the selector at the top
