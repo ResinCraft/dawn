@@ -98,6 +98,7 @@
 
     const selects = document.getElementsByClassName("select__select");
   	setDefaultOption(selects[0]);
+  	selects[0].dispatchEvent(new Event('change'));
     switch (selects.length) {
       	case 1:    	
         break;
