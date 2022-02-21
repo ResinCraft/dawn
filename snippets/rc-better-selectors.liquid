@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script type="text/javascript" defer>
     var productOptionNames = [];
     var productOptionValues = [];
     {% for product_option in product.options_with_values %}
@@ -41,8 +41,8 @@
         //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
         const urlParams = new URLSearchParams(window.location.search);
         if(!urlParams.has('variant')) {
-          //select.selectedIndex = 0;
-          //select.dispatchEvent(new Event("change"));;
+          select.selectedIndex = 0;
+          select.dispatchEvent(new Event("change"));;
         }
     }
 
