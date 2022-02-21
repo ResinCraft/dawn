@@ -41,7 +41,7 @@
         //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
         const urlParams = new URLSearchParams(window.location.search);
         if(!urlParams.has('variant')) {
-          select.selectedIndex = 2;
+          select.selectedIndex = 0;
         }
     }
 
