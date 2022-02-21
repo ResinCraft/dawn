@@ -82,14 +82,14 @@
   
     function modifySelect(select,parentSelect)
     {
-      	console.log(selects);
-      	if(select.selectedIndex == 0) {
+      	console.log(selects[selectorIndex - 1]);
+      	/*if(select.selectedIndex == 0) {
           	var newUrl = removeParams('variant');
           	console.log(newUrl);
           	window.history.pushState('object', document.title, newUrl);
-      	}
+      	}*/
       	const selectIndex = findSelectIndex(select);
-      	console.log('selectIndex: '.selectIndex);
+      	//console.log('selectIndex: '.selectIndex);
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
         if(selects[selectorIndex - 1].selectedIndex == 0){
           selectContainers[selectorIndex].style.display = 'none';
