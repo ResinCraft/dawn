@@ -30,7 +30,7 @@
     {
         selectName = select.name;
         optionText = "Select " + selectName.match(/\[(.*?)\]/)[1] + "..."
-		select.selectedIndex = -1;;
+		select.removeAttribute("selected");
         //build the option that is going to be inserted into the drop down box
         var option = document.createElement("option");
         option.text = optionText;
@@ -46,7 +46,7 @@
           select.defaultSelected = true;
           select.dispatchEvent(new Event("change"));
         }
-      	select.defaultSelected = true;
+      	select.prop("selected", false);
     }
 
 
