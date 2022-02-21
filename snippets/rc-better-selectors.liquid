@@ -42,7 +42,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         if(!urlParams.has('variant')) {
           select.selectedIndex = 0;
-          select.onchange.call();
+          select.dispatchEvent(new Event("change"));;
         }
     }
 
