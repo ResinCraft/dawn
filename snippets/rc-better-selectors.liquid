@@ -39,15 +39,10 @@
         const urlParams = new URLSearchParams(window.location.search);
         if(!urlParams.has('variant')) {
             option.selected = true;
-          	select.dispatchEvent(new Event('change'));
-            //add the option to the selector at the top
-            select.add(option, select[0]);
-        } else {
-            //add the option to the selector at the top
-        	select.add(option, select[0]);
         }
 
-
+        //add the option to the selector at the top
+        select.add(option, select[0]);
     }
 
 
@@ -103,7 +98,7 @@
 
     const selects = document.getElementsByClassName("select__select");
   	setDefaultOption(selects[0]);
-  	selects[0]
+  	selects[0].dispatchEvent(new Event('change1'));
     switch (selects.length) {
       	case 1:    	
         break;
