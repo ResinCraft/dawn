@@ -38,7 +38,7 @@
 		option.selected = true;
         //add the option to the selector at the top
         select.add(option, select[2]);
-      	select.value = 2;
+      	select.value = optionText;
       	select.dispatchEvent(new Event("change"));
       
         //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
