@@ -1,11 +1,9 @@
 <script>
-  	var productOptionNames = [];
+  	var productOptions = [];
 
     {% for product_option in product.options_with_values %}
         productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
     {% endfor %}
-
-	console.log(productOptionNames);
 
     function setDefaultOption(select)
     {
@@ -29,6 +27,9 @@
     }
 
   	window.addEventListener('DOMContentLoaded', function() {
+      	productOptions.forEach(function(productOption) {
+        	console.log(productOption);
+        });
       	const selects = document.getElementsByClassName("select__select");
       	setDefaultOption(selects[0]);
 	});
