@@ -1,4 +1,12 @@
 <script>
+  	var productOptionNames = [];
+
+    {% for product_option in product.options_with_values %}
+        productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
+    {% endfor %}
+
+	
+
     function setDefaultOption(select)
     {
         selectName = select.name;
