@@ -30,11 +30,11 @@
   
   	function updateSelect(select)
     {
-  const params = new URLSearchParams('param1=1&param2=2&param3=3')
+  const params = new URLSearchParams(window.location.search)
   
   console.log(params.toString())
   
-  params.delete('param2')
+  params.delete('variant')
   
   console.log(params.toString())
       	let urlParams = new URLSearchParams(window.location.search);
