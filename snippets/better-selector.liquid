@@ -1,4 +1,27 @@
 <script>
+    function setDefaultOption(select)
+    {
+        selectName = select.name;
+        optionText = "Select " + selectName.match(/\[(.*?)\]/)[1] + "..."
+		//select.deselectAll();
+        //build the option that is going to be inserted into the drop down box
+        var option = document.createElement("option");
+        option.text = optionText;
+      	option.value = optionText;
+        //add the option to the selector at the top
+        select.add(option, select[0]);
+      	
+      
+        //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
+        const urlParams = new URLSearchParams(window.location.search);
+        if(!urlParams.has('variant')) {
+			option.selected = true;
+          	select.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+    }
+
   	window.addEventListener('DOMContentLoaded', function() {
+      	const selects = document.getElementsByClassName("select__select");
+      	setDefaultOption(selects[0]);
 	});
 </script>
