@@ -79,6 +79,7 @@
   
     function modifySelect(select,parentSelect)
     {
+      	console.log(select.selectedIndex);
       	if(select.selectedIndex == 0) {
           	var newUrl = removeParams('variant');
           	console.log(newUrl);
