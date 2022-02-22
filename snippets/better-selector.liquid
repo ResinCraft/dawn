@@ -1,6 +1,6 @@
 <script>
   	//ProductJson = require(window.location.href.split('?')[0]+'.json');
-  	console.log(window.productJSON);
+  console.log(window.productJSON["options"]);
   	var productOptions = [];
     {% for product_option in product.options_with_values %}
         productOptions.push("{{ product_option.name | replace: '"', '\\"' }}");
