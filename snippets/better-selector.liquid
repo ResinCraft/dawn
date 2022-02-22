@@ -31,7 +31,7 @@
     {
        console.log(urlParams);	
       if(select.selectedIndex == 0){
-          console.log(urlParams);
+          console.log(urlParams.get());
           	var newUrl = urlParams.delete('variant');
           console.log(newUrl);
           	window.history.pushState('object', document.title, newUrl);
