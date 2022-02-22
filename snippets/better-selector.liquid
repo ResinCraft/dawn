@@ -1,8 +1,8 @@
 <script>
-  	const productOptions = [];
+  	var productOptions = [];
 
     {% for product_option in product.options_with_values %}
-        productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
+        productOptions.push("{{ product_option.name | replace: '"', '\\"' }}");
     {% endfor %}
 
     function setDefaultOption(select)
