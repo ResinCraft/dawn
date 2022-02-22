@@ -9,9 +9,7 @@
     {
 		urlParams = new URLSearchParams(window.location.search);
       	optionText = "Select " + productOption + "..."
-        var option = document.createElement("option");
-        option.text = optionText;
-      	option.value = optionText;
+        var option = new Option(optionText, optionText);
         select.add(option, select[0]); //add the option to the selector at the top
       
         //only select this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
@@ -29,9 +27,9 @@
         var newUrl = location.href.replace(location.search, '')+newUrl;
         window.history.pushState('object', document.title, newUrl);
   	}
+
   	function updateSelect(select)
     {
-      	
       	if(select.selectedIndex == 0) noOption(select);
     }
 	
