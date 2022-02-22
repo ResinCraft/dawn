@@ -79,13 +79,11 @@
   
     function modifySelect(select,parentSelect)
     {
-      	console.log();
-      	/*console.log(select.selectedIndex);
       	if(select.selectedIndex == 0) {
           	var newUrl = removeParams('variant');
           	console.log(newUrl);
           	window.history.pushState('object', document.title, newUrl);
-      	}*/
+      	}
       	const selectIndex = findSelectIndex(select);
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
         if(parentSelect.selectedIndex == 0){
