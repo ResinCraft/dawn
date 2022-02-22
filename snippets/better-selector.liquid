@@ -31,9 +31,19 @@
         window.history.pushState('object', document.title, newUrl);
   	}
 
-  	function updateSelect(select)
+  	function updateSelect(productOption,select)
     {
       	if(select.selectedIndex == 0) noOption(select);
+      	switch(productOptions.indexOf(productOption))
+        	case 0:
+                console.log('option1 changed');
+          	break;
+            case 1:
+                console.log('option2 changed');
+            break;
+            case 2:
+                console.log('option3 changed');
+            break;
     }
 	
   	//execute this code once the page has rendered (global.js is deferred, got to run after that)
@@ -42,7 +52,7 @@
           	selectName = 'options['+productOption+']';
         	var select = document.getElementsByName(selectName)[0];
           
-          	select.addEventListener('change', function() {updateSelect(select)});
+          	select.addEventListener('change', function() {updateSelect(productOption,select)});
           	setDefaultOption(productOption,select);
         });
 	});
