@@ -1,11 +1,4 @@
 <script>
-  	//ProductJson = require(window.location.href.split('?')[0]+'.json');
-
-	var variants = [];
-    {% for variant in product.variants %}
-		variants.push({id: {{variant.id}}, "{{ product.options_with_values[0].name | replace: '"', '\\"' }}": "{{variant.option1 | replace: '"', '\\"'}}", "{{ product.options_with_values[1].name | replace: '"', '\\"' }}": "{{variant.option2 | replace: '"', '\\"'}}", "{{ product.options_with_values[2].name | replace: '"', '\\"' }}": "{{variant.option3 | replace: '"', '\\"'}}"});
-    {% endfor %}
-                            
     function setDefaultOption(productOption,select)
     {
 		urlParams = new URLSearchParams(window.location.search);
@@ -19,6 +12,27 @@
         }
     }
 
+  	function updateSelect(productOption,select)
+    {
+      console.log(window.productJSON["options"].length);
+        if(window.productJSON["options"].indexOf(productOption) < window.productJSON["options"].length){
+          	
+        }
+    }
+	
+  	//execute this code once the page has rendered (global.js is deferred, got to run after that)
+  	window.addEventListener('DOMContentLoaded', function() {
+      	window.productJSON["options"].forEach(function(productOption) {
+          	selectName = 'options['+productOption.name+']';
+        	var select = document.getElementsByName(selectName)[0];
+          
+          	select.addEventListener('change', function() {updateSelect(productOption,select)});
+          	setDefaultOption(productOption,select);
+        });
+	});
+  
+  /*
+  
   	function updateSelect(productOption,select)
     {
       	//const selects = document.getElementsByClassName("select__select");
@@ -43,15 +57,6 @@
             break;
       }
     }
-	
-  	//execute this code once the page has rendered (global.js is deferred, got to run after that)
-  	window.addEventListener('DOMContentLoaded', function() {
-      	window.productJSON["options"].forEach(function(productOption) {
-          	selectName = 'options['+productOption.name+']';
-        	var select = document.getElementsByName(selectName)[0];
-          
-          	select.addEventListener('change', function() {updateSelect(productOption,select)});
-          	setDefaultOption(productOption,select);
-        });
-	});
+    
+    */
 </script>
