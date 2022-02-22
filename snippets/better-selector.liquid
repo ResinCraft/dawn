@@ -33,10 +33,13 @@
 
   	function updateSelect(productOption,select)
     {
-      	if(select.selectedIndex == 0) noOption(select);
+      	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
       	switch(productOptions.indexOf(productOption)) {
         	case 0:
-                console.log('option1 changed');
+            	if(select.selectedIndex == 0) {
+                	noOption(select);
+                  	
+                }
           	break;
             case 1:
                 console.log('option2 changed');
