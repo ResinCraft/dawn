@@ -34,7 +34,7 @@
   	function updateSelect(productOption,select)
     {
       	if(select.selectedIndex == 0) noOption(select);
-      	switch(productOptions.indexOf(productOption))
+      	switch(productOptions.indexOf(productOption)) {
         	case 0:
                 console.log('option1 changed');
           	break;
@@ -44,6 +44,7 @@
             case 2:
                 console.log('option3 changed');
             break;
+      }
     }
 	
   	//execute this code once the page has rendered (global.js is deferred, got to run after that)
