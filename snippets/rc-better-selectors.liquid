@@ -81,11 +81,6 @@
     {
       	var urlParams = new URLSearchParams(window.location.search);
       	console.log(select.selectedIndex);
-      	if(select.selectedIndex == 0 && urlParams.has('variant')) {
-          	var newUrl = removeParams('variant');
-          	console.log(newUrl);
-          	window.history.pushState('object', document.title, newUrl);
-      	}
       	const selectIndex = findSelectIndex(select);
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
         if(parentSelect.selectedIndex == 0){
@@ -95,6 +90,11 @@
           setDefaultOption(select);
           buildOptions(select,parentSelect);
           selectContainers[selectorIndex].style.display = '';
+          if(select.selectedIndex == 0 && urlParams.has('variant')) {
+              var newUrl = removeParams('variant');
+              console.log(newUrl);
+              window.history.pushState('object', document.title, newUrl);
+          }
 		}
     }
 
