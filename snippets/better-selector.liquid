@@ -33,13 +33,14 @@
 
   	function updateSelect(productOption,select)
     {
-      	const selects = document.getElementsByClassName("select__select");
+      	//const selects = document.getElementsByClassName("select__select");
+      	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
       	switch(productOptions.indexOf(productOption)) {
         	case 0:
             	if(select.selectedIndex == 0) {
                 	noOption(select);
-                  	selects[1].style.display = 'none';
-                  	selects[2].style.display = 'none';
+                  	selectContainers[1].style.display = 'none';
+                  	selectContainers[2].style.display = 'none';
                 }
             	//popChildSelect(selects[1],selects[0])
           	break;
