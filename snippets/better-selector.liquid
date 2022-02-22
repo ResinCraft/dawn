@@ -1,5 +1,6 @@
 <script>
-  	var jsonUrl = window.location.href.split('?')[0]+'.json';
+  	var jsonUrl = require(window.location.href.split('?')[0]+'.json');
+  	console.log(jsonUrl);
   	var productOptions = [];
   	const product = require('./students.json');
     {% for product_option in product.options_with_values %}
