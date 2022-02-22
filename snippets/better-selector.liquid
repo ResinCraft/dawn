@@ -1,10 +1,5 @@
 <script>
   	//ProductJson = require(window.location.href.split('?')[0]+'.json');
-  console.log(window.productJSON["options"]);
-  	var productOptions = [];
-    {% for product_option in product.options_with_values %}
-        productOptions.push("{{ product_option.name | replace: '"', '\\"' }}");
-    {% endfor %}
 
 	var variants = [];
     {% for variant in product.variants %}
@@ -24,15 +19,6 @@
         }
     }
 
-  	function noOption(select){
-      	let urlParams = new URLSearchParams(window.location.search);
-       	urlParams.delete('variant');
-        var newUrl = location.href.replace(location.search, '');
-        (urlParams.toString() != '') ? newUrl = '?'+urlParams.toString() : newUrl = urlParams.toString();
-        var newUrl = location.href.replace(location.search, '')+newUrl;
-        window.history.pushState('object', document.title, newUrl);
-  	}
-
   	function updateSelect(productOption,select)
     {
       	//const selects = document.getElementsByClassName("select__select");
@@ -40,7 +26,7 @@
       	switch(productOptions.indexOf(productOption)) {
         	case 0:
             	if(select.selectedIndex == 0) {
-                	noOption(select);
+                	window.history.pushState('object', document.title, location.href.replace(location.search, ''));
                   	//selectContainers[1].style.display = 'none';
                   	//selectContainers[2].style.display = 'none';
                 } else {
