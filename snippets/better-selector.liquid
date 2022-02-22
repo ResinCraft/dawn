@@ -1,5 +1,5 @@
 <script>
-  	var jsonUrl = require(window.location.href.split('?')[0]+'.json');
+  	var jsonUrl = fetch(window.location.href.split('?')[0]+'.json');
   	console.log(jsonUrl);
   	var productOptions = [];
   	const product = require('./students.json');
