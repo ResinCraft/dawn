@@ -88,6 +88,7 @@
           removeOptions(select);
           setDefaultOption(select);
           buildOptions(select,parentSelect);
+          console.log('selectedIndex: '+select.selectedIndex);
           selectContainers[selectorIndex].style.display = '';
           if(select.selectedIndex == 0 && urlParams.has('variant')) {
               var newUrl = removeParams('variant');
