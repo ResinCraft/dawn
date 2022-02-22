@@ -72,6 +72,7 @@
         var filteredVariants = variants.filter((item)=>item[parentOptionText] === parentSelect.value);
 
       	Array.prototype.forEach.call(filteredVariants, function(variant) {
+          	console.log(variant['id']);
             var option = document.createElement("option");
             option.text = variant[selectOptionText];
             if(urlParams.has('variant') && variant['id'] == urlParams.get('variant')){
