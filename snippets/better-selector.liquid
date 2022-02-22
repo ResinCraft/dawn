@@ -37,7 +37,9 @@
       	switch(productOptions.indexOf(productOption)) {
         	case 0:
             	if(select.selectedIndex == 0) {
-                	noOption(select);  	
+                	noOption(select);
+                  	selects[1].style.display = 'none';
+                  	selects[2].style.display = 'none';
                 }
             	//popChildSelect(selects[1],selects[0])
           	break;
