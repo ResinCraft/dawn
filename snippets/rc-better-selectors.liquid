@@ -80,7 +80,6 @@
     function modifySelect(select,parentSelect)
     {
       	var urlParams = new URLSearchParams(window.location.search);
-      	console.log(select.selectedIndex);
       	const selectIndex = findSelectIndex(select);
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
         if(parentSelect.selectedIndex == 0){
