@@ -14,6 +14,7 @@
                             
     function setDefaultOption(productOption,select)
     {
+		urlParams = new URLSearchParams(window.location.search);
       	optionText = "Select " + productOption + "..."
         var option = document.createElement("option");
         option.text = optionText;
@@ -29,17 +30,17 @@
   
   	function updateSelect(select)
     {
-      if(select.selectedIndex == 0){
-          	var newUrl = urlParams.delete('variant');
-        console.log(urlParams.toString());
-          //console.log(window.location+newUrl.toString());
-          	window.history.pushState('object', document.title, newUrl);
-        }
+        urlParams = new URLSearchParams(window.location.search);
+        if(select.selectedIndex == 0){
+			var newUrl = urlParams.delete('variant');
+          	console.log(urlParams.toString());
+            //console.log(window.location+newUrl.toString());
+			window.history.pushState('object', document.title, newUrl);
+		}
     }
 	
   	//execute this code once the page has rendered (global.js is deferred, got to run after that)
   	window.addEventListener('DOMContentLoaded', function() {
-      	urlParams = new URLSearchParams(window.location.search);
       	productOptions.forEach(function(productOption) {
           	selectName = 'options['+productOption+']';
         	var select = document.getElementsByName(selectName)[0];
