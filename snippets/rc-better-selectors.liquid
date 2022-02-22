@@ -66,11 +66,12 @@
   
     function buildOptions(select,parentSelect)
     {
+      	console.log('running');
       	var urlParams = new URLSearchParams(window.location.search);
         var parentOptionText = parentSelect.name.match(/\[(.*?)\]/)[1];
       	var selectOptionText = select.name.match(/\[(.*?)\]/)[1];
         var filteredVariants = variants.filter((item)=>item[parentOptionText] === parentSelect.value);
-      console.log('filteredVariants: '+filteredVariants);
+      	console.log('filteredVariants: '+filteredVariants);
       	Array.prototype.forEach.call(filteredVariants, function(variant) {
           	console.log(variant['id']);
             var option = document.createElement("option");
