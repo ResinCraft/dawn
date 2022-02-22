@@ -60,7 +60,7 @@
 	
   	//execute this code once the page has rendered (global.js is deferred, got to run after that)
   	window.addEventListener('DOMContentLoaded', function() {
-      	productOptions.forEach(function(productOption) {
+      	window.productJSON["options"].forEach(function(productOption) {
           	selectName = 'options['+productOption+']';
         	var select = document.getElementsByName(selectName)[0];
           
