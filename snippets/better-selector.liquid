@@ -31,8 +31,8 @@
   	function updateSelect(select)
     {
       	let urlParams = new URLSearchParams(window.location.search);
-      	urlParams.delete('variant');
         if(select.selectedIndex == 0 && urlParams.has('variant')){
+          	urlParams.delete('variant');
 			var newUrl = location.href.replace(location.search, '')+'?'+urlParams.toString();
           	
             console.log(window.location+newUrl.toString());
