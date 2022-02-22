@@ -30,7 +30,7 @@
   	function updateSelect(select)
     {
       	if(select.selectedIndex == 0){
-          	var newUrl = removeOptions('variants');
+          	var newUrl = urlParams.delete('variant');
           	window.history.pushState('object', document.title, newUrl);
         }
     }
