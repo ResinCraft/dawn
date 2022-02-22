@@ -23,7 +23,7 @@
     {
       	//const selects = document.getElementsByClassName("select__select");
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
-      	switch(window.productJSON.indexOf(productOption)) {
+      	switch(window.productJSON["options"].indexOf(productOption)) {
         	case 0:
             	if(select.selectedIndex == 0) {
                 	window.history.pushState('object', document.title, location.href.replace(location.search, ''));
