@@ -5,6 +5,13 @@
         productOptions.push("{{ product_option.name | replace: '"', '\\"' }}");
     {% endfor %}
 
+    function removeOptions(selectElement) {
+         var i, L = selectElement.options.length - 1;
+         for(i = L; i >= 0; i--) {
+         	selectElement.remove(i);
+         }
+    }
+                            
     function setDefaultOption(productOption,select)
     {
       	optionText = "Select " + productOption + "..."
@@ -22,7 +29,10 @@
   
   	function updateSelect(select)
     {
-      	console.log(select.index);
+      	if(select.selectedIndex == 0){
+          	var newUrl = removeOptions('variants');
+          	window.history.pushState('object', document.title, newUrl);
+        }
     }
 	
   	//execute this code once the page has rendered (global.js is deferred, got to run after that)
