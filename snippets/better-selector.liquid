@@ -5,17 +5,15 @@
         productOptions.push("{{ product_option.name | replace: '"', '\\"' }}");
     {% endfor %}
 
-    function setDefaultOption(select)
+    function setDefaultOption(productOption,select)
     {
-        selectName = select.name;
-        optionText = "Select " + selectName.match(/\[(.*?)\]/)[1] + "..."
-		//select.deselectAll();
+        optionText = "Select " + productOption + "..."
         //build the option that is going to be inserted into the drop down box
         var option = document.createElement("option");
         option.text = optionText;
       	option.value = optionText;
         //add the option to the selector at the top
-        select.add(option, select[0]);
+        select.add(option, select);
       	
       
         //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
@@ -30,9 +28,9 @@
       	productOptions.forEach(function(productOption) {
           	selectName = 'options['+productOption+']';
         	var select = document.getElementsByName(selectName);
-          	console.log(select[0]);
+          	setDefaultOption(productOption,select);
         });
       	const selects = document.getElementsByClassName("select__select");
-      	setDefaultOption(selects[0]);
+      	
 	});
 </script>
