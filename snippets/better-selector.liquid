@@ -26,6 +26,7 @@
       	let urlParams = new URLSearchParams(window.location.search);
         if(select.selectedIndex == 0 && urlParams.has('variant')){
           	urlParams.delete('variant');
+          	console.log(urlParams);
 			var newUrl = location.href.replace(location.search, '')+'?'+urlParams.toString();
 			window.history.pushState('object', document.title, newUrl);
 		}
