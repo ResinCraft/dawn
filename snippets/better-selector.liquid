@@ -7,7 +7,9 @@
 
     function setDefaultOption(productOption,select)
     {
-        optionText = "Select " + productOption + "..."
+      console.log(select);  
+      
+      optionText = "Select " + productOption + "..."
         //build the option that is going to be inserted into the drop down box
         var option = document.createElement("option");
         option.text = optionText;
