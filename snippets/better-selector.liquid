@@ -32,7 +32,7 @@
   	function updateSelect(select)
     {
       	
-      	(select.selectedIndex == 0) ? noOption(select)
+      	if(select.selectedIndex == 0) noOption(select);
     }
 	
   	//execute this code once the page has rendered (global.js is deferred, got to run after that)
