@@ -20,7 +20,7 @@
         //only select this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
         if(!urlParams.has('variant')) {
 			option.selected = true;
-          	select.dispatchEvent(new Event("change", { bubbles: true }));
+          	//select.dispatchEvent(new Event("change", { bubbles: true }));
         }
     }
 	
