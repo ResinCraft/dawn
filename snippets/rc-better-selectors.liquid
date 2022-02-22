@@ -79,8 +79,9 @@
   
     function modifySelect(select,parentSelect)
     {
+      	var urlParams = new URLSearchParams(window.location.search);
       	console.log(select.selectedIndex);
-      	if(select.selectedIndex == 0) {
+      	if(select.selectedIndex == 0 && urlParams.has('variant')) {
           	var newUrl = removeParams('variant');
           	console.log(newUrl);
           	window.history.pushState('object', document.title, newUrl);
