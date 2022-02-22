@@ -1,5 +1,5 @@
-  const VariantSelectsClass = new VariantSelects();
-    var productOptionNames = [];
+<script>
+	var productOptionNames = [];
     var productOptionValues = [];
     {% for product_option in product.options_with_values %}
         productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
@@ -118,3 +118,4 @@
         	selects[1].addEventListener('change', function() {modifySelect(selects[2])});
         break;
     }
+</script>
