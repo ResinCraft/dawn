@@ -1,120 +1,59 @@
-    var productOptionNames = [];
-    var productOptionValues = [];
-    {% for product_option in product.options_with_values %}
-        productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
-    {% endfor %}
-
-    var variants = [];
-    {% for variant in product.variants %}
-		variants.push({id: {{variant.id}}, "{{ product.options_with_values[0].name | replace: '"', '\\"' }}": "{{variant.option1 | replace: '"', '\\"'}}", "{{ product.options_with_values[1].name | replace: '"', '\\"' }}": "{{variant.option2 | replace: '"', '\\"'}}", "{{ product.options_with_values[2].name | replace: '"', '\\"' }}": "{{variant.option3 | replace: '"', '\\"'}}"});
-    {% endfor %}
-
-    function removeParams(sParam) {
-          var url = window.location.href.split('?')[0]+'?';
-          var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-              sURLVariables = sPageURL.split('&'),
-              sParameterName,
-              i;
-
-          for (i = 0; i < sURLVariables.length; i++) {
-            sParameterName = sURLVariables[i].split('=');
-            if (sParameterName[0] != sParam) {
-              url = url + sParameterName[0] + '=' + sParameterName[1] + '&'
-            }
-		}
-		return url.substring(0,url.length-1);
-	}
-                                
-    function setDefaultOption(select)
+    function setDefaultOption(productOption,select)
     {
-        selectName = select.name;
-        optionText = "Select " + selectName.match(/\[(.*?)\]/)[1] + "..."
-		//select.deselectAll();
-        //build the option that is going to be inserted into the drop down box
-        var option = document.createElement("option");
-        option.text = optionText;
-      	option.value = optionText;
-		option.selected = true;
-        //add the option to the selector at the top
-        select.add(option, select[0]);
-      	select.value = optionText;
-      	
+		urlParams = new URLSearchParams(window.location.search);
+      	optionText = "Select " + productOption.name + "..."
+        select.add(new Option(optionText, optionText), select[0]); //add the option to the selector at the top
       
-        //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
-        const urlParams = new URLSearchParams(window.location.search);
+        //only select this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
         if(!urlParams.has('variant')) {
-          select.dispatchEvent(new Event("change", { bubbles: true }));
-          //this.toggleAddButton(disable = true, 'Nope.');
+			select.selectedIndex = 0;
+          	select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
         }
-      	//select.prop("selected", false);
     }
 
-
-    function removeOptions(selectElement) {
-         var i, L = selectElement.options.length - 1;
-         for(i = L; i >= 0; i--) {
-         	selectElement.remove(i);
-         }
-    }
-
-  	function findSelectIndex(select){
-        selectName = select.name;
-        optionText = selectName.match(/\[(.*?)\]/)[1];
-        selectorIndex = productOptionNames.indexOf(optionText);
-    }
-  
-    function buildOptions(select,parentSelect)
+  	function updateSelect(productOption,select)
     {
-      	var urlParams = new URLSearchParams(window.location.search);
-        var parentOptionText = parentSelect.name.match(/\[(.*?)\]/)[1];
-      	var selectOptionText = select.name.match(/\[(.*?)\]/)[1];
-        var filteredVariants = variants.filter((item)=>item[parentOptionText] === parentSelect.value);
-
-      	Array.prototype.forEach.call(filteredVariants, function(variant) {
-            var option = document.createElement("option");
-            option.text = variant[selectOptionText];
-            if(urlParams.has('variant') && variant['id'] == urlParams.get('variant')){
-				option.selected = true;
-            }
-            select.add(option);
+      console.log(window.productJSON["options"].length);
+        if(!window.productJSON["options"].indexOf(productOption) < window.productJSON["options"].length){
+          	
+        }
+    }
+	
+  	//execute this code once the page has rendered (global.js is deferred, got to run after that)
+  	window.addEventListener('DOMContentLoaded', function() {
+      	window.productJSON["options"].forEach(function(productOption) {
+        	var select = document.getElementsByName('options['+productOption.name+']')[0];
+          
+          	select.addEventListener('change', function() {updateSelect(productOption,select)});
+          	setDefaultOption(productOption,select);
         });
-    }
+	});
   
-    function modifySelect(select,parentSelect)
+  /*
+  
+  	function updateSelect(productOption,select)
     {
-      console.log('selectorIndex - 1: '+selects[selectorIndex - 1]);
-      	/*if(select.selectedIndex == 0) {
-          	var newUrl = removeParams('variant');
-          	console.log(newUrl);
-          	window.history.pushState('object', document.title, newUrl);
-      	}*/
-      	const selectIndex = findSelectIndex(select);
-      	//console.log('selectIndex: '.selectIndex);
+      	//const selects = document.getElementsByClassName("select__select");
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
-        if(selects[selectorIndex - 1].selectedIndex == 0){
-          selectContainers[selectorIndex].style.display = 'none';
-        } else {
-          removeOptions(select);
-          setDefaultOption(select);
-          buildOptions(select,parentSelect);
-          selectContainers[selectorIndex].style.display = '';
-		}
+      	switch(window.productJSON["options"].indexOf(productOption)) {
+        	case 0:
+            	if(select.selectedIndex == 0) {
+                	window.history.pushState('object', document.title, location.href.replace(location.search, ''));
+                  	//selectContainers[1].style.display = 'none';
+                  	//selectContainers[2].style.display = 'none';
+                } else {
+                  	//populateSelect()
+                 	selectContainers[1].style.display = '';
+                }
+            	//popChildSelect(selects[1],selects[0])
+          	break;
+            case 1:
+                console.log('option2 changed');
+            break;
+            case 2:
+                console.log('option3 changed');
+            break;
+      }
     }
-
-    const selects = document.getElementsByClassName("select__select");
-  	setDefaultOption(selects[0]);
-console.log(selects.length);
-    switch (selects.length) {
-      	case 1:    	
-        break;
-      	case 2:
-        	//modifySelect(selects[1],selects[0]);
-        	//selects[0].addEventListener('change', function() {modifySelect(selects[1],selects[0])});
-        break;
-      	case 3:
-        	//modifySelect(selects[1],selects[0]);
-        	//modifySelect(selects[2],selects[1]);
-            //selects[0].addEventListener('change', function() {modifySelect(selects[1])});
-        	//selects[1].addEventListener('change', function() {modifySelect(selects[2])});
-        break;
-    }
+    
+    */
