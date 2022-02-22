@@ -43,6 +43,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         if(!urlParams.has('variant')) {
 			option.selected = true;
+          	select.dispatchEvent(new Event("change", { bubbles: true }));
         }
     }
 
