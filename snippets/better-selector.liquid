@@ -33,7 +33,7 @@
         if(select.selectedIndex == 0){
           	var urlParams = new URLSearchParams(window.location.search);
 			var newUrl = window.location+'?'+urlParams.delete('variant');
-          	console.log(urlParams.toString());
+          	console.log(window.location);
             //console.log(window.location+newUrl.toString());
 			window.history.pushState('object', document.title, newUrl);
 		}
