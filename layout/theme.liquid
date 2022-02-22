@@ -30,6 +30,14 @@
     {% render 'meta-tags' %}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    {% if(request.page_type == 'product') %}
+        <script>
+          window.productJSON = {{ product | json }};
+          window.productJSON.options = {{ product.options_with_values | json }};
+          window.productJSON.url = {{ product.url | json }};
+        </script>
+    	{% render 'better-selector' %}
+    {% endif %}
     {{ content_for_header }}
 
     {%- liquid
@@ -257,13 +265,5 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-    {% if(request.page_type == 'product') %}
-        <script>
-          window.productJSON = {{ product | json }};
-          window.productJSON.options = {{ product.options_with_values | json }};
-          window.productJSON.url = {{ product.url | json }};
-        </script>
-    	{% render 'better-selector' %}
-    {% endif %}
   </body>
 </html>
