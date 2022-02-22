@@ -7,22 +7,22 @@
 
     function setDefaultOption(productOption,select)
     {
-      console.log(select);  
-      
-      optionText = "Select " + productOption + "..."
-        //build the option that is going to be inserted into the drop down box
+      	optionText = "Select " + productOption + "..."
         var option = document.createElement("option");
         option.text = optionText;
       	option.value = optionText;
         select.add(option, select[0]); //add the option to the selector at the top
-      	
       
         //only select this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
         if(!urlParams.has('variant')) {
 			option.selected = true;
-          	//tell global.js that the variant has been selected
-          	select.dispatchEvent(new Event("change", { bubbles: true }));
+          	select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the variant has been selected
         }
+    }
+  
+  	function updateSelect()
+    {
+      	
     }
 	
   	//execute this code once the page has rendered (global.js is deferred, got to run after that)
@@ -30,8 +30,10 @@
       	urlParams = new URLSearchParams(window.location.search);
       	productOptions.forEach(function(productOption) {
           	selectName = 'options['+productOption+']';
-        	var select = document.getElementsByName(selectName);
-          	setDefaultOption(productOption,select[0]);
+        	var select = document.getElementsByName(selectName)[0];
+          	setDefaultOption(productOption,select);
+          
+          	select.addEventListener('change', function() {updateSelect(select)});
         });
 	});
 </script>
