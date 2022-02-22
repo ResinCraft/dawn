@@ -1,5 +1,7 @@
 <script>
+  	var jsonUrl = window.location.href.split('?')[0]+'.json';
   	var productOptions = [];
+  	const product = require('./students.json');
     {% for product_option in product.options_with_values %}
         productOptions.push("{{ product_option.name | replace: '"', '\\"' }}");
     {% endfor %}
@@ -18,7 +20,7 @@
         //only select this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
         if(!urlParams.has('variant')) {
 			select.selectedIndex = 0;
-          	select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the variant has been selected
+          	select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
         }
     }
 
@@ -42,6 +44,7 @@
                   	selectContainers[1].style.display = 'none';
                   	selectContainers[2].style.display = 'none';
                 } else {
+                  	populateSelect()
                  	selectContainers[1].style.display = '';
                 }
             	//popChildSelect(selects[1],selects[0])
