@@ -2,7 +2,6 @@
   	var jsonUrl = fetch(window.location.href.split('?')[0]+'.json');
   	console.log(jsonUrl);
   	var productOptions = [];
-  	const product = require('./students.json');
     {% for product_option in product.options_with_values %}
         productOptions.push("{{ product_option.name | replace: '"', '\\"' }}");
     {% endfor %}
