@@ -36,7 +36,7 @@
           window.productJSON.options = {{ product.options_with_values | json }};
           window.productJSON.url = {{ product.url | json }};
         </script>
-    	{% render 'better-selector' %}
+    	<script src="{{ 'better-selector.js' | asset_url }}" defer="defer"></script>
     {% endif %}
     {{ content_for_header }}
 
