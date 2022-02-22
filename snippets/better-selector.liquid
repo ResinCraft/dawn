@@ -4,13 +4,6 @@
     {% for product_option in product.options_with_values %}
         productOptions.push("{{ product_option.name | replace: '"', '\\"' }}");
     {% endfor %}
-
-    function removeOptions(selectElement) {
-         var i, L = selectElement.options.length - 1;
-         for(i = L; i >= 0; i--) {
-         	selectElement.remove(i);
-         }
-    }
                             
     function setDefaultOption(productOption,select)
     {
