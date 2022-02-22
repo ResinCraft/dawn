@@ -30,7 +30,7 @@
       	productOptions.forEach(function(productOption) {
           	selectName = 'options['+productOption+']';
         	var select = document.getElementsByName(selectName);
-          	console.log(select);
+          	console.log(select[0]);
         });
       	const selects = document.getElementsByClassName("select__select");
       	setDefaultOption(selects[0]);
