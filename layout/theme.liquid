@@ -30,7 +30,6 @@
     {% render 'meta-tags' %}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
-    {{ 'better-selectors.js' | asset_url | script_tag }}
     {{ content_for_header }}
 
     {%- liquid
@@ -258,5 +257,6 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    {% render 'rc-better-selectors' %}
   </body>
 </html>
