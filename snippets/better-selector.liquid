@@ -14,12 +14,10 @@
         var option = document.createElement("option");
         option.text = optionText;
       	option.value = optionText;
-        //add the option to the selector at the top
-        select.add(option, select[0]);
+        select.add(option, select[0]); //add the option to the selector at the top
       	
       
-        //only trigger this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
-        const urlParams = new URLSearchParams(window.location.search);
+        //only select this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
         if(!urlParams.has('variant')) {
 			option.selected = true;
           	select.dispatchEvent(new Event("change", { bubbles: true }));
@@ -28,6 +26,7 @@
 	
   	//execute this code once the page has rendered (global.js is deferred, got to run after that)
   	window.addEventListener('DOMContentLoaded', function() {
+      	var urlParams = new URLSearchParams(window.location.search);
       	productOptions.forEach(function(productOption) {
           	selectName = 'options['+productOption+']';
         	var select = document.getElementsByName(selectName);
