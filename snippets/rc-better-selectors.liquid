@@ -101,21 +101,23 @@
 		}
     }
 
-    const selects = document.getElementsByClassName("select__select");
-  	setDefaultOption(selects[0]);
-  	selects[0].dispatchEvent(new Event('change'));
-    switch (selects.length) {
-      	case 1:    	
-        break;
-      	case 2:
-        	modifySelect(selects[1],selects[0]);
-        	selects[0].addEventListener('change', function() {modifySelect(selects[1],selects[0])});
-        break;
-      	case 3:
-        	modifySelect(selects[1],selects[0]);
-        	modifySelect(selects[2],selects[1]);
-            selects[0].addEventListener('change', function() {modifySelect(selects[1])});
-        	selects[1].addEventListener('change', function() {modifySelect(selects[2])});
-        break;
-    }
+    window.addEventListener('DOMContentLoaded', function() {
+      const selects = document.getElementsByClassName("select__select");
+      setDefaultOption(selects[0]);
+      selects[0].dispatchEvent(new Event('change'));
+      switch (selects.length) {
+          case 1:    	
+          break;
+          case 2:
+              modifySelect(selects[1],selects[0]);
+              selects[0].addEventListener('change', function() {modifySelect(selects[1],selects[0])});
+          break;
+          case 3:
+              modifySelect(selects[1],selects[0]);
+              modifySelect(selects[2],selects[1]);
+              selects[0].addEventListener('change', function() {modifySelect(selects[1])});
+              selects[1].addEventListener('change', function() {modifySelect(selects[2])});
+          break;
+      }
+	});
 </script>
