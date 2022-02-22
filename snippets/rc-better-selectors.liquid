@@ -88,8 +88,9 @@
           removeOptions(select);
           setDefaultOption(select);
           buildOptions(select,parentSelect);
-          console.log('selectedIndex: '+select.selectedIndex);
           selectContainers[selectorIndex].style.display = '';
+          
+          //won't run because it's looking at the wrong selector
           if(select.selectedIndex == 0 && urlParams.has('variant')) {
               var newUrl = removeParams('variant');
               console.log(newUrl);
@@ -107,7 +108,6 @@
           case 2:
               modifySelect(selects[1],selects[0]);
               selects[0].addEventListener('change', function() {modifySelect(selects[1],selects[0])});
-          		selects[1].addEventListener('change', function() {modifySelect(selects[1],selects[0])});
           break;
           case 3:
               modifySelect(selects[1],selects[0]);
