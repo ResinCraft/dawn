@@ -29,7 +29,7 @@
   	window.addEventListener('DOMContentLoaded', function() {
       	productOptions.forEach(function(productOption) {
           	selectName = 'options['+productOption+']';
-        	var select = document.getElementsByName(selectName)[0][0];
+        	var select = document.getElementsByName(selectName)[0];
           	setDefaultOption(productOption,select);
         });
       	const selects = document.getElementsByClassName("select__select");
