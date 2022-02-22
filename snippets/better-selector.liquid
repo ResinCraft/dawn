@@ -31,9 +31,9 @@
       	productOptions.forEach(function(productOption) {
           	selectName = 'options['+productOption+']';
         	var select = document.getElementsByName(selectName)[0];
-          	setDefaultOption(productOption,select);
           
           	select.addEventListener('change', function() {updateSelect(select)});
+          	setDefaultOption(productOption,select);
         });
 	});
 </script>
