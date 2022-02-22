@@ -35,6 +35,11 @@
     {
       	if(select.selectedIndex == 0) noOption(select);
     }
+  
+    function initOption(productOption,select) {
+        	console.log(productOptions.find(productOption => productOption));
+      	//setDefaultOption(productOption,select)
+    }
 	
   	//execute this code once the page has rendered (global.js is deferred, got to run after that)
   	window.addEventListener('DOMContentLoaded', function() {
@@ -43,7 +48,7 @@
         	var select = document.getElementsByName(selectName)[0];
           
           	select.addEventListener('change', function() {updateSelect(select)});
-          	setDefaultOption(productOption,select);
+          	initOption(productOption,select);
         });
 	});
 </script>
