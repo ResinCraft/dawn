@@ -29,7 +29,8 @@
   
   	function updateSelect(select)
     {
-      	if(select.selectedIndex == 0){
+       console.log(urlParams);	
+      if(select.selectedIndex == 0){
           console.log(urlParams);
           	var newUrl = urlParams.delete('variant');
           console.log(newUrl);
