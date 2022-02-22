@@ -1,10 +1,6 @@
 <script>
-  	fetch(window.location.href.split('?')[0]+'.json');
-  	.then(response => {
-    	return response.json();
-    });
-    .then(jsondata => console.log(jsondata));
-  	//console.log(jsonUrl);
+  	ProductJson = require(window.location.href.split('?')[0]+'.json');
+  	console.log(ProductJson);
   	var productOptions = [];
     {% for product_option in product.options_with_values %}
         productOptions.push("{{ product_option.name | replace: '"', '\\"' }}");
