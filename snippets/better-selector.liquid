@@ -1,5 +1,5 @@
 <script>
-  	var productOptions = [];
+  	const productOptions = [];
 
     {% for product_option in product.options_with_values %}
         productOptionNames.push("{{ product_option.name | replace: '"', '\\"' }}");
