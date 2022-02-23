@@ -11,12 +11,9 @@
         }
     }
 
-	function hideSelectDiv(select) {
-      console.log(select.value);
+	function hideSelectDiv(divId) {
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
-      	var selectId = window.productJSON["options"].indexOf(select.name.match(/\[(.*?)\]/)[1]);
-      console.log(selectId);
-      	selectContainers[selectId].style.display = 'none';
+      	selectContainers[divId].style.display = 'none';
     }
 
   	function updateSelect(productOption,select)
