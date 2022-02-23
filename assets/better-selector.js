@@ -18,7 +18,7 @@
 
   	function updateSelect(productOption,select)
     {
-      console.log('productOption'+productOption);
+      console.log('productOption'+productOption.name);
       console.log('window.productJSON["options"].length'+window.productJSON["options"].length);
       	const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
       	var childDivId = window.productJSON["options"].indexOf(productOption) + 1;
