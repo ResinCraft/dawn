@@ -21,7 +21,7 @@
       console.log('productOption: '+productOption.name);
       console.log('window.productJSON["options"].length: '+window.productJSON["options"].length);
       	const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
-      	var childDivId = window.productJSON["options"].indexOf(productOption) + 1;
+      	var childDivId = window.productJSON["options"].indexOf(productOption.name) + 1;
         if(!window.productJSON["options"].indexOf(productOption) < window.productJSON["options"].length){ //check if it's a parent of another selector
           	if(select.selectedIndex == 0) {
 				window.history.pushState('object', document.title, location.href.replace(location.search, ''));
