@@ -19,17 +19,19 @@ function removeOptions(select) {
 function rebuildSelect(select)
 {
   	
-	if(!select.optionIndex == 0) removeOptions(select);
+  	if(!select.optionIndex == 0){ 
+      removeOptions(select);
+      var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === selects[select.optionIndex-1].value);
+      Array.prototype.forEach.call(filteredVariants, function(variant) {
+          var option = document.createElement("option1");
+          option.text = variant["option2"];
+          if(urlParams.has('variant') && variant['id'] == urlParams.get('variant')){
+            option.selected = true;
+          }
+          select.add(option);
+      });
+    }
   	setDefaultOption(select);
-  	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === selects[select.optionIndex-1].value);
-    Array.prototype.forEach.call(filteredVariants, function(variant) {
-        var option = document.createElement("option1");
-        option.text = variant["option2"];
-        if(urlParams.has('variant') && variant['id'] == urlParams.get('variant')){
-          option.selected = true;
-		}
-      	select.add(option);
-	});
 }
 
 var selects = document.getElementsByClassName("select__select");
