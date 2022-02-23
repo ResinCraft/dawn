@@ -20,12 +20,12 @@
     {
       	const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
       	var divId = window.productJSON["options"].indexOf(productOption) - 1;
-      console.log(divId);
+      	console.log(divId);
         if(!window.productJSON["options"].indexOf(productOption) < window.productJSON["options"].length){ //check if it's a parent
           	if(select.selectedIndex == 0) {
 				window.history.pushState('object', document.title, location.href.replace(location.search, ''));
               	
-              	selectContainers[divId].style.display = 'none';
+              	selectDivContainers[divId].style.display = 'none';
             } else {
               
             }
