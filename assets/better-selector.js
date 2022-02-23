@@ -37,6 +37,7 @@ var urlParams = new URLSearchParams(window.location.search);
 
 window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = selects[selectPos];
+  console.log('select'+selectPos+': '+select;
 	select.optionIndex = selectPos;
   	select.productOption = productOption;
 	rebuildSelect(select);
