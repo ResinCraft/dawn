@@ -11,11 +11,6 @@
         }
     }
 
-	function hideSelectDiv(divId) {
-      	
-      	
-    }
-
   	function updateSelect(productOption,select)
     {
       	const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
