@@ -42,6 +42,8 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
   	(select.optionIndex == 0) ? setDefaultOption(select) : rebuildSelect(select);
 });
 
+// initial run turns off childred if parent not selected
+
 /*
 function setDefaultOption(productOption,select)
 {
