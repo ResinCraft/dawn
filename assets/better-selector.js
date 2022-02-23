@@ -31,8 +31,8 @@ function buildOptions(select,parentSelect)
   
 function updateSelect(selectPos,productOption,select)
 {
-  const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
-  var SelectLength = window.productJSON["options"].length;
+  //const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
+  //var SelectLength = window.productJSON["options"].length;
   //if(select.selectedIndex == 0) window.history.pushState('object', document.title, location.href.replace(location.search, ''));
   if((selectPos < SelectLength - 1)){ //check if it's a parent of another selector
     if(select.selectedIndex == 0) {
