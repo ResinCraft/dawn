@@ -25,14 +25,9 @@ function rebuildSelect(select)
       var childOption = "option"+(select.optionIndex+1);
       var filteredVariants = window.productJSON.variants.filter((item)=>item[parentOption] === selects[select.optionIndex-1].value);
       Array.prototype.forEach.call(filteredVariants, function(variant) {
-          console.log('filteredVariants: '+variant[childOption]);
-          var option = document.createElement("OPTION");
-          option.text = variant[childOption];
-          option.value = variant[childOption];
-          if(urlParams.has('variant') && variant['id'] == urlParams.get('variant')){
-            option.selected = true;
-          }
-          select.add(option);
+        var selected = (urlParams.has('variant') && variant['id'] == urlParams.get('variant')) ? true : false;
+        var option = new Option(variant[childOption],variant[childOption],selected);
+        select.add(option);
       });
     }
   	setDefaultOption(select);
