@@ -18,7 +18,8 @@ function removeOptions(select) {
 
 function rebuildSelect(select)
 {
-  	removeOptions(select);
+  	
+	if(!select.pos == 1) removeOptions(select);
   	setDefaultOption(select);
   	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === selects[select.optionIndex-1].value);
     Array.prototype.forEach.call(filteredVariants, function(variant) {
