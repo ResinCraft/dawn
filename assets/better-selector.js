@@ -18,7 +18,7 @@ function removeOptions(select) {
 
 function rebuildSelect(select)
 {
-  	if(!select.pos == 0) removeOptions(select);
+  	if(!select.optionIndex == 0) removeOptions(select);
   	setDefaultOption(select);
 }
 
