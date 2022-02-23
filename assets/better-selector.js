@@ -40,7 +40,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
 	select.optionIndex = selectPos;
   	select.productOption = productOption;
 	rebuildSelect(select);
-  	select.addEventListener('change', function() {rebuildSelect(select)});
+  	//select.addEventListener('change', function() {rebuildSelect(select)});
 });
 
 // initial run turns off childred if parent not selected
