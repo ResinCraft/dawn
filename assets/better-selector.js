@@ -15,8 +15,8 @@ function setDefaultOption(productOption,select)
 function updateSelect(selectPos,productOption,select)
 {
   const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
-  var optionLength = window.productJSON["options"].length;
-  if((selectPos < optionLength)){ //check if it's a parent of another selector
+  var SelectLength = window.productJSON["options"].length;
+  if((selectPos < SelectLength)){ //check if it's a parent of another selector
     if(select.selectedIndex == 0) {
       window.history.pushState('object', document.title, location.href.replace(location.search, ''));
       selectDivContainers[optionPosition].style.display = 'none';
