@@ -11,6 +11,22 @@ function setDefaultOption(productOption,select)
   }
 }
 
+function buildOptions(select,parentSelect)
+{
+    var urlParams = new URLSearchParams(window.location.search);
+    var parentOptionText = parentSelect.name.match(/\[(.*?)\]/)[1];
+    var selectOptionText = select.name.match(/\[(.*?)\]/)[1];
+    var filteredVariants = variants.filter((item)=>item[parentOptionText] === parentSelect.value);
+    Array.prototype.forEach.call(filteredVariants, function(variant) {
+      var option = document.createElement("option");
+      option.text = variant[selectOptionText];
+      if(urlParams.has('variant') && variant['id'] == urlParams.get('variant')){
+        option.selected = true;
+      }
+      select.add(option);
+    });
+}
+  
 function updateSelect(selectPos,productOption,select)
 {
   const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
@@ -21,6 +37,7 @@ function updateSelect(selectPos,productOption,select)
       selects[selectPos+1].selectedIndex = 0;
       selectDivContainers[selectPos+1].style.display = 'none';
     } else {
+      buildOptions(select,select[selectPos+1]);
       selectDivContainers[selectPos+1].style.display = '';
     }
   }
