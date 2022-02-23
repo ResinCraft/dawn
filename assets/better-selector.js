@@ -18,12 +18,12 @@ function buildOptions(select,parentSelect)
     //console.log('options: '+JSON.stringify(window.productJSON.variants));
 
     var urlParams = new URLSearchParams(window.location.search);
-    var parentOptionText = parentSelect.name.match(/\[(.*?)\]/)[1];
-    var selectOptionText = select.name.match(/\[(.*?)\]/)[1];
+    //var parentOptionText = parentSelect.name.match(/\[(.*?)\]/)[1];
+    //var selectOptionText = select.name.match(/\[(.*?)\]/)[1];
     var filteredVariants = window.productJSON.variants.filter((item)=>item["option1"] === parentSelect.value);
     Array.prototype.forEach.call(filteredVariants, function(variant) {
       var option = document.createElement("option");
-      option.text = variant[selectOptionText];
+      option.text = variant["option2"];
       if(urlParams.has('variant') && variant['id'] == urlParams.get('variant')){
         option.selected = true;
       }
