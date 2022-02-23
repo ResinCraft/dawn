@@ -23,8 +23,6 @@ function buildOptions(select,parentSelect)
 	removeOptions(select);
 
     var urlParams = new URLSearchParams(window.location.search);
-    //var parentOptionText = parentSelect.name.match(/\[(.*?)\]/)[1];
-    //var selectOptionText = select.name.match(/\[(.*?)\]/)[1];
     var filteredVariants = window.productJSON.variants.filter((item)=>item["option1"] === parentSelect.value);
     Array.prototype.forEach.call(filteredVariants, function(variant) {
       var option = document.createElement("option");
@@ -40,8 +38,10 @@ function updateSelect(select)
 {
   const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
     var SelectLength = window.productJSON["options"].length;
-    if(select.selectedIndex == 0) window.history.pushState('object', document.title, location.href.replace(location.search, ''));
-    if((select.optionIndex < SelectLength - 1)){ //check if it's a parent of another selector
+    
+  	if(select.selectedIndex == 0) window.history.pushState('object', document.title, location.href.replace(location.search, ''));
+    
+  	if((select.optionIndex < SelectLength - 1)){ //check if it's a parent of another selector
       if(select.selectedIndex == 0) {
         selects[select.optionIndex+1].selectedIndex = 0;
         selectDivContainers[select.optionIndex+1].style.display = 'none';
