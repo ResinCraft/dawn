@@ -18,10 +18,10 @@ function updateSelect(selectPos,productOption,select)
   if(select.selectedIndex == 0) window.history.pushState('object', document.title, location.href.replace(location.search, ''));
   if((selectPos < SelectLength)){ //check if it's a parent of another selector
     if(select.selectedIndex == 0) {
-      selects[selectPos].selectedIndex = 0;
-      selectDivContainers[selectPos].style.display = 'none';
+      selects[selectPos+1].selectedIndex = 0;
+      selectDivContainers[selectPos+1].style.display = 'none';
     } else {
-      selectDivContainers[selectPos].style.display = '';
+      selectDivContainers[selectPos+1].style.display = '';
     }
   }
 }
