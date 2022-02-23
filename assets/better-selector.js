@@ -18,6 +18,7 @@ function updateSelect(selectPos,productOption,select)
   if(select.selectedIndex == 0) window.history.pushState('object', document.title, location.href.replace(location.search, ''));
   if((selectPos < SelectLength)){ //check if it's a parent of another selector
     if(select.selectedIndex == 0) {
+      selects[selectPos].selectedIndex = 0;
       selectDivContainers[selectPos].style.display = 'none';
     } else {
       selectDivContainers[selectPos].style.display = '';
