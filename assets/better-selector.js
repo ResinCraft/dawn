@@ -13,6 +13,7 @@ function setDefaultOption(productOption,select)
 
 function updateSelect(productOption,select)
 {
+  console.log(select);
   const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
   var optionPosition = (window.productJSON["options"].indexOf(productOption)) + 1;
   var optionLength = window.productJSON["options"].length;
