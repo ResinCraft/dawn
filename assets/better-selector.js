@@ -25,8 +25,8 @@ function rebuildSelect(select)
       console.log('parentOption: '+parentOption);
       var childOption = "option"+select.optionIndex;
       var filteredVariants = window.productJSON.variants.filter((item)=>item[parentOption] === selects[select.optionIndex-1].value);
-      console.log('filteredVariants: '+filteredVariants);
       Array.prototype.forEach.call(filteredVariants, function(variant) {
+        	console.log('filteredVariants: '+variant);
           var option = document.createElement(childOption);
           option.text = variant[childOption];
           if(urlParams.has('variant') && variant['id'] == urlParams.get('variant')){
