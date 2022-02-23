@@ -12,7 +12,7 @@
     }
 
 	function hideSelectDiv(select) {
-      console.log(window.productJSON["options"]);
+      console.log(select.parentNode());
       	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
       	var selectId = window.productJSON["options"].indexOf(select.name.match(/\[(.*?)\]/)[1]);
       console.log(selectId);
