@@ -20,7 +20,6 @@ function updateSelect(productOption,select)
     if(select.selectedIndex == 0) {
       window.history.pushState('object', document.title, location.href.replace(location.search, ''));
       selectDivContainers[optionPosition].style.display = 'none';
-      //select[optionPosition].selectedIndex = 0;
     } else {
       selectDivContainers[optionPosition].style.display = '';
     }
