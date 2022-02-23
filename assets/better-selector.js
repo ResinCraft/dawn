@@ -16,7 +16,7 @@ function updateSelect(selectPos,productOption,select)
   const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
   var SelectLength = window.productJSON["options"].length;
   if(select.selectedIndex == 0) window.history.pushState('object', document.title, location.href.replace(location.search, ''));
-  if((selectPos < SelectLength)){ //check if it's a parent of another selector
+  if((selectPos+1 < SelectLength)){ //check if it's a parent of another selector
     if(select.selectedIndex == 0) {
       selects[selectPos+1].selectedIndex = 0;
       selectDivContainers[selectPos+1].style.display = 'none';
