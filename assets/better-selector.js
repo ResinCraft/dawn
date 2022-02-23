@@ -41,7 +41,7 @@ function updateSelect(selectPos,productOption,select)
       selects[selectPos+1].selectedIndex = 0;
       selectDivContainers[selectPos+1].style.display = 'none';
     } else {
-      buildOptions(select,selects[selectPos]);
+      buildOptions(selects[selectPos+1],select);
       selectDivContainers[selectPos+1].style.display = '';
     }
   }
