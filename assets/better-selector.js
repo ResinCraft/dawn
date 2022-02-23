@@ -37,10 +37,10 @@ function updateSelect(selectPos,productOption,select)
   if((selectPos < SelectLength - 1)){ //check if it's a parent of another selector
     if(select.selectedIndex == 0) {
       //selects[selectPos+1].selectedIndex = 0;
-      selectDivContainers[selectPos+1].style.display = 'none';
+      //selectDivContainers[selectPos+1].style.display = 'none';
     } else {
       //buildOptions(select,select[selectPos+1]);
-      selectDivContainers[selectPos+1].style.display = '';
+      //selectDivContainers[selectPos+1].style.display = '';
     }
   }
 }
