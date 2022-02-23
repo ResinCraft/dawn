@@ -19,9 +19,10 @@
   	function updateSelect(productOption,select)
     {
       	const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
-      	var childDivId = (window.productJSON["options"].indexOf(productOption) + 1);
+      	var optionPosition = (window.productJSON["options"].indexOf(productOption));
+      	var optionLength = window.productJSON["options"].length;
 
-        if(!(window.productJSON["options"].indexOf(productOption) + 1) < window.productJSON["options"].length){ //check if it's a parent of another selector
+        if(!(optionPosition < optionLength){ //check if it's a parent of another selector
           	if(select.selectedIndex == 0) {
 				window.history.pushState('object', document.title, location.href.replace(location.search, ''));
               	selectDivContainers[childDivId].style.display = 'none';
