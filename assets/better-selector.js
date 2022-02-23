@@ -1,3 +1,9 @@
+function setDefaultOption(select)
+{
+  optionText = "Select " + select.productOption + "...";
+  select.add(new Option(optionText, optionText), select[0]); //add the option to the selector at the top
+}
+
 function removeOptions(selectElement) {
   var i, L = selectElement.options.length - 1;
   for(i = L; i >= 0; i--) {
@@ -7,9 +13,16 @@ function removeOptions(selectElement) {
 
 function rebuildSelect(select)
 {
-	console.log(select.optionIndex);
-	//if(select.pos > 0
-	removeOptions(select);
+  	if(select.pos > 0) {
+    	removeOptions(select);
+  	}
+  	setDefaultOption(select);
+	//only select this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
+    urlParams = new URLSearchParams(window.location.search);
+    if(!urlParams.has('variant')) {
+      select.selectedIndex = 0;
+      select.dispatchEvent(new Event("change")); //tell global.js that the dropdown has been changed
+    }
 }
 
 var selects = document.getElementsByClassName("select__select");
