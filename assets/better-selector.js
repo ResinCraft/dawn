@@ -12,11 +12,10 @@ function setDefaultOption(productOption,select)
   }
 }
 
-function updateSelect(productOption,select)
+function updateSelect(position,productOption,select)
 {
-  console.log(select);
+  console.log(position);
   const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
-  var optionPosition = (window.productJSON["options"].indexOf(productOption)) + 1;
   var optionLength = window.productJSON["options"].length;
   if((optionPosition < optionLength)){ //check if it's a parent of another selector
     if(select.selectedIndex == 0) {
@@ -30,10 +29,10 @@ function updateSelect(productOption,select)
 
 
 selects = document.getElementsByClassName("select__select");
-window.productJSON["options"].forEach(function(productOption) {
+window.productJSON["options"].forEach(function(productOption, position) {
   var select = document.getElementsByName('options['+productOption+']')[0];
 
-  select.addEventListener('change', function() {updateSelect(productOption,select)});
+  select.addEventListener('change', function() {updateSelect(position,productOption,select)});
   setDefaultOption(productOption,select);
 });
 
