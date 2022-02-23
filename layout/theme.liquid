@@ -33,7 +33,7 @@
     {% if(request.page_type == 'product') %}
         <script>
           window.productJSON = {{ product | json }};
-          window.productJSON.options = {{ product.options_with_values | json }};
+          window.productJSON.options = {{ product.options_with_values }};
         </script>
     	<script src="{{ 'better-selector.js' | asset_url }}" defer="defer"></script>
     {% endif %}
