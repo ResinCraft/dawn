@@ -19,7 +19,7 @@ function removeOptions(select) {
 function rebuildSelect(select)
 {
   	
-	if(!select.pos == 1) removeOptions(select);
+	if(!select.optionIndex == 0) removeOptions(select);
   	setDefaultOption(select);
   	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === selects[select.optionIndex-1].value);
     Array.prototype.forEach.call(filteredVariants, function(variant) {
@@ -40,7 +40,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = document.getElementsByName('options['+productOption+']')[0];
 	select.optionIndex = selectPos;
   	select.productOption = productOption;
-  	(select.optionIndex == 0) ? setDefaultOption(select) : rebuildSelect(select);
+	rebuildSelect(select);
 });
 
 // initial run turns off childred if parent not selected
