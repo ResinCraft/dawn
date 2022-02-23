@@ -42,9 +42,9 @@ function updateSelect(select)
   const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
     var SelectLength = window.productJSON["options"].length;
     if(select.selectedIndex == 0) window.history.pushState('object', document.title, location.href.replace(location.search, ''));
-    if((selectPos < SelectLength - 1)){ //check if it's a parent of another selector
+    if((select.optionIndex < SelectLength - 1)){ //check if it's a parent of another selector
       if(select.selectedIndex == 0) {
-        selects[selectPos+1].selectedIndex = 0;
+        selects[select.optionIndex+1].selectedIndex = 0;
         selectDivContainers[selectPos+1].style.display = 'none';
       } else {
         buildOptions(selects[selectPos+1],select);
@@ -57,7 +57,7 @@ function updateSelect(select)
 var selects = document.getElementsByClassName("select__select");
 window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = document.getElementsByName('options['+productOption+']')[0];
-	select.pos = selectPos;
+	select.optionIndex = selectPos;
   	select.productOption = productOption
     select.addEventListener('change', function() {updateSelect(select)});
     setDefaultOption(productOption,select);
