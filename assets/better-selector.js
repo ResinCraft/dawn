@@ -21,12 +21,10 @@ function rebuildSelect(select)
   console.log('select.optionIndex: '+select.optionIndex);
   	if(!select.optionIndex == 0){ 
       removeOptions(select);
-      var parentOption = "option"+select.optionIndex;
-      var childOption = "option"+(select.optionIndex+1);
-      var filteredVariants = window.productJSON.variants.filter((item)=>item[parentOption] === selects[select.optionIndex-1].value);
+      var filteredVariants = window.productJSON.variants.filter((item)=>item[select.optionIndex] === selects[select.optionIndex-1].value);
       filteredVariants.forEach(function(variant) {
         var selected = (urlParams.has('variant') && variant['id'] == urlParams.get('variant')) ? true : false;
-        var option = new Option(variant[childOption],variant[childOption],selected);
+        var option = new Option(variant[select.optionIndex+1],variant[select.optionIndex+1],selected);
         select.add(option);
       });
     }
