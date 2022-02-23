@@ -18,7 +18,8 @@ function removeOptions(select) {
 
 function rebuildSelect(select)
 {
-    removeOptions(select);
+    console.log(select);
+  	removeOptions(select);
     var filteredVariants = window.productJSON.variants.filter((item)=>item[select.optionIndex] === selects[select.optionIndex-1].value);
     filteredVariants.forEach(function(variant) {
       var selected = (urlParams.has('variant') && variant['id'] == urlParams.get('variant')) ? true : false;
