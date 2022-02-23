@@ -21,9 +21,10 @@
       	const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
       	var optionPosition = (window.productJSON["options"].indexOf(productOption)) + 1;
       	var optionLength = window.productJSON["options"].length;
-		console.log(optionPosition+'/'+optionLength);
+
         if(!optionPosition < optionLength){ //check if it's a parent of another selector
           	if(select.selectedIndex == 0) {
+              console.log(optionPosition+'/'+optionLength);
 				window.history.pushState('object', document.title, location.href.replace(location.search, ''));
               	selectDivContainers[optionPosition].style.display = 'none';
             } else {
