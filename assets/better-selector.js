@@ -7,7 +7,7 @@ function setDefaultOption(productOption,select)
   urlParams = new URLSearchParams(window.location.search);
   if(!urlParams.has('variant')) {
     select.selectedIndex = 0;
-    //select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
+    select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
   }
 }
 
