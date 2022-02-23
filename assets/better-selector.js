@@ -56,7 +56,7 @@ function updateSelect(selectPos,productOption,select)
 selects = document.getElementsByClassName("select__select");
 window.productJSON["options"].forEach(function(productOption, selectPos) {
     var select = document.getElementsByName('options['+productOption+']')[0];
-	console.log(select);
+	select.pos = selectPos;
     select.addEventListener('change', function() {updateSelect((selectPos),productOption,select)});
     setDefaultOption(productOption,select);
 });
