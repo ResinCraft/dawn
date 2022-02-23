@@ -11,11 +11,19 @@
         }
     }
 
+	function hideSelectDiv(select) {
+      	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
+      	window.productJSON["options"].indexOf(select.match(/\[(.*?)\]/)[1]);
+      	selectContainers[1].style.display = 'none';
+    }
+
   	function updateSelect(productOption,select)
     {
       console.log(window.productJSON["options"].length);
-        if(!window.productJSON["options"].indexOf(productOption) < window.productJSON["options"].length){
-          	window.history.pushState('object', document.title, location.href.replace(location.search, ''));
+        if(!window.productJSON["options"].indexOf(productOption) < window.productJSON["options"].length){ //check if it's a parent
+          	if(select.selectedIndex == 0) {
+				window.history.pushState('object', document.title, location.href.replace(location.search, ''));
+            }
         }
     }
 	
