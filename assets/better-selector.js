@@ -13,7 +13,7 @@ function setDefaultOption(productOption,select)
 
 function buildOptions(select,parentSelect)
 {
-    console.log('options: '+JSON.stringify(window.productJSON));
+    console.log('options: '+JSON.stringify(window.productJSON.variants));
 
     var urlParams = new URLSearchParams(window.location.search);
     var parentOptionText = parentSelect.name.match(/\[(.*?)\]/)[1];
