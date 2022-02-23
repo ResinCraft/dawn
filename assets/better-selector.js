@@ -48,10 +48,10 @@ function updateSelect(selectPos,productOption,select)
 
 selects = document.getElementsByClassName("select__select");
 window.productJSON["options"].forEach(function(productOption, selectPos) {
-  var select = document.getElementsByName('options['+productOption+']')[0];
+  //var select = document.getElementsByName('options['+productOption+']')[0];
 
-  select.addEventListener('change', function() {updateSelect((selectPos),productOption,select)});
-  setDefaultOption(productOption,select);
+  //select.addEventListener('change', function() {updateSelect((selectPos),productOption,select)});
+  //setDefaultOption(productOption,select);
 });
 
   
