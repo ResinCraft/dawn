@@ -1,3 +1,26 @@
+function removeOptions(selectElement) {
+  var i, L = selectElement.options.length - 1;
+  for(i = L; i >= 0; i--) {
+    selectElement.remove(i);
+  }
+}
+
+function rebuildSelect(select)
+{
+	console.log(select.pos);
+	//if(select.pos > 0
+	removeOptions(select);
+}
+
+var selects = document.getElementsByClassName("select__select");
+window.productJSON["options"].forEach(function(productOption, selectPos) {
+    const select = document.getElementsByName('options['+productOption+']')[0];
+	select.optionIndex = selectPos;
+  	select.productOption = productOption;
+  	rebuildSelect(select);
+});
+
+/*
 function setDefaultOption(productOption,select)
 {
   optionText = "Select " + productOption + "...";
@@ -61,33 +84,4 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
     select.addEventListener('change', function() {updateSelect(select)});
     setDefaultOption(productOption,select);
 });
-
-  
-  /*
-  
-  	function updateSelect(productOption,select)
-    {
-      	//const selects = document.getElementsByClassName("select__select");
-      	const selectContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
-      	switch(window.productJSON["options"].indexOf(productOption)) {
-        	case 0:
-            	if(select.selectedIndex == 0) {
-                	window.history.pushState('object', document.title, location.href.replace(location.search, ''));
-                  	//selectContainers[1].style.display = 'none';
-                  	//selectContainers[2].style.display = 'none';
-                } else {
-                  	//populateSelect()
-                 	selectContainers[1].style.display = '';
-                }
-            	//popChildSelect(selects[1],selects[0])
-          	break;
-            case 1:
-                console.log('option2 changed');
-            break;
-            case 2:
-                console.log('option3 changed');
-            break;
-      }
-    }
-    
-    */
+*/
