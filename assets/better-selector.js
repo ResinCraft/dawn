@@ -19,8 +19,8 @@ function removeOptions(select) {
 function rebuildSelect(select)
 {
   	removeOptions(select);
-  	
-  	var filteredVariants = window.productJSON.variants.filter((item)=>item["option1"] === parentSelect.value);
+  	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentSelect.value);
+  console.log(filteredVariants);
 }
 
 var selects = document.getElementsByClassName("select__select");
