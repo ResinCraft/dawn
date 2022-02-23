@@ -32,7 +32,7 @@ selects = document.getElementsByClassName("select__select");
 window.productJSON["options"].forEach(function(productOption, position) {
   var select = document.getElementsByName('options['+productOption+']')[0];
 
-  select.addEventListener('change', function() {updateSelect(position,productOption,select)});
+  select.addEventListener('change', function() {updateSelect((position+1),productOption,select)});
   setDefaultOption(productOption,select);
 });
 
