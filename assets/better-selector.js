@@ -7,7 +7,7 @@ function removeOptions(selectElement) {
 
 function rebuildSelect(select)
 {
-	console.log(select.pos);
+	console.log(select.optionIndex);
 	//if(select.pos > 0
 	removeOptions(select);
 }
