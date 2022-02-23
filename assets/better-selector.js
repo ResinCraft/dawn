@@ -23,10 +23,10 @@ function rebuildSelect(select)
       removeOptions(select);
       var parentOption = "option"+(select.optionIndex-1);
       var childOption = "option"+select.optionIndex;
-      var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === selects[select.optionIndex-1].value);
+      var filteredVariants = window.productJSON.variants.filter((item)=>item[parentOption] === selects[select.optionIndex-1].value);
       Array.prototype.forEach.call(filteredVariants, function(variant) {
-          var option = document.createElement("option1");
-          option.text = variant["option2"];
+          var option = document.createElement(childOption);
+          option.text = variant[childOption];
           if(urlParams.has('variant') && variant['id'] == urlParams.get('variant')){
             option.selected = true;
           }
