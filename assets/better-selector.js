@@ -18,7 +18,7 @@ function removeOptions(select) {
 
 function rebuildSelect(select)
 {
-  	
+  console.log('select.optionIndex: '+select.optionIndex);
   	if(!select.optionIndex == 0){ 
       removeOptions(select);
       var parentOption = "option"+select.optionIndex;
