@@ -36,7 +36,7 @@ var url = location.href.replace(location.search, '');
 var urlParams = new URLSearchParams(window.location.search);
 
 window.productJSON["options"].forEach(function(productOption, selectPos) {
-    const select = document.getElementsByName('options['+productOption+']')[0];
+    const select = selects[selectPos];
 	select.optionIndex = selectPos;
   	select.productOption = productOption;
 	rebuildSelect(select);
