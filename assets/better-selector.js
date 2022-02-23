@@ -1,6 +1,6 @@
     function setDefaultOption(productOption,select)
     {
-      	optionText = "Select " + productOption.name + "..."
+      	optionText = "Select " + productOption + "..."
         select.add(new Option(optionText, optionText), select[0]); //add the option to the selector at the top
       
         //only select this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
@@ -18,10 +18,6 @@
 
   	function updateSelect(productOption,select)
     {
-      console.log('productOption: '+productOption);
-      console.log('window.productJSON["options"]: '+window.productJSON["options"]);
-      console.log('window.productJSON["options"].indexOf(productOption.name): '+window.productJSON["options"].indexOf(productOption));
-      console.log('window.productJSON["options"].length: '+window.productJSON["options"].length);
       	const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
       	var childDivId = window.productJSON["options"].indexOf(productOption.name) + 1;
         if(!window.productJSON["options"].indexOf(productOption) < window.productJSON["options"].length){ //check if it's a parent of another selector
