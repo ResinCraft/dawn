@@ -22,7 +22,7 @@
       	var optionPosition = (window.productJSON["options"].indexOf(productOption));
       	var optionLength = window.productJSON["options"].length;
 		console.log(optionPosition+'/'+optionLength);
-        if(!optionPosition < optionLength){ //check if it's a parent of another selector
+        if(!(optionPosition + 1) < optionLength){ //check if it's a parent of another selector
           	if(select.selectedIndex == 0) {
 				window.history.pushState('object', document.title, location.href.replace(location.search, ''));
               	selectDivContainers[childDivId].style.display = 'none';
