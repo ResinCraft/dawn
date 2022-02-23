@@ -27,7 +27,7 @@
               	
               	selectDivContainers[childDivId].style.display = 'none';
             } else {
-              
+              	selectDivContainers[childDivId].style.display = '';
             }
         }
     }
