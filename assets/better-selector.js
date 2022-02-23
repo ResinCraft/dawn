@@ -21,7 +21,7 @@ function rebuildSelect(select)
   	
   	if(!select.optionIndex == 0){ 
       removeOptions(select);
-      var parentOption = "option"+(select.optionIndex-1);
+      var parentOption = "option"+(select.optionIndex);
       console.log('parentOption: '+parentOption);
       var childOption = "option"+select.optionIndex;
       var filteredVariants = window.productJSON.variants.filter((item)=>item[parentOption] === selects[select.optionIndex-1].value);
