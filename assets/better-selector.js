@@ -19,9 +19,9 @@ function updateSelect(selectPos,productOption,select)
   if((selectPos < SelectLength)){ //check if it's a parent of another selector
     if(select.selectedIndex == 0) {
       window.history.pushState('object', document.title, location.href.replace(location.search, ''));
-      selectDivContainers[optionPosition].style.display = 'none';
+      selectDivContainers[selectPos].style.display = 'none';
     } else {
-      selectDivContainers[optionPosition].style.display = '';
+      selectDivContainers[selectPos].style.display = '';
     }
   }
 }
