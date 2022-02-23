@@ -28,6 +28,7 @@ function rebuildSelect(select)
       Array.prototype.forEach.call(filteredVariants, function(variant) {
         	console.log('filteredVariants: '+variant[childOption]);
           var option = document.createElement(childOption);
+        console.log(option);
           option.text = variant[childOption];
           if(urlParams.has('variant') && variant['id'] == urlParams.get('variant')){
             option.selected = true;
