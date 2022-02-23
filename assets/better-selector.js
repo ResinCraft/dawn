@@ -28,7 +28,6 @@ function rebuildSelect(select)
         select.add(option);
       });
     }
-  	setDefaultOption(select);
 }
 
 var selects = document.getElementsByClassName("select__select");
@@ -37,10 +36,9 @@ var urlParams = new URLSearchParams(window.location.search);
 
 window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = selects[selectPos];
-  console.log('select'+selectPos+': '+select);
 	select.optionIndex = selectPos;
   	select.productOption = productOption;
-	rebuildSelect(select);
+  	(selectPos == 0) ? setDefaultOption(select): rebuildSelect(select);
   	//select.addEventListener('change', function() {rebuildSelect(select)});
 });
 
