@@ -25,7 +25,7 @@
           	if(select.selectedIndex == 0) {
 				window.history.pushState('object', document.title, location.href.replace(location.search, ''));
               	
-              	selectDivContainers[divId].style.display = 'none';
+              	selectDivContainers[childDivId].style.display = 'none';
             } else {
               
             }
