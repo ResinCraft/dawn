@@ -20,7 +20,7 @@ function rebuildSelect(select)
 {
 	console.log(selects[select.optionIndex].value);
   	removeOptions(select);
-  	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === selects[select.optionIndex].value);
+  	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex+1] === selects[select.optionIndex].value);
   	console.log(filteredVariants);
 }
 
