@@ -25,9 +25,9 @@
         if(!optionPosition < optionLength){ //check if it's a parent of another selector
           	if(select.selectedIndex == 0) {
 				window.history.pushState('object', document.title, location.href.replace(location.search, ''));
-              	selectDivContainers[optionPosition+1].style.display = 'none';
+              	selectDivContainers[optionPosition].style.display = 'none';
             } else {
-              	selectDivContainers[optionPosition+1].style.display = '';
+              	selectDivContainers[optionPosition].style.display = '';
             }
         }
     }
