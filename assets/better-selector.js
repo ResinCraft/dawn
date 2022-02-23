@@ -13,7 +13,9 @@ function setDefaultOption(productOption,select)
 
 function buildOptions(select,parentSelect)
 {
-    var urlParams = new URLSearchParams(window.location.search);
+  console.log('select: '+select);
+  console.log('parentSelect: '+parentSelect);
+  var urlParams = new URLSearchParams(window.location.search);
     var parentOptionText = parentSelect.name.match(/\[(.*?)\]/)[1];
     var selectOptionText = select.name.match(/\[(.*?)\]/)[1];
     var filteredVariants = variants.filter((item)=>item[parentOptionText] === parentSelect.value);
