@@ -38,7 +38,6 @@ function buildOptions(select,parentSelect)
   
 function updateSelect(select)
 {
-  console.log(select.pos);  
   const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
     var SelectLength = window.productJSON["options"].length;
     if(select.selectedIndex == 0) window.history.pushState('object', document.title, location.href.replace(location.search, ''));
