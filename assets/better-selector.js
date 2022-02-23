@@ -1,5 +1,6 @@
 function setDefaultOption(productOption,select)
 {
+  console.log(select);
   optionText = "Select " + productOption + "..."
   select.add(new Option(optionText, optionText), select[0]); //add the option to the selector at the top
 
