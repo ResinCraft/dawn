@@ -13,12 +13,12 @@ function setDefaultOption(productOption,select)
 
 function buildOptions(select,parentSelect)
 {
-    console.log('options: '+window.productJSON.options);
+    console.log('options: '+window.productJSON);
 
     var urlParams = new URLSearchParams(window.location.search);
     var parentOptionText = parentSelect.name.match(/\[(.*?)\]/)[1];
     var selectOptionText = select.name.match(/\[(.*?)\]/)[1];
-    var filteredVariants = window.productJSON.options.filter((item)=>item[parentOptionText] === parentSelect.value);
+    var filteredVariants = window.productJSON.filter((item)=>item[parentOptionText] === parentSelect.value);
     Array.prototype.forEach.call(filteredVariants, function(variant) {
       var option = document.createElement("option");
       option.text = variant[selectOptionText];
