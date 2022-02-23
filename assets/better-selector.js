@@ -15,7 +15,7 @@
     {
       console.log(window.productJSON["options"].length);
         if(!window.productJSON["options"].indexOf(productOption) < window.productJSON["options"].length){
-          	
+          	window.history.pushState('object', document.title, location.href.replace(location.search, ''));
         }
     }
 	
