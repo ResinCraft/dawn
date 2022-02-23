@@ -21,6 +21,8 @@ function rebuildSelect(select)
   	
   	if(!select.optionIndex == 0){ 
       removeOptions(select);
+      var parentOption = "option"+(select.optionIndex-1);
+      var childOption = "option"+select.optionIndex;
       var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === selects[select.optionIndex-1].value);
       Array.prototype.forEach.call(filteredVariants, function(variant) {
           var option = document.createElement("option1");
