@@ -3,7 +3,6 @@ function setDefaultOption(select)
     optionText = "Select " + select.productOption + "...";
     select.add(new Option(optionText, optionText), select[0]); //add the option to the selector at the top
     //only select this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
-    urlParams = new URLSearchParams(window.location.search);
     if(!urlParams.has('variant')) {
       select.selectedIndex = 0;
       select.dispatchEvent(new Event("change")); //tell global.js that the dropdown has been changed
@@ -26,6 +25,9 @@ function rebuildSelect(select)
 }
 
 var selects = document.getElementsByClassName("select__select");
+var url = location.href.replace(location.search, '');
+var urlParams = new URLSearchParams(window.location.search);
+
 window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = document.getElementsByName('options['+productOption+']')[0];
 	select.optionIndex = selectPos;
