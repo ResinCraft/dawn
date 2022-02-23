@@ -18,7 +18,7 @@ function removeOptions(select) {
 
 function rebuildSelect(select)
 {
-	console.log(select.optionIndex);
+	console.log(selects[select.optionIndex].value);
   	removeOptions(select);
   	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === selects[select.optionIndex].value);
   	console.log(filteredVariants);
