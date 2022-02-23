@@ -9,10 +9,10 @@ function setDefaultOption(select)
     }
 }
 
-function removeOptions(selectElement) {
-  var i, L = selectElement.options.length - 1;
+function removeOptions(select) {
+  var i, L = select.options.length - 1;
   for(i = L; i >= 0; i--) {
-    selectElement.remove(i);
+    select.remove(i);
   }
 }
 
