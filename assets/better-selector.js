@@ -11,11 +11,16 @@ function setDefaultOption(productOption,select)
   }
 }
 
+function removeOptions(selectElement) {
+  var i, L = selectElement.options.length - 1;
+  for(i = L; i >= 0; i--) {
+    selectElement.remove(i);
+  }
+}
+
 function buildOptions(select,parentSelect)
 {
-  console.log('parentSelect.value: '+parentSelect.value);
-  	console.log(window.productJSON.variants.filter((item)=>item["option1"] === parentSelect.value));
-    //console.log('options: '+JSON.stringify(window.productJSON.variants));
+	removeOptions(select);
 
     var urlParams = new URLSearchParams(window.location.search);
     //var parentOptionText = parentSelect.name.match(/\[(.*?)\]/)[1];
