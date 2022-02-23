@@ -39,7 +39,7 @@ function updateSelect(selectPos,productOption,select)
       selects[selectPos+1].selectedIndex = 0;
       selectDivContainers[selectPos+1].style.display = 'none';
     } else {
-      //buildOptions(select,select[selectPos+1]);
+      buildOptions(select,select[selectPos+1]);
       selectDivContainers[selectPos+1].style.display = '';
     }
   }
