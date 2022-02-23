@@ -1,6 +1,6 @@
     function setDefaultOption(productOption,select)
     {
-      	optionText = "Select " + productOption.name + "..."
+      	optionText = "Select " + productOption + "..."
         select.add(new Option(optionText, optionText), select[0]); //add the option to the selector at the top
       
         //only select this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
