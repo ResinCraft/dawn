@@ -18,8 +18,9 @@ function removeOptions(select) {
 
 function rebuildSelect(select)
 {
-  	if(!select.optionIndex == 0) removeOptions(select);
-  	setDefaultOption(select);
+  	removeOptions(select);
+  	
+  	var filteredVariants = window.productJSON.variants.filter((item)=>item["option1"] === parentSelect.value);
 }
 
 var selects = document.getElementsByClassName("select__select");
@@ -30,7 +31,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = document.getElementsByName('options['+productOption+']')[0];
 	select.optionIndex = selectPos;
   	select.productOption = productOption;
-  	rebuildSelect(select);
+  	(select.optionIndex == 0) ? setDefaultOption(select) : rebuildSelect(select);
 });
 
 /*
