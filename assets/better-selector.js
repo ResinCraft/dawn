@@ -18,6 +18,7 @@
 
   	function updateSelect(productOption,select)
     {
+      console.log('window.productJSON["options"]: '+window.productJSON["options"]);
       console.log('window.productJSON["options"].indexOf(productOption.name): '+window.productJSON["options"].indexOf(productOption.name));
       console.log('window.productJSON["options"].length: '+window.productJSON["options"].length);
       	const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
