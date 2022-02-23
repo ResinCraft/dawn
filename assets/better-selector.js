@@ -44,7 +44,7 @@ function updateSelect(select)
     if((select.optionIndex < SelectLength - 1)){ //check if it's a parent of another selector
       if(select.selectedIndex == 0) {
         selects[select.optionIndex+1].selectedIndex = 0;
-        selectDivContainers[selectPos+1].style.display = 'none';
+        selectDivContainers[select.optionIndex+1].style.display = 'none';
       } else {
         buildOptions(selects[select.optionIndex+1],select);
         selectDivContainers[select.optionIndex+1].style.display = '';
