@@ -54,11 +54,11 @@ function updateSelect(selectPos,productOption,select)
 }
 
 
-selects = document.getElementsByClassName("select__select");
+var selects = document.getElementsByClassName("select__select");
 window.productJSON["options"].forEach(function(productOption, selectPos) {
-    var select = document.getElementsByName('options['+productOption+']')[0];
+    const select = document.getElementsByName('options['+productOption+']')[0];
 	select.pos = selectPos;
-    select.addEventListener('change', function() {updateSelect(selectPos,productOption,select)});
+    select.addEventListener('change', function() {updateSelect(select)});
     setDefaultOption(productOption,select);
 });
 
