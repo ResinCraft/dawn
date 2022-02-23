@@ -15,16 +15,15 @@
   	function updateSelect(productOption,select)
     {
       console.log(window.productJSON["options"].length);
-        if(window.productJSON["options"].indexOf(productOption) < window.productJSON["options"].length){
+        if(!window.productJSON["options"].indexOf(productOption) < window.productJSON["options"].length){
           	
         }
     }
 	
   	//execute this code once the page has rendered (global.js is deferred, got to run after that)
   	window.addEventListener('DOMContentLoaded', function() {
-      	window.productJSON["options"].forEach(function(productOption) {
-          	selectName = 'options['+productOption.name+']';
-        	var select = document.getElementsByName(selectName)[0];
+      	window.productJSON["options"].forEach(function(productOption, i) {
+        	var select = document.getElementById('Option-template--'+window.sectionId+'__main-0');
           
           	select.addEventListener('change', function() {updateSelect(productOption,select)});
           	setDefaultOption(productOption,select);
