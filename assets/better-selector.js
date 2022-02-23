@@ -36,7 +36,7 @@ function buildOptions(select,parentSelect)
     });
 }
   
-function updateSelect(selectPos,productOption,select)
+function updateSelect(select)
 {
   console.log(select.pos);  
   const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
@@ -58,6 +58,7 @@ var selects = document.getElementsByClassName("select__select");
 window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = document.getElementsByName('options['+productOption+']')[0];
 	select.pos = selectPos;
+  	select.productOption = productOption
     select.addEventListener('change', function() {updateSelect(select)});
     setDefaultOption(productOption,select);
 });
