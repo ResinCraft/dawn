@@ -20,11 +20,10 @@
     {
       	const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
       	var childDivId = window.productJSON["options"].indexOf(productOption) + 1;
-      	console.log(childDivId);
-        if(!window.productJSON["options"].indexOf(productOption) < window.productJSON["options"].length){ //check if it's a parent
+        if(!window.productJSON["options"].indexOf(productOption) < window.productJSON["options"].length){ //check if it's a parent of another selector
           	if(select.selectedIndex == 0) {
 				window.history.pushState('object', document.title, location.href.replace(location.search, ''));
-              	
+              	console.log(childDivId);
               	selectDivContainers[childDivId].style.display = 'none';
             } else {
               	selectDivContainers[childDivId].style.display = '';
