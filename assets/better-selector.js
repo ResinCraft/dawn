@@ -37,7 +37,7 @@
   	//execute this code once the page has rendered (global.js is deferred, got to run after that)
   	window.addEventListener('DOMContentLoaded', function() {
       	window.productJSON["options"].forEach(function(productOption) {
-        	var select = document.getElementsByName('options['+productOption.name+']')[0];
+        	var select = document.getElementsByName('options['+productOption+']')[0];
           
           	select.addEventListener('change', function() {updateSelect(productOption,select)});
           	setDefaultOption(productOption,select);
