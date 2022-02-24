@@ -47,9 +47,13 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
       	if(!urlVariant) select.selectedIndex = 0;
       	select.dispatchEvent(new Event("change", { bubbles: true }));
     } else {
-      	parentValue = selects[(select.optionIndex-1)].value
-        console.log(parentValue);
-      	rebuildSelect(select,parentValue);
+      	parentValue = selects[(select.optionIndex-1)].value;
+      	if(selects[(select.optionIndex-1)].selectedIndex == 0){
+          selectDivContainers[select.optionIndex+1].style.display = 'none';
+        } else {
+      		rebuildSelect(select,parentValue);
+          	selectDivContainers[select.optionIndex+1].style.display = '';
+        }
     }
 });
   	//if(urlParams.has('variant') && window.productJSON.variants.filter((item)=>item["id" === urlParams.get('variant'))
