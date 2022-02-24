@@ -1,12 +1,7 @@
 function setDefaultOption(select)
 {
     optionText = "Select " + select.productOption + "...";
-    select.add(new Option(optionText), select[0]); //add the option to the selector at the top
-    //only select this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
-    if(!urlParams.has('variant')) {
-      select.selectedIndex = 0;
-      select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
-    }
+    select.add(new Option(optionText), select[0]);
 }
 
 function removeOptions(select) {
@@ -37,6 +32,10 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
   const select = selects[selectPos];
   select.optionIndex = selectPos;
   select.productOption = productOption;
+  if(!urlParams.has('variant')) {
+    select.selectedIndex = 0;
+    select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
+  }
   setDefaultOption(select);
   //(selectPos == 0) ? setDefaultOption(select) : "rebuildSelect(select)";
   select.dispatchEvent(new Event("change"));
