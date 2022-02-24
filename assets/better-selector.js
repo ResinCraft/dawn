@@ -38,6 +38,7 @@ window.addEventListener('DOMContentLoaded', function() {
       const select = selects[selectPos];
       select.optionIndex = selectPos;
       select.productOption = productOption;
+    setDefaultOption(select)
       (selectPos == 0) ? setDefaultOption(select) : "rebuildSelect(select)";
     	console.log(select.dispatchEvent(new Event("change")));
       //select.addEventListener('change', function() {rebuildSelect(select)});
