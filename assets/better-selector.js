@@ -20,10 +20,10 @@ function rebuildSelect(select,variant)
         setDefaultOption(select);
         var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === selects[select.optionIndex-1].value);
         filteredVariants.forEach(function(variant) {
-          var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
-          var selected = (urlParams.has('variant') && urlParams.get('variant') == variant['id']) ? true : false;
-          selectOption.selected = true;
-          select.add(selectOption);
+            var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
+            var selected = (urlParams.has('variant') && urlParams.get('variant') == variant['id']) ? true : false;
+            selectOption.selected = true;
+            select.add(selectOption);
         });
     }
 }
@@ -31,8 +31,9 @@ function rebuildSelect(select,variant)
 selects = document.getElementsByClassName("select__select");
 var url = location.href.replace(location.search, '');
 var urlParams = new URLSearchParams(window.location.search);
-urlVariant = false;
+
 //check if there is a variant in the url (i.e. ?variant=123), also validate it
+urlVariant = false;
 if(urlParams.has('variant') && (window.productJSON.variants.filter((item)=>item["id"] == urlParams.get('variant')).length > 0)){
   	urlVariant = urlParams.get('variant');
 }
@@ -41,14 +42,22 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = selects[selectPos];
     select.optionIndex = selectPos;
     select.productOption = productOption;
-  	if(urlParams.has('variant') && window.productJSON.variants.filter((item)=>item["id" === urlParams.get('variant'))
-	rebuildSelect(select,variant);
+  	if(select.optionIndex == 0) {
+      	
+      	select.dispatchEvent(new Event("change"));
+    } else {
+      	parentValue = select[optionIndex-1].value
+        console.log(parentValue);
+      	rebuildSelect(select,parentValue);
+    }
+  	//if(urlParams.has('variant') && window.productJSON.variants.filter((item)=>item["id" === urlParams.get('variant'))
+	rebuildSelect(select,parentSelect);
       if(urlVariant) {
           select.selectedIndex = 0;
           select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
       }
   } else {
-    rebuildSelect(select);
+    
   }
   
   //(selectPos == 0) ? setDefaultOption(select) : "rebuildSelect(select)";
