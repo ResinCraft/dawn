@@ -45,7 +45,12 @@ function initSelect(select,parentSelect){
 }
 
 function updateSelect(){
- 	 
+    if(parentSelect.selectedIndex != 0) {
+      validOptions(select,parentSelect.value);
+      selectDivContainers[select.optionIndex].style.display = '';
+    } else {
+      selectDivContainers[select.optionIndex].style.display = 'none';
+    }	
 }
 
 window.productJSON["options"].forEach(function(productOption, selectPos) {
