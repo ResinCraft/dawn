@@ -67,6 +67,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
         	if(select.optionIndex < (window.productJSON["options"].length - 1)){
             	select.addEventListener('change', function() {updateChildSelect(selects[1],select)});
             }
+        	select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(select); });
       	break;
       	case 1:
         	initSelect(select,selects[0]);
