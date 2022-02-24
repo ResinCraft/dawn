@@ -13,8 +13,8 @@ function removeOptions(select) {
 
 function rebuildSelect(select)
 {
-    console.log(select);
   	removeOptions(select);
+  	setDefaultOption(select);
     var filteredVariants = window.productJSON.variants.filter((item)=>item[select.optionIndex] === selects[select.optionIndex-1].value);
   	console.log(filteredVariants);
     filteredVariants.forEach(function(variant) {
@@ -32,8 +32,8 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
   const select = selects[selectPos];
   select.optionIndex = selectPos;
   select.productOption = productOption;
-  setDefaultOption(select);
   if(selectPos == 0){
+    	setDefaultOption(select);
       if(!urlParams.has('variant')) {
           select.selectedIndex = 0;
           select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
