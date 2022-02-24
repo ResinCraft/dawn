@@ -13,6 +13,7 @@ function removeOptions(select) {
 
 function rebuildSelect(select,parentValue)
 {
+  console.log(parentValue.selectedIndex);
   	if(parentValue.selectedIndex == 0){
       	selectDivContainers[select.optionIndex].style.display = 'none';
     }else{
