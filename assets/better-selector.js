@@ -13,15 +13,19 @@ function removeOptions(select) {
 
 function rebuildSelect(select)
 {
-  	removeOptions(select);
-  	setDefaultOption(select);
-    var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === selects[select.optionIndex-1].value);
-    filteredVariants.forEach(function(variant) {
-      var selected = (urlParams.has('variant') && urlParams.get('variant') == variant['id']) ? true : false;
-      var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
-      if(urlParams.has('variant') && urlParams.get('variant') == variant['id']) selectOption.selected = true;
-      select.add(selectOption);
-    });
+  	if(select.optionIndex == 0){
+      	setDefaultOption(select);
+    } else {
+        removeOptions(select);
+        setDefaultOption(select);
+        var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === selects[select.optionIndex-1].value);
+        filteredVariants.forEach(function(variant) {
+          var selected = (urlParams.has('variant') && urlParams.get('variant') == variant['id']) ? true : false;
+          var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
+          if(urlParams.has('variant') && urlParams.get('variant') == variant['id']) selectOption.selected = true;
+          select.add(selectOption);
+        });
+    }
 }
 
 selects = document.getElementsByClassName("select__select");
