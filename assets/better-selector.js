@@ -11,9 +11,9 @@ function removeOptions(select) {
   }
 }
 
-function rebuildSelect(select,parentValue) {
-  console.log('parentValue: '+parentValue);  	
-  	if(parentValue.selectedIndex == 0){
+function rebuildSelect(select,parent) {
+  console.log('parentValue: '+parent.value);  	
+  	if(parent.selectedIndex == 0){
       	selectDivContainers[select.optionIndex].style.display = 'none';
     }else{
       if(select.optionIndex == 0){
@@ -21,7 +21,7 @@ function rebuildSelect(select,parentValue) {
       } else {
           removeOptions(select);
           setDefaultOption(select);
-          var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentValue);
+          var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parent.value);
           filteredVariants.forEach(function(variant) {
               var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
               var selected = (urlParams.has('variant') && urlParams.get('variant') == variant['id']) ? true : false;
