@@ -101,7 +101,7 @@ function updateSelect(select)
     }
 }
 
-
+window.addEventListener('DOMContentLoaded', function() {
 var selects = document.getElementsByClassName("select__select");
 window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = document.getElementsByName('options['+productOption+']')[0];
@@ -109,4 +109,5 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
   	select.productOption = productOption
     select.addEventListener('change', function() {updateSelect(select)});
     setDefaultOption(productOption,select);
+});
 });
