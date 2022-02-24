@@ -37,7 +37,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = selects[selectPos];
 	select.optionIndex = selectPos;
   	select.productOption = productOption;
-  	(selectPos == 0) ? setDefaultOption(select) : rebuildSelect(select);
+  	(selectPos == 0) ? setDefaultOption(select);
   	//select.addEventListener('change', function() {rebuildSelect(select)});
 });
 
