@@ -62,7 +62,9 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
   	switch(select.optionIndex) {
       	case 0:
             setDefaultOption(select, urlVariant);
-            select.addEventListener('change', function() {updateChildSelect(selects[1],select)});
+        	if(select.optionIndex < window.productJSON["options"].length){
+            	select.addEventListener('change', function() {updateChildSelect(selects[1],select)});
+            }
       	break;
       	case 1:
         	initSelect(select,selects[0]);
