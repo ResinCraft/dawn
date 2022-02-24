@@ -44,7 +44,7 @@ function initSelect(select,parentSelect){
     }
 }
 
-function updateSelect(){
+function updateSelect(select,parentSelect){
     if(parentSelect.selectedIndex != 0) {
       validOptions(select,parentSelect.value);
       selectDivContainers[select.optionIndex].style.display = '';
