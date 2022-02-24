@@ -1,4 +1,4 @@
-/*function setDefaultOption(select)
+function setDefaultOption(select)
 {
     optionText = "Select " + select.productOption + "...";
     select.add(new Option(optionText, optionText), select[0]); //add the option to the selector at the top
@@ -46,7 +46,7 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 // initial run turns off childred if parent not selected
 */
-
+/*
 function setDefaultOption(productOption,select)
 {
   optionText = "Select " + productOption + "...";
@@ -111,3 +111,4 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
     setDefaultOption(productOption,select);
 });
 });
+*/
