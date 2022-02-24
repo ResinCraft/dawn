@@ -8,7 +8,7 @@ urlVariant = (urlParams.has('variant') && (window.productJSON.variants.filter((i
 
 function removeUrlVariant(select) {
   	window.history.pushState('object', document.title, location.href.replace(location.search, ''));
-  	select.dispatchEvent(new Event("change", { bubbles: true }));
+  	//select.dispatchEvent(new Event("change", { bubbles: true }));
 }
 
 function setDefaultOption(select,selected = false) {
