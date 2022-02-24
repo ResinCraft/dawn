@@ -56,7 +56,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
     } else {
       	select.addEventListener('change', function() {rebuildSelect(select,parentValue)});
       	const parent = {value: selects[(select.optionIndex-1)].value, selectedIndex: selects[(select.optionIndex-1)].value};
-   		rebuildSelect(select,parent.value);
+   		rebuildSelect(select,parent);
     }
 });
   	//if(urlParams.has('variant') && window.productJSON.variants.filter((item)=>item["id" === urlParams.get('variant'))
