@@ -25,7 +25,8 @@ function rebuildSelect(select,parent = false) {
           selectOption.selected = true;
           select.add(selectOption);
         });
-      selectDivContainers[select.optionIndex].style.display = '';
+      	if(!urlVariant) select.selectedIndex == 0;
+      	selectDivContainers[select.optionIndex].style.display = '';
 	}
 }
 
