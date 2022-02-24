@@ -32,7 +32,7 @@ selects = document.getElementsByClassName("select__select");
 var url = location.href.replace(location.search, '');
 var urlParams = new URLSearchParams(window.location.search);
 if(urlParams.has('variant')){
-  console.log('window.productJSON.variants.filter((item)=>item["id"] === urlParams.get(\'variant\')' + window.productJSON.variants.filter((item)=>item["id"] === urlParams.get('variant')));
+  console.log('window.productJSON.variants.filter((item)=>item["id"] === urlParams.get(\'variant\'): ' + window.productJSON.variants.filter((item)=>item["id"] === urlParams.get('variant')));
   	variant = (window.productJSON.variants.filter((item)=>item["id"] === urlParams.get('variant') > 0)) ? urlParams.get('variant') : variant = false;
 } else {
   	variant = false;
