@@ -31,7 +31,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = selects[selectPos];
     select.optionIndex = selectPos;
     select.productOption = productOption;
-  	switch(select.optionIndex)
+  	switch(select.optionIndex) {
       	case 0:
             setDefaultOption(select, urlVariant);
             select.addEventListener('change', function() {initSelect(selects[1],select)});
@@ -40,4 +40,5 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
         break;
         case 2:
         break;
+    }
 });
