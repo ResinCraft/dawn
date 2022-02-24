@@ -31,15 +31,18 @@ function rebuildSelect(select)
 selects = document.getElementsByClassName("select__select");
 var url = location.href.replace(location.search, '');
 var urlParams = new URLSearchParams(window.location.search);
+if(urlParams.has('variant')){
+  	(window.productJSON.variants.filter((item)=>item["id"] === urlParams.get('variant') > 0) ? urlParams.get('variant') : false;
+}
 urlVariant = urlParams.has('variant') ? urlParams.get('variant') : false;
 
 window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = selects[selectPos];
     select.optionIndex = selectPos;
     select.productOption = productOption;
-  	if(urlParams.has('variant') && window.productJSON.variants.filter((item)=>item["id" === selects[select.optionIndex-1].value)
+  	if(urlParams.has('variant') && window.productJSON.variants.filter((item)=>item["id" === urlParams.get('variant'))
 	rebuildSelect(select);
-      if(urlParams.has('variant')) {
+      if(urlVariant) {
           select.selectedIndex = 0;
           select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
       }
