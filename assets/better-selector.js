@@ -24,7 +24,7 @@ function removeOptions(select) {
 }
 
 function initSelect(select){
-  	setDefaultOption(select, urlVariant);
+  	
 }
 
 window.productJSON["options"].forEach(function(productOption, selectPos) {
@@ -37,8 +37,10 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
             select.addEventListener('change', function() {initSelect(selects[1],select)});
       	break;
       	case 1:
+        	setDefaultOption(select, urlVariant);
         break;
         case 2:
+        	setDefaultOption(select, urlVariant);
         break;
     }
 });
