@@ -11,8 +11,7 @@ function removeOptions(select) {
   }
 }
 
-function rebuildSelect(select,parentValue)
-{
+function rebuildSelect(select,parentValue) {
   	if(parentValue.selectedIndex == 0){
       	selectDivContainers[select.optionIndex].style.display = 'none';
     }else{
@@ -53,7 +52,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
       	if(!urlVariant) select.selectedIndex = 0;
       	select.dispatchEvent(new Event("change", { bubbles: true }));
     } else {
-      	select.addEventListener('change', function() {rebuildSelect(select,parentValue)});
+      	select.addEventListener('change', function() {rebuildSelect(select,parent)});
       	const parent = {value: selects[(select.optionIndex-1)].value, selectedIndex: selects[(select.optionIndex-1)].selectedIndex};
    		rebuildSelect(select,parent);
     }
