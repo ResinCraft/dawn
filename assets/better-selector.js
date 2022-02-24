@@ -16,20 +16,15 @@ function rebuildSelect(select,parent = false) {
   	if(parent.selectedIndex == 0){
       	selectDivContainers[select.optionIndex].style.display = 'none';
     }else{
-      //if(select.optionIndex == 0){
-      //    setDefaultOption(select);
-      //} else {
-        console.log(select);
-          removeOptions(select);
-          setDefaultOption(select);
-          var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parent.value);
-          filteredVariants.forEach(function(variant) {
-              var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
-              var selected = (urlVariant == variant['id']) ? true : false;
-              selectOption.selected = true;
-              select.add(selectOption);
-          });
-      //}
+        removeOptions(select);
+        setDefaultOption(select);
+        var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parent.value);
+        filteredVariants.forEach(function(variant) {
+          var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
+          var selected = (urlVariant == variant['id']) ? true : false;
+          selectOption.selected = true;
+          select.add(selectOption);
+        });
       selectDivContainers[select.optionIndex].style.display = '';
 	}
 }
