@@ -27,5 +27,5 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = selects[selectPos];
     select.optionIndex = selectPos;
     select.productOption = productOption;
-  	setDefaultOption(select)
+  	setDefaultOption(select, urlVariant);
 });
