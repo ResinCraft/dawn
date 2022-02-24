@@ -16,9 +16,9 @@ function rebuildSelect(select,parent = false) {
   	if(parent.selectedIndex == 0){
       	selectDivContainers[select.optionIndex].style.display = 'none';
     }else{
-      if(select.optionIndex == 0){
-          setDefaultOption(select);
-      } else {
+      //if(select.optionIndex == 0){
+      //    setDefaultOption(select);
+      //} else {
         console.log(select);
           removeOptions(select);
           setDefaultOption(select);
@@ -29,7 +29,7 @@ function rebuildSelect(select,parent = false) {
               selectOption.selected = true;
               select.add(selectOption);
           });
-      }
+      //}
       selectDivContainers[select.optionIndex].style.display = '';
 	}
 }
