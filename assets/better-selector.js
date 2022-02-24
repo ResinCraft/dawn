@@ -33,8 +33,8 @@ var url = location.href.replace(location.search, '');
 var urlParams = new URLSearchParams(window.location.search);
 if(urlParams.has('variant')){
   result = window.productJSON.variants.filter((item)=>item["id"] == urlParams.get('variant'));
-  console.log('result: ' + result);
-  	variant = (window.productJSON.variants.filter((item)=>item["id"] === urlParams.get('variant') > 0)) ? urlParams.get('variant') : variant = false;
+  console.log('result: ' + result.length);
+  	variant = (window.productJSON.variants.filter((item)=>item["id"] == urlParams.get('variant') > 0)) ? urlParams.get('variant') : variant = false;
 } else {
   	variant = false;
 }
