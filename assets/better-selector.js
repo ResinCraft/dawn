@@ -20,9 +20,9 @@ function rebuildSelect(select)
         setDefaultOption(select);
         var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === selects[select.optionIndex-1].value);
         filteredVariants.forEach(function(variant) {
-          var selected = (urlParams.has('variant') && urlParams.get('variant') == variant['id']) ? true : false;
           var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
-          if(urlParams.has('variant') && urlParams.get('variant') == variant['id']) selectOption.selected = true;
+          var selected = (urlParams.has('variant') && urlParams.get('variant') == variant['id']) ? true : false;
+          selectOption.selected = true;
           select.add(selectOption);
         });
     }
@@ -33,17 +33,16 @@ url = location.href.replace(location.search, '');
 urlParams = new URLSearchParams(window.location.search);
 
 window.productJSON["options"].forEach(function(productOption, selectPos) {
-  const select = selects[selectPos];
-  select.optionIndex = selectPos;
-  select.productOption = productOption;
-  if(selectPos == 0){
-    	setDefaultOption(select);
-      if(!urlParams.has('variant')) {
+    const select = selects[selectPos];
+    select.optionIndex = selectPos;
+    select.productOption = productOption;
+	rebuildSelect(select);
+      if(urlParams.has('variant')) {
           select.selectedIndex = 0;
           select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
       }
   } else {
-    rebuildSelect(select)
+    rebuildSelect(select);
   }
   
   //(selectPos == 0) ? setDefaultOption(select) : "rebuildSelect(select)";
