@@ -30,7 +30,7 @@ function validOptions(select,parentValue) {
     removeOptions(select);
     setDefaultOption(select);
   console.log('parentValue: '+parentValue.replace('"', '\\"'));
-  	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentValue.replace('"', '\\"');
+  	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentValue;
     filteredVariants.forEach(function(variant) {
       console.log(JSON.stringify(filteredVariants));
       var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
