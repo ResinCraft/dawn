@@ -13,7 +13,6 @@ function removeOptions(select) {
 
 function rebuildSelect(select,parentValue)
 {
-  console.log(parentValue.selectedIndex);
   	if(parentValue.selectedIndex == 0){
       	selectDivContainers[select.optionIndex].style.display = 'none';
     }else{
@@ -55,7 +54,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
       	select.dispatchEvent(new Event("change", { bubbles: true }));
     } else {
       	select.addEventListener('change', function() {rebuildSelect(select,parentValue)});
-      	const parent = {value: selects[(select.optionIndex-1)].value, selectedIndex: selects[(select.optionIndex-1)].value};
+      	const parent = {value: selects[(select.optionIndex-1)].value, selectedIndex: selects[(select.optionIndex-1)].selectedIndex};
    		rebuildSelect(select,parent);
     }
 });
