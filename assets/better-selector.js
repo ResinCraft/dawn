@@ -16,9 +16,7 @@ function rebuildSelect(select)
   	removeOptions(select);
   	setDefaultOption(select);
     var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === selects[select.optionIndex-1].value);
-  	console.log(filteredVariants);
     filteredVariants.forEach(function(variant) {
-      console.log(variant['id']);
       var selected = (urlParams.has('variant') && urlParams.get('variant') == variant['id']) ? true : false;
       var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
       if(urlParams.has('variant') && urlParams.get('variant') == variant['id']) selectOption.selected = true;
