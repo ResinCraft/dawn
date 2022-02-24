@@ -11,8 +11,8 @@ function removeOptions(select) {
   }
 }
 
-function rebuildSelect(select,parent) {
-  var parent = selects[(select.optionIndex-1)];
+function rebuildSelect(select,parent = false) {
+  if(!parent) { parent = selects[(select.optionIndex-1)]; }
   console.log('parentValue: '+parent);  	
   	if(parent.selectedIndex == 0){
       	selectDivContainers[select.optionIndex].style.display = 'none';
