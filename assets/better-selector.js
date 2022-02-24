@@ -52,7 +52,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
       	setDefaultOption(select);
       	if(!urlVariant) select.selectedIndex = 0;
       	select.dispatchEvent(new Event("change", { bubbles: true }));
-      	const parent = {value: selects[selects[0]].value, selectedIndex: selects[selects[0]].selectedIndex};
+      	const parent = {value: selects[0].value, selectedIndex: selects[0].selectedIndex};
       	select.addEventListener('change', function() {rebuildSelect(select[1],parent)});
     } else {
       	select.addEventListener('change', function() {rebuildSelect(select,parent)});
