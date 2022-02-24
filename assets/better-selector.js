@@ -29,18 +29,19 @@ function rebuildSelect(select)
     });
 }
 
-var selects = document.getElementsByClassName("select__select");
-var url = location.href.replace(location.search, '');
-var urlParams = new URLSearchParams(window.location.search);
+window.addEventListener('DOMContentLoaded', function() {
+  var selects = document.getElementsByClassName("select__select");
+  var url = location.href.replace(location.search, '');
+  var urlParams = new URLSearchParams(window.location.search);
 
-window.productJSON["options"].forEach(function(productOption, selectPos) {
-    const select = selects[selectPos];
-	select.optionIndex = selectPos;
-  	select.productOption = productOption;
-  	(selectPos == 0) ? setDefaultOption(select) : rebuildSelect(select);
-  	//select.addEventListener('change', function() {rebuildSelect(select)});
+  window.productJSON["options"].forEach(function(productOption, selectPos) {
+      const select = selects[selectPos];
+      select.optionIndex = selectPos;
+      select.productOption = productOption;
+      (selectPos == 0) ? setDefaultOption(select) : rebuildSelect(select);
+      //select.addEventListener('change', function() {rebuildSelect(select)});
+  });
 });
-
 // initial run turns off childred if parent not selected
 
 /*
