@@ -5,7 +5,7 @@ function setDefaultOption(select)
     //only select this option if there is no pre-selected variant. i.e. the url doesn't have a "?variant=1234" value.
     if(!urlParams.has('variant')) {
       select.selectedIndex = 0;
-      select.dispatchEvent(new Event("change"), { bubbles: true }); //tell global.js that the dropdown has been changed
+      select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
     }
 }
 
