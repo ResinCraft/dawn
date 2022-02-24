@@ -21,6 +21,7 @@ function rebuildSelect(select)
     filteredVariants.forEach(function(variant) {
       console.log(variant['id']);
       var selected = (urlParams.has('variant') && urlParams.get('variant') == variant['id']) ? true : false;
+      console.log(selected);
       var option = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)],selected);
       select.add(option);
     });
