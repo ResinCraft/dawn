@@ -31,6 +31,7 @@ function validOptions(select,parentValue) {
     setDefaultOption(select);
   	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentValue);
     filteredVariants.forEach(function(variant) {
+      console.log(JSON.stringify(filteredVariants));
       var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
       var selected = (urlVariant == variant['id']) ? true : false;
       selectOption.selected = selected;
