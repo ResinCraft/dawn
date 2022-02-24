@@ -49,6 +49,7 @@ function updateSelect(select,parentSelect){
       validOptions(select,parentSelect.value);
       selectDivContainers[select.optionIndex].style.display = '';
     } else {
+      removeUrlVariant();
       selectDivContainers[select.optionIndex].style.display = 'none';
     }	
 }
