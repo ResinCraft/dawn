@@ -11,14 +11,14 @@ function removeOptions(select) {
   }
 }
 
-function rebuildSelect(select,variant)
+function rebuildSelect(select,parentValue)
 {
   	if(select.optionIndex == 0){
       	setDefaultOption(select);
     } else {
         removeOptions(select);
         setDefaultOption(select);
-        var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === selects[select.optionIndex-1].value);
+        var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentValue);
         filteredVariants.forEach(function(variant) {
             var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
             var selected = (urlParams.has('variant') && urlParams.get('variant') == variant['id']) ? true : false;
@@ -43,7 +43,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
     select.optionIndex = selectPos;
     select.productOption = productOption;
   	if(select.optionIndex == 0) {
-      	
+      	setDefaultOption(select);
       	select.dispatchEvent(new Event("change"));
     } else {
       	parentValue = select[optionIndex-1].value
@@ -51,13 +51,13 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
       	rebuildSelect(select,parentValue);
     }
   	//if(urlParams.has('variant') && window.productJSON.variants.filter((item)=>item["id" === urlParams.get('variant'))
-	rebuildSelect(select,parentSelect);
+	/*rebuildSelect(select,parentSelect);
       if(urlVariant) {
           select.selectedIndex = 0;
           select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
       }
   } else {
-    
+    */
   }
   
   //(selectPos == 0) ? setDefaultOption(select) : "rebuildSelect(select)";
