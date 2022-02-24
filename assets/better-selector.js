@@ -44,6 +44,10 @@ function initSelect(select,parentSelect){
     }
 }
 
+function updateSelect(){
+ 	 
+}
+
 window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = selects[selectPos];
     select.optionIndex = selectPos;
@@ -51,7 +55,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
   	switch(select.optionIndex) {
       	case 0:
             setDefaultOption(select, urlVariant);
-            select.addEventListener('change', function() {initSelect(selects[1],select)});
+            select.addEventListener('change', function() {updateSelect(selects[1],select)});
       	break;
       	case 1:
         	initSelect(select,selects[0]);
