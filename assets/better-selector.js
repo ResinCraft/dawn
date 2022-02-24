@@ -40,6 +40,8 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
         	if(selects[0].value != 0) {
         		setDefaultOption(select, urlVariant);
               	selectDivContainers[select.optionIndex].style.display = '';
+            } else {
+              	selectDivContainers[select.optionIndex].style.display = 'none';
             }
         break;
         case 2:
