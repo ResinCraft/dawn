@@ -37,6 +37,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
             select.addEventListener('change', function() {initSelect(selects[1],select)});
       	break;
       	case 1:
+        console.log(selects[0].value);
         	if(selects[0].value != 0) {
         		setDefaultOption(select, urlVariant);
               	selectDivContainers[select.optionIndex].style.display = '';
