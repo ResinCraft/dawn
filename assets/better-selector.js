@@ -29,13 +29,15 @@ function rebuildSelect(select)
 }
 
 selects = document.getElementsByClassName("select__select");
-url = location.href.replace(location.search, '');
-urlParams = new URLSearchParams(window.location.search);
+var url = location.href.replace(location.search, '');
+var urlParams = new URLSearchParams(window.location.search);
+urlVariant = urlParams.has('variant') ? urlParams.get('variant') : false;
 
 window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = selects[selectPos];
     select.optionIndex = selectPos;
     select.productOption = productOption;
+  	if(urlParams.has('variant') && window.productJSON.variants.filter((item)=>item["id" === selects[select.optionIndex-1].value)
 	rebuildSelect(select);
       if(urlParams.has('variant')) {
           select.selectedIndex = 0;
