@@ -11,7 +11,7 @@ function removeOptions(select) {
   }
 }
 
-function rebuildSelect(select)
+function rebuildSelect(select,variant)
 {
   	if(select.optionIndex == 0){
       	setDefaultOption(select);
@@ -31,19 +31,18 @@ function rebuildSelect(select)
 selects = document.getElementsByClassName("select__select");
 var url = location.href.replace(location.search, '');
 var urlParams = new URLSearchParams(window.location.search);
-variant = false;
+urlVariant = false;
+//check if there is a variant in the url (i.e. ?variant=123), also validate it
 if(urlParams.has('variant') && (window.productJSON.variants.filter((item)=>item["id"] == urlParams.get('variant')).length > 0)){
-  	variant = urlParams.get('variant');
+  	urlVariant = urlParams.get('variant');
 }
-     console.log(variant);
 
-/*
 window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = selects[selectPos];
     select.optionIndex = selectPos;
     select.productOption = productOption;
   	if(urlParams.has('variant') && window.productJSON.variants.filter((item)=>item["id" === urlParams.get('variant'))
-	rebuildSelect(select);
+	rebuildSelect(select,variant);
       if(urlVariant) {
           select.selectedIndex = 0;
           select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
