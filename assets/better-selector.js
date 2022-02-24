@@ -48,6 +48,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
       	if(!urlVariant) select.selectedIndex = 0;
       	select.dispatchEvent(new Event("change", { bubbles: true }));
     } else {
+      	select.addEventListener('change', function() {rebuildSelect(select,parentValue)});
       	parentValue = selects[(select.optionIndex-1)].value;
       	if(selects[(select.optionIndex-1)].selectedIndex == 0){
           selectDivContainers[select.optionIndex].style.display = 'none';
