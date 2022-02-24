@@ -30,9 +30,9 @@ function rebuildSelect(select)
 }
 
 window.addEventListener('DOMContentLoaded', function() {
-  var selects = document.getElementsByClassName("select__select");
-  var url = location.href.replace(location.search, '');
-  var urlParams = new URLSearchParams(window.location.search);
+  selects = document.getElementsByClassName("select__select");
+  url = location.href.replace(location.search, '');
+  urlParams = new URLSearchParams(window.location.search);
 
   window.productJSON["options"].forEach(function(productOption, selectPos) {
       const select = selects[selectPos];
