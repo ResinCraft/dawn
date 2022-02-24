@@ -6,7 +6,7 @@ const selectDivContainers = document.getElementsByClassName("product-form__input
 //check if there is a variant in the url (i.e. ?variant=123), also validate it
 urlVariant = (urlParams.has('variant') && (window.productJSON.variants.filter((item)=>item["id"] == urlParams.get('variant')).length > 0)) ? urlParams.get('variant') : false;
 
-function removeUrlVariant() {
+function removeUrlVariant(select) {
   	window.history.pushState('object', document.title, location.href.replace(location.search, ''));
   	select.dispatchEvent(new Event("change", { bubbles: true }));
 }
@@ -69,12 +69,12 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
         	if(select.optionIndex < window.productJSON["options"].length){
         		select.addEventListener('change', function() {updateChildSelect(selects[2],select)});
             } else {
-             	select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(); });
+             	select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(select); });
             }
         break;
         case 2:
 			initSelect(select,selects[1]);
-			select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(); });
+			select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(select); });
         break;
     }
 });
