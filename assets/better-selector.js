@@ -24,7 +24,13 @@ function removeOptions(select) {
 }
 
 function validOptions(select,parentValue){
-  
+  	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentValue);
+    filteredVariants.forEach(function(variant) {
+      var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
+      var selected = (urlVariant == variant['id']) ? true : false;
+      selectOption.selected = true;
+      select.add(selectOption);
+    });
 }
 
 function initSelect(select,parentSelect){
