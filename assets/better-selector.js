@@ -33,9 +33,11 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
   select.optionIndex = selectPos;
   select.productOption = productOption;
   setDefaultOption(select);
-  if(selectPos == 0 && !urlParams.has('variant')){
-    select.selectedIndex = 0;
-    select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
+  if(selectPos == 0){
+      if(!urlParams.has('variant')) {
+          select.selectedIndex = 0;
+          select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
+      }
   } else {
     rebuildSelect(select)
   }
