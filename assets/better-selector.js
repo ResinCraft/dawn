@@ -40,7 +40,7 @@ window.addEventListener('DOMContentLoaded', function() {
       select.productOption = productOption;
     	setDefaultOption(select);
       //(selectPos == 0) ? setDefaultOption(select) : "rebuildSelect(select)";
-    	console.log(select.dispatchEvent(new Event("change")));
+    	select.dispatchEvent(new Event("change"));
       //select.addEventListener('change', function() {rebuildSelect(select)});
   });
 });
