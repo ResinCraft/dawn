@@ -36,7 +36,7 @@ if(urlParams.has('variant')){
 }
      console.log(variant);
 urlVariant = urlParams.has('variant') ? urlParams.get('variant') : false;
-
+/*
 window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = selects[selectPos];
     select.optionIndex = selectPos;
