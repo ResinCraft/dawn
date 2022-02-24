@@ -45,7 +45,12 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
             }
         break;
         case 2:
-        	setDefaultOption(select, urlVariant);
+        	if(selects[1].selectedIndex != 0) {
+        		setDefaultOption(select, urlVariant);
+              	selectDivContainers[select.optionIndex].style.display = '';
+            } else {
+              	selectDivContainers[select.optionIndex].style.display = 'none';
+            }
         break;
     }
 });
