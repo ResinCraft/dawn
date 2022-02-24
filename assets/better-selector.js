@@ -55,9 +55,8 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
       	const parent = {value: selects[0].value, selectedIndex: selects[0].selectedIndex};
       	select.addEventListener('change', function() {rebuildSelect(select[1],parent)});
     } else {
-      	select.addEventListener('change', function() {rebuildSelect(select,parent)});
-      	const parent = {value: selects[(select.optionIndex-1)].value, selectedIndex: selects[(select.optionIndex-1)].selectedIndex};
-   		rebuildSelect(select,parent);
+   		rebuildSelect(select,selects[(select.optionIndex-1)]);
+      	select.addEventListener('change', function() {rebuildSelect(select,selects[(select.optionIndex-1)])});
     }
 });
   	//if(urlParams.has('variant') && window.productJSON.variants.filter((item)=>item["id" === urlParams.get('variant'))
