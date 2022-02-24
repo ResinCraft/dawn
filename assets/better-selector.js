@@ -47,8 +47,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
       	if(!urlVariant) select.selectedIndex = 0;
       	select.dispatchEvent(new Event("change", { bubbles: true }));
     } else {
-      console.log(select[(select.optionIndex-1)]);
-      	parentValue = select[(select.optionIndex-1)].value
+      	parentValue = selects[(select.optionIndex-1)].value
         console.log(parentValue);
       	rebuildSelect(select,parentValue);
     }
