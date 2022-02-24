@@ -46,11 +46,11 @@ function initSelect(select,parentSelect){
 }
 
 function updateChildSelect(select,parentSelect){
+  	removeUrlVariant();
     if(parentSelect.selectedIndex != 0) {
       validOptions(select,parentSelect.value);
       selectDivContainers[select.optionIndex].style.display = '';
     } else {
-      removeUrlVariant();
       selectDivContainers[select.optionIndex].style.display = 'none';
     }	
 }
