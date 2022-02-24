@@ -4,10 +4,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
 
 //check if there is a variant in the url (i.e. ?variant=123), also validate it
-urlVariant = false;
-if(urlParams.has('variant') && (window.productJSON.variants.filter((item)=>item["id"] == urlParams.get('variant')).length > 0)){
-  	urlVariant = urlParams.get('variant');
-}
+urlVariant = (urlParams.has('variant') && (window.productJSON.variants.filter((item)=>item["id"] == urlParams.get('variant')).length > 0)) ? urlParams.get('variant') : false;
 
 function removeUrlVariant() {
   	window.history.pushState('object', document.title, location.href.replace(location.search, ''));
