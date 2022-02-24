@@ -31,11 +31,10 @@ function rebuildSelect(select)
 selects = document.getElementsByClassName("select__select");
 var url = location.href.replace(location.search, '');
 var urlParams = new URLSearchParams(window.location.search);
+variant = false;
 if(urlParams.has('variant')){
   	variantList = window.productJSON.variants.filter((item)=>item["id"] == urlParams.get('variant'));
   	variant = (variantList.length > 0)) ? urlParams.get('variant') : variant = false;
-} else {
-  	variant = false;
 }
      console.log(variant);
 
