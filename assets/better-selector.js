@@ -19,6 +19,7 @@ function rebuildSelect(select)
     var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === selects[select.optionIndex-1].value);
   	console.log(filteredVariants);
     filteredVariants.forEach(function(variant) {
+      console.log(variant['id']);
       var selected = (urlParams.has('variant') && variant['id'] == urlParams.get('variant')) ? true : false;
       var option = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)],selected);
       select.add(option);
