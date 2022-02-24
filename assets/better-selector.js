@@ -32,13 +32,16 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
   const select = selects[selectPos];
   select.optionIndex = selectPos;
   select.productOption = productOption;
-  if(!urlParams.has('variant')) {
+  setDefaultOption(select);
+  if(selectPos == 0 && !urlParams.has('variant')){
     select.selectedIndex = 0;
     select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
+  } else {
+    rebuildSelect(select)
   }
-  setDefaultOption(select);
+  
   //(selectPos == 0) ? setDefaultOption(select) : "rebuildSelect(select)";
-  select.dispatchEvent(new Event("change"));
+  //select.dispatchEvent(new Event("change"));
   //select.addEventListener('change', function() {rebuildSelect(select)});
 });
 // initial run turns off childred if parent not selected
