@@ -54,7 +54,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
     } else {
    		rebuildSelect(select,selects[(select.optionIndex-1)]);
 		if((select.optionIndex < window.productJSON["options"].length)){
-      	select.addEventListener('change', function() {rebuildSelect(selects[select.optionIndex+1],selects[select.optionIndex)});
+      	select.addEventListener('change', function() {rebuildSelect(selects[select.optionIndex+1],selects[select.optionIndex])});
     }
 });
 
