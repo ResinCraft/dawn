@@ -34,7 +34,7 @@ var urlParams = new URLSearchParams(window.location.search);
 variant = false;
 if(urlParams.has('variant')){
   	variantList = window.productJSON.variants.filter((item)=>item["id"] == urlParams.get('variant'));
-  	variant = (variantList.length > 0)) ? urlParams.get('variant') : variant = false;
+  	variant = (variantList.length > 0) ? urlParams.get('variant') : variant = false;
 }
      console.log(variant);
 
