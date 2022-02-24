@@ -9,6 +9,7 @@ function removeOptions(select) {
   for(i = L; i >= 0; i--) {
     select.remove(i);
   }
+  window.history.pushState('object', document.title, location.href.replace(location.search, ''));
 }
 
 function rebuildSelect(select,parent = false) {
@@ -55,6 +56,11 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
       	select.addEventListener('change', function() {rebuildSelect(select,selects[(select.optionIndex-1)])});
     }
 });
+
+
+/**************************** if(select.selectedIndex == 0) window.history.pushState('object', document.title, location.href.replace(location.search, ''));
+
+
   	//if(urlParams.has('variant') && window.productJSON.variants.filter((item)=>item["id" === urlParams.get('variant'))
 	/*rebuildSelect(select,parentSelect);
       if(urlVariant) {
