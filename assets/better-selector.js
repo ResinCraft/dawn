@@ -71,9 +71,6 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
         break;
         case 2:
 			initSelect(select,selects[1]);
-        	if(select.optionIndex < window.productJSON["options"].length){
-        		select.addEventListener('change', function() {updateSelect(selects[2],select)});
-            }
         break;
     }
 });
