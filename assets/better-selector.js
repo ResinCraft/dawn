@@ -45,7 +45,6 @@ window.addEventListener('DOMContentLoaded', function() {
   });
 });
 // initial run turns off childred if parent not selected
-*/
 /*
 function setDefaultOption(productOption,select)
 {
