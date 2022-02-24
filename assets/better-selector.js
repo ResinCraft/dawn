@@ -24,7 +24,12 @@ function removeOptions(select) {
 }
 
 function initSelect(select,parentSelect){
-  	
+    if(parentSelect.selectedIndex != 0) {
+      setDefaultOption(select, urlVariant);
+      selectDivContainers[select.optionIndex].style.display = '';
+    } else {
+      selectDivContainers[select.optionIndex].style.display = 'none';
+    }
 }
 
 window.productJSON["options"].forEach(function(productOption, selectPos) {
@@ -37,20 +42,10 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
             select.addEventListener('change', function() {initSelect(selects[1],select)});
       	break;
       	case 1:
-        	if(selects[0].selectedIndex != 0) {
-        		setDefaultOption(select, urlVariant);
-              	selectDivContainers[select.optionIndex].style.display = '';
-            } else {
-              	selectDivContainers[select.optionIndex].style.display = 'none';
-            }
+        	initSelect(select,selects[0]);
         break;
         case 2:
-        	if(selects[1].selectedIndex != 0) {
-        		setDefaultOption(select, urlVariant);
-              	selectDivContainers[select.optionIndex].style.display = '';
-            } else {
-              	selectDivContainers[select.optionIndex].style.display = 'none';
-            }
+			initSelect(select,selects[1]);
         break;
     }
 });
