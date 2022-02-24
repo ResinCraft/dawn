@@ -9,7 +9,7 @@ function removeOptions(select) {
   for(i = L; i >= 0; i--) {
     select.remove(i);
   }
-  window.history.pushState('object', document.title, location.href.replace(location.search, ''));
+  //window.history.pushState('object', document.title, location.href.replace(location.search, ''));
 }
 
 function rebuildSelect(select,parent = false) {
