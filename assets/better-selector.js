@@ -30,7 +30,7 @@ function validOptions(select,parentValue){
     filteredVariants.forEach(function(variant) {
       var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
       var selected = (urlVariant == variant['id']) ? true : false;
-      selectOption.selected = true;
+      selectOption.selected = selected;
       select.add(selectOption);
     });
 }
