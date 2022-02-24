@@ -23,7 +23,7 @@ function removeOptions(select) {
     }
 }
 
-function initSelect(){
+function initSelect(select){
   	setDefaultOption(select, urlVariant);
 }
 
