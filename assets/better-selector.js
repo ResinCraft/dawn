@@ -20,7 +20,7 @@ function rebuildSelect(select)
   	console.log(filteredVariants);
     filteredVariants.forEach(function(variant) {
       var selected = (urlParams.has('variant') && variant['id'] == urlParams.get('variant')) ? true : false;
-      var option = new Option(variant["option"+select.optionIndex+1],variant["option"+select.optionIndex+1],selected);
+      var option = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)],selected);
       select.add(option);
     });
 }
