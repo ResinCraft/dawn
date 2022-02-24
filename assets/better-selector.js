@@ -13,7 +13,8 @@ function removeUrlVariant() {
 function setDefaultOption(select,selected = false) {
     optionText = "Select " + select.productOption + "...";
     select.add(new Option(optionText), select[0]);
-  	if(selected) select.selectedIndex = 0;
+  console.log(selected);
+  	if(!selected) select.selectedIndex = 0;
 }
 
 function removeOptions(select) {
