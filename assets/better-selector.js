@@ -13,6 +13,7 @@ function removeUrlVariant() {
 function setDefaultOption(select,selected = false) {
     optionText = "Select " + select.productOption + "...";
     select.add(new Option(optionText), select[0]);
+  	if(selected) select.selectedIndex = 0;
 }
 
 function removeOptions(select) {
@@ -23,5 +24,5 @@ function removeOptions(select) {
 }
 
 window.productJSON["options"].forEach(function(productOption, selectPos) {
-  	
+  	setDefaultOption(select)
 });
