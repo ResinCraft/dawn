@@ -12,14 +12,14 @@ function removeOptions(select) {
 }
 
 function rebuildSelect(select,parent = false) {
-  if(!parent) { parent = selects[(select.optionIndex-1)]; }
-  console.log('parentValue: '+parent.value);  	
+  	if(!parent) { parent = selects[(select.optionIndex-1)]; }
   	if(parent.selectedIndex == 0){
       	selectDivContainers[select.optionIndex].style.display = 'none';
     }else{
       if(select.optionIndex == 0){
           setDefaultOption(select);
       } else {
+        console.log(select);
           removeOptions(select);
           setDefaultOption(select);
           var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parent.value);
