@@ -36,8 +36,10 @@ function validOptions(select,parentValue){
 
 function initSelect(select,parentSelect){
     if(parentSelect.selectedIndex != 0) {
+      console.log('running');
       selectDivContainers[select.optionIndex].style.display = '';
     } else {
+      console.log('running');
       validOptions(select,parentSelect.value);
       selectDivContainers[select.optionIndex].style.display = 'none';
     }
