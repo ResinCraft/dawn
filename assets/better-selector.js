@@ -16,6 +16,7 @@ function rebuildSelect(select,parent = false) {
   	if(!parent) { parent = selects[(select.optionIndex-1)]; }
   	if(parent.selectedIndex == 0){
       	selectDivContainers[select.optionIndex].style.display = 'none';
+      	window.history.pushState('object', document.title, location.href.replace(location.search, ''));
     }else{
         removeOptions(select);
         setDefaultOption(select);
