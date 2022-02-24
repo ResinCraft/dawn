@@ -23,11 +23,15 @@ function removeOptions(select) {
     }
 }
 
+function validOptions(select,parentValue){
+  
+}
+
 function initSelect(select,parentSelect){
     if(parentSelect.selectedIndex != 0) {
-      setDefaultOption(select, urlVariant);
       selectDivContainers[select.optionIndex].style.display = '';
     } else {
+      validOptions(select,parentSelect.value);
       selectDivContainers[select.optionIndex].style.display = 'none';
     }
 }
