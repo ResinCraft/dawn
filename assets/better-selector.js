@@ -31,6 +31,7 @@ function rebuildSelect(select,parentValue)
 selects = document.getElementsByClassName("select__select");
 var url = location.href.replace(location.search, '');
 var urlParams = new URLSearchParams(window.location.search);
+const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
 
 //check if there is a variant in the url (i.e. ?variant=123), also validate it
 urlVariant = false;
