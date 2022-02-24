@@ -50,20 +50,19 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
         console.log(parentValue);
       	rebuildSelect(select,parentValue);
     }
+});
   	//if(urlParams.has('variant') && window.productJSON.variants.filter((item)=>item["id" === urlParams.get('variant'))
 	/*rebuildSelect(select,parentSelect);
       if(urlVariant) {
           select.selectedIndex = 0;
           select.dispatchEvent(new Event("change", { bubbles: true })); //tell global.js that the dropdown has been changed
       }
-  } else {
-    */
-  }
+
   
   //(selectPos == 0) ? setDefaultOption(select) : "rebuildSelect(select)";
   //select.dispatchEvent(new Event("change"));
   //select.addEventListener('change', function() {rebuildSelect(select)});
-});
+
 // initial run turns off childred if parent not selected
 /*
 function setDefaultOption(productOption,select)
