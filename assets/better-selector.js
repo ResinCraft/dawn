@@ -13,19 +13,24 @@ function removeOptions(select) {
 
 function rebuildSelect(select,parentValue)
 {
-  	if(select.optionIndex == 0){
-      	setDefaultOption(select);
-    } else {
-        removeOptions(select);
-        setDefaultOption(select);
-        var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentValue);
-        filteredVariants.forEach(function(variant) {
-            var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
-            var selected = (urlParams.has('variant') && urlParams.get('variant') == variant['id']) ? true : false;
-            selectOption.selected = true;
-            select.add(selectOption);
-        });
-    }
+  	if(parentValue.selectedIndex == 0){
+      	selectDivContainers[select.optionIndex].style.display = 'none';
+    }else{
+      if(select.optionIndex == 0){
+          setDefaultOption(select);
+      } else {
+          removeOptions(select);
+          setDefaultOption(select);
+          var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentValue);
+          filteredVariants.forEach(function(variant) {
+              var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
+              var selected = (urlParams.has('variant') && urlParams.get('variant') == variant['id']) ? true : false;
+              selectOption.selected = true;
+              select.add(selectOption);
+          });
+      }
+      selectDivContainers[select.optionIndex].style.display = '';
+	}
 }
 
 selects = document.getElementsByClassName("select__select");
@@ -49,13 +54,9 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
       	select.dispatchEvent(new Event("change", { bubbles: true }));
     } else {
       	select.addEventListener('change', function() {rebuildSelect(select,parentValue)});
-      	parentValue = selects[(select.optionIndex-1)].value;
-      	if(selects[(select.optionIndex-1)].selectedIndex == 0){
-          selectDivContainers[select.optionIndex].style.display = 'none';
-        } else {
-      		rebuildSelect(select,parentValue);
-          	selectDivContainers[select.optionIndex].style.display = '';
-        }
+      	var parent.value = selects[(select.optionIndex-1)].value;
+      	var parent.selectedIndex = selects[(select.optionIndex-1)].value;
+   		rebuildSelect(select,parentValue);
     }
 });
   	//if(urlParams.has('variant') && window.productJSON.variants.filter((item)=>item["id" === urlParams.get('variant'))
