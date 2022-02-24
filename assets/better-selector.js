@@ -13,7 +13,6 @@ function removeUrlVariant() {
 function setDefaultOption(select,selected = false) {
     optionText = "Select " + select.productOption + "...";
     select.add(new Option(optionText), select[0]);
-  console.log(selected);
   	if(selected == false) select.selectedIndex = 0;
 }
 
@@ -24,9 +23,21 @@ function removeOptions(select) {
     }
 }
 
+function initSelect(){
+  	setDefaultOption(select, urlVariant);
+}
+
 window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = selects[selectPos];
     select.optionIndex = selectPos;
     select.productOption = productOption;
-  	setDefaultOption(select, urlVariant);
+  	switch(select.optionIndex)
+      	case 0:
+            setDefaultOption(select, urlVariant);
+            select.addEventListener('change', function() {initSelect(selects[1],select)});
+      	break;
+      	case 1:
+        break;
+        case 2:
+        break;
 });
