@@ -102,7 +102,7 @@ function updateSelect(select)
 }
 
 window.addEventListener('DOMContentLoaded', function() {
-var selects = document.getElementsByClassName("select__select");
+selects = document.getElementsByClassName("select__select");
 window.productJSON["options"].forEach(function(productOption, selectPos) {
     const select = document.getElementsByName('options['+productOption+']')[0];
 	select.optionIndex = selectPos;
