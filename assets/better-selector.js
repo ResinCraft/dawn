@@ -48,6 +48,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
     select.productOption = productOption;
   	if(select.optionIndex == 0) {
       	setDefaultOption(select);
+      console.log('urlVariant: '+urlVariant);
       	if(!urlVariant) select.selectedIndex = 0;
       	//select.dispatchEvent(new Event("change", { bubbles: true }));
       	select.addEventListener('change', function() {rebuildSelect(selects[1],select)});
