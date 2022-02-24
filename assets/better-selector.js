@@ -44,7 +44,7 @@ function initSelect(select,parentSelect){
     }
 }
 
-function updateSelect(select,parentSelect){
+function updateChildSelect(select,parentSelect){
     if(parentSelect.selectedIndex != 0) {
       validOptions(select,parentSelect.value);
       selectDivContainers[select.optionIndex].style.display = '';
@@ -61,16 +61,21 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
   	switch(select.optionIndex) {
       	case 0:
             setDefaultOption(select, urlVariant);
-            select.addEventListener('change', function() {updateSelect(selects[1],select)});
+            select.addEventListener('change', function() {updateChildSelect(selects[1],select)});
       	break;
       	case 1:
         	initSelect(select,selects[0]);
         	if(select.optionIndex < window.productJSON["options"].length){
-        		select.addEventListener('change', function() {updateSelect(selects[2],select)});
+        		select.addEventListener('change', function() {updateChildSelect(selects[2],select)});
+            } else {
+             	select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(); });
             }
         break;
         case 2:
 			initSelect(select,selects[1]);
+        	if(select.optionIndex < window.productJSON["options"].length){
+        		select.addEventListener('change', function() {updateChildSelect(selects[2],select)});
+            }
         break;
     }
 });
