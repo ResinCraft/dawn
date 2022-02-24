@@ -50,10 +50,10 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
     } else {
       	parentValue = selects[(select.optionIndex-1)].value;
       	if(selects[(select.optionIndex-1)].selectedIndex == 0){
-          selectDivContainers[select.optionIndex+1].style.display = 'none';
+          selectDivContainers[select.optionIndex].style.display = 'none';
         } else {
       		rebuildSelect(select,parentValue);
-          	selectDivContainers[select.optionIndex+1].style.display = '';
+          	selectDivContainers[select.optionIndex].style.display = '';
         }
     }
 });
