@@ -32,8 +32,8 @@ selects = document.getElementsByClassName("select__select");
 var url = location.href.replace(location.search, '');
 var urlParams = new URLSearchParams(window.location.search);
 if(urlParams.has('variant')){
-  result1 = window.productJSON.variants.filter((item)=>item["id"] === "1");
-  console.log('result: ' + result1);
+  result = window.productJSON.variants.filter((item)=>item["id"] === "1");
+  console.log('result: ' + result);
   	variant = (window.productJSON.variants.filter((item)=>item["id"] === urlParams.get('variant') > 0)) ? urlParams.get('variant') : variant = false;
 } else {
   	variant = false;
