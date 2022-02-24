@@ -9,11 +9,10 @@ function removeOptions(select) {
   for(i = L; i >= 0; i--) {
     select.remove(i);
   }
-  window.history.pushState('object', document.title, location.href.replace(location.search, ''));
 }
 
 function rebuildSelect(select,parent = false) {
-  	if(!parent) { parent = selects[(select.optionIndex-1)]; }
+  	//if(!parent) { parent = selects[(select.optionIndex-1)]; }
   	if(parent.selectedIndex == 0){
       	selectDivContainers[select.optionIndex].style.display = 'none';
     }else{
