@@ -46,7 +46,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
       	setDefaultOption(select);
       	select.dispatchEvent(new Event("change"));
     } else {
-      	parentValue = select[select.optionIndex-1].value
+      	parentValue = select[(select.optionIndex-1)].value
         console.log(parentValue);
       	rebuildSelect(select,parentValue);
     }
