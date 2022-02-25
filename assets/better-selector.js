@@ -34,12 +34,14 @@ function removeOptions(select) {
 function validOptions(select,parentValue) {
     removeOptions(select);
     setDefaultOption(select);
+  	var optionText = "option"+select.optionIndex;
+  	var childOptionText = "option"+(select.optionIndex + 1);
   	//(filter)get a list of valid variants, (map)create a new array from the option propery, (set)get a set of unique elements
-  	var filteredVariants = new Set(window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentValue).map(a => a["option"+(select.optionIndex+1)]));
+  	var filteredVariants = new Set(window.productJSON.variants.filter((item)=>item[optionText] === parentValue).map(a => a[childOptionText]));
 
     filteredVariants.forEach(function(variant) {
       var selectOption = new Option(variant,variant);
-      var selected = (urlVariant == variant['id']) ? true : false;
+      var selected = (seletedVariant[optionText] == variant[optionText]) ? true : false;
       selectOption.selected = selected;
       select.add(selectOption);
     });
