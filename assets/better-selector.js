@@ -60,7 +60,6 @@ function validOptions(select,parentValue) {
 //update the selector *************** DOUBLE UP WITH ABOVE
 function updateChildSelect(select,parentSelect) {
   	//removeUrlVariant();
-  	select.optionIndex == 0;
     if(parentSelect.selectedIndex != 0) {
       validOptions(select,parentSelect.value);
       selectDivContainers[select.optionIndex].style.display = '';
