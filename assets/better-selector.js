@@ -1,5 +1,4 @@
 selects = document.getElementsByClassName("select__select");
-const url = location.href.replace(location.search, '');
 const urlParams = new URLSearchParams(window.location.search);
 const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
 
