@@ -42,7 +42,7 @@ function validOptions(select,parentValue) {
       var selectOption = new Option(variant,variant);
       console.log('seletedVariant[optionText]: '+seletedVariant[optionText]);
       console.log('variant[optionText]: '+seletedVariant[optionText]);
-      var selected = (seletedVariant[optionText] == seletedVariant[optionText]) ? true : false;
+      var selected = (variant[optionText] == seletedVariant[optionText]) ? true : false;
       selectOption.selected = selected;
       select.add(selectOption);
     });
