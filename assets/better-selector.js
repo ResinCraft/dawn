@@ -16,6 +16,12 @@ function setDefaultOption(select,selected = false) {
     }
 }
 
+function updateChildSelect(select,parentSelect) {
+    if(parentSelect.selectedIndex == 0) {
+      selectDivContainers[select.optionIndex].style.display = 'none';
+    }	
+}
+
 window.productJSON.options.forEach(function(productOption, selectPos) {
     const select = selects[selectPos];
     select.optionIndex = selectPos;
