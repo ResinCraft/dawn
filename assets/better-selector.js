@@ -36,6 +36,7 @@ function validOptions(select,parentValue) {
   	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentValue);
   	let result = filteredVariants.map(a => a.option1);
   	console.log(result);
+  console.log(filteredVariants);
   	//connst uniqueYears = new Set(years)
     filteredVariants.forEach(function(variant) {
       var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
