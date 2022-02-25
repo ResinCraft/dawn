@@ -7,6 +7,21 @@ const selectDivContainers = document.getElementsByClassName("product-form__input
 const selects = document.getElementsByClassName("select__select");
 
 window.productJSON.options.forEach(function(productOption, selectPos) {
-  console.log(urlParams);
-  
+    console.log(urlParams);
+    const select = selects[selectPos];
+    select.optionIndex = selectPos;
+    select.productOption = productOption;
+    switch(select.optionIndex) {
+      	case 0:
+            setDefaultOption(select, seletedVariant);
+        break;
+        case 1:
+  	
+	 
+    }
+    if(select.optionIndex < (window.productJSON.options.length - 1)){
+      	select.addEventListener('change', function(){
+          updateChildSelect(selects[optionIndex+1],select);
+        });
+    }
 });
