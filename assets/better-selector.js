@@ -6,6 +6,9 @@ const selectDivContainers = document.getElementsByClassName("product-form__input
 //check if there is a variant in the url (i.e. ?variant=123), also validate it
 urlVariant = (urlParams.has('variant') && (window.productJSON.variants.filter((item)=>item["id"] == urlParams.get('variant')).length > 0)) ? urlParams.get('variant') : false;
 
+//selected variant
+seletedVariant = (urlVariant) ? window.productJSON.options.filter((item)=>item["id"] === urlVariant) : false;
+console.log(seletedVariant);
 //removes ?variant=1234 from URL if you have an invalid variant
 function removeUrlVariant(select) {
   	window.history.pushState('object', document.title, location.href.replace(location.search, ''));
@@ -33,12 +36,11 @@ function removeOptions(select) {
 function validOptions(select,parentValue) {
     removeOptions(select);
     setDefaultOption(select);
-  	console.log("option"+(select.optionIndex+1));
+  	//(filter)get a list of valid variants, (map)create a new array from the option propery, (set)get a set of unique elements
   	var filteredVariants = new Set(window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentValue).map(a => a["option"+(select.optionIndex+1)]));
-    console.log(filteredVariants);
-  	//connst uniqueYears = new Set(years)
+
     filteredVariants.forEach(function(variant) {
-      var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
+      var selectOption = new Option(variant,variant);
       var selected = (urlVariant == variant['id']) ? true : false;
       selectOption.selected = selected;
       select.add(selectOption);
