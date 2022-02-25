@@ -29,9 +29,11 @@ function removeOptions(select) {
     }
 }
 
+//generates valid options based on the parent selector
 function validOptions(select,parentValue) {
     removeOptions(select);
     setDefaultOption(select);
+  //regex thing isn't working
   	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex].replace(new RegExp('"', "g"), '') === parentValue.replace(new RegExp('"', "g"), ''));
     filteredVariants.forEach(function(variant) {
       var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
@@ -42,6 +44,7 @@ function validOptions(select,parentValue) {
   	select.dispatchEvent(new Event("change", { bubbles: true }));
 }
 
+//initiate the selector, hide/show it based on the parent selectors choice
 function initSelect(select,parentSelect) {
     if(parentSelect.selectedIndex != 0) {
       validOptions(select,parentSelect.value);
@@ -51,6 +54,7 @@ function initSelect(select,parentSelect) {
     }
 }
 
+//update the selector *************** DOUBLE UP WITH ABOVE
 function updateChildSelect(select,parentSelect) {
   	removeUrlVariant();
     if(parentSelect.selectedIndex != 0) {
