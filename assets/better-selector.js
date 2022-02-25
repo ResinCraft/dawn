@@ -62,7 +62,6 @@ function updateChildSelect(select,parentSelect) {
   	//removeUrlVariant();
     if(parentSelect.selectedIndex != 0) {
       validOptions(select,parentSelect.value);
-      select.selectedIndex = 0;
       selectDivContainers[select.optionIndex].style.display = '';
     } else {
       selectDivContainers[select.optionIndex].style.display = 'none';
