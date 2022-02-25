@@ -1,5 +1,5 @@
 //check if there is a variant in the url (i.e. ?variant=123), also validate it
-let urlParams = new URLSearchParams(window.location.search);
+var urlParams = new URLSearchParams(window.location.search);
 const urlVariantId = (urlParams.has('variant') && (window.productJSON.variants.filter((item)=>item["id"] == urlParams.get('variant')).length > 0)) ? urlParams.get('variant') : false;
 const seletedVariant = (urlVariantId) ? window.productJSON.variants.filter((item)=>item["id"] == urlVariantId)[0] : false;
 
