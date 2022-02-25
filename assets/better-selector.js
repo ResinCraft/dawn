@@ -28,7 +28,7 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
     select.productOption = productOption;
     if(select.optionIndex < (window.productJSON.options.length - 1)){
       	select.addEventListener('change', function(){
-          updateChildSelect(selects[optionIndex+1],select);
+          updateChildSelect(selects[select.optionIndex+1],select);
         });
     }
   	if(select.optionIndex == 0) setDefaultOption(select, seletedVariant);
