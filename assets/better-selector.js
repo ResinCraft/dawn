@@ -22,10 +22,10 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
     select.optionIndex = selectPos;
     select.productOption = productOption;
 	console.log(select.optionIndex+' < '+(window.productJSON.options.length - 1));
-  	setDefaultOption(select, seletedVariant);
     if(select.optionIndex < (window.productJSON.options.length - 1)){
       	select.addEventListener('change', function(){
           updateChildSelect(selects[optionIndex+1],select);
         });
     }
+  	if(select.optionIndex == 0) setDefaultOption(select, seletedVariant);
 });
