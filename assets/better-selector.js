@@ -48,14 +48,14 @@ function validOptions(select,parentValue) {
 }
 
 //initiate the selector, hide/show it based on the parent selectors choice
-function initSelect(select,parentSelect) {
+/*function initSelect(select,parentSelect) {
     if(parentSelect.selectedIndex != 0) {
       validOptions(select,parentSelect.value);
       selectDivContainers[select.optionIndex].style.display = '';
     } else {
       selectDivContainers[select.optionIndex].style.display = 'none';
     }
-}
+}*/
 
 //update the selector *************** DOUBLE UP WITH ABOVE
 function updateChildSelect(select,parentSelect) {
@@ -80,10 +80,10 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
         }
         break;
       case 1:
-        initSelect(select,selects[0]);
+        updateChildSelect(select,selects[0]);
         break;
       case 2:
-        initSelect(select,selects[1]);
+        updateChildSelect(select,selects[1]);
         break;
     }
 	if(select.optionIndex < window.productJSON["options"].length - 1){
