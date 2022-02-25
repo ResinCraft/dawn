@@ -6,10 +6,12 @@ const selectDivContainers = document.getElementsByClassName("product-form__input
 //check if there is a variant in the url (i.e. ?variant=123), also validate it
 urlVariant = (urlParams.has('variant') && (window.productJSON.variants.filter((item)=>item["id"] == urlParams.get('variant')).length > 0)) ? urlParams.get('variant') : false;
 
+//removes ?variant=1234 from URL if you have an invalid variant
 function removeUrlVariant(select) {
   	window.history.pushState('object', document.title, location.href.replace(location.search, ''));
 }
 
+//adds the default option i.e. "Select Type..."
 function setDefaultOption(select,selected = false) {
     optionText = "Select " + select.productOption + "...";
     select.add(new Option(optionText), select[0]);
@@ -19,6 +21,7 @@ function setDefaultOption(select,selected = false) {
     }
 }
 
+//removes all the options of a select so it can be rebuilt
 function removeOptions(select) {
     var i, L = select.options.length - 1;
     for(i = L; i >= 0; i--) {
@@ -59,27 +62,27 @@ function updateChildSelect(select,parentSelect) {
 }
 
 window.productJSON["options"].forEach(function(productOption, selectPos) {
-      const select = selects[selectPos];
-      select.optionIndex = selectPos;
-      select.productOption = productOption;
-      switch(select.optionIndex) {
-          case 0:
-              setDefaultOption(select, urlVariant);
-              if(select.optionIndex < (window.productJSON["options"].length - 1)){
-                  select.addEventListener('change', function() {updateChildSelect(selects[1],select)});
-              }
-          break;
-          case 1:
-              initSelect(select,selects[0]);
-              select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(select); });
-          break;
-          case 2:
-              initSelect(select,selects[1]);
-              select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(select); });
-          break;
-              if(select.optionIndex < window.productJSON["options"].length - 1){
-                  select.addEventListener('change', function() {updateChildSelect(selects[2],select)});
-              }
-		select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(select); });
+    const select = selects[selectPos];
+    select.optionIndex = selectPos;
+    select.productOption = productOption;
+    switch(select.optionIndex) {
+      case 0:
+        setDefaultOption(select, urlVariant);
+        if(select.optionIndex < (window.productJSON["options"].length - 1)){
+          select.addEventListener('change', function() {updateChildSelect(selects[1],select)});
+        }
+        break;
+      case 1:
+        initSelect(select,selects[0]);
+        select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(select); });
+        break;
+      case 2:
+        initSelect(select,selects[1]);
+        select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(select); });
+        break;
+        if(select.optionIndex < window.productJSON["options"].length - 1){
+          select.addEventListener('change', function() {updateChildSelect(selects[2],select)});
+        }
+        select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(select); });
     }
 });
