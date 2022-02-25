@@ -6,19 +6,23 @@ const seletedVariant = (urlVariantId) ? window.productJSON.variants.filter((item
 const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
 const selects = document.getElementsByClassName("select__select");
 
+//adds the default option i.e. "Select Type..."
+function setDefaultOption(select,selected = false) {
+    optionText = "Select " + select.productOption + "...";
+    select.add(new Option(optionText), select[0]);
+    if(selected == false){
+      select.selectedIndex = 0;
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+}
+
 window.productJSON.options.forEach(function(productOption, selectPos) {
     console.log(urlParams);
     const select = selects[selectPos];
     select.optionIndex = selectPos;
     select.productOption = productOption;
-    switch(select.optionIndex) {
-      	case 0:
-            setDefaultOption(select, seletedVariant);
-        break;
-        case 1:
-  	
-	 
-    }
+
+  	setDefaultOption(select, seletedVariant);
     if(select.optionIndex < (window.productJSON.options.length - 1)){
       	select.addEventListener('change', function(){
           updateChildSelect(selects[optionIndex+1],select);
