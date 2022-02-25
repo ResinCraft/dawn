@@ -33,12 +33,8 @@ function removeOptions(select) {
 function validOptions(select,parentValue) {
     removeOptions(select);
     setDefaultOption(select);
-  	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentValue);
-  	console.log(select.optionName);
-  	let result = filteredVariants.map(a => a[select.optionName]);
-  	result = new Set(result);
+  	var filteredVariants = new Set(window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentValue).map(a => a[select.optionName]));
     console.log(filteredVariants);
-  	console.log(result);
   	//connst uniqueYears = new Set(years)
     filteredVariants.forEach(function(variant) {
       var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
