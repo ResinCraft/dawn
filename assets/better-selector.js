@@ -17,11 +17,9 @@ function setDefaultOption(select,selected = false) {
 }
 
 window.productJSON.options.forEach(function(productOption, selectPos) {
-    console.log(urlParams);
     const select = selects[selectPos];
     select.optionIndex = selectPos;
     select.productOption = productOption;
-	console.log(select.optionIndex+' < '+(window.productJSON.options.length - 1));
     if(select.optionIndex < (window.productJSON.options.length - 1)){
       	select.addEventListener('change', function(){
           updateChildSelect(selects[optionIndex+1],select);
