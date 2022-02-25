@@ -21,7 +21,7 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
     const select = selects[selectPos];
     select.optionIndex = selectPos;
     select.productOption = productOption;
-
+	console.log(select.optionIndex+' < '+(window.productJSON.options.length - 1));
   	setDefaultOption(select, seletedVariant);
     if(select.optionIndex < (window.productJSON.options.length - 1)){
       	select.addEventListener('change', function(){
