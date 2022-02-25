@@ -29,15 +29,14 @@ function removeOptions(select) {
 function validOptions(select,parentValue) {
     removeOptions(select);
     setDefaultOption(select);
-  console.log('parentValue: '+parentValue.replace(new RegExp('"', "g"), ''));
   	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex].replace(new RegExp('"', "g"), '') === parentValue.replace(new RegExp('"', "g"), ''));
     filteredVariants.forEach(function(variant) {
-      console.log(JSON.stringify(filteredVariants));
       var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
       var selected = (urlVariant == variant['id']) ? true : false;
       selectOption.selected = selected;
       select.add(selectOption);
     });
+  	select.dispatchEvent(new Event("change", { bubbles: true }));
 }
 
 function initSelect(select,parentSelect) {
