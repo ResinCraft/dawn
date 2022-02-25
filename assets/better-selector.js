@@ -5,7 +5,7 @@ const selectDivContainers = document.getElementsByClassName("product-form__input
 
 //check if there is a variant in the url (i.e. ?variant=123), also validate it
 urlVariantId = (urlParams.has('variant') && (window.productJSON.variants.filter((item)=>item["id"] == urlParams.get('variant')).length > 0)) ? urlParams.get('variant') : false;
-//selected variant
+console.log(urlVariantId);
 seletedVariant = (urlVariantId) ? window.productJSON.variants.filter((item)=>item["id"] === urlVariantId) : false;
 console.log(seletedVariant);
 //removes ?variant=1234 from URL if you have an invalid variant
