@@ -41,8 +41,8 @@ function validOptions(select,parentValue) {
     filteredVariants.forEach(function(variant) {
       var selectOption = new Option(variant,variant);
       console.log('optionText: '+optionText);
-      console.log('seletedVariant[optionText]: '+seletedVariant[optionText]);
       console.log('variant[optionText]: '+variant[optionText]);
+      console.log('seletedVariant[optionText]: '+seletedVariant[optionText]);
       var selected = (variant[optionText] == seletedVariant[optionText]) ? true : false;
       selectOption.selected = selected;
       select.add(selectOption);
