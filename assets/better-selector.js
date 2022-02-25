@@ -36,6 +36,7 @@ function validOptions(select,parentValue) {
       selectOption.selected = selected;
       select.add(selectOption);
     });
+  	select.dispatchEvent(new Event("change", { bubbles: true }));
 }
 
 function initSelect(select,parentSelect) {
