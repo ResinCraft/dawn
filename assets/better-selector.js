@@ -34,7 +34,7 @@ function validOptions(select,parentValue) {
     removeOptions(select);
     setDefaultOption(select);
   	var filteredVariants = window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentValue);
-  	console.log(JSON.stringify(filteredVariants));
+  	console.log(JSON.stringify(filteredVariants.filter((v, i, a) => a.indexOf(v) === i)));
     filteredVariants.forEach(function(variant) {
       var selectOption = new Option(variant["option"+(select.optionIndex+1)],variant["option"+(select.optionIndex+1)]);
       var selected = (urlVariant == variant['id']) ? true : false;
