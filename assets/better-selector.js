@@ -5,9 +5,8 @@ const selectDivContainers = document.getElementsByClassName("product-form__input
 
 //check if there is a variant in the url (i.e. ?variant=123), also validate it
 urlVariantId = (urlParams.has('variant') && (window.productJSON.variants.filter((item)=>item["id"] == urlParams.get('variant')).length > 0)) ? urlParams.get('variant') : false;
-console.log(window.productJSON.variants);
 seletedVariant = (urlVariantId) ? window.productJSON.variants.filter((item)=>item["id"] == urlVariantId) : false;
-console.log(seletedVariant);
+
 //removes ?variant=1234 from URL if you have an invalid variant
 function removeUrlVariant(select) {
   	window.history.pushState('object', document.title, location.href.replace(location.search, ''));
@@ -74,7 +73,7 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
     select.productOption = productOption;
     switch(select.optionIndex) {
       case 0:
-        setDefaultOption(select, urlVariant);
+        setDefaultOption(select, seletedVariant);
         if(select.optionIndex < (window.productJSON["options"].length - 1)){
           select.addEventListener('change', function() {updateChildSelect(selects[1],select)});
         }
