@@ -33,6 +33,7 @@ function removeOptions(select) {
 function validOptions(select,parentValue) {
     removeOptions(select);
     setDefaultOption(select);
+  console.log(filteredVariants);
   	var filteredVariants = new Set(window.productJSON.variants.filter((item)=>item["option"+select.optionIndex] === parentValue).map(a => a[select.optionName]));
     console.log(filteredVariants);
   	//connst uniqueYears = new Set(years)
