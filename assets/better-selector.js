@@ -78,15 +78,13 @@ window.productJSON["options"].forEach(function(productOption, selectPos) {
         break;
       case 1:
         initSelect(select,selects[0]);
-        select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(select); });
         break;
       case 2:
         initSelect(select,selects[1]);
-        select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(select); });
         break;
-        if(select.optionIndex < window.productJSON["options"].length - 1){
-          select.addEventListener('change', function() {updateChildSelect(selects[2],select)});
-        }
-        select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(select); });
     }
+	if(select.optionIndex < window.productJSON["options"].length - 1){
+		select.addEventListener('change', function() {updateChildSelect(selects[2],select)});
+	}
+	select.addEventListener('change', function() { if(select.selectedIndex == 0) removeUrlVariant(select); });
 });
