@@ -48,6 +48,7 @@ function updateChildSelect(select,parentSelect) {
     if(parentSelect.selectedIndex == 0) {
         select.selectedIndex = 0;
         selectContainer[select.optionIndex].style.display = 'none';
+      	select.dispatchEvent(new Event("change", { bubbles: true }));
     } else {
      	selectContainer[select.optionIndex].style.display = ''; 
     }
