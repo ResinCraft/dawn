@@ -12,7 +12,7 @@ function setDefaultOption(select,selected = false) {
     select.add(new Option(optionText), select[0]);
     if(selected == false || !seletedVariant){
       select.selectedIndex = 0;
-      //select.dispatchEvent(new Event("change", { bubbles: true }));
+      select.dispatchEvent(new Event("change", { bubbles: true }));
     }
 }
 
@@ -73,7 +73,7 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
     }
     select.addEventListener('change', function(){ removeUrlVariant() });
 });
-
+/*
 window.onpageshow = function() {
 	selects[0].selectedIndex = 0;
     selects[0].dispatchEvent(new Event("change", { bubbles: true }));
