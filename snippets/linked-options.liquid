@@ -117,8 +117,7 @@ Shopify.linkOptionSelectors = function(product) {
 			selectContainer[1].style.display = 'none';
 			window.history.replaceState('object', document.title, location.href.replace(location.search, ''));
 		} else {
-			jQuery('.single-option-selector:eq(1)').show();
-			jQuery('label[for="productSelect-product-template-option-1"]').show(300);
+			selectContainer[1].style.display = '';
 		}
 		return true;
 	});
@@ -126,9 +125,9 @@ Shopify.linkOptionSelectors = function(product) {
 	selects[1].addEventListener('change', function(){
 		if(InitVariantSet2 == false){
 			if(SelectedVariant){
-				jQuery('.single-option-selector:eq(1)').find('option[value="{{ product.selected_variant.option2 | escape }}"]').prop("selected","selected");
+				//jQuery('.single-option-selector:eq(1)').find('option[value="{{ product.selected_variant.option2 | escape }}"]').prop("selected","selected");
 			} else {
-				jQuery('.single-option-selector:eq(1)').find('option[value="Select {{ product.options[0] }}..."]').prop("selected","selected");
+				//jQuery('.single-option-selector:eq(1)').find('option[value="Select {{ product.options[0] }}..."]').prop("selected","selected");
 			}
 			InitVariantSet2 = true;
 		}
