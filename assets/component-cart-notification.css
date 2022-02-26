@@ -1,3 +1,7 @@
+.cart-notification-form {
+  display: hidden;
+}
+
 .cart-notification-wrapper {
   position: relative;
 }
