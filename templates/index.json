@@ -196,6 +196,92 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "1645840731e0a45fbe": {
+      "type": "collection-list",
+      "blocks": {
+        "1645840731eccf5fdd-0": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "general-purpose-resins-cloths-tapes-carbons-fillers"
+          }
+        },
+        "1645840731eccf5fdd-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "surfboard-resins-cloths-plugs-accessories"
+          }
+        },
+        "1645840731eccf5fdd-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "tools-brushes-rollers-masking-tapes-mixing-dispensing"
+          }
+        },
+        "e133f049-59c4-4c97-8038-4942dc5b834a": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "river-tables-bench-tops-wood-working"
+          }
+        },
+        "380b32db-e0ec-406b-9356-715fd520a35e": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "casting-resins-benchtops-jewelry-making"
+          }
+        },
+        "b45a4e17-3354-4dd3-a627-d05a2a2511da": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "sculpting-and-modelling"
+          }
+        },
+        "8dc9dda1-7d48-4f43-bcaa-57b54ab1048f": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "silicones-rubbers-mould-materials"
+          }
+        },
+        "de533a55-756b-4ebf-b776-24f4b5ccc4d1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "liquid-plastics-foams-specialty-casting-resins"
+          }
+        },
+        "7db83b2a-3919-424c-aca2-32b30929ebab": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "foams-concrete-casting-industrial-rubbers"
+          }
+        },
+        "89c0bfc8-f373-4bc6-b317-97d81e9dc32e": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "lifecasting-special-effects"
+          }
+        }
+      },
+      "block_order": [
+        "1645840731eccf5fdd-0",
+        "1645840731eccf5fdd-1",
+        "1645840731eccf5fdd-2",
+        "e133f049-59c4-4c97-8038-4942dc5b834a",
+        "380b32db-e0ec-406b-9356-715fd520a35e",
+        "b45a4e17-3354-4dd3-a627-d05a2a2511da",
+        "8dc9dda1-7d48-4f43-bcaa-57b54ab1048f",
+        "de533a55-756b-4ebf-b776-24f4b5ccc4d1",
+        "7db83b2a-3919-424c-aca2-32b30929ebab",
+        "89c0bfc8-f373-4bc6-b317-97d81e9dc32e"
+      ],
+      "settings": {
+        "title": "Shop Onine",
+        "image_ratio": "square",
+        "color_scheme": "background-1",
+        "swipe_on_mobile": false,
+        "show_view_all": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -204,6 +290,7 @@
     "featured_collection",
     "collage",
     "video",
-    "multicolumn"
+    "multicolumn",
+    "1645840731e0a45fbe"
   ]
 }
