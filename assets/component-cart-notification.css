@@ -1,5 +1,5 @@
-div#cart-notification {
-    display: none !important;
+.cart-notification-form {
+  display: none !important;
 }
 
 .cart-notification-wrapper {
