@@ -16,6 +16,10 @@ function setDefaultOption(select,selected = false) {
     }
 }
 
+function removeUrlVariant() {
+  	window.history.pushState('object', document.title, location.href.replace(location.search, ''));
+}
+
 //removes all the options of a select so it can be rebuilt
 function removeOptions(select) {
     var i, L = select.options.length - 1;
@@ -66,4 +70,5 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
           updateChildSelect(selects[select.optionIndex+1],select);
         });
     }
+  	select.addEventListener('change', function(removeUrlVariant){
 });
