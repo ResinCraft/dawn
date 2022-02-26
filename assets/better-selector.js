@@ -25,14 +25,14 @@ function removeOptions(select) {
 }
 
 //generates valid options based on the parent selector
-function validOptions(select,parentValue) {
-  console.log();
+function validOptions(select,parent) {
+  console.log(parent.value);
     removeOptions(select);
     setDefaultOption(select);
   	var optionText = "option"+select.optionIndex;
   	var childOptionText = "option"+(select.optionIndex + 1);
   	//(filter)get a list of valid variants, (map)create a new array from the option propery, (set)get a set of unique elements
-  	var filteredVariants = new Set(window.productJSON.variants.filter((item)=>item[optionText] === parentValue.value).map(a => a[childOptionText]));
+  	var filteredVariants = new Set(window.productJSON.variants.filter((item)=>item[optionText] === parent.value).map(a => a[childOptionText]));
     filteredVariants.forEach(function(variant) {
       var selectOption = new Option(variant,variant);
       var selected = (variant == seletedVariant[childOptionText]) ? true : false;
