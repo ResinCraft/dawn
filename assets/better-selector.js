@@ -12,7 +12,7 @@ function setDefaultOption(select,selected = false) {
     select.add(new Option(optionText), select[0]);
     if(selected == false){
       select.selectedIndex = 0;
-      select.dispatchEvent(new Event("change", { bubbles: true }));
+      //select.dispatchEvent(new Event("change", { bubbles: true }));
     }
 }
 
@@ -57,6 +57,7 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
     const select = selects[selectPos];
     select.optionIndex = selectPos;
     select.productOption = productOption;
+  	(select.optionIndex == 0) setDefaultOption(select, seletedVariant);
     if(select.optionIndex < (window.productJSON.options.length - 1)){
       	select.addEventListener('change', function(){
           updateChildSelect(selects[select.optionIndex+1],select);
