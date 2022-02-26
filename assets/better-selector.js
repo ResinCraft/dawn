@@ -16,6 +16,14 @@ function setDefaultOption(select,selected = false) {
     }
 }
 
+//removes all the options of a select so it can be rebuilt
+function removeOptions(select) {
+    var i, L = select.options.length - 1;
+    for(i = L; i >= 0; i--) {
+      select.remove(i);
+    }
+}
+
 //generates valid options based on the parent selector
 function validOptions(select,parentValue) {
     removeOptions(select);
