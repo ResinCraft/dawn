@@ -70,5 +70,5 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
           updateChildSelect(selects[select.optionIndex+1],select);
         });
     }
-  	select.addEventListener('change', function(removeUrlVariant){
+  select.addEventListener('change', function(){ removeUrlVariant() });
 });
