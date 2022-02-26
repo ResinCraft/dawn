@@ -18,6 +18,14 @@ var InitVariantSet2 = false;
 {% endif %}
 Shopify.optionsMap = {};
 
+  //removes all the options of a select so it can be rebuilt
+function removeOptions(select) {
+    var i, L = select.options.length - 1;
+    for(i = L; i >= 0; i--) {
+      select.remove(i);
+    }
+}
+  
 Shopify.updateOptionsInSelector = function(selectorIndex) {
 	
 	switch (selectorIndex) {
@@ -36,7 +44,7 @@ Shopify.updateOptionsInSelector = function(selectorIndex) {
 	}
 	
 	var initialValue = selector.value;
-	selector.empty();    
+	removeOptions(selector);
 	var availableOptions = Shopify.optionsMap[key];
 	// Checking availableOptions exists before building option list (prevents javascript error)
 	if(typeof availableOptions !== 'undefined'){
