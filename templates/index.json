@@ -259,6 +259,12 @@
           "settings": {
             "collection": "lifecasting-special-effects"
           }
+        },
+        "13115cb7-384d-4eb6-9a7c-f50f2172ea33": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "release-agents-sealers-additives"
+          }
         }
       },
       "block_order": [
@@ -271,7 +277,8 @@
         "8dc9dda1-7d48-4f43-bcaa-57b54ab1048f",
         "de533a55-756b-4ebf-b776-24f4b5ccc4d1",
         "7db83b2a-3919-424c-aca2-32b30929ebab",
-        "89c0bfc8-f373-4bc6-b317-97d81e9dc32e"
+        "89c0bfc8-f373-4bc6-b317-97d81e9dc32e",
+        "13115cb7-384d-4eb6-9a7c-f50f2172ea33"
       ],
       "settings": {
         "title": "Shop Onine",
