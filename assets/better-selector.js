@@ -72,6 +72,9 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
         });
     }
     select.addEventListener('change', function(){ removeUrlVariant() });
+});
+
+document.addEventListener("DOMContentLoaded", function(){
   	if(!seletedVariant) {
       	console.log('done');
     	selects[0].selectedIndex = 0;
