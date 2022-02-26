@@ -78,3 +78,4 @@ window.onpageshow = function() {
 	selects[0].selectedIndex = 0;
     selects[0].dispatchEvent(new Event("change", { bubbles: true }));
 };
+*/
