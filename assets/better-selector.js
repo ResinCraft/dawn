@@ -38,8 +38,7 @@ function validOptions(select,parent) {
       var filteredVariants = new Set(window.productJSON.variants.filter((item)=>item[optionText] === parent.value).map(a => a[childOptionText]));
       filteredVariants.forEach(function(variant) {
         var selectOption = new Option(variant,variant);
-        var selected = (variant == seletedVariant[childOptionText]) ? true : false;
-        selectOption.selected = selected;
+        selectOption.selected = (variant == seletedVariant[childOptionText]);
         select.add(selectOption);
       });
     }
