@@ -60,5 +60,5 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
           updateChildSelect(selects[select.optionIndex+1],select);
         });
     }
-  	(select.optionIndex == 0) ? setDefaultOption(select, seletedVariant) : validOptions(select,[select.optionIndex-1]);
+  	(select.optionIndex == 0) ? setDefaultOption(select, seletedVariant) : validOptions(select,selects[select.optionIndex-1]);
 });
