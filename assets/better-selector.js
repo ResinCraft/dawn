@@ -62,6 +62,7 @@ function updateChildSelect(select,parentSelect) {
 
 
 window.productJSON.options.forEach(function(productOption, selectPos) {
+  console.log(selects[0].selectedIndex);
     const select = selects[selectPos];
     select.optionIndex = selectPos;
     select.productOption = productOption;
