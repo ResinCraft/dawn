@@ -62,30 +62,31 @@ Shopify.updateOptionsInSelector = function(selectorIndex) {
 };
 
 Shopify.linkOptionSelectors = function(product) {
+  	console.log(Shopify.optionsMap['root']);
 	// Building our mapping object.
 	for (var i=0; i<product.variants.length; i++) {
 		var variant = product.variants[i];
-			// Gathering values for the 1st drop-down.
-			Shopify.optionsMap['root'] = Shopify.optionsMap['root'] || [];
-			Shopify.optionsMap['root'].push('Select {{ product.options[0] }}...');
-			Shopify.optionsMap['root'].push(variant.option1);
-			Shopify.optionsMap['root'] = Shopify.uniq(Shopify.optionsMap['root']);
-			// Gathering values for the 2nd drop-down.
-			if (product.options.length > 1) {
-				var key = variant.option1;
-				Shopify.optionsMap[key] = Shopify.optionsMap[key] || [];
-				Shopify.optionsMap[key].push('Select {{ product.options[1] }}...');
-				Shopify.optionsMap[key].push(variant.option2);
-				Shopify.optionsMap[key] = Shopify.uniq(Shopify.optionsMap[key]);
-			}
-			// Gathering values for the 3rd drop-down.
-			if (product.options.length === 3) {
-				var key = variant.option1 + ' / ' + variant.option2;
-				Shopify.optionsMap[key] = Shopify.optionsMap[key] || [];
-				Shopify.optionsMap[key].push('Select {{ product.options[2] }}...');
-				Shopify.optionsMap[key].push(variant.option3);
-				Shopify.optionsMap[key] = Shopify.uniq(Shopify.optionsMap[key]);
-			}
+        // Gathering values for the 1st drop-down.
+        Shopify.optionsMap['root'] = Shopify.optionsMap['root'] || [];
+        Shopify.optionsMap['root'].push('Select {{ product.options[0] }}...');
+                                        Shopify.optionsMap['root'].push(variant.option1);
+        Shopify.optionsMap['root'] = Shopify.uniq(Shopify.optionsMap['root']);
+        // Gathering values for the 2nd drop-down.
+        if (product.options.length > 1) {
+          var key = variant.option1;
+          Shopify.optionsMap[key] = Shopify.optionsMap[key] || [];
+          Shopify.optionsMap[key].push('Select {{ product.options[1] }}...');
+                                       Shopify.optionsMap[key].push(variant.option2);
+          Shopify.optionsMap[key] = Shopify.uniq(Shopify.optionsMap[key]);
+        }
+        // Gathering values for the 3rd drop-down.
+        if (product.options.length === 3) {
+          var key = variant.option1 + ' / ' + variant.option2;
+          Shopify.optionsMap[key] = Shopify.optionsMap[key] || [];
+          Shopify.optionsMap[key].push('Select {{ product.options[2] }}...');
+                                       Shopify.optionsMap[key].push(variant.option3);
+          Shopify.optionsMap[key] = Shopify.uniq(Shopify.optionsMap[key]);
+        }
 	}
 	// Update options right away.
 	Shopify.updateOptionsInSelector(0);
