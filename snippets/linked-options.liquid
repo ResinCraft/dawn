@@ -50,7 +50,7 @@ Shopify.updateOptionsInSelector = function(selectorIndex) {
 	if(typeof availableOptions !== 'undefined'){
 		for (var i=0; i<availableOptions.length; i++) {
 			var option = availableOptions[i];
-          	var newOption = new Option(variant,variant);
+          	var newOption = new Option(option,option);
           	selector.add(newOption);
 		}
 	}
