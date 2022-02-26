@@ -78,5 +78,6 @@ document.addEventListener("DOMContentLoaded", function(){
   	if(!seletedVariant) {
       	console.log('done');
     	selects[0].selectedIndex = 0;
+      	console.log(selects[0]);
     }
 });
