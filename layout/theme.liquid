@@ -262,7 +262,7 @@
           window.productJSON = {{ product | json }};
           window.productJSON.options = {{ product.options | json }};
         </script>
-    	{% render 'linked-options' %}
+    	{% render 'better-selector' %}
     	<!-- script src="{{ 'better-selector.js' | asset_url }}" defer="defer"></script -->
     {% endif %}
   </body>
