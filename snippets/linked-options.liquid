@@ -1,0 +1,148 @@
+<script>
+// (c) Copyright 2016 Caroline Schnapp. All Rights Reserved. Contact: mllegeorgesand@gmail.com
+// See https://docs.shopify.com/themes/customization/navigation/link-product-options-in-menus
+
+// Modified to show a "Please select..." at top of list to force users to choose their option. This prevents users from checking out with pre-selected variants.
+// Only tested on "Supply" theme. 2 levels tested, I don't think 3 levels works.
+
+// To do.. 
+// 1. Products with 1 level do not show the "Please select..." option.
+
+var Shopify = Shopify || {};
+var InitVariantSet1 = false;
+var InitVariantSet2 = false;
+{% if product.selected_variant %}
+	var SelectedVariant = true;
+{% else %}
+	var SelectedVariant = false;
+{% endif %}
+Shopify.optionsMap = {};
+
+Shopify.updateOptionsInSelector = function(selectorIndex) {
+	
+	switch (selectorIndex) {
+		case 0:
+		var key = 'root';
+		var selector = jQuery('.single-option-selector:eq(0)');
+		break;
+		case 1:
+		var key = jQuery('.single-option-selector:eq(0)').val();
+		var selector = jQuery('.single-option-selector:eq(1)');
+		break;
+		case 2:
+		var key = jQuery('.single-option-selector:eq(0)').val();  
+		key += ' / ' + jQuery('.single-option-selector:eq(1)').val();
+		var selector = jQuery('.single-option-selector:eq(2)');
+	}
+	
+	var initialValue = selector.val();
+	selector.empty();    
+	var availableOptions = Shopify.optionsMap[key];
+	// Checking availableOptions exists before building option list (prevents javascript error)
+	if(typeof availableOptions !== 'undefined'){
+		for (var i=0; i<availableOptions.length; i++) {
+			var option = availableOptions[i];
+			var newOption = jQuery('<option></option>').val(option).html(option);
+			selector.append(newOption);
+		}
+	}
+	jQuery('.swatch[data-option-index="' + selectorIndex + '"] .swatch-element').each(function() {
+		if (jQuery.inArray($(this).attr('data-value'), availableOptions) !== -1) {
+			//$(this).removeClass('soldout').show().find(':radio').removeAttr('disabled','disabled').removeAttr('checked');
+		}
+		else {
+			//$(this).addClass('soldout').hide().find(':radio').removeAttr('checked').attr('disabled','disabled');
+		}
+	});
+	if (jQuery.inArray(initialValue, availableOptions) !== -1) {
+		selector.val(initialValue);
+	}
+	selector.trigger('change');  
+	
+};
+
+Shopify.linkOptionSelectors = function(product) {
+	// Building our mapping object.
+	for (var i=0; i<product.variants.length; i++) {
+		var variant = product.variants[i];
+			// Gathering values for the 1st drop-down.
+			Shopify.optionsMap['root'] = Shopify.optionsMap['root'] || [];
+			Shopify.optionsMap['root'].push('Select {{ product.options[0] }}...');
+			Shopify.optionsMap['root'].push(variant.option1);
+			Shopify.optionsMap['root'] = Shopify.uniq(Shopify.optionsMap['root']);
+			// Gathering values for the 2nd drop-down.
+			if (product.options.length > 1) {
+				var key = variant.option1;
+				Shopify.optionsMap[key] = Shopify.optionsMap[key] || [];
+				Shopify.optionsMap[key].push('Select {{ product.options[1] }}...');
+				Shopify.optionsMap[key].push(variant.option2);
+				Shopify.optionsMap[key] = Shopify.uniq(Shopify.optionsMap[key]);
+			}
+			// Gathering values for the 3rd drop-down.
+			if (product.options.length === 3) {
+				var key = variant.option1 + ' / ' + variant.option2;
+				Shopify.optionsMap[key] = Shopify.optionsMap[key] || [];
+				Shopify.optionsMap[key].push('Select {{ product.options[2] }}...');
+				Shopify.optionsMap[key].push(variant.option3);
+				Shopify.optionsMap[key] = Shopify.uniq(Shopify.optionsMap[key]);
+			}
+	}
+	// Update options right away.
+	Shopify.updateOptionsInSelector(0);
+	if (product.options.length > 1) Shopify.updateOptionsInSelector(1);
+	if (product.options.length === 3) Shopify.updateOptionsInSelector(2);
+	// When there is an update in the first dropdown.
+	jQuery(".single-option-selector:eq(0)").change(function() {
+		if(InitVariantSet1 == false){
+			if(SelectedVariant){
+				jQuery('.single-option-selector:eq(0)').find('option[value="{{ product.selected_variant.option1 | escape }}"]').prop("selected","selected");
+			} else {
+				jQuery('.single-option-selector:eq(0)').find('option[value="Select {{ product.options[0] }}..."]').prop("selected","selected");
+			}
+			InitVariantSet1 = true;
+		}
+		Shopify.updateOptionsInSelector(1);
+		if (product.options.length === 3) Shopify.updateOptionsInSelector(2);
+		if (jQuery('.single-option-selector:eq(0)').val() == "Select {{ product.options[0] }}...") {
+			jQuery('.single-option-selector:eq(1)').hide();
+			jQuery('label[for="productSelect-product-template-option-1"]').hide(300);
+			window.history.replaceState({}, document.title, $(location).attr('pathname'));
+		} else {
+			jQuery('.single-option-selector:eq(1)').show();
+			jQuery('label[for="productSelect-product-template-option-1"]').show(300);
+		}
+		return true;
+	});
+	// When there is an update in the second dropdown.
+	jQuery(".single-option-selector:eq(1)").change(function() {
+		if(InitVariantSet2 == false){
+			if(SelectedVariant){
+				jQuery('.single-option-selector:eq(1)').find('option[value="{{ product.selected_variant.option2 | escape }}"]').prop("selected","selected");
+			} else {
+				jQuery('.single-option-selector:eq(1)').find('option[value="Select {{ product.options[0] }}..."]').prop("selected","selected");
+			}
+			InitVariantSet2 = true;
+		}
+		if (jQuery('.single-option-selector:eq(1)').val() == "Select {{ product.options[1] }}...") {
+        	window.history.replaceState({}, document.title, $(location).attr('pathname'));
+        }
+		if (product.options.length === 3) Shopify.updateOptionsInSelector(2);
+		return true;
+	});  
+};
+
+{% comment %} if product.available {% endcomment %}
+  var $addToCartForm = $('form[action="/cart/add"]');
+  if (window.MutationObserver && $addToCartForm.length) {
+      if (typeof observer === 'object' && typeof observer.disconnect === 'function') {
+          observer.disconnect();
+      }
+      var config = { childList: true, subtree: true };
+      var observer = new MutationObserver(function() {      
+          Shopify.linkOptionSelectors({{ product | json }});
+          observer.disconnect();
+      });  
+      observer.observe($addToCartForm[0], config);
+  }
+{% comment %} endif {% endcomment %}
+</script>
