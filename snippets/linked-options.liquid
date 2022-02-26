@@ -131,6 +131,7 @@ Shopify.linkOptionSelectors = function(product) {
 	});  
 };
 var addToCartForm = document.querySelector('[id^="product-form-template--"]').id;
+      console.log(addToCartForm);
 if (window.MutationObserver && addToCartForm) {
 	if (typeof observer === 'object' && typeof observer.disconnect === 'function') {
 		observer.disconnect();
