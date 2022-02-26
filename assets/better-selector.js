@@ -73,4 +73,4 @@ document.addEventListener("DOMContentLoaded", function(){
       }
       select.addEventListener('change', function(){ removeUrlVariant() });
   });
-}
+});
