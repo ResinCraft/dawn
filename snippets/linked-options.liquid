@@ -130,7 +130,7 @@ Shopify.linkOptionSelectors = function(product) {
 		return true;
 	});  
 };
-var form = document.querySelector('[^product-form-template--.*\w+]').id;
+var form = document.querySelector('[id^="product-form-template--"]').id;
       console.log(form);
 var $addToCartForm = $('form[action="/cart/add"]');
 if (window.MutationObserver && $addToCartForm.length) {
