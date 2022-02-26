@@ -115,7 +115,8 @@ Shopify.linkOptionSelectors = function(product) {
 		Shopify.updateOptionsInSelector(1);
 		if (product.options.length === 3) Shopify.updateOptionsInSelector(2);
 		if (selects[0].value == "Select {{ product.options[0] }}...") {
-			selectContainer[1].style.display = 'none';
+			console.log('rrunnnging');
+            selectContainer[1].style.display = 'none';
 			window.history.replaceState('object', document.title, location.href.replace(location.search, ''));
 		} else {
 			selectContainer[1].style.display = '';
