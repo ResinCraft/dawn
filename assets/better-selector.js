@@ -16,6 +16,24 @@ function setDefaultOption(select,selected = false) {
     }
 }
 
+//generates valid options based on the parent selector
+function validOptions(select,parentValue) {
+    removeOptions(select);
+    setDefaultOption(select);
+  	var optionText = "option"+select.optionIndex;
+  	var childOptionText = "option"+(select.optionIndex + 1);
+  	//(filter)get a list of valid variants, (map)create a new array from the option propery, (set)get a set of unique elements
+  	var filteredVariants = new Set(window.productJSON.variants.filter((item)=>item[optionText] === parentValue).map(a => a[childOptionText]));
+
+    filteredVariants.forEach(function(variant) {
+      var selectOption = new Option(variant,variant);
+      var selected = (variant == seletedVariant[childOptionText]) ? true : false;
+      selectOption.selected = selected;
+      select.add(selectOption);
+    });
+  	//select.dispatchEvent(new Event("change", { bubbles: true }));
+}
+
 function updateChildSelect(select,parentSelect) {
     if(parentSelect.selectedIndex == 0) {
         select.selectedIndex = 0;
