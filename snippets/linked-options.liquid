@@ -123,7 +123,7 @@ Shopify.linkOptionSelectors = function(product) {
 		return true;
 	});
 	// When there is an update in the second dropdown.
-	jQuery(".single-option-selector:eq(1)").change(function() {
+	selects[1].addEventListener('change', function(){
 		if(InitVariantSet2 == false){
 			if(SelectedVariant){
 				jQuery('.single-option-selector:eq(1)').find('option[value="{{ product.selected_variant.option2 | escape }}"]').prop("selected","selected");
