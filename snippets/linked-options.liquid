@@ -64,7 +64,7 @@ Shopify.updateOptionsInSelector = function(selectorIndex) {
 		}
 	});*/
   	//console.log('availableOptions: '+availableOptions);
-	if (typeof availableOptions !== undefined && availableOptions.includes(initialValue) !== -1) {
+	if (typeof availableOptions !== 'undefined' && availableOptions.includes(initialValue) !== -1) {
 		selector.value = initialValue;
 	}
 	selector.dispatchEvent(new Event("change", { bubbles: true }));
