@@ -74,10 +74,7 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
     select.addEventListener('change', function(){ removeUrlVariant() });
 });
 
-document.addEventListener("DOMContentLoaded", function(){
-  	if(!seletedVariant) {
-      	console.log('done');
-    	selects[0].selectedIndex = 0;
-      	console.log(selects[0]);
-    }
-});
+window.onpageshow = function() {
+  var oForm2Reset = document.getElementById('product-form-template--14429536682032__main');
+  oForm2Reset.reset();
+};
