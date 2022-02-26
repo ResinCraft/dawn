@@ -43,8 +43,7 @@ function validOptions(select,parentValue) {
 }
 
 function updateChildSelect(select,parentSelect) {
-  	console.log(select);
-  	console.log(select.value);
+  	console.log(parentSelect.selectedIndex);
   	//console.log('selectContainer['+select.optionIndex+']: '+selectContainer[select.optionIndex]);
     if(parentSelect.selectedIndex == 0) {
         select.selectedIndex = 0;
