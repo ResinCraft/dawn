@@ -46,8 +46,7 @@ Shopify.updateOptionsInSelector = function(selectorIndex) {
 	
 	var initialValue = selector.value;
 	removeOptions(selector);
-	var availableOptions = Shopify.optionsMap[key];
-  console.log('availableOptions: '+availableOptions);
+	var availableOptions = Shopify.optionsMap[key];  
 	// Checking availableOptions exists before building option list (prevents javascript error)
 	if(typeof availableOptions !== 'undefined'){
 		for (var i=0; i<availableOptions.length; i++) {
@@ -64,6 +63,7 @@ Shopify.updateOptionsInSelector = function(selectorIndex) {
 			//$(this).addClass('soldout').hide().find(':radio').removeAttr('checked').attr('disabled','disabled');
 		}
 	});*/
+  	console.log('availableOptions: '+availableOptions);
 	if (availableOptions.includes(initialValue) !== -1) {
 		selector.value = initialValue;
 	}
