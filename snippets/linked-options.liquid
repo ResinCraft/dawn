@@ -141,7 +141,7 @@ if (window.MutationObserver && addToCartForm) {
         Shopify.linkOptionSelectors({{ product | json }});
         observer.disconnect();
     });
-  	console.log(observer);
+  	console.log(addToCartForm);
 	observer.observe(addToCartForm, config);
 }
 </script>
