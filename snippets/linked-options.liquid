@@ -50,8 +50,8 @@ Shopify.updateOptionsInSelector = function(selectorIndex) {
 	if(typeof availableOptions !== 'undefined'){
 		for (var i=0; i<availableOptions.length; i++) {
 			var option = availableOptions[i];
-			var newOption = jQuery('<option></option>').val(option).html(option);
-			selector.append(newOption);
+          	var newOption = new Option(variant,variant);
+          	selector.add(newOption);
 		}
 	}
 	jQuery('.swatch[data-option-index="' + selectorIndex + '"] .swatch-element').each(function() {
