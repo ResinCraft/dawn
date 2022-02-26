@@ -44,6 +44,7 @@ function validOptions(select,parentValue) {
 }
 
 function updateChildSelect(select,parentSelect) {
+  console.log(select);
     if(parentSelect.selectedIndex == 0) {
         select.selectedIndex = 0;
         selectContainer[select.optionIndex].style.display = 'none';
