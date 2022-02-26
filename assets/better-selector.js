@@ -45,6 +45,7 @@ function validOptions(select,parent) {
         selectOption.selected = (variant == seletedVariant[childOptionText]);
         select.add(selectOption);
       });
+      console.log('valid: '+selects[0].selectedIndex);
     }
 }
 
@@ -58,11 +59,12 @@ function updateChildSelect(select,parentSelect) {
       	validOptions(select,parentSelect);
      	selectContainer[select.optionIndex].style.display = ''; 
     }
+  console.log('udapted: '+selects[0].selectedIndex);
 }
 
 
 window.productJSON.options.forEach(function(productOption, selectPos) {
-  console.log(selects[0].selectedIndex);
+  console.log('initially: '+selects[0].selectedIndex);
     const select = selects[selectPos];
     select.optionIndex = selectPos;
     select.productOption = productOption;
