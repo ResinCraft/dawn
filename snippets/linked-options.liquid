@@ -133,12 +133,10 @@ Shopify.linkOptionSelectors = function(product) {
 var addToCartForm = document.querySelector('[id^="product-form-template--"]').id;
       
 if (window.MutationObserver && addToCartForm) {
-  console.log(window.MutationObserver);
 	if (typeof observer === 'object' && typeof observer.disconnect === 'function') {
 		observer.disconnect();
     }
     var config = { childList: true, subtree: true };
-  console.log(config);
     var observer = new MutationObserver(function() {      
         Shopify.linkOptionSelectors({{ product | json }});
         observer.disconnect();
