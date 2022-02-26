@@ -26,6 +26,7 @@ function removeOptions(select) {
 
 //generates valid options based on the parent selector
 function validOptions(select,parentValue) {
+  console.log(parentValue);
     removeOptions(select);
     setDefaultOption(select);
   	var optionText = "option"+select.optionIndex;
