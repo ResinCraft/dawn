@@ -1,6 +1,4 @@
-.cart-notification-form {
-  display: none !important;
-}
+.cart-notification__links form {display: none;}
 
 .cart-notification-wrapper {
   position: relative;
