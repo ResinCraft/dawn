@@ -33,7 +33,7 @@ function removeOptions(select) {
 function validOptions(select,parent) {
   	if(parent.selectedIndex == 0) {
 		select.selectedIndex = 0;
-        //selectContainer[select.optionIndex].style.display = 'none';
+        selectContainer[select.optionIndex].style.display = 'none';
     } else {
       removeOptions(select);
       setDefaultOption(select);
