@@ -128,8 +128,10 @@ Shopify.linkOptionSelectors = function(product) {
 		if(InitVariantSet2 == false){
 			if(SelectedVariant){
 				//jQuery('.single-option-selector:eq(1)').find('option[value="{{ product.selected_variant.option2 | escape }}"]').prop("selected","selected");
+                selects[1].value = "{{ product.selected_variant.option2 | escape }}";
 			} else {
 				//jQuery('.single-option-selector:eq(1)').find('option[value="Select {{ product.options[0] }}..."]').prop("selected","selected");
+                selects[1].value = "Select {{ product.options[0] }}...";
 			}
 			InitVariantSet2 = true;
 		}
