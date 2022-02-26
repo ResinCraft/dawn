@@ -26,7 +26,7 @@ function removeOptions(select) {
 
 //generates valid options based on the parent selector
 function validOptions(select,parent) {
-  console.log(parent.value);
+  console.log(window.productJSON.variants.filter((item)=>item[optionText] === parent.value));
     removeOptions(select);
     setDefaultOption(select);
   	var optionText = "option"+select.optionIndex;
