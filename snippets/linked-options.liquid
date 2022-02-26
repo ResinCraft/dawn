@@ -152,5 +152,6 @@ if (window.MutationObserver && addToCartForm) {
     });
   	console.log(addToCartForm);
 	observer.observe(addToCartForm, config);
+  	Shopify.linkOptionSelectors({{ product | json }});
 }
 </script>
