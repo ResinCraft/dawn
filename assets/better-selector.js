@@ -26,7 +26,7 @@ function removeOptions(select) {
 
 //generates valid options based on the parent selector
 function validOptions(select,parent) {
-  	if(parentSelect.selectedIndex == 0) {
+  	if(parent.selectedIndex == 0) {
 		select.selectedIndex = 0;
         selectContainer[select.optionIndex].style.display = 'none';
     } else {
