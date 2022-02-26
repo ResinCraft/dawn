@@ -47,7 +47,7 @@ Shopify.updateOptionsInSelector = function(selectorIndex) {
 	var initialValue = selector.value;
 	removeOptions(selector);
 	var availableOptions = Shopify.optionsMap[key];
-  	console.log(availableOptions);
+  console.log('availableOptions: '+availableOptions);
 	// Checking availableOptions exists before building option list (prevents javascript error)
 	if(typeof availableOptions !== 'undefined'){
 		for (var i=0; i<availableOptions.length; i++) {
