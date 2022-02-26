@@ -32,7 +32,6 @@ function validOptions(select,parent) {
     } else {
       removeOptions(select);
       setDefaultOption(select);
-      select.selectedIndex = 0;
       var optionText = "option"+select.optionIndex;
       var childOptionText = "option"+(select.optionIndex + 1);
       //(filter)get a list of valid variants, (map)create a new array from the option propery, (set)get a set of unique elements
