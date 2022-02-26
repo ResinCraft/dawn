@@ -3,7 +3,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const urlVariantId = (urlParams.has('variant') && (window.productJSON.variants.filter((item)=>item["id"] == urlParams.get('variant')).length > 0)) ? urlParams.get('variant') : false;
 const seletedVariant = (urlVariantId) ? window.productJSON.variants.filter((item)=>item["id"] == urlVariantId)[0] : false;
 
-const selectDivContainers = document.getElementsByClassName("product-form__input product-form__input--dropdown");
+const selectContainer = document.getElementsByClassName("product-form__input product-form__input--dropdown");
 const selects = document.getElementsByClassName("select__select");
 
 //adds the default option i.e. "Select Type..."
@@ -46,9 +46,9 @@ function validOptions(select,parentValue) {
 function updateChildSelect(select,parentSelect) {
     if(parentSelect.selectedIndex == 0) {
         select.selectedIndex = 0;
-        selectDivContainers[select.optionIndex].style.display = 'none';
+        selectContainer[select.optionIndex].style.display = 'none';
     } else {
-     	selectDivContainers[select.optionIndex].style.display = ''; 
+     	selectContainer[select.optionIndex].style.display = ''; 
     }
 }
 
