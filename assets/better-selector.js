@@ -49,6 +49,7 @@ function updateChildSelect(select,parentSelect) {
       	select.dispatchEvent(new Event("change", { bubbles: true }));
     } else {
       	validOptions(select,parentSelect);
+      	select.dispatchEvent(new Event("change", { bubbles: true }));
      	selectContainer[select.optionIndex].style.display = ''; 
     }
 }
