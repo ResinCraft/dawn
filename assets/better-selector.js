@@ -52,7 +52,7 @@ function updateChildSelect(select,parentSelect) {
   	//console.log('selectContainer['+select.optionIndex+']: '+selectContainer[select.optionIndex]);
     if(parentSelect.selectedIndex == 0) {
         select.selectedIndex = 0;
-        selectContainer[select.optionIndex].style.display = 'none';
+        //selectContainer[select.optionIndex].style.display = 'none';
       	select.dispatchEvent(new Event("change", { bubbles: true }));
     } else {
       	validOptions(select,parentSelect);
