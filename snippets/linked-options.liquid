@@ -101,7 +101,7 @@ Shopify.linkOptionSelectors = function(product) {
 	if (product.options.length > 1) Shopify.updateOptionsInSelector(1);
 	if (product.options.length === 3) Shopify.updateOptionsInSelector(2);
 	// When there is an update in the first dropdown.
-	jQuery(".single-option-selector:eq(0)").change(function() {
+	selects[0].addEventListener('change', function(){
 		if(InitVariantSet1 == false){
 			if(SelectedVariant){
 				//jQuery('.single-option-selector:eq(0)').find('option[value="{{ product.selected_variant.option1 | escape }}"]').prop("selected","selected");
