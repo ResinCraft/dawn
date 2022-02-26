@@ -54,14 +54,14 @@ Shopify.updateOptionsInSelector = function(selectorIndex) {
           	selector.add(newOption);
 		}
 	}
-	jQuery('.swatch[data-option-index="' + selectorIndex + '"] .swatch-element').each(function() {
+	/*jQuery('.swatch[data-option-index="' + selectorIndex + '"] .swatch-element').each(function() {
 		if (jQuery.inArray($(this).attr('data-value'), availableOptions) !== -1) {
 			//$(this).removeClass('soldout').show().find(':radio').removeAttr('disabled','disabled').removeAttr('checked');
 		}
 		else {
 			//$(this).addClass('soldout').hide().find(':radio').removeAttr('checked').attr('disabled','disabled');
 		}
-	});
+	});*/
 	if (jQuery.inArray(initialValue, availableOptions) !== -1) {
 		selector.val(initialValue);
 	}
