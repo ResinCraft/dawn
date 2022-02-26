@@ -59,7 +59,6 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
       	select.addEventListener('change', function(){
           updateChildSelect(selects[select.optionIndex+1],select);
         });
-      	validOptions(select,[select.optionIndex-1]);
     }
-  	if(select.optionIndex == 0) setDefaultOption(select, seletedVariant);
+  	(select.optionIndex == 0) ? setDefaultOption(select, seletedVariant) : validOptions(select,[select.optionIndex-1]);
 });
