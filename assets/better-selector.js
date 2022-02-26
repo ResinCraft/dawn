@@ -75,6 +75,6 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
 });
 
 window.onpageshow = function() {
-  var oForm2Reset = document.getElementById('product-form-template--14429536682032__main');
-  oForm2Reset.reset();
+	selects[0].selectedIndex = 0;
+    selects[0].dispatchEvent(new Event("change", { bubbles: true }));
 };
