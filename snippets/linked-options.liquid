@@ -131,8 +131,7 @@ Shopify.linkOptionSelectors = function(product) {
 	});  
 };
 var addToCartForm = document.querySelector('[id^="product-form-template--"]').id;
-console.log(addToCartForm);
-if (window.MutationObserver && $addToCartForm.length) {
+if (window.MutationObserver && addToCartForm) {
 	if (typeof observer === 'object' && typeof observer.disconnect === 'function') {
 		observer.disconnect();
     }
@@ -141,6 +140,6 @@ if (window.MutationObserver && $addToCartForm.length) {
         Shopify.linkOptionSelectors({{ product | json }});
         observer.disconnect();
     });  
-	observer.observe($addToCartForm[0], config);
+	observer.observe(addToCartForm, config);
 }
 </script>
