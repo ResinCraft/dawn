@@ -138,6 +138,7 @@ if (window.MutationObserver && addToCartForm) {
 		observer.disconnect();
     }
     var config = { childList: true, subtree: true };
+  console.log(config);
     var observer = new MutationObserver(function() {      
         Shopify.linkOptionSelectors({{ product | json }});
         observer.disconnect();
