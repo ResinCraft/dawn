@@ -17,7 +17,7 @@ function setDefaultOption(select,selected = false) {
 }
 
 function removeUrlVariant() {
-  	window.history.pushState('object', document.title, location.href.replace(location.search, ''));
+  	window.history.replaceState('object', document.title, location.href.replace(location.search, ''));
 }
 
 //removes all the options of a select so it can be rebuilt
