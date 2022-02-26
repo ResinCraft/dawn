@@ -47,7 +47,6 @@ function updateChildSelect(select,parentSelect) {
         select.selectedIndex = 0;
         selectDivContainers[select.optionIndex].style.display = 'none';
     } else {
-      	validOptions(select,parentSelect);
      	selectDivContainers[select.optionIndex].style.display = ''; 
     }
 }
@@ -60,6 +59,7 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
       	select.addEventListener('change', function(){
           updateChildSelect(selects[select.optionIndex+1],select);
         });
+      	validOptions(select,parentSelect);
     }
   	if(select.optionIndex == 0) setDefaultOption(select, seletedVariant);
 });
