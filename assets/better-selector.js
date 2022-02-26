@@ -10,7 +10,7 @@ const selects = document.getElementsByClassName("select__select");
 function setDefaultOption(select,selected = false) {
     optionText = "Select " + select.productOption + "...";
     select.add(new Option(optionText), select[0]);
-    if(selected == false){
+    if(selected == false || !seletedVariant){
       select.selectedIndex = 0;
       //select.dispatchEvent(new Event("change", { bubbles: true }));
     }
