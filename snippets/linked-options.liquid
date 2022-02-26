@@ -62,10 +62,10 @@ Shopify.updateOptionsInSelector = function(selectorIndex) {
 			//$(this).addClass('soldout').hide().find(':radio').removeAttr('checked').attr('disabled','disabled');
 		}
 	});*/
-	if (jQuery.inArray(initialValue, availableOptions) !== -1) {
-		selector.val(initialValue);
-	}
-	selector.trigger('change');  
+	//if (jQuery.inArray(initialValue, availableOptions) !== -1) {
+	//	selector.value = initialValue;
+	//}
+	selector.dispatchEvent(new Event("change", { bubbles: true }));
 	
 };
 
