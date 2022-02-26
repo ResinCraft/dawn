@@ -112,7 +112,7 @@ Shopify.linkOptionSelectors = function(product) {
 		}
 		Shopify.updateOptionsInSelector(1);
 		if (product.options.length === 3) Shopify.updateOptionsInSelector(2);
-		if (jQuery('.single-option-selector:eq(0)').val() == "Select {{ product.options[0] }}...") {
+		if (selects[0].value == "Select {{ product.options[0] }}...") {
 			jQuery('.single-option-selector:eq(1)').hide();
 			jQuery('label[for="productSelect-product-template-option-1"]').hide(300);
 			window.history.replaceState({}, document.title, $(location).attr('pathname'));
