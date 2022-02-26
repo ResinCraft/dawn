@@ -72,5 +72,8 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
         });
     }
     select.addEventListener('change', function(){ removeUrlVariant() });
-  	if(!seletedVariant) selects[0].selectedIndex = 0;
+  	if(!seletedVariant) {
+      	console.log('done');
+    	selects[0].selectedIndex = 0;
+    }
 });
