@@ -30,8 +30,8 @@ function removeOptions(select) {
 
 //generates valid options based on the parent selector
 function validOptions(select,parent) {
-  	console.log('slect'+select.optionIndex);
-  	console.log('par'+parent.selectedIndex);
+  console.log('current select: '+select.optionIndex);
+  console.log('parent selected option: '+parent.selectedIndex);
   	if(parent.selectedIndex == 0) {
 		select.selectedIndex = 0;
         selectContainer[select.optionIndex].style.display = 'none';
