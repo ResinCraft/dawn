@@ -39,6 +39,7 @@ function updateChildSelect(select,parentSelect) {
         select.selectedIndex = 0;
         selectDivContainers[select.optionIndex].style.display = 'none';
     } else {
+      	validOptions(select,parentSelect);
      	selectDivContainers[select.optionIndex].style.display = ''; 
     }
 }
