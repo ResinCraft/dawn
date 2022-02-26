@@ -12,7 +12,7 @@ function setDefaultOption(select,selected = false) {
     select.add(new Option(optionText), select[0]);
     if(selected == false){
       select.selectedIndex = 0;
-      //select.dispatchEvent(new Event("change", { bubbles: true }));
+      select.dispatchEvent(new Event("change", { bubbles: true }));
     }
 }
 
