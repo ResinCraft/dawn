@@ -36,6 +36,7 @@ function validOptions(select,parent) {
       var childOptionText = "option"+(select.optionIndex + 1);
       //(filter)get a list of valid variants, (map)create a new array from the option propery, (set)get a set of unique elements
       var filteredVariants = new Set(window.productJSON.variants.filter((item)=>item[optionText] === parent.value).map(a => a[childOptionText]));
+      select.selectedIndex = 0;
       filteredVariants.forEach(function(variant) {
         var selectOption = new Option(variant,variant);
         selectOption.selected = (variant == seletedVariant[childOptionText]);
