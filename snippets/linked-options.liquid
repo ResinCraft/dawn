@@ -140,7 +140,8 @@ if (window.MutationObserver && addToCartForm) {
     var observer = new MutationObserver(function() {      
         Shopify.linkOptionSelectors({{ product | json }});
         observer.disconnect();
-    });  
+    });
+  	console.log(observer);
 	observer.observe(addToCartForm, config);
 }
 </script>
