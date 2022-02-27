@@ -62,7 +62,7 @@ function updateChildSelect(select,parentSelect) {
   console.log('udapted: '+selects[0].selectedIndex);
 }
 
-document.addEventListener("DOMContentLoaded", function(){
+window.onpageshow = function() {
   window.productJSON.options.forEach(function(productOption, selectPos) {
       console.log('initially: '+selects[0].selectedIndex);
       console.log('window.productJSON.options.length: '+window.productJSON.options.length);
@@ -79,9 +79,4 @@ document.addEventListener("DOMContentLoaded", function(){
       }
       select.addEventListener('input', function(){ removeUrlVariant() });
   });
-});
-
-window.onpageshow = function() {
-	//selects[0].selectedIndex = 0;
-    //selects[0].dispatchEvent(new Event("change", { bubbles: true }));
-};
+}
