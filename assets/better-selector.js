@@ -62,21 +62,25 @@ function updateChildSelect(select,parentSelect) {
   console.log('udapted: '+selects[0].selectedIndex);
 }
 
-window.onpageshow = function() {
-  window.productJSON.options.forEach(function(productOption, selectPos) {
-      console.log('initially: '+selects[0].selectedIndex);
-      console.log('window.productJSON.options.length: '+window.productJSON.options.length);
 
-      const select = selects[selectPos];
-      select.optionIndex = selectPos;
-      console.log('select.optionIndex: '+select.optionIndex);
-      select.productOption = productOption;
-      (select.optionIndex == 0) ? setDefaultOption(select, seletedVariant) : validOptions(select,selects[select.optionIndex-1]);
-      if(select.optionIndex < (window.productJSON.options.length - 1)){
-          select.addEventListener('input', function(){
-            updateChildSelect(selects[select.optionIndex+1],select);
-          });
-      }
-      select.addEventListener('input', function(){ removeUrlVariant() });
-  });
-}
+window.productJSON.options.forEach(function(productOption, selectPos) {
+    console.log('initially: '+selects[0].selectedIndex);
+    console.log('window.productJSON.options.length: '+window.productJSON.options.length);
+
+    const select = selects[selectPos];
+    select.optionIndex = selectPos;
+	console.log('select.optionIndex: '+select.optionIndex);
+    select.productOption = productOption;
+    (select.optionIndex == 0) ? setDefaultOption(select, seletedVariant) : validOptions(select,selects[select.optionIndex-1]);
+    if(select.optionIndex < (window.productJSON.options.length - 1)){
+        select.addEventListener('input', function(){
+          updateChildSelect(selects[select.optionIndex+1],select);
+        });
+    }
+    select.addEventListener('input', function(){ removeUrlVariant() });
+});
+
+window.onpageshow = function() {
+	selects[0].selectedIndex = 0;
+    selects[0].dispatchEvent(new Event("change", { bubbles: true }));
+};
