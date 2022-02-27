@@ -71,7 +71,7 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
     select.optionIndex = selectPos;
 	console.log('select.optionIndex: '+select.optionIndex);
     select.productOption = productOption;
-    validOptions(select,selects[select.optionIndex-1]);
+    (select.optionIndex == 0) ? setDefaultOption(select, seletedVariant) : validOptions(select,selects[select.optionIndex-1]);
     if(select.optionIndex < (window.productJSON.options.length - 1)){
         select.addEventListener('input', function(){
           updateChildSelect(selects[select.optionIndex+1],select);
