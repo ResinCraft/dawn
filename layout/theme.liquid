@@ -193,26 +193,23 @@
         }
       }
     {% endstyle %}
-<!-- start base css -->
     {{ 'base.css' | asset_url | stylesheet_tag }}
-<!-- end base css -->
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
     {%- endunless -%}
-<!-- end type_body_font css -->
     {%- unless settings.type_header_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
     {%- endunless -%}
-<!-- end type_header_font css -->
     {%- if settings.predictive_search_enabled -%}
       <link rel="stylesheet" href="{{ 'component-predictive-search.css' | asset_url }}" media="print" onload="this.media='all'">
     {%- endif -%}
-<!-- end predictive_search_enabled -->
+<!-- start designMode -->
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     if (Shopify.designMode) {
       document.documentElement.classList.add('shopify-design-mode');
     }
     </script>
+<!-- end designMode -->
   </head>
 
   <body class="gradient">
