@@ -207,13 +207,6 @@
       document.documentElement.classList.add('shopify-design-mode');
     }
     </script>
-    {% if(request.page_type == 'product') %}
-        <script>
-          window.productJSON = {{ product | json }};
-          window.productJSON.options = {{ product.options | json }};
-        </script>
-    	<script src="{{ 'better-selector.js' | asset_url }}"></script>
-    {% endif %}
   </head>
 
   <body class="gradient">
@@ -264,5 +257,12 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    {% if(request.page_type == 'product') %}
+        <script>
+          window.productJSON = {{ product | json }};
+          window.productJSON.options = {{ product.options | json }};
+        </script>
+    	<script src="{{ 'better-selector.js' | asset_url }}"></script>
+    {% endif %}
   </body>
 </html>
