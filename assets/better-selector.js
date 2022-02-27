@@ -73,11 +73,11 @@ console.log('select.optionIndex: '+select.optionIndex);
     select.productOption = productOption;
     (select.optionIndex == 0) ? setDefaultOption(select, seletedVariant) : validOptions(select,selects[select.optionIndex-1]);
     if(select.optionIndex < (window.productJSON.options.length - 1)){
-        select.addEventListener('input', function(){
+        select.addEventListener('oninput', function(){
           updateChildSelect(selects[select.optionIndex+1],select);
         });
     }
-    select.addEventListener('change', function(){ removeUrlVariant() });
+    select.addEventListener('oninput', function(){ removeUrlVariant() });
 });
 
 window.onpageshow = function() {
