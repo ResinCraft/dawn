@@ -78,6 +78,8 @@ window.productJSON.options.forEach(function(productOption, selectPos) {
 });
 
 window.onpageshow = function() {
-	//selects[0].selectedIndex = 0;
-    //selects[0].dispatchEvent(new Event("change", { bubbles: true }));
+  	if(selects[0].selectedIndex != 0 && !seletedVariant){
+      selects[0].selectedIndex = 0;
+      selects[0].dispatchEvent(new Event("change", { bubbles: true }));
+    }
 };
