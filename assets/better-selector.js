@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function(){
       }
       select.addEventListener('input', function(){ removeUrlVariant() });
   });
-}
+});
 
 window.onpageshow = function() {
 	//selects[0].selectedIndex = 0;
