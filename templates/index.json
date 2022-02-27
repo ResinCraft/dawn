@@ -55,12 +55,13 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Locally Stocked. Ready to Ship",
+            "heading": "Locally Stocked. Ready to Ship.",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>Our dedicated warehouse is stocked with the products you love. <\/p>"
           }
