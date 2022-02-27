@@ -73,7 +73,7 @@ console.log('select.optionIndex: '+select.optionIndex);
     select.productOption = productOption;
     (select.optionIndex == 0) ? setDefaultOption(select, seletedVariant) : validOptions(select,selects[select.optionIndex-1]);
     if(select.optionIndex < (window.productJSON.options.length - 1)){
-        select.addEventListener('change', function(){
+        select.addEventListener('input', function(){
           updateChildSelect(selects[select.optionIndex+1],select);
         });
     }
