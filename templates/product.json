@@ -63,7 +63,7 @@
             "show_dynamic_checkout": false
           }
         },
-        "0d292093-879f-414d-811a-58a41513ed0b": {
+        "d49498d8-7465-49f9-a861-a0e39c7ac1f0": {
           "type": "shopify:\/\/apps\/back-in-stock-customer-alerts\/blocks\/app-block\/bfa6a8c4-24e2-411a-9396-e35031b33f34",
           "settings": {
             "caption": "Email when available",
@@ -72,7 +72,7 @@
             "background_color": "#121212",
             "margin_top": 10,
             "margin_bottom": 10,
-            "classes": "product-form__submit button button--full-width button--primary",
+            "classes": "button button--full-width",
             "style": "text-decoration:none"
           }
         },
@@ -99,7 +99,7 @@
         "1f151766-0009-4a4b-94cc-55f7339b71d2",
         "quantity_selector",
         "buy_buttons",
-        "0d292093-879f-414d-811a-58a41513ed0b",
+        "d49498d8-7465-49f9-a861-a0e39c7ac1f0",
         "description",
         "share"
       ],
