@@ -54,12 +54,11 @@ function updateChildSelect(select,parentSelect) {
     if(parentSelect.selectedIndex == 0) {
         select.selectedIndex = 0;
         selectContainer[select.optionIndex].style.display = 'none';
-      	select.dispatchEvent(new Event("change", { bubbles: true }));
     } else {
       	validOptions(select,parentSelect);
      	selectContainer[select.optionIndex].style.display = ''; 
     }
-  console.log('udapted: '+selects[0].selectedIndex);
+  	select.dispatchEvent(new Event("change", { bubbles: true }));
 }
 
 
