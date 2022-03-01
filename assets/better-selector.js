@@ -45,7 +45,6 @@ function validOptions(select,parent) {
         selectOption.selected = (variant == seletedVariant[childOptionText]);
         select.add(selectOption);
       });
-      console.log('initially: '+selects[0].selectedIndex);
     }
 }
 
@@ -63,7 +62,7 @@ function updateChildSelect(select,parentSelect) {
 
 
 window.productJSON.options.forEach(function(productOption, selectPos) {
-  console.log('initially: '+selects[0].selectedIndex);
+  console.log('page refreshed');
     const select = selects[selectPos];
     select.optionIndex = selectPos;
     select.productOption = productOption;
