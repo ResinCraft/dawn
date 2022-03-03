@@ -5,6 +5,7 @@
     "predictive_search_show_vendor": true,
     "predictive_search_show_price": true,
     "favicon": "shopify:\/\/shop_images\/android-chrome-512x512.png",
+    "currency_code_enabled": false,
     "checkout_logo_image": "shopify:\/\/shop_images\/resin-craft_adaf699d-1dc8-45a5-b36f-ccf45921aef5.png",
     "sections": {
       "announcement-bar": {
