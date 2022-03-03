@@ -12,7 +12,6 @@ function setDefaultOption(select,selected = false) {
     select.add(new Option(optionText), select[0]);
     if(selected == false || !seletedVariant){
       select.selectedIndex = 0;
-      select.dispatchEvent(new Event("change", { bubbles: true }));
     }
 }
 
@@ -46,6 +45,7 @@ function validOptions(select,parent) {
         select.add(selectOption);
       });
     }
+  	select.dispatchEvent(new Event("change", { bubbles: true }));
 }
 
 function updateChildSelect(select,parentSelect) {
