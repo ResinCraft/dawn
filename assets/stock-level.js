@@ -1,4 +1,3 @@
-<script type="text/javascript">
   	//build a list of valid variants
     var variant = [];
     {% for variant in product.variants %}
@@ -68,4 +67,3 @@
         }
 	}
   	onVariantChange();
-</script>
