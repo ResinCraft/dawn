@@ -1,9 +1,3 @@
-  	//build a list of valid variants
-    var variant = [];
-    {% for variant in product.variants %}
-  		variant.push({id:{{ variant.id }}, option1:'{{ variant.option1 }}', option2:'{{ variant.option2 }}', option3:'{{ variant.option3 }}', stock:'{{ variant.inventory_quantity }}'});
-    {% endfor %}
-	
 	//see if the user has selected a valid combination
 	function validSelection() {
       	//get the option selectors
@@ -17,7 +11,7 @@
   		});
 
 		//some form of voodoo that matches the users selection with the list of valid variant combinations
-        result = variant.filter(function(item) {
+        result = window.productJSON.filter(function(item) {
           for (var key in filterItems) {
             if (item[key] === undefined || item[key] != filterItems[key])
               return false;
