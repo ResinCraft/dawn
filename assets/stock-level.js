@@ -13,7 +13,6 @@
 		//some form of voodoo that matches the users selection with the list of valid variant combinations
         result = window.productJSON.variants.filter(function(item) {
           for (var key in filterItems) {
-            console.log(item[key]);
             if (item[key] === undefined || item[key] != filterItems[key])
               return false;
           }
@@ -56,6 +55,7 @@
       	//if the above filter function finds a match, then display the stock level
   		if(validSelection()){
 			var msg = msgText(result[0].stock);
+          console.log(msg);
           	element.innerHTML = msg;
         } else {
           	element.innerHTML = '';
