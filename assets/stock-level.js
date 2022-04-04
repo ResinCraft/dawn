@@ -1,4 +1,3 @@
-console.log(seletedVariant);
 //see if the user has selected a valid combination
 	function validSelection() {
       	//get the option selectors
