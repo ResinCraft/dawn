@@ -11,7 +11,7 @@
   		});
 
 		//some form of voodoo that matches the users selection with the list of valid variant combinations
-        result = window.productJSON.filter(function(item) {
+        result = window.productJSON.variants.filter(function(item) {
           for (var key in filterItems) {
             if (item[key] === undefined || item[key] != filterItems[key])
               return false;
