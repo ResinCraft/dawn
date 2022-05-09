@@ -43,6 +43,11 @@
           "settings": {
           }
         },
+        "f4c7b9fe-dd72-4a1e-8c26-f59ee07b047d": {
+          "type": "shopify:\/\/apps\/heymerch-sales-stock-counter\/blocks\/heymerch_stock_sold_counter\/b19dc1a4-03bc-4909-ad3e-9e9616c776b7",
+          "settings": {
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -94,6 +99,7 @@
         "price",
         "variant_picker",
         "quantity_selector",
+        "f4c7b9fe-dd72-4a1e-8c26-f59ee07b047d",
         "buy_buttons",
         "d49498d8-7465-49f9-a861-a0e39c7ac1f0",
         "5601c913-758e-4264-b7ae-89406c8076bd",
