@@ -210,7 +210,8 @@
     }
     </script>
 <!-- end designMode -->
-  </head>
+  {% render 'laybuy', product: product %}
+</head>
 
   <body class="gradient">
     <!-- Google Tag Manager (noscript) -->
@@ -278,6 +279,7 @@
     <script defer src="https://cdn.pickystory.com/widget/dist/latest/pickystory-widget.min.js"></script>
   {% endif %}
   <!-- PickyStory end snippet "main_widget_script" -->
+{% render 'ps-footer-payment-icons' %}
 </body>
 </html>
 
