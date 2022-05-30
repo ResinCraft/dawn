@@ -1,9 +1,3 @@
-<javascript>
-  $('div.thumbs div.images div.image.active').removeClass('active');
-  $selected.closest('div.image').addClass('active');
-  };
-  var initBuyNowPayLaterButtons=function(){var $buttonContainer=$('div.bnpl-buttons');var $payLaterPrices=$('div.pay-later-price');$payLaterPrices.hide();$buttonContainer.find('button').click(function(e){var $button=$(this);var $details=$('#'+$button.data('toggle'));$button.siblings('button').removeClass('active');$button.addClass('active');if($details.is(':visible')){$details.slideUp(150);$button.removeClass('active');}else if($details.siblings('div.pay-later-price').is(':visible')){$details.siblings('div.pay-later-price').hide();$details.show();}else{$details.slideDown(150);}});};return{initReferrals:initReferrals,initAdminOptions:initAdminOptions,initProductHunt:initProductHunt,initBundles:initBundles,initTrolleyButtons:initTrolleyButtons,initCropContent:initCropContent,updateMainImage:updateMainImage,initBuyNowPayLaterButtons:initBuyNowPayLaterButtons,};};
-</javascript>
 <div>
   <p style="text-align: right;"><strong>Or Buy Now, Pay Later with:</strong></p>
   <ul style="margin-top:-2rem" class="list list-payment" role="list">
