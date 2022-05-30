@@ -26,16 +26,13 @@ div.pay-later-price > p {
 } 
 
 .lbl-toggle { 
-  display: block; 
-/*  font-weight: bold; 
-  font-family: monospace; 
-  font-size: 1.2rem; 
-  text-transform: uppercase; 
-  text-align: center; 
-  padding: 1rem; 
-  color: #DDD; 
-  background: #0069ff; 
-  */
+	margin-right: 2px;
+    border: none;
+    padding: 3px;
+    background: none;
+    line-height: 1;
+    font-size: 0;
+    vertical-align: middle;
   cursor: pointer; 
   /* border-radius: 7px; */
   transition: all 0.25s ease-out; 
