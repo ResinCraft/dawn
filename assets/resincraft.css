@@ -17,8 +17,8 @@ div.pay-later-price > p {
   	text-align: right;
 }
 
-input[type='checkbox'] { 
-  /*display: none; */
+#wrap-collabsible.input[type='checkbox'] { 
+  display: none;
 } 
 
 .wrap-collabsible { 
