@@ -59,7 +59,7 @@ div.pay-later-price > p {
   max-height: 350px; 
 } 
 
-.toggle:checked+.lbl-toggle { 
+.toggle:checked + .lbl-toggle { 
   border-bottom-right-radius: 0; border-bottom-left-radius: 0; 
 } 
 
