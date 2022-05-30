@@ -46,10 +46,14 @@
                       </svg>
                     </li>
                 </ul>
-				<div id="humm-details" class="pay-later-price">
+				<div id="laybuy-details" class="pay-later-price">
                     <p>
-                        5 payments of <span class="price">$5.00</span> with <b>Humm</b>
-                        <a class="payment-info" href="/humm" target="_blank" data-toggle="modal" data-target="#hummModal" data-remote="false" data-backdrop="true">Learn&nbsp;more</a>
+                        5 payments of <span class="price">$5.00</span> with <b>Laybuy</b>
+                    </p>
+                </div>
+				<div id="afterpay-details" class="pay-later-price">
+                    <p>
+                        4 payments of <span class="price">{{ cart.total_price | divide: 4 |  money }}</span> with <b>Afterpay</b>
                     </p>
                 </div>
                 <div>
