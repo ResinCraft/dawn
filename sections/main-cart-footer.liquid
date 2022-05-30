@@ -24,7 +24,7 @@
                   <h3 class="totals__subtotal">{{ 'sections.cart.subtotal' | t }}</h3>
                   <p class="totals__subtotal-value">{{ cart.total_price | money_with_currency }}</p>
                 </div>
-                <div class="bnpl">
+                <div>
                   <p style="text-align: right;"><strong>Or Buy Now, Pay Later with:</strong></p>
                   <ul style="margin-top:-2rem" class="list list-payment" role="list">
                       <li class="list-payment__item">
@@ -54,7 +54,7 @@
                   </div>
                   <div id="afterpay-details" class="pay-later-price">
                       <p>
-                          4 payments of <span class="price">{{ cart.total_price | divided_by: 4 |  money }}</span> with <b>Afterpay</b>
+                          4 payments of <span class="price">{{ cart.total_price | divided_by: 4 | money }}</span> with <b>Afterpay</b>
                       </p>
                   </div>
                 </div>
