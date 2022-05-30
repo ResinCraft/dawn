@@ -1,0 +1,9 @@
+li.list-payment__item > button {
+	margin-right: 2px;
+    border: none;
+    padding: 3px;
+    background: none;
+    line-height: 1;
+    font-size: 0;
+    vertical-align: middle;
+}
