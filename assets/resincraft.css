@@ -36,6 +36,7 @@ div.pay-later-price > p {
   vertical-align: middle;
   cursor: pointer;
   height: 100%;
+  display: inline-grid;
   /* border-radius: 7px; */
   transition: all 0.25s ease-out; 
 } 
@@ -58,7 +59,7 @@ div.pay-later-price > p {
 } 
 
 .toggle:checked + .lbl-toggle { 
-  border-bottom-right-radius: 0; border-bottom-left-radius: 0; 
+  /*border-bottom-right-radius: 0; border-bottom-left-radius: 0;*/
 } 
 
 .collapsible-content .content-inner { 
