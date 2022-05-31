@@ -22,7 +22,8 @@ div.pay-later-price > p {
 } 
 
 .wrap-collabsible { 
-  margin: 1.2rem 0; 
+  margin: 1.2rem 0;
+  text-align: right;
 } 
 
 .lbl-toggle { 
