@@ -24,7 +24,6 @@
                   <h3 class="totals__subtotal">{{ 'sections.cart.subtotal' | t }}</h3>
                   <p class="totals__subtotal-value">{{ cart.total_price | money_with_currency }}</p>
                 </div>
-				{% include 'bnpl' %}
                 <div>
                   {%- if cart.cart_level_discount_applications.size > 0 -%}
                     <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
@@ -50,6 +49,7 @@
                     {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
                   {%- endif -%}
                 </small>
+                {% include 'bnpl' %}
               </div>
             {%- else -%}
               <div class="cart__ctas" {{ block.shopify_attributes }}>
