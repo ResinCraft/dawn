@@ -55,26 +55,82 @@
         "template--14962543034416__da48c2d4-f9ab-4606-a5d9-afd3765ca6a3-166734204338f68d79-0": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "general-purpose-resins-cloths-tapes-carbons-fillers"
           }
         },
         "template--14962543034416__da48c2d4-f9ab-4606-a5d9-afd3765ca6a3-166734204338f68d79-1": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "surfboard-resins-cloths-plugs-accessories"
           }
         },
         "template--14962543034416__da48c2d4-f9ab-4606-a5d9-afd3765ca6a3-166734204338f68d79-2": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "tools-brushes-rollers-masking-tapes-mixing-dispensing"
+          }
+        },
+        "24efc387-ab10-433e-b1cc-ced861be605e": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "river-tables-bench-tops-wood-working"
+          }
+        },
+        "bfd70966-27b6-4505-9fe1-8e12dd62aa86": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "casting-resins-benchtops-jewelry-making"
+          }
+        },
+        "679269c0-3c5f-4e0d-8950-17ba119fc421": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "sculpting-and-modelling"
+          }
+        },
+        "cb9726e3-ef8c-432f-8873-4033d4a1b9a1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "silicones-rubbers-mould-materials"
+          }
+        },
+        "b016f176-82d3-4aac-bafe-332cbcc7a3dc": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "liquid-plastics-foams-specialty-casting-resins"
+          }
+        },
+        "c81bfaf8-0d87-42e6-8457-54d8bb05fc78": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "foams-concrete-casting-industrial-rubbers"
+          }
+        },
+        "68a32058-d3f7-47f0-a4e4-24312405feb0": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "lifecasting-special-effects"
+          }
+        },
+        "231d7e77-2437-49e1-a8c5-88b3133c7b7f": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "release-agents-sealers-additives"
           }
         }
       },
       "block_order": [
         "template--14962543034416__da48c2d4-f9ab-4606-a5d9-afd3765ca6a3-166734204338f68d79-0",
         "template--14962543034416__da48c2d4-f9ab-4606-a5d9-afd3765ca6a3-166734204338f68d79-1",
-        "template--14962543034416__da48c2d4-f9ab-4606-a5d9-afd3765ca6a3-166734204338f68d79-2"
+        "template--14962543034416__da48c2d4-f9ab-4606-a5d9-afd3765ca6a3-166734204338f68d79-2",
+        "24efc387-ab10-433e-b1cc-ced861be605e",
+        "bfd70966-27b6-4505-9fe1-8e12dd62aa86",
+        "679269c0-3c5f-4e0d-8950-17ba119fc421",
+        "cb9726e3-ef8c-432f-8873-4033d4a1b9a1",
+        "b016f176-82d3-4aac-bafe-332cbcc7a3dc",
+        "c81bfaf8-0d87-42e6-8457-54d8bb05fc78",
+        "68a32058-d3f7-47f0-a4e4-24312405feb0",
+        "231d7e77-2437-49e1-a8c5-88b3133c7b7f"
       ],
       "settings": {
         "title": "Shop Online - Stocked in NZ, Ready to Ship",
