@@ -15,6 +15,11 @@
           "settings": {
           }
         },
+        "c02ff869-573b-4c58-95bf-b9acbb6bf389": {
+          "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+          }
+        },
         "caption": {
           "type": "text",
           "settings": {
@@ -53,6 +58,7 @@
       "block_order": [
         "vendor",
         "title",
+        "c02ff869-573b-4c58-95bf-b9acbb6bf389",
         "caption",
         "price",
         "variant_picker",
