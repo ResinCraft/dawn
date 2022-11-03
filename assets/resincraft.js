@@ -22,6 +22,7 @@ class VariantSelectsResinCraft extends VariantSelects {
     const stockDiv = document.querySelector('stock-level');
     stockDiv.innerHTML = '1';
   }
+  this.updateOptions();
 }
 
 customElements.define('variant-resincraft', VariantSelectsResinCraft);
