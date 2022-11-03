@@ -17,15 +17,8 @@ class UpdateVariantInfo extends HTMLElement {
       stockDiv.innerHTML = '';
     }
     
-    updatePickupAvailability() {
-      const pickUpAvailability = document.querySelector('pickup-availability');
-      if (!pickUpAvailability) return;
-
-      if (this.currentVariant && this.currentVariant.available) {
-          pickUpAvailability.fetchAvailability(this.currentVariant.id);
-      } else {
-          pickUpAvailability.removeAttribute('available');
-          pickUpAvailability.innerHTML = '';
-      }
+    setStock() {
+      const stockDiv = document.querySelector('stock-level');
+      stockDiv.innerHTML = '1';
     }
 }
