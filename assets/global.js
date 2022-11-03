@@ -788,7 +788,7 @@ class VariantSelects extends HTMLElement {
       return !variant.options.map((option, index) => {
         if(this.currentVariant){
           var variantJson = JSON.parse(this.currentVariant);
-          console.log(variantJson); 
+          console.log(variantJson.id); 
         }
         /*console.log(this.currentVariant.id);*/
         return this.options[index] === option;
