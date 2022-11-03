@@ -1,3 +1,4 @@
+/*
 function onVariantChange() {
   console.log('test');
 }
