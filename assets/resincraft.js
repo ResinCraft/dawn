@@ -1,4 +1,4 @@
-class VariantRadiosResinCraft extends VariantRadios {
+class VariantRadiosResinCraft extends VariantSelects {
   constructor() {
     super();
   }
