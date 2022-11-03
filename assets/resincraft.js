@@ -1,10 +1,10 @@
+/*
 class VariantRadiosResinCraft extends VariantRadios {
-  const variantData = this.getVariantData();
+  variantData = this.getVariantData();
 }
 
 customElements.define('variant-selects-resin-craft', VariantRadiosResinCraft);
 
-/*
 const variantRadios = document.querySelectorAll('[id^="variant-radios-"]');
 
 function setStockUnavailable() {
