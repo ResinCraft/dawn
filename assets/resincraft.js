@@ -1,4 +1,9 @@
 class VariantSelectsResinCraft extends VariantSelects {
+  constructor() {
+    super();
+    this.addEventListener('change', this.onVariantChange);
+  }
+
   onVariantChange() {
     alert('test2');
     if (!this.currentVariant) {
