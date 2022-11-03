@@ -16,12 +16,12 @@ function onVariantChange() {
 }
 
 function setStockUnavailable() {
-  const stockDiv = document.querySelector('stock-level');
+  const stockDiv = document.getElementById('stock-level');
   stockDiv.innerHTML = '';
 }
 
 function setStock() {
   alert('tes3t');
-  const stockDiv = document.querySelector('stock-level');
+  const stockDiv = document.getElementById('stock-level');
   stockDiv.innerHTML = '1';
 }
