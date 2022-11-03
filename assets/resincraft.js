@@ -1,3 +1,4 @@
+/*
 class VariantSelectsResinCraft extends VariantSelects {  
   constructor() {
     super();
@@ -21,6 +22,20 @@ class VariantSelectsResinCraft extends VariantSelects {
     alert('tes3t');
     const stockDiv = document.querySelector('stock-level');
     stockDiv.innerHTML = '1';
+  }
+}
+
+customElements.define('variant-resincraft', VariantSelectsResinCraft);
+*/
+
+class VariantSelectsResinCraft extends HTMLElement {
+  constructor() {
+    super();
+    this.addEventListener('change', this.onVariantChange);
+  }
+
+  onVariantChange() {
+    alert('test');
   }
 }
 
