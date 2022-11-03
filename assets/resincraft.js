@@ -1,3 +1,10 @@
+class VariantRadiosResinCraft extends VariantRadios {
+  
+}
+
+customElements.define('variant-selects-resin-craft', VariantRadiosResinCraft);
+
+/*
 const variantRadios = document.querySelectorAll('[id^="variant-radios-"]');
 
 function setStockUnavailable() {
@@ -20,3 +27,4 @@ function onVariantChange() {
 }
 
 variantRadios[0].addEventListener('change', onVariantChange());
+*/
