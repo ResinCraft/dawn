@@ -940,8 +940,12 @@ class VariantSelects extends HTMLElement {
   }
 
   updateStockLevel() {
+    const stockDiv = document.querySelector('stock-level');
+    
     if(this.currentVariant){
-      console.log(this.currentVariant.inventory_quantity); 
+      stockDiv.innerHTML = this.currentVariant.inventory_quantity; 
+    } else {
+      stockDiv.innerHTML = '';
     }
   }
 }

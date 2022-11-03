@@ -1,3 +1,4 @@
+/*
 class VariantRadiosResinCraft extends VariantSelects {
   constructor() {
     super();
@@ -8,7 +9,7 @@ class VariantRadiosResinCraft extends VariantSelects {
   }
 }
 
-customElements.define('variant-selects-resin-craft', VariantRadiosResinCraft);
+customElements.define('variant-selects-resin-craft', VariantRadiosResinCraft;
 
 /*
 const variantRadios = document.querySelectorAll('[id^="variant-radios-"]');
