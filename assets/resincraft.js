@@ -1,6 +1,6 @@
 const variantRadios = document.querySelectorAll('[id^="variant-radios-"]');
 
-function updateVariantStatuses() {
+function setStockUnavailable() {
   const stockDiv = document.querySelector('stock-level');
   stockDiv.innerHTML = '';
 }
@@ -12,7 +12,7 @@ function setStock() {
 }
 
 function onVariantChange() {
-  alert(currentVariant);
+  alert(this.currentVariant);
   if (!this.currentVariant) {
       this.setStockUnavailable();
   } else {
