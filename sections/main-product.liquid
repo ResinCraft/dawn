@@ -290,7 +290,7 @@
             {%- when 'variant_picker' -%}
               {%- unless product.has_only_default_variant -%}
                 {%- if block.settings.picker_type == 'button' -%}
-                  <variant-radios-resin-craft
+                  <variant-radios
                     id="variant-radios-{{ section.id }}"
                     class="no-js-hidden"
                     data-section="{{ section.id }}"
@@ -310,7 +310,7 @@
                     <script type="application/json">
                       {{ product.variants | json }}
                     </script>
-                  </variant-radios-resin-craft>
+                  </variant-radios>
                 {%- else -%}
                   <variant-selects
                     id="variant-selects-{{ section.id }}"
