@@ -18,6 +18,7 @@ class UpdateVariantInfo extends HTMLElement {
     }
     
     setStock() {
+      alert('test');
       const stockDiv = document.querySelector('stock-level');
       stockDiv.innerHTML = '1';
     }
