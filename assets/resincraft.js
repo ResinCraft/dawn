@@ -8,7 +8,7 @@ document.addEventListener(
 );
 
 
-onVariantChange() {
+function onVariantChange() {
   alert('test2');
   if (!this.currentVariant) {
       this.setStockUnavailable();
@@ -17,12 +17,12 @@ onVariantChange() {
   }
 }
 
-setStockUnavailable() {
+function setStockUnavailable() {
   const stockDiv = document.querySelector('stock-level');
   stockDiv.innerHTML = '';
 }
 
-setStock() {
+function setStock() {
   alert('tes3t');
   const stockDiv = document.querySelector('stock-level');
   stockDiv.innerHTML = '1';
