@@ -941,7 +941,7 @@ class VariantSelects1 extends HTMLElement {
 
 customElements.define('variant-selects', VariantSelects1);
 
-class VariantRadios extends VariantSelects {
+class VariantRadios extends VariantSelects1 {
   constructor() {
     super();
   }
