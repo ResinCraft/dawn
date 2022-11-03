@@ -1,4 +1,4 @@
-class VariantSelectsResinCraft extends VariantSelects1 {
+class VariantSelectsResinCraft extends VariantSelects {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
