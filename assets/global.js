@@ -941,9 +941,15 @@ class VariantSelects extends HTMLElement {
 
   updateStockLevel() {
     const stockDiv = document.getElementById(`stock-level`);
-    
+
     if(this.currentVariant){
-      stockDiv.innerHTML = this.currentVariant.inventory_quantity; 
+      if(this.currentVariant > 10) {
+        stockDiv.innerHTML = 'More than ' + this.currentVariant.inventory_quantity + 'available.';
+      } else if (this.currentVariant < 11) {
+        stockDiv.innerHTML = 'Only ' + this.currentVariant.inventory_quantity + ' left in stock!';
+      } else if (this.currentVariant == 0) {
+        stockDiv.innerHTML = 'Sold out.';
+      }
     } else {
       stockDiv.innerHTML = '';
     }
