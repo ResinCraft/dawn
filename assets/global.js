@@ -944,11 +944,11 @@ class VariantSelects extends HTMLElement {
 
     if(this.currentVariant){
       if(this.currentVariant.inventory_quantity > 10) {
-        stockDiv.innerHTML = 'More than 10 available.';
+        stockDiv.innerHTML = '<p>More than 10 available.</p>';
       } else if (this.currentVariant.inventory_quantity < 11) {
-        stockDiv.innerHTML = 'Only ' + this.currentVariant.inventory_quantity + ' left in stock!';
+        stockDiv.innerHTML = '<p>Only ' + this.currentVariant.inventory_quantity + ' left in stock!</p>';
       } else if (this.currentVariant.inventory_quantity == 0) {
-        stockDiv.innerHTML = 'Sold out.';
+        stockDiv.innerHTML = '<p>Sold out.</p>';
       }
     } else {
       stockDiv.innerHTML = '&nbsp;';
