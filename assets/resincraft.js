@@ -6,7 +6,6 @@ function setStockUnavailable() {
 }
 
 function setStock() {
-  alert('tes3t');
   const stockDiv = document.querySelector('stock-level');
   stockDiv.innerHTML = '1';
 }
