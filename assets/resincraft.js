@@ -1,4 +1,13 @@
+onVariantChange(){
+  console.log('test');
+}
+
+const productForm = document.getElementById(`product-form-${this.dataset.section}`);
+
+productForm.addEventListener('change', onVariantChange());
+
 /*
+
 class VariantRadiosResinCraft extends VariantSelects {
   constructor() {
     super();
