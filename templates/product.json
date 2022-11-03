@@ -41,7 +41,7 @@
         "d11b51df-0cdc-4e76-910c-a279ff4310c3": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<div class=\"stock-level\">\n{%- if product.selected_or_first_available_variant.inventory_quantity == 0 -%}\n    <p>No stock available.<\/p>\n    {%- elsif product.selected_or_first_available_variant.inventory_quantity < 10 -%}\n    <p>Only {{ product.selected_or_first_available_variant.inventory_quantity }} left in stock!<\/p>\n     {%- elsif product.selected_or_first_available_variant.inventory_quantity > 9 -%}\n    <p>More than 10 available.<\/p>\n{%- endif -%}\n<\/div>"
+            "custom_liquid": "<div id=\"stock-level\">\n{%- if product.selected_or_first_available_variant.inventory_quantity == 0 -%}\n    <p>No stock available.<\/p>\n    {%- elsif product.selected_or_first_available_variant.inventory_quantity < 10 -%}\n    <p>Only {{ product.selected_or_first_available_variant.inventory_quantity }} left in stock!<\/p>\n     {%- elsif product.selected_or_first_available_variant.inventory_quantity > 9 -%}\n    <p>More than 10 available.<\/p>\n{%- endif -%}\n<\/div>"
           }
         },
         "quantity_selector": {
