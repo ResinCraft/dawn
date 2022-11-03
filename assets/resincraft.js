@@ -1,5 +1,6 @@
 alert('test0');
-      this.addEventListener('change', this.onVariantChange);
+
+window.addEventListener('change', this.onVariantChange);
 
 onVariantChange() {
   alert('test2');
