@@ -19,4 +19,4 @@ function onVariantChange() {
   }
 }
 
-variantRadios.addEventListener('change', onVariantChange());
+variantRadios[0].addEventListener('change', onVariantChange());
