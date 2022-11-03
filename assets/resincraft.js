@@ -1,7 +1,7 @@
 class VariantRadiosResinCraft extends VariantRadios {
   constructor() {
     super();
-    this.addEventListener('change', this.onVariantChange1);
+    /*this.addEventListener('change', this.onVariantChange1);*/
   }
 
   onVariantChange1() {
