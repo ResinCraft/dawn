@@ -1,8 +1,5 @@
-/*
-class VariantSelectsResinCraft extends VariantSelects {  
-  constructor() {
-    super();
-  }
+const variantRadios = document.querySelectorAll('[id^="variant-radios-"]');
+.addEventListener('change', this.onVariantChange);
 
   updateOptions() {
     alert('test2');
@@ -24,19 +21,3 @@ class VariantSelectsResinCraft extends VariantSelects {
     stockDiv.innerHTML = '1';
   }
 }
-
-customElements.define('variant-resincraft', VariantSelectsResinCraft);
-*/
-
-class VariantSelectsResinCraft extends HTMLElement {
-  constructor() {
-    super();
-    this.addEventListener('change', this.onVariantChange);
-  }
-
-  onVariantChange() {
-    alert('test');
-  }
-}
-
-customElements.define('variant-resincraft', VariantSelectsResinCraft);
