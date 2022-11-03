@@ -1,10 +1,10 @@
 class VariantSelectsResinCraft extends VariantSelects {
   constructor() {
     super();
-    this.addEventListener('change', this.onVariantChange);
+    this.addEventListener('change', this.onVariantChange1);
   }
 
-  onVariantChange() {
+  onVariantChange1() {
     alert('test2');
     if (!this.currentVariant) {
         this.setStockUnavailable();
