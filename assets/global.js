@@ -766,6 +766,7 @@ class VariantSelects extends HTMLElement {
     this.updatePickupAvailability();
     this.removeErrorMessage();
     this.updateVariantStatuses();
+    this.updateStockLevel();
 
     if (!this.currentVariant) {
       this.toggleAddButton(true, '', true);
@@ -786,10 +787,6 @@ class VariantSelects extends HTMLElement {
   updateMasterId() {
     this.currentVariant = this.getVariantData().find((variant) => {
       return !variant.options.map((option, index) => {
-        if(this.currentVariant){
-          console.log(this.currentVariant.inventory_quantity); 
-        }
-        /*console.log(this.currentVariant.id);*/
         return this.options[index] === option;
       }).includes(false);
     });
@@ -940,6 +937,12 @@ class VariantSelects extends HTMLElement {
   getVariantData() {
     this.variantData = this.variantData || JSON.parse(this.querySelector('[type="application/json"]').textContent);
     return this.variantData;
+  }
+
+  updateStockLevel() {
+    if(this.currentVariant){
+      console.log(this.currentVariant.inventory_quantity); 
+    }
   }
 }
 
