@@ -940,7 +940,7 @@ class VariantSelects extends HTMLElement {
   }
 
   updateStockLevel() {
-    const stockDiv = productForm.querySelector('[id="stock-level"]');
+    const stockDiv = document.getElementById(`stock-level`);
     
     if(this.currentVariant){
       stockDiv.innerHTML = this.currentVariant.inventory_quantity; 
