@@ -1,26 +1,28 @@
-document.addEventListener(
-  "change",
-  function (event) {
-    onVariantChange();
-  },
-  false
-);
+alert('test0');
+class UpdateVariantInfo extends HTMLElement {
+    constructor() {
+      alert('test1');
+      super();
+      this.addEventListener('change', this.onVariantChange);
+    }
 
+    onVariantChange() {
+      alert('test2');
+      if (!this.currentVariant) {
+          this.setStockUnavailable();
+      } else {
+        this.setStock();
+      }
+    }
 
-function onVariantChange() {
-  if (!this.currentVariant) {
-      this.setStockUnavailable();
-  } else {
-    this.setStock();
-  }
-}
-
-function setStockUnavailable() {
-  const stockDiv = document.getElementById('stock-level');
-  stockDiv.innerHTML = '';
-}
-
-function setStock() {
-  const stockDiv = document.getElementById('stock-level');
-  stockDiv.innerHTML = '1';
+    setStockUnavailable() {
+      const stockDiv = document.querySelector('stock-level');
+      stockDiv.innerHTML = '';
+    }
+    
+    setStock() {
+      alert('tes3t');
+      const stockDiv = document.querySelector('stock-level');
+      stockDiv.innerHTML = '1';
+    }
 }
