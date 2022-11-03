@@ -1,11 +1,13 @@
+alert('test0');
 class UpdateVariantInfo extends HTMLElement {
     constructor() {
+      alert('test1');
       super();
       this.addEventListener('change', this.onVariantChange);
     }
 
     onVariantChange() {
-      alert('test');
+      alert('test2');
       if (!this.currentVariant) {
           this.setStockUnavailable();
       } else {
@@ -19,7 +21,7 @@ class UpdateVariantInfo extends HTMLElement {
     }
     
     setStock() {
-      alert('test');
+      alert('test3');
       const stockDiv = document.querySelector('stock-level');
       stockDiv.innerHTML = '1';
     }
