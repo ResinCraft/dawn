@@ -5,6 +5,7 @@ class UpdateVariantInfo extends HTMLElement {
     }
 
     onVariantChange() {
+      alert('test');
       if (!this.currentVariant) {
           this.setStockUnavailable();
       } else {
