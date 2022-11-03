@@ -1,6 +1,6 @@
-class VariantSelectsResinCraft extends VariantSelects {
-  alert('test1');
+class VariantSelectsResinCraft extends VariantSelects {  
   constructor() {
+    alert('test1');
     super();
     this.addEventListener('change', this.onVariantChange1);
   }
