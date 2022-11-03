@@ -1,4 +1,8 @@
 class VariantRadiosResinCraft extends VariantRadios {
+  constructor() {
+    super();
+  }
+  
   onVariantChange1() {
     console.log('test');
   }
