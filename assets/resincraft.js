@@ -17,7 +17,7 @@ function onVariantChange() {
 
 function setStockUnavailable() {
   const stockDiv = document.getElementById('stock-level');
-  stockDiv.innerHTML = '';
+  stockDiv.innerHTML = '2';
 }
 
 function setStock() {
