@@ -939,7 +939,7 @@ class VariantSelects1 extends HTMLElement {
   }
 }
 
-customElements.define('variant-selects', VariantSelects);
+customElements.define('variant-selects', VariantSelects1);
 
 class VariantRadios extends VariantSelects {
   constructor() {
