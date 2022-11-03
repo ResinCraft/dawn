@@ -1,5 +1,5 @@
 class VariantRadiosResinCraft extends VariantRadios {
-  alert(this.currentVariant.id);
+  alert(this.currentVariant);
 }
 
 customElements.define('variant-selects-resin-craft', VariantRadiosResinCraft);
