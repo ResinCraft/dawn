@@ -1,5 +1,4 @@
-alert('test0');
-class VariantSelectsResinCraft extends VariantSelects {
+class VariantSelectsResinCraft extends VariantSelects1 {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
