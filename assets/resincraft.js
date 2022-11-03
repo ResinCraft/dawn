@@ -1,4 +1,3 @@
-alert('test0');
 document.addEventListener(
   "change",
   function (event) {
@@ -9,7 +8,6 @@ document.addEventListener(
 
 
 function onVariantChange() {
-  alert('test2');
   if (!this.currentVariant) {
       this.setStockUnavailable();
   } else {
