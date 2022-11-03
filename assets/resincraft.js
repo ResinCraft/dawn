@@ -13,7 +13,7 @@ class VariantSelectsResinCraft extends VariantSelects {
     }
   }
 
-  setStockUnavailable() {
+  updateVariantStatuses() {
     const stockDiv = document.querySelector('stock-level');
     stockDiv.innerHTML = '';
   }
