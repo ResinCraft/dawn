@@ -1,10 +1,17 @@
-/*
 class VariantRadiosResinCraft extends VariantRadios {
-  variantData = this.getVariantData();
+  constructor() {
+    super();
+    this.addEventListener('change', this.onVariantChange);
+  }
+
+  onVariantChange() {
+    console.log('test');
+  }
 }
 
 customElements.define('variant-selects-resin-craft', VariantRadiosResinCraft);
 
+/*
 const variantRadios = document.querySelectorAll('[id^="variant-radios-"]');
 
 function setStockUnavailable() {
