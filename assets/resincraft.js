@@ -26,3 +26,5 @@ class UpdateVariantInfo extends HTMLElement {
       stockDiv.innerHTML = '1';
     }
 }
+
+customElements.define('variant-update', UpdateVariantInfo);
