@@ -8,7 +8,7 @@ class VariantRadiosResinCraft extends VariantRadios {
   }
 }
 
-customElements.define('variant-selects-resin-craft', VariantRadiosResinCraft);
+customElements.define('variant-selects-resin-craft', VariantRadiosResinCraft1);
 
 /*
 const variantRadios = document.querySelectorAll('[id^="variant-radios-"]');
