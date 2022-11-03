@@ -753,7 +753,7 @@ class SlideshowComponent extends SliderComponent {
 
 customElements.define('slideshow-component', SlideshowComponent);
 
-class VariantSelects extends HTMLElement {
+class VariantSelects1 extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
