@@ -28,7 +28,7 @@ class VariantSelectsResinCraft extends VariantSelects {
 customElements.define('variant-resincraft', VariantSelectsResinCraft);
 */
 
-class VariantSelectsResinCraft extends VariantSelects {
+class VariantSelectsResinCraft extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
