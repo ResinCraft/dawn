@@ -17,11 +17,10 @@ function onVariantChange() {
 
 function setStockUnavailable() {
   const stockDiv = document.getElementById('stock-level');
-  stockDiv.innerHTML = '2';
+  stockDiv.innerHTML = '';
 }
 
 function setStock() {
-  alert('tes3t');
   const stockDiv = document.getElementById('stock-level');
   stockDiv.innerHTML = '1';
 }
