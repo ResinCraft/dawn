@@ -951,7 +951,7 @@ class VariantSelects extends HTMLElement {
         stockDiv.innerHTML = 'Sold out.';
       }
     } else {
-      stockDiv.innerHTML = '';
+      stockDiv.innerHTML = '&nbsp;';
     }
   }
 }
