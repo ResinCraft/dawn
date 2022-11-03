@@ -24,3 +24,5 @@ class VariantSelectsResinCraft extends VariantSelects {
     stockDiv.innerHTML = '1';
   }
 }
+
+customElements.define('variant-resincraft', VariantSelectsResinCraft);
