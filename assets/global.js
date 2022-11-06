@@ -951,7 +951,7 @@ class VariantSelects extends HTMLElement {
         stockDiv.innerHTML = '<p>More than 10 available.</p>';
       }
     } else {
-      stockDiv.innerHTML = '<p>&nbsp;</p>';
+      stockDiv.innerHTML = '<p>Invalid selection, please pick a different option.</p>';
     }
   }
 }
