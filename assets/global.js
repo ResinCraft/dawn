@@ -757,7 +757,11 @@ class VariantSelects extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
-    this.init();
+
+    // Dynamic Selectors
+    if (window.location.href.indexOf("variant") == -1){
+      this.hideOptions();
+    }
   }
   
   onVariantChange() {
@@ -767,6 +771,8 @@ class VariantSelects extends HTMLElement {
     this.updatePickupAvailability();
     this.removeErrorMessage();
     this.updateVariantStatuses();
+
+    // Stock level
     this.updateStockLevel();
 
     if (!this.currentVariant) {
@@ -781,7 +787,7 @@ class VariantSelects extends HTMLElement {
     }
   }
 
-  init() {
+  hideOptions() {
     if (window.location.href.indexOf("variant") == -1){
       var ele = document.querySelectorAll('input[id^="template"][id*="main-1"]');
       for(var i=0;i<ele.length;i++) {
