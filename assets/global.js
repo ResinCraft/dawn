@@ -798,9 +798,7 @@ class VariantSelects extends HTMLElement {
       }
       const variantLevels = document.querySelectorAll('[class*="product-form__input"]');
       if (variantLevels[1]) variantLevels[1].classList.add('hidden');
-      
-      this.toggleAddButton(true, window.variantStrings.unavailable);
-      this.setUnavailable();
+      this.currentVariant = false;
     }
   }
 
