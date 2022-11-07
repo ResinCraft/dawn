@@ -784,9 +784,9 @@ class VariantSelects extends HTMLElement {
   init() {
     if (window.location.href.indexOf("variant") == -1){
       var ele = document.getElementsByTagName("input");
-      for(var i=0;i<ele.length;i++) {
-         ele[i].checked = false;
-      }
+      /*for(var i=0;i<ele.length;i++) {*/
+         ele[0].checked = false;
+      /*}*/
       const variantLevels = document.getElementsByClassName(`js product-form__input`);
       if (variantLevels[1]) variantLevels[1].classList.add('visibility-hidden');
       
