@@ -792,7 +792,7 @@ class VariantSelects extends HTMLElement {
       var ele = document.querySelectorAll('input[id^="template"][id*="main-1"]');
       console.log(ele);
       for(var i=0;i<ele.length;i++) {
-         ele[1].checked = false;
+         ele[i].checked = false;
       }
       const variantLevels = document.querySelectorAll('[class*="product-form__input"]');
       if (variantLevels[1]) variantLevels[1].classList.add('hidden');
