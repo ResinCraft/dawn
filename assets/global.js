@@ -810,6 +810,8 @@ class VariantSelects extends HTMLElement {
     for(var i=0;i<radioButtons.length;i++) {
        radioButtons[i].checked = false;
     }
+    this.toggleAddButton(true, window.variantStrings.unavailable);
+    this.setUnavailable();
     if (variantLevels[1]) variantLevels[1].classList.remove('hidden');
   }
   
