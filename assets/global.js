@@ -788,7 +788,6 @@ class VariantSelects extends HTMLElement {
          ele[1].checked = false;
       }
       const variantLevels = document.querySelectorAll('[class*="product-form__input"]');
-      console.log(variantLevels);
       if (variantLevels[1]) variantLevels[1].classList.add('hidden');
       
       this.toggleAddButton(true, window.variantStrings.unavailable);
