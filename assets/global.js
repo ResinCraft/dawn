@@ -804,14 +804,15 @@ class VariantSelects extends HTMLElement {
       this.setUnavailable();
     }
   }
-  
-  updateOptions() {
-    /* ResinCraft Hack */
+
+  showOptions() {
     const variantLevels = document.querySelectorAll('[class*="product-form__input"]');
     console.log("running");
     console.log(variantLevels);
     if (variantLevels[1]) variantLevels[1].removeAttribute('hidden');
-    
+  }
+  
+  updateOptions() {
     this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
   }
 
