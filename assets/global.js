@@ -946,7 +946,7 @@ class VariantSelects extends HTMLElement {
     if (price) price.classList.add('visibility-hidden');
     if (inventory) inventory.classList.add('visibility-hidden');
     if (sku) sku.classList.add('visibility-hidden');
-    if (tax) tax.classList.add('visibility-hidden');
+    if (tax[0]) tax[0].classList.add('visibility-hidden');
     if (stockLevel) stockLevel.classList.add('visibility-hidden');
   }
 
