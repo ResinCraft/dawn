@@ -811,6 +811,7 @@ class VariantSelects extends HTMLElement {
     this.toggleAddButton(true, window.variantStrings.unavailable);
     this.setUnavailable();
     if (variantLevels[1]) variantLevels[1].classList.remove('hidden');
+    this.currentVariant = false;
   }
   
   updateOptions() {
