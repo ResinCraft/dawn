@@ -783,7 +783,7 @@ class VariantSelects extends HTMLElement {
 
   init() {
     if (window.location.href.indexOf("variant") == -1){
-      var ele = document.querySelectorAll('input[id^="template"][id*="main"]');
+      var ele = document.querySelectorAll('input[id^="template"][id*="main-1"]');
       console.log(ele);
       for(var i=0;i<ele.length;i++) {
          ele[1].checked = false;
@@ -798,7 +798,10 @@ class VariantSelects extends HTMLElement {
   
   updateOptions() {
     const variantLevels = document.getElementsByClassName(`js product-form__input`);
-    if (variantLevels[1]) variantLevels[1].classList.remove('visibility-hidden');
+
+    /* ResinCraft Hack */
+    if (variantLevels[1]) variantLevels[1].classList.remove('hidden');
+    
     this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
   }
 
