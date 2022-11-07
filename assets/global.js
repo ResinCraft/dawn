@@ -784,6 +784,7 @@ class VariantSelects extends HTMLElement {
   init() {
     if (window.location.href.indexOf("variant") == -1){
       //var ele = document.getElementsByName(product.option1);//
+      document.querySelectorAll('[id^="template--\d+__main-1-\d+"]');
       console.log({{ product | json }});
       /*for(var i=0;i<ele.length;i++) {*/
          ele[1].checked = false;
