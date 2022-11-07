@@ -809,7 +809,7 @@ class VariantSelects extends HTMLElement {
     const variantLevels = document.querySelectorAll('[class*="product-form__input"]');
     console.log("running");
     console.log(variantLevels);
-    if (variantLevels[1]) variantLevels[1].removeAttribute('hidden');
+    if (variantLevels[1]) variantLevels[1].classList.remove('hidden');
   }
   
   updateOptions() {
