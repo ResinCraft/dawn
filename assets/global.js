@@ -938,7 +938,7 @@ class VariantSelects extends HTMLElement {
     const price = document.getElementById(`price-${this.dataset.section}`);
     const inventory = document.getElementById(`Inventory-${this.dataset.section}`);
     const sku = document.getElementById(`Sku-${this.dataset.section}`);
-    const tax = document.getElementByClass(`product__tax caption rte`);
+    const tax = document.getElementsByClassName(`product__tax caption rte`);
     const stockLevel = document.getElementById(`stock-level`);
 
     if (!addButton) return;
