@@ -772,7 +772,10 @@ class VariantSelects extends HTMLElement {
     this.removeErrorMessage();
     this.updateVariantStatuses();
 
-    // Stock level
+    // Dynamic Selectors
+    this.showOptions();
+    
+    // Stock Level
     this.updateStockLevel();
 
     if (!this.currentVariant) {
