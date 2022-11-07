@@ -794,6 +794,8 @@ class VariantSelects extends HTMLElement {
   }
   
   updateOptions() {
+    const secondLevel = document.getElementsByClassName(`js product-form__input`);
+    if (secondLevel[1]) secondLevel[1].classList.remove('visibility-hidden');
     this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
   }
 
