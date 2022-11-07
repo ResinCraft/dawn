@@ -783,12 +783,10 @@ class VariantSelects extends HTMLElement {
 
   init() {
     if (window.location.href.indexOf("variant") == -1){
-      //var ele = document.getElementsByName(product.option1);//
-      document.querySelectorAll('[id^="template--\d+__main-1-\d+"]');
-      console.log({{ product | json }});
-      /*for(var i=0;i<ele.length;i++) {*/
+      var ele = document.querySelectorAll('[id^="template--\d+__main-1-\d+"]');
+      for(var i=0;i<ele.length;i++) {
          ele[1].checked = false;
-      /*}*/
+      }
       const variantLevels = document.getElementsByClassName(`js product-form__input`);
       if (variantLevels[1]) variantLevels[1].classList.add('visibility-hidden');
       
