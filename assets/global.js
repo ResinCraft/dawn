@@ -761,8 +761,11 @@ class VariantSelects extends HTMLElement {
   }
 
   doSomething() {
-    alert('test');
+    if (window.location.href.indexOf("variant") != -1){
+      alert('test');
+    }
   }
+  
   onVariantChange() {
     this.updateOptions();
     this.updateMasterId();
