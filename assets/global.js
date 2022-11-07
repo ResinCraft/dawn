@@ -786,7 +786,7 @@ class VariantSelects extends HTMLElement {
       var ele = document.getElementsByTagName("input");
       for(var i=0;i<ele.length;i++) {
          ele[i].checked = false;
-        this.onVariantChange();
+        this.updateOptions();
       }
     }
   }
