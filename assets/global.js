@@ -792,10 +792,9 @@ class VariantSelects extends HTMLElement {
 
   hideOptions() {
     if (window.location.href.indexOf("variant") == -1){
-      var ele = document.querySelectorAll('input[id^="template"][id*="main-1"]');
-      console.log(ele);
+      const radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
       for(var i=0;i<ele.length;i++) {
-         ele[i].checked = false;
+         radioButtons[i].checked = false;
       }
       const variantLevels = document.querySelectorAll('[class*="product-form__input"]');
       if (variantLevels[1]) variantLevels[1].classList.add('hidden');
@@ -807,8 +806,10 @@ class VariantSelects extends HTMLElement {
 
   showOptions() {
     const variantLevels = document.querySelectorAll('[class*="product-form__input"]');
-    console.log("running");
-    console.log(variantLevels);
+    const radioButtons = document.querySelectorAll('input[id^="template"][id*="main-2"]');
+    for(var i=0;i<ele.length;i++) {
+       radioButtons[i].checked = false;
+    }
     if (variantLevels[1]) variantLevels[1].classList.remove('hidden');
   }
   
