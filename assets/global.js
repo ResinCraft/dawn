@@ -760,7 +760,6 @@ class VariantSelects extends HTMLElement {
 
     // Dynamic Selectors
     if (window.location.href.indexOf("variant") == -1){
-      this.currentVariant = false;
       this.hideOptions();
     }
   }
@@ -800,6 +799,7 @@ class VariantSelects extends HTMLElement {
       const variantLevels = document.querySelectorAll('[class*="product-form__input"]');
       if (variantLevels[1]) variantLevels[1].classList.add('hidden');
     }
+    this.currentVariant = false;
   }
 
   showOptions() {
