@@ -757,9 +757,12 @@ class VariantSelects extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
-    alert('do someting');
+    this.doSomething();
   }
 
+  doSomething() {
+    alert('test');
+  }
   onVariantChange() {
     this.updateOptions();
     this.updateMasterId();
