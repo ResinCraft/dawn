@@ -759,16 +759,6 @@ class VariantSelects extends HTMLElement {
     this.addEventListener('change', this.onVariantChange);
     this.init();
   }
-
-  init() {
-    if (window.location.href.indexOf("variant") == -1){
-      var ele = document.getElementsByTagName("input");
-      for(var i=0;i<ele.length;i++) {
-         ele[i].checked = false;
-        this.onVariantChange();
-      }
-    }
-  }
   
   onVariantChange() {
     this.updateOptions();
@@ -791,6 +781,16 @@ class VariantSelects extends HTMLElement {
     }
   }
 
+  init() {
+    if (window.location.href.indexOf("variant") == -1){
+      var ele = document.getElementsByTagName("input");
+      for(var i=0;i<ele.length;i++) {
+         ele[i].checked = false;
+        this.onVariantChange();
+      }
+    }
+  }
+  
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
   }
