@@ -762,11 +762,12 @@ class VariantSelects extends HTMLElement {
 
   init() {
     if (window.location.href.indexOf("variant") == -1){
-      var ele = document.getElementsByType("radio");
+      var ele = document.getElementsByTagName("input");
       for(var i=0;i<ele.length;i++) {
-         ele[i].checked = false; 
+         ele[i].checked = false;
       }
     }
+    this.onVariantChange();
   }
   
   onVariantChange() {
