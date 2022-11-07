@@ -785,11 +785,12 @@ class VariantSelects extends HTMLElement {
     if (window.location.href.indexOf("variant") == -1){
       var ele = document.getElementsByTagName("input");
       ele[0].checked = false;
-      this.toggleAddButton(true, window.variantStrings.unavailable);
-      this.setUnavailable();
-      
+
       const variantLevels = document.getElementsByClassName(`js product-form__input`);
       if (variantLevels[1]) variantLevels[1].classList.add('visibility-hidden');
+      
+      this.toggleAddButton(true, window.variantStrings.unavailable);
+      this.setUnavailable();
     }
   }
   
