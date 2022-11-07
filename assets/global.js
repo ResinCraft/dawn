@@ -797,9 +797,9 @@ class VariantSelects extends HTMLElement {
   }
   
   updateOptions() {
-    const variantLevels = document.getElementsByClassName(`js product-form__input`);
-
     /* ResinCraft Hack */
+    const variantLevels = document.getElementsByClassName(`js product-form__input`);
+    console.log(variantLevels);
     if (variantLevels[1]) variantLevels[1].classList.remove('hidden');
     
     this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
