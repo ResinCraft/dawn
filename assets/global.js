@@ -787,7 +787,7 @@ class VariantSelects extends HTMLElement {
       for(var i=0;i<ele.length;i++) {
          ele[i].checked = false;
       }
-      this.onVariantChange();
+      this.toggleAddButton(true, window.variantStrings.unavailable);
     }
   }
   
