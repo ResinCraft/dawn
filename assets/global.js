@@ -790,6 +790,7 @@ class VariantSelects extends HTMLElement {
   hideOptions() {
     if (window.location.href.indexOf("variant") == -1){
       var ele = document.querySelectorAll('input[id^="template"][id*="main-1"]');
+      console.log(ele);
       for(var i=0;i<ele.length;i++) {
          ele[1].checked = false;
       }
