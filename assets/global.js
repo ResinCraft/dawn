@@ -783,7 +783,7 @@ class VariantSelects extends HTMLElement {
 
   init() {
     if (window.location.href.indexOf("variant") == -1){
-      var ele = document.getElementsByName(variant.option1);
+      var ele = document.getElementsByName(product.option1);
       console.log(ele);
       /*for(var i=0;i<ele.length;i++) {*/
          ele[1].checked = false;
