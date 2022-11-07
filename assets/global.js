@@ -793,7 +793,7 @@ class VariantSelects extends HTMLElement {
   hideOptions() {
     if (window.location.href.indexOf("variant") == -1){
       const radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
-      for(var i=0;i<ele.length;i++) {
+      for(var i=0;i<radioButtons.length;i++) {
          radioButtons[i].checked = false;
       }
       const variantLevels = document.querySelectorAll('[class*="product-form__input"]');
@@ -807,7 +807,7 @@ class VariantSelects extends HTMLElement {
   showOptions() {
     const variantLevels = document.querySelectorAll('[class*="product-form__input"]');
     const radioButtons = document.querySelectorAll('input[id^="template"][id*="main-2"]');
-    for(var i=0;i<ele.length;i++) {
+    for(var i=0;i<radioButtons.length;i++) {
        radioButtons[i].checked = false;
     }
     if (variantLevels[1]) variantLevels[1].classList.remove('hidden');
