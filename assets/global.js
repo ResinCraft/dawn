@@ -787,7 +787,7 @@ class VariantSelects extends HTMLElement {
       for(var i=0;i<ele.length;i++) {
          ele[1].checked = false;
       }
-      const variantLevels = document.getElementsByClassName('input[id^="js product-form__input"]');
+      const variantLevels = document.getElementsByClassName('input[id*="product-form__input"]');
       console.log(variantLevels);
       if (variantLevels[1]) variantLevels[1].classList.add('hidden');
       
@@ -798,7 +798,7 @@ class VariantSelects extends HTMLElement {
   
   updateOptions() {
     /* ResinCraft Hack */
-    const variantLevels = document.getElementsByClassName('input[id^="js product-form__input"]');
+    const variantLevels = document.getElementsByClassName('input[id*="product-form__input"]');
     console.log(variantLevels);
     if (variantLevels[1]) variantLevels[1].classList.remove('hidden');
     
