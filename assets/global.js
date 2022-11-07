@@ -767,7 +767,7 @@ class VariantSelects extends HTMLElement {
          ele[i].checked = false;
       }
     }
-    this.onVariantChange();
+    this.updateMasterId();
   }
   
   onVariantChange() {
