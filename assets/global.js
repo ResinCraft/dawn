@@ -805,7 +805,7 @@ class VariantSelects extends HTMLElement {
         for(var i=0;i<radios.length;i++) {
            radios[i].checked = false;
         }
-        fieldSet.classList.add('hidden');
+        //fieldSet.classList.add('hidden');
       }
     }
     
