@@ -801,7 +801,7 @@ class VariantSelects extends HTMLElement {
   
   uncheckInputs(fieldSets) {
     function uncheckRadio(fieldset) {
-      if(fieldSet){
+      if(fieldset){
         const radios = fieldSet.querySelectorAll('input');
         console.log(radios);
         for(var i=0;i<radios.length;i++) {
@@ -810,7 +810,7 @@ class VariantSelects extends HTMLElement {
       }
     }
     
-    fieldSets.forEach(fieldSet => uncheckRadio(fieldSet));
+    fieldsets.forEach(fieldset => uncheckRadio(fieldset));
   }
 
   hideFieldsets(fieldsets) {
@@ -820,7 +820,7 @@ class VariantSelects extends HTMLElement {
       }
     }
     
-    fieldSets.forEach(fieldset => hideFieldset(fieldset));
+    fieldsets.forEach(fieldset => hideFieldset(fieldset));
   }
 
   // Dynamic Selectors
