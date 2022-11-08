@@ -807,14 +807,10 @@ class VariantSelects extends HTMLElement {
     }
   }
 
-  hideFieldsets(fieldsets) {
-    function hideFieldset(fieldset) {
-      if(fieldset){
-        fieldset.classList.add('hidden')
-      }
+  hideFieldsets(fieldset) {
+    if(fieldset){
+      fieldset.classList.add('hidden')
     }
-    
-    fieldsets.forEach(fieldset => hideFieldset(fieldset));
   }
 
   // Dynamic Selectors
