@@ -759,8 +759,10 @@ class VariantSelects extends HTMLElement {
     this.addEventListener('change', this.onVariantChange);
 
     // Dynamic Selectors
-    this.radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
     this.fieldSets = document.querySelectorAll('[class*="product-form__input"]');
+    console.log(this.fieldSets);
+    this.radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
+    
     if (window.location.href.indexOf("variant") == -1){
       this.hideOptions();
     }
@@ -775,6 +777,7 @@ class VariantSelects extends HTMLElement {
     this.updateVariantStatuses();
 
     // Dynamic Selectors
+    console.log(this.fieldSets);
     this.showOptions();
     
     // Stock Level
