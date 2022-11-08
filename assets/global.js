@@ -759,6 +759,7 @@ class VariantSelects extends HTMLElement {
     this.addEventListener('change', this.onVariantChange);
 
     // Dynamic Selectors
+    const radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
     if (window.location.href.indexOf("variant") == -1){
       this.hideOptions();
     }
@@ -792,7 +793,6 @@ class VariantSelects extends HTMLElement {
 
   hideOptions() {
     if (window.location.href.indexOf("variant") == -1){
-      const radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
       for(var i=0;i<radioButtons.length;i++) {
          radioButtons[i].checked = false;
       }
@@ -813,8 +813,6 @@ class VariantSelects extends HTMLElement {
     this.setUnavailable();
     if (variantLevels[1]) variantLevels[1].classList.remove('hidden');
     this.currentVariant = false;
-    this.toggleAddButton(true, window.variantStrings.unavailable);
-    this.setUnavailable();
   }
   
   updateOptions() {
