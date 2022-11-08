@@ -973,7 +973,7 @@ class VariantSelects extends HTMLElement {
     const price = document.getElementById(`price-${this.dataset.section}`);
     const inventory = document.getElementById(`Inventory-${this.dataset.section}`);
     const sku = document.getElementById(`Sku-${this.dataset.section}`);
-    const tax = document.getElementsByClassName(`product__tax caption rte`);
+    //const tax = document.getElementsByClassName(`product__tax caption rte`);
     const stockLevel = document.getElementById(`stock-level`);
 
     if (!addButton) return;
@@ -981,7 +981,7 @@ class VariantSelects extends HTMLElement {
     //if (price) price.classList.add('visibility-hidden');
     if (inventory) inventory.classList.add('visibility-hidden');
     if (sku) sku.classList.add('visibility-hidden');
-    if (tax[0]) tax[0].classList.add('visibility-hidden');
+    //if (tax[0]) tax[0].classList.add('visibility-hidden');
     if (stockLevel) stockLevel.classList.add('visibility-hidden');
   }
 
