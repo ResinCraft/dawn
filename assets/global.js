@@ -815,7 +815,7 @@ class VariantSelects extends HTMLElement {
 
   // Dynamic Selectors
   showFieldset(fieldset) {
-    console.log(this.dataset);
+    console.log(this.dataset.section);
     if(fieldset){
       fieldset.classList.remove('hidden')
     }
