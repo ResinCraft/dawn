@@ -809,8 +809,6 @@ class VariantSelects extends HTMLElement {
     }
     
     fieldSets.forEach(fieldSet => uncheckRadio(fieldSet));
-          this.toggleAddButton(true, window.variantStrings.unavailable);
-      this.setUnavailable();
   }
 
   // Dynamic Selectors
