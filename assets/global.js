@@ -811,7 +811,7 @@ class VariantSelects extends HTMLElement {
     }
     this.toggleAddButton(true, window.variantStrings.unavailable);
     this.setUnavailable();
-    if (fieldsets[1]) fieldsets[1].classList.remove('hidden');
+    if (this.fieldsets[1]) this.fieldsets[1].classList.remove('hidden');
     this.currentVariant = false;
   }
   
