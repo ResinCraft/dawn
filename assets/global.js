@@ -779,7 +779,6 @@ class VariantSelects extends HTMLElement {
     this.updateVariantStatuses();
 
     // Dynamic Selectors
-    console.log(this.fieldSets);
     this.showOptions();
     
     // Stock Level
