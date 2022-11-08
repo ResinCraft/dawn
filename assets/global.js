@@ -773,7 +773,7 @@ class VariantSelects extends HTMLElement {
   }
 
   getLowestPrice() {
-    let values  = productJson.map(function(v) {
+    let values  = this.productJson.map(function(v) {
       return v.price;
     });
     var min = Math.min.apply( null, values );
