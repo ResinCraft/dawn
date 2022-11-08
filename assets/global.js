@@ -766,6 +766,8 @@ class VariantSelects extends HTMLElement {
     let values  = response.map(function(v) {
       return v.price;
     });
+    var min = Math.min.apply( null, values );
+    console.log(min);
 
     // If a variant isn't found in the URL, unselect the default variant and hide options 2 and 3 if they exist
     if (window.location.href.indexOf("variant") == -1){
