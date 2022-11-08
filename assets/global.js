@@ -992,8 +992,9 @@ class VariantSelects extends HTMLElement {
     //Dynamic selectors
     
     if (price) {
-      var priceValue = this.getLowestPrice();
-      price.innerHTML = 'From $'.priceValue();
+      var lowestPrice = this.getLowestPrice();
+      console.log(lowestPrice)
+      price.innerHTML = 'From $'.lowestPrice;
     }
     
     if (inventory) inventory.classList.add('visibility-hidden');
