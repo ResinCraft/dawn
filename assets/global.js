@@ -761,7 +761,7 @@ class VariantSelects extends HTMLElement {
     /* Dynamic Selectors */
     const fieldsets = document.querySelectorAll('fieldset[class*="product-form__input"]');
     const scriptJsonElements = document.querySelectorAll('script[type="application/json"]');
-    const productJson = JSON.parse(scriptJsonElements[1]);
+    const productJson = JSON.parse(scriptJsonElements[1].textContent);
     console.log(productJson);
 
     let values  = response.map(function(v) {
