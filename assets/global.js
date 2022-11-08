@@ -759,12 +759,12 @@ class VariantSelects extends HTMLElement {
     this.addEventListener('change', this.onVariantChange);
 
     /* Dynamic Selectors */
-    this.fieldSets = document.querySelectorAll('fieldset[class*="product-form__input"]');
+    this.fieldsets = document.querySelectorAll('fieldset[class*="product-form__input"]');
     //this.radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
 
     // If a variant isn't found in the URL, unselect the default variant and hide options 2 and 3 if they exist
     if (window.location.href.indexOf("variant") == -1){
-      this.uncheckInputs([this.fieldSets[1],this.fieldSets[2]]);
+      this.uncheckInputs([this.fieldsets[1],this.fieldsets[2]]);
       this.toggleAddButton(true, window.variantStrings.unavailable);
       this.setUnavailable();
     }
@@ -799,18 +799,27 @@ class VariantSelects extends HTMLElement {
   // Dynamic Selectors
   
   uncheckInputs(fieldSets) {
-    function uncheckRadio(fieldSet) {
+    function uncheckRadio(fieldset) {
       if(fieldSet){
         const radios = fieldSet.querySelectorAll('input');
         console.log(radios);
         for(var i=0;i<radios.length;i++) {
            radios[i].checked = false;
         }
-        fieldSet.classList.add('hidden');
       }
     }
     
     fieldSets.forEach(fieldSet => uncheckRadio(fieldSet));
+  }
+
+  hideFieldsets(fieldsets) {
+    function hideFieldset(fieldset) {
+      if(fieldset){
+        fieldset.classList.add('hidden')
+      }
+    }
+    
+    fieldSets.forEach(fieldset => hideFieldset(fieldset));
   }
 
   // Dynamic Selectors
