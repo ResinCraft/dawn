@@ -988,7 +988,7 @@ class VariantSelects extends HTMLElement {
     addButtonText.textContent = window.variantStrings.unavailable;
 
     //Dynamic selectors
-    if (price) price.innerHTML = 'From '.getLowestPrice();
+    if (price) price.innerHTML = 'From '.this.getLowestPrice();
     
     if (inventory) inventory.classList.add('visibility-hidden');
     if (sku) sku.classList.add('visibility-hidden');
