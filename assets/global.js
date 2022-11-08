@@ -807,7 +807,7 @@ class VariantSelects extends HTMLElement {
     }
   }
 
-  hideFieldsets(fieldset) {
+  hideFieldset(fieldset) {
     if(fieldset){
       fieldset.classList.add('hidden')
     }
