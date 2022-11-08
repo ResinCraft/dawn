@@ -754,15 +754,12 @@ class SlideshowComponent extends SliderComponent {
 customElements.define('slideshow-component', SlideshowComponent);
 
 class VariantSelects extends HTMLElement {
-  // Dynamic Selectors
-  const radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
-  
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
 
     // Dynamic Selectors
-    const this.radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
+    this.radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
     if (window.location.href.indexOf("variant") == -1){
       this.hideOptions();
     }
