@@ -796,11 +796,15 @@ class VariantSelects extends HTMLElement {
 
   // Dynamic Selectors
   hideFieldSet(fieldSets) {
-    fieldSets.forEach(fieldSet => console.log(fieldSet));
-      for(var i=0;i<this.radioButtons.length;i++) {
-         this.radioButtons[i].checked = false;
+    fieldSets.forEach(fieldSet =>
+      if(fieldSet){
+        const radios = fieldSet.querySelectorAll('input[id^="template"][id*="main-1"]');
+        for(var i=0;i<this.radioButtons.length;i++) {
+           this.radioButtons[i].checked = false;
+        }
+        fieldSet.classList.add('hidden');
       }
-      if (this.fieldSets[1]) this.fieldSets[1].classList.add('hidden');
+    );
     this.toggleAddButton(true, window.variantStrings.unavailable);
     this.setUnavailable();
   }
