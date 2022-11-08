@@ -789,7 +789,7 @@ class VariantSelects extends HTMLElement {
   onVariantChange() {
     // Dynamic Selectors
     const option1 = this.fieldsets[0].value; 
-    console.log(this.fieldsets[0]);
+    console.log(this.fieldsets[0].querySelector('input:checked').value);
     const inputs = this.fieldsets[1].querySelectorAll('input');
     inputs.forEach((input) => {
       console.log(input);
