@@ -772,15 +772,15 @@ class VariantSelects extends HTMLElement {
   }
   
   onVariantChange() {
+    // Dynamic Selectors
+    this.showOptions();
+    
     this.updateOptions();
     this.updateMasterId();
     this.toggleAddButton(true, '', false);
     this.updatePickupAvailability();
     this.removeErrorMessage();
     this.updateVariantStatuses();
-
-    // Dynamic Selectors
-    this.showOptions();
     
     // Stock Level
     this.updateStockLevel();
