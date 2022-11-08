@@ -814,15 +814,11 @@ class VariantSelects extends HTMLElement {
   }
 
   // Dynamic Selectors
-  showFieldsets(fieldsets) {
-    function showFieldset(fieldset) {
-      if(fieldset){
-        fieldset.classList.remove('hidden')
-      }
+  showFieldset(fieldset) {
+    if(fieldset){
+      fieldset.classList.remove('hidden')
     }
     
-    fieldsets.forEach(fieldset => showFieldset(fieldset));
-
     this.toggleAddButton(true, window.variantStrings.unavailable);
     this.setUnavailable();
     this.currentVariant = false;
