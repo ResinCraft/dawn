@@ -764,7 +764,7 @@ class VariantSelects extends HTMLElement {
     const productJson = JSON.parse(scriptJsonElements[1].textContent);
     console.log(productJson);
 
-    let values  = response.map(function(v) {
+    let values  = productJson.map(function(v) {
       return v.price;
     });
     var min = Math.min.apply( null, values );
