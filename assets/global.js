@@ -978,7 +978,7 @@ class VariantSelects extends HTMLElement {
 
     if (!addButton) return;
     addButtonText.textContent = window.variantStrings.unavailable;
-    if (price) price.innerHTML('From $1');
+    if (price) price.innerHTML = 'From $1';
     if (inventory) inventory.classList.add('visibility-hidden');
     if (sku) sku.classList.add('visibility-hidden');
     //if (tax[0]) tax[0].classList.add('visibility-hidden');
