@@ -759,7 +759,7 @@ class VariantSelects extends HTMLElement {
     this.addEventListener('change', this.onVariantChange);
 
     // Dynamic Selectors
-    this.fieldSets = document.querySelectorAll('[class*="product-form__input"][type="radio"]');
+    this.fieldSets = document.querySelectorAll('[class*="product-form__input"][type="fieldset"]');
     console.log(this.fieldSets);
     this.radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
     
