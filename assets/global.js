@@ -993,7 +993,7 @@ class VariantSelects extends HTMLElement {
     
     if (price) {
       var lowestPrice = this.getLowestPrice();
-      price.innerHTML = 'From $' + lowestPrice;
+      price.innerHTML = '<span class="price-item price-item--sale price-item--last">From $' + lowestPrice + '</span>';
     }
     
     if (inventory) inventory.classList.add('visibility-hidden');
