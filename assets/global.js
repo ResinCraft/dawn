@@ -778,7 +778,6 @@ class VariantSelects extends HTMLElement {
     });
     var min = Math.min.apply( null, values )
     min /= 100;
-    min.toLocaleString("en-US", {style:"currency", currency:"NZD"});
     console.log(min);
     return min;
   }
