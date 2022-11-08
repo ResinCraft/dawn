@@ -789,7 +789,7 @@ class VariantSelects extends HTMLElement {
   onVariantChange() {
     // Dynamic Selectors
     const inputs = this.fieldsets[1].querySelectorAll('input');
-    this.inputs.forEach((input) => {
+    inputs.forEach((input) => {
       console.log(input);
     });
     this.showFieldset(this.fieldsets[1]);
