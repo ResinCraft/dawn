@@ -793,8 +793,8 @@ class VariantSelects extends HTMLElement {
 
   hideOptions() {
     if (window.location.href.indexOf("variant") == -1){
-      for(var i=0;i<radioButtons.length;i++) {
-         radioButtons[i].checked = false;
+      for(var i=0;i<this.radioButtons.length;i++) {
+         this.radioButtons[i].checked = false;
       }
       const variantLevels = document.querySelectorAll('[class*="product-form__input"]');
       if (variantLevels[1]) variantLevels[1].classList.add('hidden');
