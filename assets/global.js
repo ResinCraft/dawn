@@ -796,7 +796,7 @@ class VariantSelects extends HTMLElement {
 
   // Dynamic Selectors
   hideFieldSet(fieldSets) {
-    fieldSets.forEach(fieldSet =>
+    funtion uncheckRadio(fieldSet) {
       if(fieldSet){
         const radios = fieldSet.querySelectorAll('input[id^="template"][id*="main-1"]');
         for(var i=0;i<this.radioButtons.length;i++) {
@@ -804,7 +804,9 @@ class VariantSelects extends HTMLElement {
         }
         fieldSet.classList.add('hidden');
       }
-    );
+    }
+    fieldSets.forEach(fieldSet => uncheckRadio(fieldSet);
+    
     this.toggleAddButton(true, window.variantStrings.unavailable);
     this.setUnavailable();
   }
