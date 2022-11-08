@@ -761,14 +761,7 @@ class VariantSelects extends HTMLElement {
     /* Dynamic Selectors */
     this.fieldsets = document.querySelectorAll('fieldset[class*="product-form__input"]');
     const scriptJsonElements = document.querySelectorAll('script[type="application/json"]');
-    const productJson = JSON.parse(scriptJsonElements[1].textContent);
-    console.log(productJson);
-
-    let values  = productJson.map(function(v) {
-      return v.price;
-    });
-    var min = Math.min.apply( null, values );
-    console.log(min);
+    this.productJson = JSON.parse(scriptJsonElements[1].textContent);
 
     // If a variant isn't found in the URL, unselect the default variant and hide options 2 and 3 if they exist
     if (window.location.href.indexOf("variant") == -1){
@@ -777,6 +770,14 @@ class VariantSelects extends HTMLElement {
       this.toggleAddButton(true, window.variantStrings.unavailable);
       this.setUnavailable();
     }
+  }
+
+  getLowestPrice() {
+    let values  = productJson.map(function(v) {
+      return v.price;
+    });
+    var min = Math.min.apply( null, values );
+    return min;
   }
   
   onVariantChange() {
