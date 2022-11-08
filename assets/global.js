@@ -791,7 +791,7 @@ class VariantSelects extends HTMLElement {
     console.log(this.fieldsets[1].querySelectorAll('input'));
     this.fieldsets[1].forEach((field) => {
       console.log(field);
-    });   
+    });
     this.showFieldset(this.fieldsets[1]);
     
     this.updateOptions();
