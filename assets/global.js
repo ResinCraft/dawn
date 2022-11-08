@@ -773,7 +773,7 @@ class VariantSelects extends HTMLElement {
   
   onVariantChange() {
     // Dynamic Selectors
-    this.showFieldsets([this.fieldsets[1]]);
+    this.showFieldsets(this.fieldsets[1]);
     
     this.updateOptions();
     this.updateMasterId();
