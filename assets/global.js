@@ -788,7 +788,7 @@ class VariantSelects extends HTMLElement {
   
   onVariantChange() {
     // Dynamic Selectors
-    fieldsets[1].forEach((field) => {
+    this.fieldsets[1].forEach((field) => {
       console.log(field);
     });   
     this.showFieldset(this.fieldsets[1]);
