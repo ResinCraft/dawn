@@ -763,6 +763,10 @@ class VariantSelects extends HTMLElement {
     this.productJson = document.querySelectorAll('script[type="application/json"]');
     console.log(JSON.parse(this.productJson[1].textContent));
 
+    let values  = response.map(function(v) {
+      return v.price;
+    });
+
     // If a variant isn't found in the URL, unselect the default variant and hide options 2 and 3 if they exist
     if (window.location.href.indexOf("variant") == -1){
       this.uncheckInputs(this.fieldsets[0]);
@@ -978,7 +982,10 @@ class VariantSelects extends HTMLElement {
 
     if (!addButton) return;
     addButtonText.textContent = window.variantStrings.unavailable;
+
+    //Dynamic selectors
     if (price) price.innerHTML = 'From $1';
+    
     if (inventory) inventory.classList.add('visibility-hidden');
     if (sku) sku.classList.add('visibility-hidden');
     //if (tax[0]) tax[0].classList.add('visibility-hidden');
