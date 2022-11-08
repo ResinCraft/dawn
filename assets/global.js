@@ -777,7 +777,7 @@ class VariantSelects extends HTMLElement {
       return v.price;
     });
     var min = Math.min.apply( null, values );
-    return min;
+    return min.toLocaleString("en-US", {style:"currency"});
   }
   
   onVariantChange() {
