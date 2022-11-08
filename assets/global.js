@@ -759,7 +759,7 @@ class VariantSelects extends HTMLElement {
     this.addEventListener('change', this.onVariantChange);
 
     /* Dynamic Selectors */
-    const fieldsets = document.querySelectorAll('fieldset[class*="product-form__input"]');
+    this.fieldsets = document.querySelectorAll('fieldset[class*="product-form__input"]');
     const scriptJsonElements = document.querySelectorAll('script[type="application/json"]');
     const productJson = JSON.parse(scriptJsonElements[1].textContent);
     console.log(productJson);
@@ -772,8 +772,8 @@ class VariantSelects extends HTMLElement {
 
     // If a variant isn't found in the URL, unselect the default variant and hide options 2 and 3 if they exist
     if (window.location.href.indexOf("variant") == -1){
-      this.uncheckInputs(fieldsets[0]);
-      this.hideFieldset(fieldsets[1]);
+      this.uncheckInputs(this.fieldsets[0]);
+      this.hideFieldset(this.fieldsets[1]);
       this.toggleAddButton(true, window.variantStrings.unavailable);
       this.setUnavailable();
     }
@@ -781,7 +781,7 @@ class VariantSelects extends HTMLElement {
   
   onVariantChange() {
     // Dynamic Selectors
-    this.showFieldset(fieldsets[1]);
+    this.showFieldset(this.fieldsets[1]);
     
     this.updateOptions();
     this.updateMasterId();
