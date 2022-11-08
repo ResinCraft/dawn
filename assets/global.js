@@ -763,7 +763,7 @@ class VariantSelects extends HTMLElement {
     this.radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
     
     if (window.location.href.indexOf("variant") == -1){
-      this.hideOptions([this.fieldSets[1],this.fieldSets[2]]);
+      this.hideFieldSet([this.fieldSets[1],this.fieldSets[2]]);
     }
   }
   
@@ -795,14 +795,12 @@ class VariantSelects extends HTMLElement {
   }
 
   // Dynamic Selectors
-  hideOptions(fieldSets) {
+  hideFieldSet(fieldSets) {
     fieldSets.forEach(fieldSet => console.log(fieldSet));
-    if (window.location.href.indexOf("variant") == -1){
       for(var i=0;i<this.radioButtons.length;i++) {
          this.radioButtons[i].checked = false;
       }
       if (this.fieldSets[1]) this.fieldSets[1].classList.add('hidden');
-    }
     this.toggleAddButton(true, window.variantStrings.unavailable);
     this.setUnavailable();
   }
