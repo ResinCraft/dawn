@@ -797,15 +797,13 @@ class VariantSelects extends HTMLElement {
       for(var i=0;i<this.radioButtons.length;i++) {
          this.radioButtons[i].checked = false;
       }
-      if (this.variantLevels[1]) this.variantLevels[1].classList.add('hidden');
+      if (this.fieldSets[1]) this.fieldSets[1].classList.add('hidden');
     }
     this.toggleAddButton(true, window.variantStrings.unavailable);
     this.setUnavailable();
   }
 
   showOptions() {
-    const variantLevels = document.querySelectorAll('[class*="product-form__input"]');
-    const radioButtons = document.querySelectorAll('input[id^="template"][id*="main-2"]');
     for(var i=0;i<radioButtons.length;i++) {
        radioButtons[i].checked = false;
     }
