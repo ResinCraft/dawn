@@ -798,7 +798,6 @@ class VariantSelects extends HTMLElement {
   }
 
   // Dynamic Selectors
-  
   uncheckInputs(fieldset) {
     if(fieldset){
       const radios = fieldset.querySelectorAll('input');
