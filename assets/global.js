@@ -776,7 +776,9 @@ class VariantSelects extends HTMLElement {
     let values  = this.productJson.map(function(v) {
       return v.price;
     });
-    var min = Math.min.apply( null, values ).toLocaleString("en-US", {style:"currency", currency:"NZD"});
+    var min = Math.min.apply( null, values )
+    min /= 100;
+    min.toLocaleString("en-US", {style:"currency", currency:"NZD"});
     console.log(min);
     return min;
   }
