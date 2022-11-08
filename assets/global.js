@@ -764,7 +764,7 @@ class VariantSelects extends HTMLElement {
 
     // If a variant isn't found in the URL, unselect the default variant and hide options 2 and 3 if they exist
     if (window.location.href.indexOf("variant") == -1){
-      this.uncheckInputs([this.fieldsets[0]]);
+      this.uncheckInputs(this.fieldsets[0]);
       this.hideFieldsets([this.fieldsets[1],this.fieldsets[2]]);
       this.toggleAddButton(true, window.variantStrings.unavailable);
       this.setUnavailable();
