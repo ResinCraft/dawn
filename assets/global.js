@@ -796,9 +796,7 @@ class VariantSelects extends HTMLElement {
 
   // Dynamic Selectors
   hideOptions(fieldSets) {
-    fieldSets.forEach(fieldSet){
-      console.log(fieldSet);
-    }
+    fieldSets.forEach(fieldSet => console.log(fieldSet));
     if (window.location.href.indexOf("variant") == -1){
       for(var i=0;i<this.radioButtons.length;i++) {
          this.radioButtons[i].checked = false;
