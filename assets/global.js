@@ -764,7 +764,7 @@ class VariantSelects extends HTMLElement {
 
     // If a variant isn't found in the URL, unselect the default variant and hide options 2 and 3 if they exist
     if (window.location.href.indexOf("variant") == -1){
-      this.hideFieldSet([this.fieldSets[1],this.fieldSets[2]]);
+      this.uncheckInputs([this.fieldSets[1],this.fieldSets[2]]);
       this.toggleAddButton(true, window.variantStrings.unavailable);
       this.setUnavailable();
     }
@@ -797,7 +797,8 @@ class VariantSelects extends HTMLElement {
   }
 
   // Dynamic Selectors
-  hideFieldSet(fieldSets) {
+  
+  uncheckInputs(fieldSets) {
     function uncheckRadio(fieldSet) {
       if(fieldSet){
         const radios = fieldSet.querySelectorAll('input');
