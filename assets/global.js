@@ -760,6 +760,7 @@ class VariantSelects extends HTMLElement {
 
     // Dynamic Selectors
     this.fieldSets = document.getElementsByTagName('fieldset');
+    this.fieldSets = this.fieldSets.querySelectorAll('[class*="product-form__input"]');
     this.radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
     
     if (window.location.href.indexOf("variant") == -1){
