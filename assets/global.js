@@ -778,7 +778,6 @@ class VariantSelects extends HTMLElement {
     });
     var min = Math.min.apply( null, values )
     min /= 100;
-    console.log(min);
     return min;
   }
 
