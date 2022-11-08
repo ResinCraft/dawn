@@ -760,7 +760,7 @@ class VariantSelects extends HTMLElement {
 
     // Dynamic Selectors
     this.radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
-    this.fieldsets = document.querySelectorAll('[class*="product-form__input"]');
+    this.fieldSets = document.querySelectorAll('[class*="product-form__input"]');
     if (window.location.href.indexOf("variant") == -1){
       this.hideOptions();
     }
@@ -811,7 +811,7 @@ class VariantSelects extends HTMLElement {
     }
     this.toggleAddButton(true, window.variantStrings.unavailable);
     this.setUnavailable();
-    if (this.fieldsets[1]) this.fieldsets[1].classList.remove('hidden');
+    if (this.fieldSets[1]) this.fieldSets[1].classList.remove('hidden');
     this.currentVariant = false;
   }
   
