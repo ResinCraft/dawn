@@ -88,7 +88,7 @@
               </div>
             {%- when 'price' -%}
               <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                From $1 {%- render 'price',
+                {%- render 'price',
                   product: product,
                   use_variant: true,
                   show_badges: true,
