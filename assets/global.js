@@ -799,17 +799,13 @@ class VariantSelects extends HTMLElement {
 
   // Dynamic Selectors
   
-  uncheckInputs(fieldsets) {
-    function uncheckRadio(fieldset) {
-      if(fieldset){
-        const radios = fieldset.querySelectorAll('input');
-        for(var i=0;i<radios.length;i++) {
-           radios[i].checked = false;
-        }
+  uncheckInputs(fieldset) {
+    if(fieldset){
+      const radios = fieldset.querySelectorAll('input');
+      for(var i=0;i<radios.length;i++) {
+         radios[i].checked = false;
       }
     }
-    
-    fieldsets.forEach(fieldset => uncheckRadio(fieldset));
   }
 
   hideFieldsets(fieldsets) {
