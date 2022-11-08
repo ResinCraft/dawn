@@ -792,7 +792,6 @@ class VariantSelects extends HTMLElement {
   }
 
   hideOptions() {
-    console.log(this.radioButtons);
     if (window.location.href.indexOf("variant") == -1){
       for(var i=0;i<this.radioButtons.length;i++) {
          this.radioButtons[i].checked = false;
