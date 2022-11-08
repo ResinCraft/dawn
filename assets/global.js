@@ -792,6 +792,7 @@ class VariantSelects extends HTMLElement {
     }
   }
 
+  // Dynamic Selectors
   hideOptions() {
     if (window.location.href.indexOf("variant") == -1){
       for(var i=0;i<this.radioButtons.length;i++) {
@@ -803,6 +804,7 @@ class VariantSelects extends HTMLElement {
     this.setUnavailable();
   }
 
+  // Dynamic Selectors
   showOptions() {
     for(var i=0;i<radioButtons.length;i++) {
        radioButtons[i].checked = false;
@@ -978,6 +980,7 @@ class VariantSelects extends HTMLElement {
     return this.variantData;
   }
 
+  // Stock Levels
   updateStockLevel() {
     const stockDiv = document.getElementById(`stock-level`);
 
