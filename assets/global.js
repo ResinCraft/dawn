@@ -761,7 +761,7 @@ class VariantSelects extends HTMLElement {
     /* Dynamic Selectors */
     this.fieldsets = document.querySelectorAll('fieldset[class*="product-form__input"]');
     this.productJson = document.querySelectorAll('script[type="application/json"]');
-    console.log(this.productJson.textContent);
+    console.log(this.productJson[1].textContent);
 
     // If a variant isn't found in the URL, unselect the default variant and hide options 2 and 3 if they exist
     if (window.location.href.indexOf("variant") == -1){
