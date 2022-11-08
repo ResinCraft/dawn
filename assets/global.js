@@ -759,27 +759,28 @@ class VariantSelects extends HTMLElement {
     this.addEventListener('change', this.onVariantChange);
 
     /* Dynamic Selectors */
-    this.fieldSets = document.querySelectorAll('fieldset[class*="product-form__input"]');
-    this.radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
+    this.fieldsets = document.querySelectorAll('fieldset[class*="product-form__input"]');
+    //this.radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
 
     // If a variant isn't found in the URL, unselect the default variant and hide options 2 and 3 if they exist
     if (window.location.href.indexOf("variant") == -1){
-      this.hideFieldSet([this.fieldSets[1],this.fieldSets[2]]);
+      this.uncheckInputs(this.fieldsets[0]);
+      this.hideFieldset(this.fieldsets[1]);
       this.toggleAddButton(true, window.variantStrings.unavailable);
       this.setUnavailable();
     }
   }
   
   onVariantChange() {
+    // Dynamic Selectors
+    this.showFieldset(this.fieldsets[1]);
+    
     this.updateOptions();
     this.updateMasterId();
     this.toggleAddButton(true, '', false);
     this.updatePickupAvailability();
     this.removeErrorMessage();
     this.updateVariantStatuses();
-
-    // Dynamic Selectors
-    this.showOptions();
     
     // Stock Level
     this.updateStockLevel();
@@ -797,28 +798,30 @@ class VariantSelects extends HTMLElement {
   }
 
   // Dynamic Selectors
-  hideFieldSet(fieldSets) {
-    function uncheckRadio(fieldSet) {
-      if(fieldSet){
-        const radios = fieldSet.querySelectorAll('input');
-        for(var i=0;i<radios.length;i++) {
-           radios[i].checked = false;
-        }
-        fieldSet.classList.add('hidden');
+  uncheckInputs(fieldset) {
+    if(fieldset){
+      const radios = fieldset.querySelectorAll('input');
+      for(var i=0;i<radios.length;i++) {
+         radios[i].checked = false;
       }
     }
-    
-    fieldSets.forEach(fieldSet => uncheckRadio(fieldSet));
+  }
+
+  hideFieldset(fieldset) {
+    if(fieldset){
+      fieldset.classList.add('hidden')
+    }
   }
 
   // Dynamic Selectors
-  showOptions() {
-    for(var i=0;i<radioButtons.length;i++) {
-       radioButtons[i].checked = false;
+  showFieldset(fieldset) {
+    console.log(this.currentProduct);
+    if(fieldset){
+      fieldset.classList.remove('hidden')
     }
+    
     this.toggleAddButton(true, window.variantStrings.unavailable);
     this.setUnavailable();
-    if (this.fieldSets[1]) this.fieldSets[1].classList.remove('hidden');
     this.currentVariant = false;
   }
   
