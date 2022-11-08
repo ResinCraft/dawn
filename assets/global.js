@@ -939,7 +939,7 @@ class VariantSelects extends HTMLElement {
         const price = document.getElementById(`price-${this.dataset.section}`);
         const tax = document.getElementsByClassName(`product__tax caption rte`);
 
-        //if (price) price.classList.remove('visibility-hidden');
+        if (price) price.classList.remove('visibility-hidden');
         if (tax[0]) tax[0].classList.remove('visibility-hidden');
 
         if (inventoryDestination) inventoryDestination.classList.toggle('visibility-hidden', inventorySource.innerText === '');
