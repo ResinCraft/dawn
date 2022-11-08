@@ -799,8 +799,8 @@ class VariantSelects extends HTMLElement {
     function uncheckRadio(fieldSet) {
       if(fieldSet){
         const radios = fieldSet.querySelectorAll('input[id^="template"][id*="main-1"]');
-        for(var i=0;i<this.radioButtons.length;i++) {
-           this.radioButtons[i].checked = false;
+        for(var i=0;i<radios.length;i++) {
+           radios[i].checked = false;
         }
         fieldSet.classList.add('hidden');
       }
