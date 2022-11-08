@@ -763,7 +763,7 @@ class VariantSelects extends HTMLElement {
     this.radioButtons = document.querySelectorAll('input[id^="template"][id*="main-1"]');
     
     if (window.location.href.indexOf("variant") == -1){
-      this.hideOptions(call_me([fieldSets[1],fieldSets[2]]));
+      this.hideOptions([fieldSets[1],fieldSets[2]]);
     }
   }
   
