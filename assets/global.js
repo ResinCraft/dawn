@@ -764,17 +764,34 @@ class VariantSelects extends HTMLElement {
   }
 
   /* *** Dynamic Selectors Start *** */
+  validateOptions(option1,option2) {
+    //get all the information about the product and variants from a random json string (this is not a stable option!)
+    const productJson = JSON.parse(document.querySelectorAll('script[type="application/json"]')[1].textContent);
+    //get the option fieldset elements
+    const fieldsets = document.querySelectorAll('.product-form__input')];
+    const selectedOption1 = this.fieldsets[0].querySelector('input:checked').value;
+    const fieldsetInputs = this.fieldsets[1].querySelectorAll('input');
+    fieldsetInputs.forEach((input) => {
+      const label = this.fieldsets[1].querySelector(`label[for="${input.id}"]`);
+      if(!this.validOption(selectedOption1,input.value)){
+        label.style.display = "none";
+      } else {
+        label.style.display = "";
+      }
+    });
+    
+    
+    var validOption = false;
+    this.productJson.map(function(v) {
+      if(v.option1 == option1 && v.option2 == option2) {
+        validOption = true;
+      }
+    });
+    return validOption;
+  }
+  
   dynamicSelectorsInit() {
-    this.productJson = JSON.parse(document.querySelectorAll('script[type="application/json"]')[1].textContent);
-    console.log(this.productJson);
 
-    // If a variant isn't found in the URL, unselect the default variant and hide options 2 and 3 if they exist
-    if (window.location.href.indexOf("variant") == -1){
-      this.uncheckInputs(this.fieldsets[0]);
-      this.hideFieldset(this.fieldsets[1]);
-      this.toggleAddButton(true, window.variantStrings.unavailable);
-      this.setUnavailable();
-    }
   }
   /* *** Dynamic Selectors End *** */
 
