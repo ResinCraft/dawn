@@ -292,8 +292,5 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-    {% if(request.page_type == 'product') %}
-    	{% render 'linked-options' %}
-    {% endif %}
   </body>
 </html>
