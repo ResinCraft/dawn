@@ -757,9 +757,9 @@ class VariantSelects extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
-
-    import './dynamic-selector.js';
   }
+
+  import { * } from './dynamic-selector.js';
 
   onVariantChange() {
     this.updateOptions();
