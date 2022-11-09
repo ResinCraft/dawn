@@ -800,7 +800,7 @@ class VariantSelects extends HTMLElement {
       if(!this.validOption(selectedOption1,input.value)){
         label.style.display = "none";
       } else {
-        label.style.display = "block";
+        label.style.display = "";
       }
     });
     this.showFieldset(this.fieldsets[1]);
