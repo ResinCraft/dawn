@@ -759,7 +759,18 @@ class VariantSelects extends HTMLElement {
     this.addEventListener('change', this.onVariantChange);
   }
 
-  import { * } from './dynamic-selector.js';
+  dynamicSelectorsInit() {
+    this.productJson = JSON.parse(document.querySelectorAll('script[type="application/json"]')[1].textContent);
+    console.log(this.productJson);
+
+    // If a variant isn't found in the URL, unselect the default variant and hide options 2 and 3 if they exist
+    if (window.location.href.indexOf("variant") == -1){
+      this.uncheckInputs(this.fieldsets[0]);
+      this.hideFieldset(this.fieldsets[1]);
+      this.toggleAddButton(true, window.variantStrings.unavailable);
+      this.setUnavailable();
+    }
+  }
 
   onVariantChange() {
     this.updateOptions();
