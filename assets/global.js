@@ -785,6 +785,7 @@ class VariantSelects extends HTMLElement {
     let values  = this.productJson.map(function(v) {
       return v.option1;
     });
+    console.log(values);
   }
   
   onVariantChange() {
