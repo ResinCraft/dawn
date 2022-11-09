@@ -780,6 +780,7 @@ class VariantSelects extends HTMLElement {
     const fieldsets = document.querySelectorAll('.product-form__input');
     const selectedOption = [];
     fieldsets.foreach((fieldset, index) => {
+      console.log('test');
       selectedOption[index] = fieldsets[index].querySelector('input:checked').value;
     });
     console.log(selectedOption[1]);
