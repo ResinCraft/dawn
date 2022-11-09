@@ -759,7 +759,7 @@ class VariantSelects extends HTMLElement {
     this.addEventListener('change', this.onVariantChange);
 
     /* *** Dynamic Selectors Start *** */
-    this.dynamicSelectorsInit();
+    this.validateOptions();
     /* *** Dynamic Selectors End *** */
   }
 
@@ -778,7 +778,6 @@ class VariantSelects extends HTMLElement {
   validateOptions(option1,option2) {
     //get the option fieldset elements
     const fieldsets = document.querySelectorAll('.product-form__input');
-    console.log(fieldsets);
     const selectedOption = [];
     fieldsets.foreach((fieldset, index) => {
       console.log('test');
