@@ -778,7 +778,6 @@ class VariantSelects extends HTMLElement {
   validateOptions(option1,option2) {
     //get the option fieldset elements
     const fieldsets = document.querySelectorAll('fieldset.product-form__input');
-    console.log(fieldsets);
     const selectedOption = [];
     fieldsets.foreach((fieldset, index) => {
       console.log('test');
