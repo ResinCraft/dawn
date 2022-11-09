@@ -757,8 +757,12 @@ class VariantSelects extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
+
+    //Dynamic Selectors
+    this.dynamicSelectorsInit();
   }
 
+  //Dynamic Selectors
   dynamicSelectorsInit() {
     this.productJson = JSON.parse(document.querySelectorAll('script[type="application/json"]')[1].textContent);
     console.log(this.productJson);
