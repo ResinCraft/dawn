@@ -788,7 +788,6 @@ class VariantSelects extends HTMLElement {
         validOption = true;
       }
     });
-    console.log(validOption);
     return validOption;
   }
   
@@ -797,7 +796,7 @@ class VariantSelects extends HTMLElement {
     const selectedOption1 = this.fieldsets[0].querySelector('input:checked').value; 
     const fieldsetInputs = this.fieldsets[1].querySelectorAll('input');
     fieldsetInputs.forEach((input) => {
-      this.validOption(selectedOption1,input.value);
+      if(!this.validOption(selectedOption1,input.value)) input.style.display = "none";
     });
     this.showFieldset(this.fieldsets[1]);
     
