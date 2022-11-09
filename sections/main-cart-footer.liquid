@@ -49,7 +49,6 @@
                     {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
                   {%- endif -%}
                 </small>
-                {% include 'bnpl' %}
               </div>
             {%- else -%}
               <div class="cart__ctas" {{ block.shopify_attributes }}>
