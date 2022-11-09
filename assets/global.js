@@ -787,7 +787,7 @@ class VariantSelects extends HTMLElement {
       if(v.option1 == option1 && v.option2 == option2) {
         validOption = true;
       }
-    }
+    });
     return validOption;
   }
   
