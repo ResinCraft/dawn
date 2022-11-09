@@ -781,16 +781,18 @@ class VariantSelects extends HTMLElement {
     return min;
   }
 
-  validOption(option) {
-    
+  validOption(option1,option2) {
+    let values  = this.productJson.map(function(v) {
+      return v.option1;
+    });
   }
   
   onVariantChange() {
     // Dynamic Selectors
-    const option1 = this.fieldsets[0].querySelector('input:checked').value; 
-    const inputs = this.fieldsets[1].querySelectorAll('input');
-    inputs.forEach((input) => {
-      console.log(input.value);
+    const selectedOption1 = this.fieldsets[0].querySelector('input:checked').value; 
+    const fieldsetInputs = this.fieldsets[1].querySelectorAll('input');
+    fieldsetInputs.forEach((input) => {
+      this.validOption(selectedOption1,input.value);
     });
     this.showFieldset(this.fieldsets[1]);
     
