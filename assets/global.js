@@ -799,6 +799,8 @@ class VariantSelects extends HTMLElement {
       const label = this.fieldsets[1].querySelector(`label[for="${input.id}"]`);
       if(!this.validOption(selectedOption1,input.value)){
         label.style.display = "none";
+      } else {
+        label.style.display = "block";
       }
     });
     this.showFieldset(this.fieldsets[1]);
