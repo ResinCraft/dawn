@@ -758,11 +758,12 @@ class VariantSelects extends HTMLElement {
     super();
     this.addEventListener('change', this.onVariantChange);
 
-    //Dynamic Selectors
+    /* *** Dynamic Selectors Start *** */
     this.dynamicSelectorsInit();
+    /* *** Dynamic Selectors End *** */
   }
 
-  //Dynamic Selectors
+  /* *** Dynamic Selectors Start *** */
   dynamicSelectorsInit() {
     this.productJson = JSON.parse(document.querySelectorAll('script[type="application/json"]')[1].textContent);
     console.log(this.productJson);
@@ -775,6 +776,7 @@ class VariantSelects extends HTMLElement {
       this.setUnavailable();
     }
   }
+  /* *** Dynamic Selectors End *** */
 
   onVariantChange() {
     this.updateOptions();
