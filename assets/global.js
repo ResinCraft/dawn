@@ -797,7 +797,7 @@ class VariantSelects extends HTMLElement {
     const fieldsetInputs = this.fieldsets[1].querySelectorAll('input');
     fieldsetInputs.forEach((input) => {
       if(!this.validOption(selectedOption1,input.value)){
-        const label = this.fieldsets[1].querySelector(`label[id="${input.id}"]`);
+        const label = this.fieldsets[1].querySelector(`label[for="${input.id}"]`);
         console.log(label);
         label.style.display = "none";
       }
