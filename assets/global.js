@@ -783,8 +783,8 @@ class VariantSelects extends HTMLElement {
 
   validOption(option1,option2) {
     let values  = this.productJson.map(function(v) {
-      if(v.option1 == option1) {
-        return v.option1;
+      if(v.option1 == option1 && (v.option2 == option2) {
+        return v.id;
       }
     });
     console.log(values);
