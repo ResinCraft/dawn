@@ -806,13 +806,12 @@ class VariantSelects extends HTMLElement {
 				} else {
                     label.style.display = "";
                 }
-                console.log(fieldset.querySelectorAll('input:not([class*="disabled"])').length);
-                if(fieldset.querySelectorAll('input:not([class*="disabled"])').length) {
-                  legend.style.display = "none";
-                } else {
-                  label.style.display = "";
-                }
 			});
+            if(fieldset.querySelectorAll('input:not([class*="disabled"])').length) {
+              legend.style.display = "none";
+            } else {
+              label.style.display = "";
+            }
 		}
 	});
   }
