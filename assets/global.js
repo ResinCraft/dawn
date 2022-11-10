@@ -757,7 +757,6 @@ class VariantSelects extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
-
     /* *** Dynamic Selectors Start *** */
     this.rebuildOptions();
     /* *** Dynamic Selectors End *** */
@@ -824,7 +823,6 @@ class VariantSelects extends HTMLElement {
     /* *** Dynamic Selectors Start *** */
     this.rebuildOptions();
     /* *** Dynamic Selectors End *** */
-    
     this.updateOptions();
     this.updateMasterId();
     this.toggleAddButton(true, '', false);
