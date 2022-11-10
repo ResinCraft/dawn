@@ -765,6 +765,7 @@ class VariantSelects extends HTMLElement {
   /* *** Dynamic Selectors Start *** */
   validCombo(inputValue,optionLevel,selectedOptions) {
 	const jsonElements = document.querySelectorAll('script[type="application/json"]');
+    console.log(jsonElements);
     const productJson = JSON.parse(jsonElements[1].textContent);
     let validCombo = new Boolean(false);
     
