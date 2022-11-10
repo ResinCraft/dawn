@@ -800,7 +800,9 @@ class VariantSelects extends HTMLElement {
 					const label = fieldset.querySelector(`label[for="${input.id}"]`);
 					label.remove;
 					input.remove;
-				}
+				} else {
+                  console.log('valid');
+                }
 			});
 		}
 	});
