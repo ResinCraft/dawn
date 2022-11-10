@@ -825,10 +825,10 @@ class VariantSelects extends HTMLElement {
     /* *** Dynamic Selectors End *** */
 
   onVariantChange() {
+    this.updateOptions();
     /* *** Dynamic Selectors Start *** */
     this.rebuildOptions();
     /* *** Dynamic Selectors End *** */
-    this.updateOptions();
     this.updateMasterId();
     this.toggleAddButton(true, '', false);
     this.updatePickupAvailability();
