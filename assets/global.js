@@ -765,7 +765,8 @@ class VariantSelects extends HTMLElement {
   /* *** Dynamic Selectors Start *** */
   validCombo(inputValue,optionLevel,selectedOptions) {
 	const jsonElements = document.querySelector(`variant-radios[id^="variant-radios-template-${this.dataset.section}"]`);
-    console.log(jsonElements.querySelectorAll('script[type="application/json"]')[0]);
+    console.log(jsonElements);
+    //jsonElements.querySelectorAll('script[type="application/json"]')[0]
     const productJson = JSON.parse(jsonElements[0].textContent);
     let validCombo = new Boolean(false);
     
