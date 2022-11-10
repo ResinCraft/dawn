@@ -764,39 +764,16 @@ class VariantSelects extends HTMLElement {
   }
 
   /* *** Dynamic Selectors Start *** */
-  validOption(option1,option2){
-    //get all the information about the product and variants from a random json string (this is not a stable option!)
-    const productJson = JSON.parse(document.querySelectorAll('script[type="application/json"]')[1].textContent);
-    
-    productJson.map(function(v) {
-      if(v.option1 == option1 && v.option2 == option2) {
-        return true;
-      }
-    });
-  }
-  
-  validateOptions(option1,option2) {
+  rebuildOptions() {
     //get the option fieldset elements
     const fieldsets = document.querySelectorAll('fieldset.product-form__input');
     const selectedOptions = [];
     fieldsets.forEach((fieldset, index) => {
       selectedOptions[index] = fieldsets[index].querySelector('input:checked').value;
+	  cosole.log(index);
     });
-    console.log(selectedOptions);
-    const selectedOption1 = this.fieldsets[0].querySelector('input:checked').value;
-    const fieldsetInputs = this.fieldsets[1].querySelectorAll('input');
-    fieldsetInputs.forEach((input) => {
-      const label = this.fieldsets[1].querySelector(`label[for="${input.id}"]`);
-      if(!this.validOption(selectedOption1,input.value)){
-        label.style.display = "none";
-      } else {
-        label.style.display = "";
-      }
-    });
-  }
-  
-  dynamicSelectorsInit() {
-
+	
+	
   }
   /* *** Dynamic Selectors End *** */
 
