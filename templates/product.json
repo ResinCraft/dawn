@@ -214,12 +214,19 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "cross-sell": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% render \"cross-sell\" %}"
+      }
     }
   },
   "order": [
     "main",
     "image-with-text",
     "multicolumn",
-    "product-recommendations"
+    "product-recommendations",
+    "cross-sell"
   ]
 }
