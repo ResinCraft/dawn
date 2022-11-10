@@ -770,7 +770,6 @@ class VariantSelects extends HTMLElement {
 	if(optionLevel == 1) {
 		productJson.map(function(v) {
 		  if(v.option1 == selectedOptions[0] && v.option2 == inputValue) {
-			console.log('returning true');
             return true;
 		  }
 		});
@@ -781,7 +780,6 @@ class VariantSelects extends HTMLElement {
 		  }
 		});
 	}
-    console.log('returning false');
     return false;
   }
   
@@ -804,9 +802,7 @@ class VariantSelects extends HTMLElement {
 					const label = fieldset.querySelector(`label[for="${input.id}"]`);
 					label.remove;
 					input.remove;
-				} else {
-                  console.log('valid');
-                }
+				}
 			});
 		}
 	});
