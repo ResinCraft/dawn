@@ -798,9 +798,9 @@ class VariantSelects extends HTMLElement {
 		//no need to run unless there is more than one option, and only needs to run on option2 and option3
 		if(fieldsets.length > 1 && index > 0) {
 			const inputs = fieldset.querySelectorAll('input');
+            const legend = fieldset.querySelectorAll('legend')[0];
 			inputs.forEach(input => {
                 const label = fieldset.querySelector(`label[for="${input.id}"]`);
-                const legend = fieldset.querySelectorAll('legend')[0];
 				if(this.validCombo(input.value,index,selectedOptions) == false) {
 					label.style.display = "none";
 				} else {
@@ -808,7 +808,7 @@ class VariantSelects extends HTMLElement {
                 }
                 console.log(fieldset.querySelectorAll('input:not([class*="disabled"])').length);
                 if(fieldset.querySelectorAll('input:not([class*="disabled"])').length) {
-                  legends[0].style.display = "none";
+                  legend.style.display = "none";
                 } else {
                   label.style.display = "";
                 }
