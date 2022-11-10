@@ -810,7 +810,7 @@ class VariantSelects extends HTMLElement {
             const masterSelectInput = fieldsets[index - 1].querySelector('input:checked');
             const masterSelectLabel = fieldsets[index - 1].querySelector(`label[for="${masterSelectInput.id}"]`);
             console.log(masterSelectInput + ': ' + (masterSelectLabel.style.display == 'none'))
-            if(masterSelectInput && masterSelectLabel.style.display == 'none') {
+            if(masterSelectLabel.style.display == 'none') {
               legend.classList.add('disabled');
             } else {
               legend.classList.remove('disabled');
