@@ -777,16 +777,14 @@ class VariantSelects extends HTMLElement {
         fieldsets.forEach((fieldset, index) => {
             //only run if there is more than one option set
             if(index > 0) {
-              if(index == 1 ? console.log(fieldset.querySelectorAll('input.disabled')) : console.log(''));
                 const inputs = fieldset.querySelectorAll('input');
                 inputs.forEach(input => {
                     //get the label for the current input and hide it if it is not a valid combo option
                     const label = fieldset.querySelector(`label[for="${input.id}"]`);
                     if(this.validCombo(input.value,index,selectedOptions) == false) {
                       if(input.checked == true){
-                        //const firstValidOption = fieldset.querySelector('input:not(.disabled)');
-                        //console.log(fieldset.querySelector('input'));
-                        //firstValidOption.checked = true;
+                        const firstValidOption = fieldset.querySelector('input:not(.disabled)');
+                        firstValidOption.checked = true;
                       }
                       label.style.display = "none";
                     } else {
