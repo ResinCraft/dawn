@@ -774,7 +774,6 @@ class VariantSelects extends HTMLElement {
 			const inputs = fieldset.querySelectorAll('input');
 		}
     });
-	console.log(selectedOptions);
   }
   /* *** Dynamic Selectors End *** */
 
