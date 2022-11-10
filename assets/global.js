@@ -795,12 +795,6 @@ class VariantSelects extends HTMLElement {
                       label.style.display = "";
                     }
                 });
-
-                //if the option set before the current one has an invalid option selected, then there will be no valid options on the current set, so hide the option's legend (title)
-                const legend = fieldset.querySelector('legend');
-                const masterSelectInput = fieldsets[i - 1].querySelector('input:checked');
-                const masterSelectLabel = fieldsets[i - 1].querySelector(`label[for="${masterSelectInput.id}"]`);
-                if(masterSelectLabel.style.display == 'none' ? legend.classList.add('hidden') : legend.classList.remove('hidden'));
             }
         };
     }
