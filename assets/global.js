@@ -808,7 +808,9 @@ class VariantSelects extends HTMLElement {
                 }
                 console.log(fieldset.querySelectorAll('input:not([class*="disabled"])').length);
                 if(fieldset.length == 0) {
-                  legends[0]
+                  legends[0].style.display = "none";
+                } else {
+                  label.style.display = "";
                 }
 			});
 		}
