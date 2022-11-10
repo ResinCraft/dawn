@@ -763,26 +763,6 @@ class VariantSelects extends HTMLElement {
   }
 
 	/* *** Dynamic Selectors Start *** */
-	validCombo(inputValue,optionLevel,selectedOptions) {
-		const productJson = JSON.parse(this.querySelector('[type="application/json"]').textContent);
-		let validCombo = new Boolean(false);
-    
-		if(optionLevel == 1) {
-			productJson.map(function(v) {
-				if(v.option1 == selectedOptions[0] && v.option2 == inputValue) {
-					validCombo = true;
-				}
-			});
-		} else {
-			productJson.map(function(v) {
-				if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) {
-					validCombo = true;
-				}
-			});
-		}
-    return validCombo;
-	}
-
 	rebuildOptions() {
 		//get the option fieldset elements
 		const fieldsets = document.querySelectorAll('fieldset.product-form__input');
@@ -805,6 +785,26 @@ class VariantSelects extends HTMLElement {
 				if(masterSelectLabel.style.display == 'none' ? legend.classList.add('hidden') : legend.classList.remove('hidden'));
 			}
 		});
+	}
+
+	validCombo(inputValue,optionLevel,selectedOptions) {
+		const productJson = JSON.parse(this.querySelector('[type="application/json"]').textContent);
+		let validCombo = new Boolean(false);
+    
+		if(optionLevel == 1) {
+			productJson.map(function(v) {
+				if(v.option1 == selectedOptions[0] && v.option2 == inputValue) {
+					validCombo = true;
+				}
+			});
+		} else {
+			productJson.map(function(v) {
+				if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) {
+					validCombo = true;
+				}
+			});
+		}
+    return validCombo;
 	}
 	/* *** Dynamic Selectors End *** */
 
