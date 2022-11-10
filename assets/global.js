@@ -785,7 +785,7 @@ class VariantSelects extends HTMLElement {
                       label.style.display = "none";
                       if(input.checked == true){
                         const firstValidOption = fieldset.querySelector('input:not(.disabled)');
-                        console.log(fieldset);
+                        console.log(fieldset.querySelector('input'));
                         firstValidOption.checked = true;
                       }
                     } else {
