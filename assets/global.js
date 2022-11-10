@@ -764,6 +764,23 @@ class VariantSelects extends HTMLElement {
   }
 
   /* *** Dynamic Selectors Start *** */
+  validCombo(inputValue,optionLevel,selectedOptions) {
+	const productJson = document.querySelectorAll('script[type="application/json"]');
+	if(optionLevel == 1) {
+		productJson.map(function(v) {
+		  if(v.option1 == selectedOptions[0] && v.option2 == inputValue) {
+			return true;
+		  }
+		});
+	} else {
+		productJson.map(function(v) {
+		  if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option2 == inputValue) {
+			return true;
+		  }
+		});
+	}
+  }
+  
   rebuildOptions() {
     //get the option fieldset elements
     const fieldsets = document.querySelectorAll('fieldset.product-form__input');
@@ -773,11 +790,15 @@ class VariantSelects extends HTMLElement {
     });
 	
 	fieldsets.forEach((fieldset, index) => {
-		//no need to run unless there is more than one option
+		//no need to run unless there is more than one option, and only needs to run on option2 and option3
 		if(fieldsets.length > 1 && index > 0) {
 			const inputs = fieldset.querySelectorAll('input');
 			inputs.forEach(input => {
-				console.log(input.value);
+				if(!this.validCombo(input.value,index,selectedOptions)) {
+					const label = this.fieldsets[1].querySelector(`label[for="${input.id}"]`);
+					label.remove;
+					input.remove;
+				}
 			});
 		}
 	});
