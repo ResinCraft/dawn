@@ -808,7 +808,7 @@ class VariantSelects extends HTMLElement {
                 }
 			});
             const masterSelect = fieldsets[index - 1].querySelector('input:checked');
-            const label = fieldset.querySelector(`label[for="${masterSelect.id}"]`);
+            const label = fieldsets[index - 1].querySelector(`label[for="${masterSelect.id}"]`);
           console.log(label);
             console.log(fieldsets[index - 1].querySelectorAll('legend')[0].innerHTML + ': ' + label);
             if(!fieldsets[index - 1].querySelector('input:checked') && fieldsets[index - 1].querySelector('input:checked:not([class*="disabled"])')) {
