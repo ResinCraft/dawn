@@ -769,11 +769,18 @@ class VariantSelects extends HTMLElement {
     const fieldsets = document.querySelectorAll('fieldset.product-form__input');
     const selectedOptions = [];
     fieldsets.forEach((fieldset, index) => {
-		selectedOptions[index] = fieldsets[index].querySelector('input:checked').value;
-		if(index > 0) {
-			const inputs = fieldset.querySelectorAll('input');
-		}
+		selectedOptions[] = fieldsets[index].querySelector('input:checked').value;
     });
+	
+	fieldsets.forEach((fieldset, index) => {
+		//no need to run unless there is more than one option
+		if(fieldsets.count > 1) {
+			const inputs = fieldset.querySelectorAll('input');
+			inputs.forEach(input => {
+				console.log(input.value);
+			});
+		}
+	});
   }
   /* *** Dynamic Selectors End *** */
 
