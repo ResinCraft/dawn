@@ -759,7 +759,7 @@ class VariantSelects extends HTMLElement {
     this.addEventListener('change', this.onVariantChange);
 
     /* *** Dynamic Selectors Start *** */
-    this.validateOptions();
+    this.rebuildOptions();
     /* *** Dynamic Selectors End *** */
   }
 
