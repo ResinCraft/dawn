@@ -798,7 +798,7 @@ class VariantSelects extends HTMLElement {
 				const legend = fieldset.querySelectorAll('legend')[0];
 				inputs.forEach(input => {
 					const label = fieldset.querySelector(`label[for="${input.id}"]`);
-					if(this.validCombo(input.value,index,selectedOptions) == false ? label.style.display = "none" : label.style.display = "")
+					if(this.validCombo(input.value,index,selectedOptions) == false ? label.style.display = "none" : label.style.display = "");
 				});
 				const masterSelectInput = fieldsets[index - 1].querySelector('input:checked');
 				const masterSelectLabel = fieldsets[index - 1].querySelector(`label[for="${masterSelectInput.id}"]`);
