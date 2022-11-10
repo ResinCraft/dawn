@@ -774,8 +774,7 @@ class VariantSelects extends HTMLElement {
         });
 
         //loop through the option sets
-        var change = false;
-        for (var i = 0, count = fieldsets.length; i < count && !change; i++) {
+        for (var i = 0, count = fieldsets.length, var change = false; i < count && !change; i++) {
             const fieldset = fieldsets[i];
             //only run if there is more than one option set
             if(i > 0) {
