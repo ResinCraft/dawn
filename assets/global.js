@@ -774,7 +774,8 @@ class VariantSelects extends HTMLElement {
         });
 
         //loop through the option sets
-        fieldsets.forEach((fieldset, index) => {
+        for (var i = 0, count = fieldsets.length; i < count; i++) {
+            const fieldset = fieldsets[i];
             //only run if there is more than one option set
             if(index > 0) {
                 const inputs = fieldset.querySelectorAll('input');
@@ -785,7 +786,7 @@ class VariantSelects extends HTMLElement {
                       if(input.checked == true){
                         console.log(fieldset);
                         const firstValidOption = fieldset.querySelector('input:not(.disabled)');
-                        firstValidOption.checked = true;
+                        //firstValidOption.checked = true;
                       }
                       label.style.display = "none";
                     } else {
