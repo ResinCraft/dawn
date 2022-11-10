@@ -802,13 +802,13 @@ class VariantSelects extends HTMLElement {
 			inputs.forEach(input => {
                 const label = fieldset.querySelector(`label[for="${input.id}"]`);
 				if(this.validCombo(input.value,index,selectedOptions) == false) {
-					label.style.display = "none";
+					label.classList.add('disabled');
 				} else {
-                    label.style.display = "";
+                    label.classList.remove('disabled');
                 }
 			});
             console.log(legend.innerHTML + ' ' + fieldset.querySelectorAll('input:not([class*="disabled"])').length);
-            if(!fieldsets[index - 1].querySelector('input:checked')) {
+            if(!fieldsets[index - 1].querySelector('input:checked') && fieldsets[index - 1].querySelector('input:checked')) {
               legend.classList.add('disabled');
             } else {
               legend.classList.remove('disabled');
