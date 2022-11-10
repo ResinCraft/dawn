@@ -765,7 +765,8 @@ class VariantSelects extends HTMLElement {
 
   /* *** Dynamic Selectors Start *** */
   validCombo(inputValue,optionLevel,selectedOptions) {
-	const productJson = document.querySelectorAll('script[type="application/json"]');
+	const productJson = document.querySelectorAll('script[type="application/json"]')[1].textContent;
+    
 	if(optionLevel == 1) {
 		productJson.map(function(v) {
 		  if(v.option1 == selectedOptions[0] && v.option2 == inputValue) {
