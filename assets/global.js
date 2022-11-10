@@ -770,7 +770,8 @@ class VariantSelects extends HTMLElement {
 	if(optionLevel == 1) {
 		productJson.map(function(v) {
 		  if(v.option1 == selectedOptions[0] && v.option2 == inputValue) {
-			return true;
+			console.log('returning true');
+            return true;
 		  }
 		});
 	} else {
