@@ -806,7 +806,7 @@ class VariantSelects extends HTMLElement {
 				} else {
                     label.style.display = "";
                 }
-                console.log(legend);
+                console.log(fieldset.querySelectorAll('input:not([style*="display:none"])');
                 if(fieldset.length == 0) {
                   legends[0]
                 }
