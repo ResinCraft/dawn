@@ -781,7 +781,13 @@ class VariantSelects extends HTMLElement {
                 inputs.forEach(input => {
                     //get the label for the current input and hide it if it is not a valid combo option
                     const label = fieldset.querySelector(`label[for="${input.id}"]`);
-                    if(this.validCombo(input.value,index,selectedOptions) == false ? label.style.display = "none" : label.style.display = "");
+                    if(this.validCombo(input.value,index,selectedOptions) == false) {
+                      label.style.display = "none";
+                      fieldset.querySelector('input:not[.disabled]');
+                      fieldset.checked;
+                    } else {
+                      label.style.display = "");
+                    }
                 });
 
                 //if the option set before the current one has an invalid option selected, then there will be no valid options on the current set, so hide the option's legend (title)
