@@ -784,8 +784,7 @@ class VariantSelects extends HTMLElement {
                     if(this.validCombo(input.value,index,selectedOptions) == false) {
                       label.style.display = "none";
                       if(input.checked == true){
-                        console.log(fieldset);
-                        const firstValidOption = fieldset.querySelector('input:not(.disabled)');
+                        const firstValidOption = fieldset.querySelector('input');
                         //console.log(firstValidOption.value);
                         firstValidOption.checked = true;
                       }
