@@ -801,7 +801,6 @@ class VariantSelects extends HTMLElement {
                 console.log ('result: ' + this.validCombo(input.value,index,selectedOptions));
 				if(this.validCombo(input.value,index,selectedOptions) == false) {
 					const label = fieldset.querySelector(`label[for="${input.id}"]`);
-                  console.log(input);
 					label.remove();
 					input.remove();
 				}
