@@ -800,9 +800,10 @@ class VariantSelects extends HTMLElement {
 			inputs.forEach(input => {
 				if(this.validCombo(input.value,index,selectedOptions) == false) {
 					const label = fieldset.querySelector(`label[for="${input.id}"]`);
-					label.remove();
-					input.remove();
-				}
+					label.style.display = "none";
+				} else {
+                    label.style.display = "";
+                }
 			});
 		}
 	});
