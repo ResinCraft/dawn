@@ -777,7 +777,7 @@ class VariantSelects extends HTMLElement {
         for (var i = 0, count = fieldsets.length; i < count; i++) {
             const fieldset = fieldsets[i];
             //only run if there is more than one option set
-            if(index > 0) {
+            if(i > 0) {
                 const inputs = fieldset.querySelectorAll('input');
                 inputs.forEach(input => {
                     //get the label for the current input and hide it if it is not a valid combo option
