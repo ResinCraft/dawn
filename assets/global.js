@@ -811,6 +811,7 @@ class VariantSelects extends HTMLElement {
   /* *** Dynamic Selectors End *** */
 
   onVariantChange() {
+    this.rebuildOptions();
     this.updateOptions();
     this.updateMasterId();
     this.toggleAddButton(true, '', false);
