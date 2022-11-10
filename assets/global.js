@@ -767,7 +767,6 @@ class VariantSelects extends HTMLElement {
   validCombo(inputValue,optionLevel,selectedOptions) {
 	const jsonElements = document.querySelectorAll('script[type="application/json"]');
     const productJson = JSON.parse(jsonElements[1].textContent);
-    console.log(productJson);
 	if(optionLevel == 1) {
 		productJson.map(function(v) {
 		  if(v.option1 == selectedOptions[0] && v.option2 == inputValue) {
