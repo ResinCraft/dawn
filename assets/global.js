@@ -774,8 +774,8 @@ class VariantSelects extends HTMLElement {
 	
 	fieldsets.forEach((fieldset, index) => {
 		//no need to run unless there is more than one option
-      console.log(fieldsets.count);
-		if(fieldsets.count > 1) {
+      console.log(fieldsets.length);
+		if(fieldsets.length > 1) {
 			const inputs = fieldset.querySelectorAll('input');
 			inputs.forEach(input => {
 				console.log(input.value);
