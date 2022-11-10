@@ -811,7 +811,6 @@ class VariantSelects extends HTMLElement {
             const masterSelectLabel = fieldsets[index - 1].querySelector(`label[for="${masterSelectInput.id}"]`);
             console.log(masterSelectInput + ': ' + (masterSelectLabel.style.display == 'none'))
             if(masterSelectLabel.style.display == 'none') {
-              console.log(legend);
               legend.classList.add('hidden');
             } else {
               legend.classList.remove('hidden');
