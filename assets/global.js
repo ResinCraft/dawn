@@ -802,9 +802,9 @@ class VariantSelects extends HTMLElement {
 			inputs.forEach(input => {
                 const label = fieldset.querySelector(`label[for="${input.id}"]`);
 				if(this.validCombo(input.value,index,selectedOptions) == false) {
-					label.classList.add('disabled');
+					label.setAttribute('disabled', 'disabled');
 				} else {
-                    label.classList.remove('disabled');
+                    label.removeAttribute('disabled');
                 }
 			});
             console.log(legend.innerHTML + ' ' + fieldset.querySelectorAll('input:not([class*="disabled"])').length);
