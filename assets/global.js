@@ -831,9 +831,6 @@ class VariantSelects extends HTMLElement {
     this.updatePickupAvailability();
     this.removeErrorMessage();
     this.updateVariantStatuses();
-    /* *** Dynamic Selectors Start *** */
-    this.rebuildOptions();
-    /* *** Dynamic Selectors End *** */
 
     if (!this.currentVariant) {
       this.toggleAddButton(true, '', true);
@@ -845,6 +842,9 @@ class VariantSelects extends HTMLElement {
       this.renderProductInfo();
       this.updateShareUrl();
     }
+    /* *** Dynamic Selectors Start *** */
+    this.rebuildOptions();
+    /* *** Dynamic Selectors End *** */
   }
 
   updateOptions() {
