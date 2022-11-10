@@ -780,6 +780,7 @@ class VariantSelects extends HTMLElement {
 		  }
 		});
 	}
+    return false;
   }
   
   rebuildOptions() {
