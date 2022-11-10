@@ -808,8 +808,8 @@ class VariantSelects extends HTMLElement {
                     label.style.display = "";
                 }
 			});
-            console.log(legend.innerHTML + ' ' + fieldset.querySelectorAll('input:not([class*="disabled"])').length);
-            if(!fieldsets[index - 1].querySelector('input:checked') && fieldsets[index - 1].querySelector('input:checked:not([style*="none"]')) {
+            //console.log(legend.innerHTML + ' ' + fieldset.querySelectorAll('input:not([class*="disabled"])').length);
+            if(!fieldsets[index - 1].querySelector('input:checked')) {
               legend.classList.add('disabled');
             } else {
               legend.classList.remove('disabled');
