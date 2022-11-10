@@ -800,10 +800,15 @@ class VariantSelects extends HTMLElement {
 			const inputs = fieldset.querySelectorAll('input');
 			inputs.forEach(input => {
                 const label = fieldset.querySelector(`label[for="${input.id}"]`);
+                const legends = fieldset.querySelectorAll('legend');
+                console.log(legends[0]);
 				if(this.validCombo(input.value,index,selectedOptions) == false) {
 					label.style.display = "none";
 				} else {
                     label.style.display = "";
+                }
+                if(fieldset.length == 0) {
+                  
                 }
 			});
 		}
