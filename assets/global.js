@@ -797,7 +797,7 @@ class VariantSelects extends HTMLElement {
 			const inputs = fieldset.querySelectorAll('input');
 			inputs.forEach(input => {
                 //console.log(input.value + ' ' + index + ' ' + selectedOptions);
-                console.log (this.validCombo(input.value,index,selectedOptions));
+                console.log ('result: ' + this.validCombo(input.value,index,selectedOptions));
 				if(this.validCombo(input.value,index,selectedOptions === false)) {
                     console.log('running');
 					const label = fieldset.querySelector(`label[for="${input.id}"]`);
