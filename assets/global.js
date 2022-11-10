@@ -800,7 +800,7 @@ class VariantSelects extends HTMLElement {
                 const masterSelectLabel = fieldsets[index - 1].querySelector(`label[for="${masterSelectInput.id}"]`);
                 if(masterSelectLabel.style.display == 'none' ? legend.classList.add('hidden') : legend.classList.remove('hidden'));
             }
-        });
+        };
     }
 
     validCombo(inputValue,optionLevel,selectedOptions) {
