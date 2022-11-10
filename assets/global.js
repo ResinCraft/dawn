@@ -777,11 +777,12 @@ class VariantSelects extends HTMLElement {
 		});
 	} else {
 		productJson.map(function(v) {
-		  if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option2 == inputValue) {
+		  if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) {
             validCombo = true;
 		  }
 		});
 	}
+    
     return validCombo;
   }
   
