@@ -807,7 +807,7 @@ class VariantSelects extends HTMLElement {
                     label.style.display = "";
                 }
                 console.log(fieldset.querySelectorAll('input:not([class*="disabled"])').length);
-                if(fieldset.length == 0) {
+                if(fieldset.querySelectorAll('input:not([class*="disabled"])').length) {
                   legends[0].style.display = "none";
                 } else {
                   label.style.display = "";
