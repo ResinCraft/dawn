@@ -757,12 +757,12 @@ class VariantSelects extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('change', this.onVariantChange);
-    /* *** Dynamic Selectors Start *** */
+    /* *** Dynamic Selectors - Part 1 - Start *** */
     this.rebuildOptions();
-    /* *** Dynamic Selectors End *** */
+    /* *** Dynamic Selectors - Part 1 - End *** */
   }
 
-    /* *** Dynamic Selectors Start *** */
+    /* *** Dynamic Selectors - Part 2 - Start *** */
     rebuildOptions() {
         //get the option sets (option1, option2 etc)
         const fieldsets = document.querySelectorAll('fieldset.product-form__input');
@@ -817,7 +817,7 @@ class VariantSelects extends HTMLElement {
         }
         return validCombo;
     }
-    /* *** Dynamic Selectors End *** */
+    /* *** Dynamic Selectors - Part 2 - End *** */
 
   onVariantChange() {
     this.updateOptions();
@@ -837,9 +837,9 @@ class VariantSelects extends HTMLElement {
       this.renderProductInfo();
       this.updateShareUrl();
     }
-    /* *** Dynamic Selectors Start *** */
+    /* *** Dynamic Selectors - Part 3 - Start *** */
     this.rebuildOptions();
-    /* *** Dynamic Selectors End *** */
+    /* *** Dynamic Selectors - Part 3 - End *** */
   }
 
   updateOptions() {
