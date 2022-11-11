@@ -801,7 +801,7 @@ class VariantSelects extends HTMLElement {
                     const firstValidInput = document.getElementById(firstValidLabel.getAttribute("for"));
                     firstValidInput.checked = true;
 
-                    //if an option has been changed, break out of the loop and restart the whole process
+                    //if an option has been changed, break out of the loop and restart the whole process with the newly selected option
                     change = true;
                     this.onVariantChange();
                 }
