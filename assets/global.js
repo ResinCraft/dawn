@@ -795,7 +795,7 @@ class VariantSelects extends HTMLElement {
             if(i > 0) {
                 const selectedOption = fieldset.querySelector('input:checked');
                 const selectedLabel = fieldset.querySelector(`label[for="${selectedOption.id}"]`);
-                console.log(selectedLabel);
+                console.log(selectedLabel.display);
                 if(selectedLabel.display == "none") {
                     const firstValidLabel = fieldset.querySelector(`label:not([style*="display:none"])`);
                     const firstValidInput = fieldset.getElementById(firstValidLabel.for);
