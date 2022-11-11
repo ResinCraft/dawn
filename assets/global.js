@@ -789,6 +789,17 @@ class VariantSelects extends HTMLElement {
                 });
             }
         });
+
+        for (var i = 0, count = fieldsets.length, change = false; i < count && !change; i++) {
+            if(i > 0) {
+                checkedInput = fieldsets.querySelector('input:checked');
+                const label = fieldset.querySelector(`label[for="${checkedInput.id}"]`);
+                if(label.style.display == "none") {
+                  fieldsets.querySelector('input').checked = true;
+                  change = true;
+                }
+            }
+        }
       
       /*for (var i = 0, count = fieldsets.length, change = false; i < count && !change; i++) {
             const fieldset = fieldsets[i];
