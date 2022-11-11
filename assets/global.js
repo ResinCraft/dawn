@@ -762,7 +762,7 @@ class VariantSelects extends HTMLElement {
     /* *** Dynamic Selectors - Part 1 - End *** */
   }
 
-    /* *** Dynamic Selectors - Part 2 - Start *** */
+        /* *** Dynamic Selectors - Part 2 - Start *** */
     rebuildOptions() {
         //get the option sets (option1, option2 etc)
         const fieldsets = document.querySelectorAll('fieldset.product-form__input');
