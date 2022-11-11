@@ -802,6 +802,7 @@ class VariantSelects extends HTMLElement {
                     firstValidInput.checked = true;
                     console.log(firstValidInput);
                     change = true;
+                    this.onVariantChange();
                 }
             }
         }
