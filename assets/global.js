@@ -796,6 +796,7 @@ class VariantSelects extends HTMLElement {
                 const checkedInput = fieldset.querySelector('input:checked');
                 const label = fieldset.querySelector(`label[for="${checkedInput.id}"]`);
                 if(label.style.display == "none") {
+                  console.log('updating selection');
                     fieldset.querySelector('input').checked = true;
                     change = true;
                 }
