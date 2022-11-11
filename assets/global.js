@@ -773,7 +773,7 @@ class VariantSelects extends HTMLElement {
             selectedOptions[i] = fieldsets[i].querySelector('input:checked').value;
         });
 
-        //loop through the option sets
+        //loop through the option sets remove any invalid options
         fieldsets.forEach((fieldset, i) => {
             if(i > 0) {
                 const inputs = fieldset.querySelectorAll('input');
@@ -790,6 +790,7 @@ class VariantSelects extends HTMLElement {
             }
         });
 
+        //make sure a valid option is selected by default when the options are loaded
         for (var i = 0, count = fieldsets.length, change = false; i < count && !change; i++) {
             const fieldset = fieldsets[i];
             if(i > 0) {
@@ -804,31 +805,6 @@ class VariantSelects extends HTMLElement {
                 }
             }
         }
-      
-      /*for (var i = 0, count = fieldsets.length, change = false; i < count && !change; i++) {
-            const fieldset = fieldsets[i];
-            //only run if there is more than one option set
-            if(i > 0) {
-                const inputs = fieldset.querySelectorAll('input');
-                inputs.forEach(input => {
-                    //get the label for the current input and hide it if it is not a valid combo option
-                    const label = fieldset.querySelector(`label[for="${input.id}"]`);
-                    if(this.validCombo(input.value,i,selectedOptions) == false) {
-                      if(input.checked == true){
-                        const firstValidOption = fieldset.querySelector('input:not(.disabled)');
-                        console.log(firstValidOption);
-                        if (firstValidOption != null ? firstValidOption.checked = true : inputs[0].checked);
-                        change = true;
-                        this.onVariantChange();
-                      }
-                      label.style.display = "none";
-                    } else {
-                      label.style.display = "";
-                    }
-                });
-            }
-        };
-        */
     }
 
     validCombo(inputValue,optionLevel,selectedOptions) {
