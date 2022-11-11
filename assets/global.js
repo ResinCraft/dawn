@@ -800,6 +800,7 @@ class VariantSelects extends HTMLElement {
                     const firstValidInput = document.getElementById(firstValidLabel.getAttribute("for"));
                     console.log(firstValidInput);
                     firstValidInput.checked = true;
+                    console.log(firstValidInput);
                     change = true;
                 }
             }
