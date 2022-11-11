@@ -769,12 +769,20 @@ class VariantSelects extends HTMLElement {
 
         //build an array of currently selected options
         const selectedOptions = [];
-        fieldsets.forEach((fieldset, index) => {
-            selectedOptions[index] = fieldsets[index].querySelector('input:checked').value;
+        fieldsets.forEach((fieldset, i) => {
+            selectedOption = fieldsets[i].querySelector('input:checked');
+            if(selectedOption.classList.contains('disabled'))
+            selectedOptionValues[i] = fieldsets[i].querySelector('input:checked').value;
         });
 
         //loop through the option sets
-        for (var i = 0, count = fieldsets.length, change = false; i < count && !change; i++) {
+        fieldsets.forEach((fieldset, i) => {
+            if(i > 0) {
+                
+            }
+        });
+      
+      /*for (var i = 0, count = fieldsets.length, change = false; i < count && !change; i++) {
             const fieldset = fieldsets[i];
             //only run if there is more than one option set
             if(i > 0) {
@@ -797,6 +805,7 @@ class VariantSelects extends HTMLElement {
                 });
             }
         };
+        */
     }
 
     validCombo(inputValue,optionLevel,selectedOptions) {
