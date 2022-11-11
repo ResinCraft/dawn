@@ -785,6 +785,7 @@ class VariantSelects extends HTMLElement {
                     } else {
                         label.style.display = "";
                     }
+                    
                 });
             }
         });
