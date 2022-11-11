@@ -790,7 +790,7 @@ class VariantSelects extends HTMLElement {
             }
         });
 
-        //make sure a valid option is selected by default when the options are loaded
+        //if the default selected option happens to be removed with the function above, select the first available option instead
         for (var i = 0, count = fieldsets.length, change = false; i < count && !change; i++) {
             const fieldset = fieldsets[i];
             if(i > 0) {
@@ -800,6 +800,8 @@ class VariantSelects extends HTMLElement {
                     const firstValidLabel = fieldset.querySelector(`label:not([style*="display: none"])`);
                     const firstValidInput = document.getElementById(firstValidLabel.getAttribute("for"));
                     firstValidInput.checked = true;
+
+                    //if an option has been changed, break out of the loop and restart the whole process
                     change = true;
                     this.onVariantChange();
                 }
