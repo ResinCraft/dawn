@@ -770,15 +770,22 @@ class VariantSelects extends HTMLElement {
         //build an array of currently selected options
         const selectedOptions = [];
         fieldsets.forEach((fieldset, i) => {
-            selectedOption = fieldsets[i].querySelector('input:checked');
-            if(selectedOption.classList.contains('disabled'))
-            selectedOptionValues[i] = fieldsets[i].querySelector('input:checked').value;
+            selectedOptions[i] = fieldsets[i].querySelector('input:checked').value;
         });
 
         //loop through the option sets
         fieldsets.forEach((fieldset, i) => {
             if(i > 0) {
-                
+                const inputs = fieldset.querySelectorAll('input');
+                inputs.forEach(input => {
+                    //get the label for the current input and hide it if it is not a valid combo option
+                    const label = fieldset.querySelector(`label[for="${input.id}"]`);
+                    if(this.validCombo(input.value,i,selectedOptions) == false) {
+                        label.style.display = "none";
+                    } else {
+                        label.style.display = "";
+                    }
+                });
             }
         });
       
