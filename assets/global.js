@@ -793,11 +793,12 @@ class VariantSelects extends HTMLElement {
         for (var i = 0, count = fieldsets.length, change = false; i < count && !change; i++) {
             const fieldset = fieldsets[i];
             if(i > 0) {
-                const checkedInput = fieldset.querySelector('input:checked');
-                const label = fieldset.querySelector(`label[for="${checkedInput.id}"]`);
-                if(label.style.display == "none") {
-                  console.log('updating selection');
-                    fieldset.querySelector('input').checked = true;
+                const selectedOption = fieldset.querySelector('input:checked');
+                const selectedLabel = fieldset.querySelector(`label[for="${selectedOption.id}"]`)
+                if(selectedLabel.display == "none") {
+                    const firstValidLabel = fieldset.querySelector(`label:not([style*="display:none"])`);
+                    const firstValidInput = fieldset.getElementById(firstValidLabel.for);
+                    firstValidInput.checked = true;
                     change = true;
                 }
             }
