@@ -783,7 +783,7 @@ class VariantSelects extends HTMLElement {
             const label = fieldset.querySelector(`label[for="${input.id}"]`);
             if(this.validCombo(input.value,i,selectedOptions) == false ? label.style.display = "none" : label.style.display = "");
         });
-    });
+    };
 
     //if the default selected option happens to be removed with the function above, select the first available option instead
     for (var i = 0, n = fieldsets.length, change = false; i < n && !change; i++) {
