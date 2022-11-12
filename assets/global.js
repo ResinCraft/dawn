@@ -776,17 +776,17 @@ class VariantSelects extends HTMLElement {
     });
 
     //loop through the option sets starting from the 2nd set (i = 1) and remove any invalid options
-    for (var i = 1, n = fieldsets.length; i < n; i++) {
+    for (var optionLevel = 1, n = fieldsets.length; optionLevel < n; optionLevel++) {
         const inputs = fieldsets[i].querySelectorAll('input');
         inputs.forEach(input => {
             //get the label for the current input and hide it if it is not a valid combo option
             const label = fieldsets[i].querySelector(`label[for="${input.id}"]`);
-            if(this.validCombo(input.value,i,selectedOptions) == false ? label.style.display = "none" : label.style.display = "");
+            if(this.validCombo(input.value,optionLevel,selectedOptions) == false ? label.style.display = "none" : label.style.display = "");
         });
     };
 
     //if the default selected option happens to be removed with the function above, select the first available option instead
-    for (var i = 1, n = fieldsets.length, change = false; i < n && !change; i++) {
+    for (var optionLevel = 1, n = fieldsets.length, change = false; optionLevel < n && !change; optionLevel++) {
         const selectedOption = fieldsets[i].querySelector('input:checked');
         const selectedLabel = fieldsets[i].querySelector(`label[for="${selectedOption.id}"]`);
         if(selectedLabel.style.display == "none") {
