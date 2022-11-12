@@ -777,20 +777,20 @@ class VariantSelects extends HTMLElement {
 
     //loop through the option sets starting from the 2nd set (i = 1) and remove any invalid options
     for (var optionLevel = 1, n = fieldsets.length; optionLevel < n; optionLevel++) {
-        const inputs = fieldsets[i].querySelectorAll('input');
+        const inputs = fieldsets[optionLevel].querySelectorAll('input');
         inputs.forEach(input => {
             //get the label for the current input and hide it if it is not a valid combo option
-            const label = fieldsets[i].querySelector(`label[for="${input.id}"]`);
+            const label = fieldsets[optionLevel].querySelector(`label[for="${input.id}"]`);
             if(this.validCombo(input.value,optionLevel,selectedOptions) == false ? label.style.display = "none" : label.style.display = "");
         });
     };
 
     //if the default selected option happens to be removed with the function above, select the first available option instead
     for (var optionLevel = 1, n = fieldsets.length, change = false; optionLevel < n && !change; optionLevel++) {
-        const selectedOption = fieldsets[i].querySelector('input:checked');
-        const selectedLabel = fieldsets[i].querySelector(`label[for="${selectedOption.id}"]`);
+        const selectedOption = fieldsets[optionLevel].querySelector('input:checked');
+        const selectedLabel = fieldsets[optionLevel].querySelector(`label[for="${selectedOption.id}"]`);
         if(selectedLabel.style.display == "none") {
-            const firstValidLabel = fieldsets[i].querySelector(`label:not([style*="display: none"])`);
+            const firstValidLabel = fieldsets[optionLevel].querySelector(`label:not([style*="display: none"])`);
             const firstValidInput = document.getElementById(firstValidLabel.getAttribute("for"));
             firstValidInput.checked = true;
 
