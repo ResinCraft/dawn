@@ -775,20 +775,18 @@ class VariantSelects extends HTMLElement {
         selectedOptions[i] = fieldsets[i].querySelector('input:checked').value;
     });
 
-    //loop through the option sets remove any invalid options
-    fieldsets.forEach((fieldset, i) => {
-        if(i > 0) {
-            const inputs = fieldset.querySelectorAll('input');
-            inputs.forEach(input => {
-                //get the label for the current input and hide it if it is not a valid combo option
-                const label = fieldset.querySelector(`label[for="${input.id}"]`);
-                if(this.validCombo(input.value,i,selectedOptions) == false ? label.style.display = "none" : label.style.display = "");
-            });
-        }
+    //loop through the option sets starting from the 2nd set (i = 1) and remove any invalid options
+    for (var i = 1, n = fieldsets.length, change = false; i < n; i++) {
+        const inputs = fieldset.querySelectorAll('input');
+        inputs.forEach(input => {
+            //get the label for the current input and hide it if it is not a valid combo option
+            const label = fieldset.querySelector(`label[for="${input.id}"]`);
+            if(this.validCombo(input.value,i,selectedOptions) == false ? label.style.display = "none" : label.style.display = "");
+        });
     });
 
     //if the default selected option happens to be removed with the function above, select the first available option instead
-    for (var i = 0, count = fieldsets.length, change = false; i < count && !change; i++) {
+    for (var i = 0, n = fieldsets.length, change = false; i < n && !change; i++) {
         const fieldset = fieldsets[i];
         if(i > 0) {
             const selectedOption = fieldset.querySelector('input:checked');
