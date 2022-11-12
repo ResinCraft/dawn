@@ -786,20 +786,17 @@ class VariantSelects extends HTMLElement {
     };
 
     //if the default selected option happens to be removed with the function above, select the first available option instead
-    for (var i = 0, n = fieldsets.length, change = false; i < n && !change; i++) {
-        const fieldset = fieldsets[i];
-        if(i > 0) {
-            const selectedOption = fieldset.querySelector('input:checked');
-            const selectedLabel = fieldset.querySelector(`label[for="${selectedOption.id}"]`);
-            if(selectedLabel.style.display == "none") {
-                const firstValidLabel = fieldset.querySelector(`label:not([style*="display: none"])`);
-                const firstValidInput = document.getElementById(firstValidLabel.getAttribute("for"));
-                firstValidInput.checked = true;
+    for (var i = 1, n = fieldsets.length, change = false; i < n && !change; i++) {
+        const selectedOption = fieldsets[i].querySelector('input:checked');
+        const selectedLabel = fieldsets[i].querySelector(`label[for="${selectedOption.id}"]`);
+        if(selectedLabel.style.display == "none") {
+            const firstValidLabel = fieldsets[i].querySelector(`label:not([style*="display: none"])`);
+            const firstValidInput = document.getElementById(firstValidLabel.getAttribute("for"));
+            firstValidInput.checked = true;
 
-                //if an option has been changed, break out of the loop and restart the whole process with the newly selected option
-                change = true;
-                this.onVariantChange();
-            }
+            //if an option has been changed, break out of the loop and restart the whole process with the newly selected option
+            change = true;
+            this.onVariantChange();
         }
     }
 }
