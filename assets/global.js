@@ -777,8 +777,7 @@ class VariantSelects extends HTMLElement {
 
     //loop through the option sets starting from the 2nd set (i = 1) and remove any invalid options
     for (var i = 1, n = fieldsets.length, change = false; i < n; i++) {
-        const fieldset = fieldsets[i];
-        const inputs = fieldset.querySelectorAll('input');
+        const inputs = fieldsets[i].querySelectorAll('input');
         inputs.forEach(input => {
             //get the label for the current input and hide it if it is not a valid combo option
             const label = fieldset.querySelector(`label[for="${input.id}"]`);
