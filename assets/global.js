@@ -758,62 +758,78 @@ class VariantSelects extends HTMLElement {
     super();
     this.addEventListener('change', this.onVariantChange);
 
-    /* Dynamic Selectors */
-    this.fieldsets = document.querySelectorAll('fieldset[class*="product-form__input"]');
-    const scriptJsonElements = document.querySelectorAll('script[type="application/json"]');
-    this.productJson = JSON.parse(scriptJsonElements[1].textContent);
+    /* *** Dynamic Selectors - Part 1 - Start *** */
+    this.rebuildOptions();
+    /* *** Dynamic Selectors - Part 1 - End *** */
 
-    // If a variant isn't found in the URL, unselect the default variant and hide options 2 and 3 if they exist
-    if (window.location.href.indexOf("variant") == -1){
-      this.uncheckInputs(this.fieldsets[0]);
-      this.hideFieldset(this.fieldsets[1]);
-      this.toggleAddButton(true, window.variantStrings.unavailable);
-      this.setUnavailable();
+  }
+
+  /* *** Dynamic Selectors - Part 2 - Start *** */
+  rebuildOptions() {
+    //get the option sets (option1, option2 etc)
+    const fieldsets = document.querySelectorAll('fieldset.product-form__input');
+
+    //build an array of currently selected options
+    const selectedOptions = [];
+    fieldsets.forEach((fieldset, i) => {
+        selectedOptions[i] = fieldsets[i].querySelector('input:checked').value;
+    });
+
+    //loop through the option sets starting from the 2nd set (i = 1) and remove any invalid options
+    for (var optionLevel = 1, n = fieldsets.length; optionLevel < n; optionLevel++) {
+        const inputs = fieldsets[optionLevel].querySelectorAll('input');
+        inputs.forEach(input => {
+            //get the label for the current input and hide it if it is not a valid combo option
+            const label = fieldsets[optionLevel].querySelector(`label[for="${input.id}"]`);
+            if(this.validCombo(input.value,optionLevel,selectedOptions) == false ? label.style.display = "none" : label.style.display = "");
+        });
+    };
+
+    //if the default selected option happens to be removed with the function above, select the first available option instead
+    for (var optionLevel = 1, n = fieldsets.length, change = false; optionLevel < n && !change; optionLevel++) {
+        const selectedOption = fieldsets[optionLevel].querySelector('input:checked');
+        const selectedLabel = fieldsets[optionLevel].querySelector(`label[for="${selectedOption.id}"]`);
+        if(selectedLabel.style.display == "none") {
+            const firstValidLabel = fieldsets[optionLevel].querySelector(`label:not([style*="display: none"])`);
+            const firstValidInput = document.getElementById(firstValidLabel.getAttribute("for"));
+            firstValidInput.checked = true;
+
+            //if an option has been changed, break out of the loop and restart the whole process with the newly selected option
+            change = true;
+            this.onVariantChange();
+        }
     }
   }
 
-  getLowestPrice() {
-    let values  = this.productJson.map(function(v) {
-      return v.price;
-    });
-    var min = Math.min.apply( null, values )
-    min /= 100;
-    return min;
-  }
-
-  validOption(option1,option2) {
-    var validOption = false;
-    this.productJson.map(function(v) {
-      if(v.option1 == option1 && v.option2 == option2) {
-        validOption = true;
-      }
-    });
-    return validOption;
-  }
+  //gather a list of valid combinations of options, check to see if the input passed to it matches in a chain of valid options.
+  validCombo(inputValue,optionLevel,selectedOptions) {
+      const productJson = JSON.parse(this.querySelector('[type="application/json"]').textContent);
+      let validCombo = new Boolean(false);
   
-  onVariantChange() {
-    // Dynamic Selectors
-    const selectedOption1 = this.fieldsets[0].querySelector('input:checked').value; 
-    const fieldsetInputs = this.fieldsets[1].querySelectorAll('input');
-    fieldsetInputs.forEach((input) => {
-      const label = this.fieldsets[1].querySelector(`label[for="${input.id}"]`);
-      if(!this.validOption(selectedOption1,input.value)){
-        label.style.display = "none";
+      if(optionLevel == 1) {
+          productJson.map(function(v) {
+              if(v.option1 == selectedOptions[0] && v.option2 == inputValue) {
+                  validCombo = true;
+              }
+          });
       } else {
-        label.style.display = "";
+          productJson.map(function(v) {
+              if(v.option1 == selectedOptions[0] && v.option2 == selectedOptions[1] && v.option3 == inputValue) {
+                  validCombo = true;
+              }
+          });
       }
-    });
-    this.showFieldset(this.fieldsets[1]);
-    
+      return validCombo;
+  }
+  /* *** Dynamic Selectors - Part 2 - End *** */
+
+  onVariantChange() {
     this.updateOptions();
     this.updateMasterId();
     this.toggleAddButton(true, '', false);
     this.updatePickupAvailability();
     this.removeErrorMessage();
     this.updateVariantStatuses();
-    
-    // Stock Level
-    this.updateStockLevel();
 
     if (!this.currentVariant) {
       this.toggleAddButton(true, '', true);
@@ -825,35 +841,12 @@ class VariantSelects extends HTMLElement {
       this.renderProductInfo();
       this.updateShareUrl();
     }
+
+    /* *** Dynamic Selectors - Part 3 - Start *** */
+    this.rebuildOptions();
+    /* *** Dynamic Selectors - Part 3 - End *** */
   }
 
-  // Dynamic Selectors
-  uncheckInputs(fieldset) {
-    if(fieldset){
-      const radios = fieldset.querySelectorAll('input');
-      for(var i=0;i<radios.length;i++) {
-         radios[i].checked = false;
-      }
-    }
-  }
-
-  hideFieldset(fieldset) {
-    if(fieldset){
-      fieldset.classList.add('hidden')
-    }
-  }
-
-  // Dynamic Selectors
-  showFieldset(fieldset) {
-    if(fieldset){
-      fieldset.classList.remove('hidden')
-    }
-    
-    this.toggleAddButton(true, window.variantStrings.unavailable);
-    this.setUnavailable();
-    this.currentVariant = false;
-  }
-  
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
   }
@@ -966,10 +959,8 @@ class VariantSelects extends HTMLElement {
         }
 
         const price = document.getElementById(`price-${this.dataset.section}`);
-        const tax = document.getElementsByClassName(`product__tax caption rte`);
 
         if (price) price.classList.remove('visibility-hidden');
-        if (tax[0]) tax[0].classList.remove('visibility-hidden');
 
         if (inventoryDestination) inventoryDestination.classList.toggle('visibility-hidden', inventorySource.innerText === '');
 
@@ -1002,45 +993,17 @@ class VariantSelects extends HTMLElement {
     const price = document.getElementById(`price-${this.dataset.section}`);
     const inventory = document.getElementById(`Inventory-${this.dataset.section}`);
     const sku = document.getElementById(`Sku-${this.dataset.section}`);
-    //const tax = document.getElementsByClassName(`product__tax caption rte`);
-    const stockLevel = document.getElementById(`stock-level`);
 
     if (!addButton) return;
     addButtonText.textContent = window.variantStrings.unavailable;
-
-    //Dynamic selectors
-    
-    if (price) {
-      var lowestPrice = this.getLowestPrice();
-      price.innerHTML = '<div class="price price--large price--show-badge"><div class="price__container"><span class="price-item price-item--regular">From $' + lowestPrice + ' NZD</span></div></div></div>';
-    }
-    
+    if (price) price.classList.add('visibility-hidden');
     if (inventory) inventory.classList.add('visibility-hidden');
     if (sku) sku.classList.add('visibility-hidden');
-    //if (tax[0]) tax[0].classList.add('visibility-hidden');
-    if (stockLevel) stockLevel.classList.add('visibility-hidden');
   }
 
   getVariantData() {
     this.variantData = this.variantData || JSON.parse(this.querySelector('[type="application/json"]').textContent);
     return this.variantData;
-  }
-
-  // Stock Levels
-  updateStockLevel() {
-    const stockDiv = document.getElementById(`stock-level`);
-
-    if(this.currentVariant){
-      if(this.currentVariant.inventory_quantity < 1) {
-        stockDiv.innerHTML = '<p>No stock available.</p>';
-      } else if (this.currentVariant.inventory_quantity < 11) {
-        stockDiv.innerHTML = '<p>Only ' + this.currentVariant.inventory_quantity + ' left in stock!</p>';
-      } else {
-        stockDiv.innerHTML = '<p>More than 10 available.</p>';
-      }
-    } else {
-      stockDiv.innerHTML = '<p>Invalid selection, please pick a different option.</p>';
-    }
   }
 }
 
